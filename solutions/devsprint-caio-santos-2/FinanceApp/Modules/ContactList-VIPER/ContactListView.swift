@@ -1,5 +1,5 @@
 //
-//  ContactListView.swift
+//  SampleView.swift
 //  FinanceApp
 //
 //  Created by Rodrigo Borges on 30/12/21.
@@ -14,7 +14,7 @@ class ContactListView: UIView {
 
     private let cellIdentifier = "ContactCellIdentifier"
 
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +23,9 @@ class ContactListView: UIView {
         tableView.delegate = self
         return tableView
     }()
+
+    private var contacts: [Contact] = []
+
 
     init() {
         super.init(frame: .zero)
@@ -36,6 +39,12 @@ class ContactListView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func updateView(with data: [Contact]) {
+
+        contacts = data
+        tableView.reloadData()
     }
 }
 
@@ -62,13 +71,16 @@ extension ContactListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return contacts.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
 
+        let contact = contacts[indexPath.row]
+        cell.contactNameLabel.text = contact.name
+        cell.contactPhoneLabel.text = contact.phone
         return cell
     }
 }
@@ -80,6 +92,6 @@ extension ContactListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
