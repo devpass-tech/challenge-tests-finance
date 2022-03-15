@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+struct HomeHeaderViewConfiguration {
+    let label : String
+    let savingsValueLabel : String
+    let spendingValueLabel : String
+}
+
 class HomeHeaderView: UIView {
 
     let stackView: UIStackView = {
@@ -78,6 +84,12 @@ class HomeHeaderView: UIView {
         label.textColor = .lightGray
         return label
     }()
+    
+    func updateView(with configuration: HomeHeaderViewConfiguration) {
+        label.text = configuration.label
+        savingsValueLabel.text = configuration.savingsValueLabel
+        spendingValueLabel.text = configuration.spendingValueLabel
+    }
 
     init() {
         super.init(frame: .zero)
