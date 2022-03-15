@@ -4,7 +4,7 @@ import XCTest
 
 class InsideNavigationTests: XCTestCase {
 
-    func test_insideNavigation_shouldReturn_correctConfiguration() {
+    func test_insideNavigation_shouldReturn_CorrectConfiguration() {
         let dummyController = UIViewController()
         
         let sut = dummyController.insideNavigationController()
