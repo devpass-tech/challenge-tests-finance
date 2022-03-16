@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A076D79F29F7F9AD9E7D514 /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
 		511A7DBF1D7194C2088A0FDA /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */; };
+		7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */; };
 		980E001F27DBCCC30082E6E9 /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */; };
 		980E002027DBCCC30082E6E9 /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */; };
 		980E002127DBCCC30082E6E9 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001B27DBCCC30082E6E9 /* ContactListViewController.swift */; };
@@ -51,6 +52,7 @@
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */; };
+		BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */; };
 		D7E7D44CAEFEC91FE2442E6D /* Pods_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */; };
 		F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E904F27E035B200FD934A /* UserProfileTests.swift */; };
 		F87E905227E0367B00FD934A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465F27D013E1001DD0C5 /* UserProfile.swift */; };
@@ -80,6 +82,7 @@
 		5BD4A57A1AE61F9997499202 /* Pods-FinanceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		660D86BB312848DC3247757F /* Pods-FinanceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.release.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideNavigationTests.swift; sourceTree = "<group>"; };
 		980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
 		980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		980E001B27DBCCC30082E6E9 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
+		BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassIdentifierTests.swift; sourceTree = "<group>"; };
 		C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEB52F338F6A52F5ADF4364 /* Pods-FinanceApp-FinanceAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FinanceApp-FinanceAppUITests/Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F87E904F27E035B200FD934A /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			children = (
 				BBEE1AF927E1282200A65145 /* SnapshotTests */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
+				7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */,
+				BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */,
 				F87E904F27E035B200FD934A /* UserProfileTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -648,6 +654,8 @@
 				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
 				F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */,
+				BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */,
 				F87E905227E0367B00FD934A /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
