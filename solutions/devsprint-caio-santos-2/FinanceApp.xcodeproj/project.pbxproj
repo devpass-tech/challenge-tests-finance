@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A076D79F29F7F9AD9E7D514 /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
 		511A7DBF1D7194C2088A0FDA /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */; };
+		7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */; };
 		980E001F27DBCCC30082E6E9 /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */; };
 		980E002027DBCCC30082E6E9 /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */; };
 		980E002127DBCCC30082E6E9 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001B27DBCCC30082E6E9 /* ContactListViewController.swift */; };
@@ -80,6 +81,7 @@
 		5BD4A57A1AE61F9997499202 /* Pods-FinanceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		660D86BB312848DC3247757F /* Pods-FinanceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.release.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideNavigationTests.swift; sourceTree = "<group>"; };
 		980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
 		980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		980E001B27DBCCC30082E6E9 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
+				7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */,
 				BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */,
 				F87E904F27E035B200FD934A /* UserProfileTests.swift */,
 			);
@@ -639,6 +642,7 @@
 			files = (
 				F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */,
 				BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */,
 				F87E905227E0367B00FD934A /* UserProfile.swift in Sources */,
 			);
