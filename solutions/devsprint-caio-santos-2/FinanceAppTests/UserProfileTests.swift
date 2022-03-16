@@ -29,7 +29,6 @@ class UserProfileTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-//    test_[O QUE VAMOS TESTAR]_[O QUE VAMOS PASSAR]_[O QUE DEVE ACONTECER]
     func test_formattedAgency_withFilledAgency_shouldReturnValidFormat() {
         let expectedAgency = "Agency: 7543"
         XCTAssertEqual(expectedAgency, sut.account.formattedAgency())
@@ -56,6 +55,35 @@ class UserProfileTests: XCTestCase {
     
     func test_formattedAgency_withFilledAgency_shouldReturnString() {
         let typeOfReturn = type(of: sut.account.formattedAgency())
+        XCTAssertTrue(typeOfReturn == String.self)
+    }
+    
+    func test_formattedAccount_withFilledAccount_shouldReturnValidFormat() {
+        let expectedAccount = "Account: 0001578741"
+        XCTAssertEqual(expectedAccount, sut.account.formattedAccount())
+    }
+    
+    func test_formattedAccount_withInvalidExpectedAccount_shouldNotEqualFormat() {
+        let expectedAccount = "0001578741"
+        XCTAssertNotEqual(expectedAccount, sut.account.formattedAccount())
+    }
+    
+    func test_formattedAccount_withFilledAccount_shouldHasPrefix() {
+        let prefix = "Account"
+        XCTAssertTrue(sut.account.formattedAccount().contains(prefix))
+    }
+    
+    func test_formattedAccount_withFilledAccount_shouldHasNotPrefix() {
+        let prefix = "account"
+        XCTAssertFalse(sut.account.formattedAccount().contains(prefix))
+    }
+    
+    func test_formattedAccount_withFilledAccount_shouldNotEmpty() {
+        XCTAssertFalse(sut.account.formattedAccount().isEmpty)
+    }
+    
+    func test_formattedAccount_withFilledAccount_shouldReturnString() {
+        let typeOfReturn = type(of: sut.account.formattedAccount())
         XCTAssertTrue(typeOfReturn == String.self)
     }
 }
