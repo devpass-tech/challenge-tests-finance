@@ -10,18 +10,10 @@ import XCTest
 
 class ClassIdentifierTests: XCTestCase {
     
-    func testActivityCellViewIdentifier_sucess() {
-        let identifier = ActivityCellView.classIdentifier()
-        XCTAssertEqual(identifier, "ActivityCellView")
-    }
-        
-    func testContactCellViewIdentifier_sucess() {
-        let identifier = ContactCellView.classIdentifier()
-        XCTAssertEqual(identifier, "ContactCellView")
-    }
-    
-    func testUITableViewCellIdentifier_sucess() {
-        let identifier = UITableViewCell.classIdentifier()
-        XCTAssertEqual(identifier, "UITableViewCell")
+    //TODO: Testar o caso que entre no guard
+    func test_classIdentifier_tableViewCell_shouldReturnClassName() {
+        XCTAssertEqual(ActivityCellView.classIdentifier(), "ActivityCellView")
+        XCTAssertEqual(ContactCellView.classIdentifier(), "ContactCellView")
+        XCTAssertEqual(UITableViewCell.classIdentifier(), "UITableViewCell")
     }
 }
