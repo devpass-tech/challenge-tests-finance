@@ -29,31 +29,32 @@ class UserProfileTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testFormattedAgencyValid() {
+//    test_[O QUE VAMOS TESTAR]_[O QUE VAMOS PASSAR]_[O QUE DEVE ACONTECER]
+    func test_formattedAgency_withFilledAgency_shouldReturnValidFormat() {
         let expectedAgency = "Agency: 7543"
         XCTAssertEqual(expectedAgency, sut.account.formattedAgency())
     }
     
-    func testFormattedAgencyInvalid() {
+    func test_formattedAgency_withInvalidExpectedAgency_shouldNotEqualFormat() {
         let expectedAgency = "7543"
         XCTAssertNotEqual(expectedAgency, sut.account.formattedAgency())
     }
     
-    func testFormattedAgencyContainsWordPrefix() {
+    func test_formattedAgency_withFilledAgency_shouldHasPrefix() {
         let prefix = "Agency"
         XCTAssertTrue(sut.account.formattedAgency().contains(prefix))
     }
     
-    func testFormattedAgencyNotContainsIncorrectPrefix() {
+    func test_formattedAgency_withFilledAgency_shouldHasNotPrefix() {
         let prefix = "agency"
         XCTAssertFalse(sut.account.formattedAgency().contains(prefix))
     }
     
-    func testFormattedAgencyIsNotEmpty() {
+    func test_formattedAgency_withFilledAgency_shouldNotEmpty() {
         XCTAssertFalse(sut.account.formattedAgency().isEmpty)
     }
     
-    func testFormattedAgencyReturnString() {
+    func test_formattedAgency_withFilledAgency_shouldReturnString() {
         let typeOfReturn = type(of: sut.account.formattedAgency())
         XCTAssertTrue(typeOfReturn == String.self)
     }
