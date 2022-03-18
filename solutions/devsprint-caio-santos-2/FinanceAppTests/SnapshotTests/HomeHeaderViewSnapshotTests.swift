@@ -11,7 +11,7 @@ import SnapshotTesting
 
 class HomeHeaderViewSnapshotTests: XCTestCase {
     let size = CGSize(width: 414, height: 149)
-    let isRecord = false
+    let isRecord = true
     
     func test_HomeHeaderView_allFields() {
         let configuration = HomeHeaderViewConfiguration(label: "$15,459.27", savingsValueLabel: "$100.00", spendingValueLabel: "$100.00")
@@ -31,7 +31,7 @@ class HomeHeaderViewSnapshotTests: XCTestCase {
         assertSnapshot(matching: homeHeaderView, as: .image(size: size), record: isRecord)
     }
     
-    func test_HomeHeaderView_should_emptyName_when_noSavingsValue() {
+    func test_HomeHeaderView_withNoSavingsValue_shouldHideSavingsStackView() {
         let configuration = HomeHeaderViewConfiguration(label: "$15,459.27", savingsValueLabel: "", spendingValueLabel: "$100.00")
         let homeHeaderView = HomeHeaderView()
         homeHeaderView.backgroundColor = .white
@@ -40,7 +40,7 @@ class HomeHeaderViewSnapshotTests: XCTestCase {
         assertSnapshot(matching: homeHeaderView, as: .image(size: size), record: isRecord)
     }
     
-    func test_HomeHeaderView_should_emptyName_when_noSpedingValue() {
+    func test_HomeHeaderView_withNoSpedingValue_shouldHideSpedingStackView() {
         let configuration = HomeHeaderViewConfiguration(label: "$15,459.27", savingsValueLabel: "$100.00", spendingValueLabel: "")
         let homeHeaderView = HomeHeaderView()
         homeHeaderView.backgroundColor = .white

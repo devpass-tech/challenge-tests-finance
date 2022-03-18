@@ -49,6 +49,7 @@ class HomeHeaderView: UIView {
         let label = UILabel()
         label.text = "Savings"
         label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.isHidden = label.text?.isEmpty ?? false
         return label
     }()
 
@@ -57,6 +58,7 @@ class HomeHeaderView: UIView {
         let label = UILabel()
         label.text = "$100.00"
         label.textColor = .lightGray
+        label.isHidden = label.text?.isEmpty ?? false
         return label
     }()
 
@@ -86,6 +88,12 @@ class HomeHeaderView: UIView {
     }()
     
     func updateView(with configuration: HomeHeaderViewConfiguration) {
+        if configuration.spendingValueLabel.isEmpty {
+            spendingStackView.isHidden = true
+        }
+        if configuration.savingsValueLabel.isEmpty {
+            savingsStackView.isHidden = true
+        }
         label.text = configuration.label
         savingsValueLabel.text = configuration.savingsValueLabel
         spendingValueLabel.text = configuration.spendingValueLabel
