@@ -11,7 +11,7 @@ import SnapshotTesting
 
 class HomeHeaderViewSnapshotTests: XCTestCase {
     let size = CGSize(width: 414, height: 149)
-    let isRecord = true
+    let isRecord = false
     
     func test_HomeHeaderView_allFields() {
         let configuration = HomeHeaderViewConfiguration(label: "$15,459.27", savingsValueLabel: "$100.00", spendingValueLabel: "$100.00")
