@@ -22,7 +22,7 @@ class FinanceServiceTests: XCTestCase {
         sut = nil
     }
 
-    func test_fetchHomeData_ShoudCallWithSuccess() {
+    func test_fetchHomeData_withData_shouldCallWithSuccess() {
         sut.errorAPI = nil
         var resultExpected: HomeData?
 
@@ -41,7 +41,7 @@ class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(resultExpected?.spending, 500)
     }
 
-    func test_fetchHomeData_ShoudCallWithError() {
+    func test_fetchHomeData_withoutData_shouldCallWithError() {
         sut.errorAPI = .noData
         var resultExpected: HomeData?
 
