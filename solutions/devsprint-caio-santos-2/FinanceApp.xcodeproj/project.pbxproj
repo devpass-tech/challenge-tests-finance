@@ -51,6 +51,7 @@
 		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
+		BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */; };
 		B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B947710C27E26B9D00743A84 /* HomeDataTests.swift */; };
 		BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */; };
 		D7E7D44CAEFEC91FE2442E6D /* Pods_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */; };
@@ -129,6 +130,7 @@
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
 		B947710C27E26B9D00743A84 /* HomeDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataTests.swift; sourceTree = "<group>"; };
 		BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassIdentifierTests.swift; sourceTree = "<group>"; };
 		C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBEE1AF927E1282200A65145 /* SnapshotTests */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 				7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */,
 				BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */,
@@ -365,6 +368,14 @@
 				C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBEE1AF927E1282200A65145 /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */,
+			);
+			path = SnapshotTests;
 			sourceTree = "<group>";
 		};
 		E62BAC02BB804B3BA25630BD /* Pods */ = {
@@ -643,6 +654,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
 				F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */,
