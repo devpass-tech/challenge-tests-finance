@@ -22,21 +22,61 @@ class FinanceAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func test_chooseContact_findAnnetteCooper_ShouldBeSuccessfull() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let tabBar = app.tabBars["Tab Bar"]
+        let transfersButton = tabBar.buttons["Transfers"]
 
-//    func testLaunchPerformance() throws {
-//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-//            // This measures how long it takes to launch your application.
-//            measure(metrics: [XCTApplicationLaunchMetric()]) {
-//                XCUIApplication().launch()
-//            }
-//        }
-//    }
+        transfersButton.tap()
+        let transferButton = app.buttons["Transfer"]
+        let chooseContactButton = app.buttons["Choose contact"]
+
+        XCTAssert(transferButton.exists)
+        XCTAssert(chooseContactButton.exists)
+
+        chooseContactButton.tap()
+
+        let contactName = app.staticTexts["Annette Cooper"]
+        XCTAssert(contactName.waitForExistence(timeout: 5))
+    }
+    
+    func test_chooseActivity_findFirstCell_ShouldShowActivityDetails() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        XCTAssert(app.staticTexts["Mall"].exists)
+                
+        app.tables.children(matching: .cell).element(boundBy: 0).staticTexts["Mall"].tap()
+        
+        XCTAssert(app.buttons["Report a issue"].exists)
+        XCTAssert(app.staticTexts["Mall"].exists)
+        XCTAssert(app.staticTexts["Shopping"].exists)
+        XCTAssert(app.staticTexts["$100"].exists)
+        XCTAssert(app.staticTexts["8:57 AM"].exists)
+    }
+    
+    func test_transfer_tapNameOnTextField_ShouldBeSuccessfull() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let tabBar = app.tabBars["Tab Bar"]
+        let transfersButton = tabBar.buttons["Transfers"]
+
+        transfersButton.tap()
+
+        app.textFields["$0"].tap()
+        
+        let moreKey = app.keys["letters"]
+        moreKey.tap()
+        
+        app.keys["C"].tap()
+        app.keys["a"].tap()
+        app.keys["i"].tap()
+        app.keys["o"].tap()
+        
+        XCTAssert(app.textFields["Caio"].exists)
+    }
 }

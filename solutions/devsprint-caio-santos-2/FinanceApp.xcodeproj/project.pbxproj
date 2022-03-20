@@ -11,8 +11,6 @@
 		511A7DBF1D7194C2088A0FDA /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */; };
 		6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203A45927E4BEB1007CF218 /* HomeViewModelTests.swift */; };
 		6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */; };
-		627BA2F927E0FE0E00E223AE /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627BA2F827E0FE0E00E223AE /* FinanceServiceTests.swift */; };
-		627BA2FC27E1030A00E223AE /* FinanceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627BA2FB27E1030A00E223AE /* FinanceServiceMock.swift */; };
 		627D180427E148D4000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
 		627D180727E148E2000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
 		7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */; };
@@ -58,9 +56,13 @@
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		A1248A7A27E40C7A006269BE /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1248A7927E40C7A006269BE /* FinanceServiceTests.swift */; };
-		BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */; };
+		A1A94E1027E77826000730D1 /* NetworkClientTransferAmountMockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E0F27E77826000730D1 /* NetworkClientTransferAmountMockError.swift */; };
+		A1A94E1327E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E1227E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift */; };
+		A1A94E1527E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E1427E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift */; };
+		A1A94E1727E77C33000730D1 /* FinanceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E1627E77C33000730D1 /* FinanceServiceMock.swift */; };
 		B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B947710C27E26B9D00743A84 /* HomeDataTests.swift */; };
 		BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */; };
+		BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */; };
 		D7E7D44CAEFEC91FE2442E6D /* Pods_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */; };
 		F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E904F27E035B200FD934A /* UserProfileTests.swift */; };
 		F87E905227E0367B00FD934A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465F27D013E1001DD0C5 /* UserProfile.swift */; };
@@ -91,7 +93,6 @@
 		6203A45927E4BEB1007CF218 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		627BA2F827E0FE0E00E223AE /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
-		627BA2FB27E1030A00E223AE /* FinanceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceMock.swift; sourceTree = "<group>"; };
 		627D180527E148D4000EF942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/home_data.json; sourceTree = "<group>"; };
 		660D86BB312848DC3247757F /* Pods-FinanceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.release.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,9 +144,13 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		9D4EE12F6D16DD2CCC2809FD /* Pods_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1248A7927E40C7A006269BE /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
-		BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
+		A1A94E0F27E77826000730D1 /* NetworkClientTransferAmountMockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTransferAmountMockError.swift; sourceTree = "<group>"; };
+		A1A94E1227E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTransferAmountMockSuccess.swift; sourceTree = "<group>"; };
+		A1A94E1427E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTransferAmountMockNil.swift; sourceTree = "<group>"; };
+		A1A94E1627E77C33000730D1 /* FinanceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceMock.swift; sourceTree = "<group>"; };
 		B947710C27E26B9D00743A84 /* HomeDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataTests.swift; sourceTree = "<group>"; };
 		BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassIdentifierTests.swift; sourceTree = "<group>"; };
+		BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
 		C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEB52F338F6A52F5ADF4364 /* Pods-FinanceApp-FinanceAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FinanceApp-FinanceAppUITests/Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F87E904F27E035B200FD934A /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
@@ -182,9 +187,10 @@
 		627BA2FA27E1026800E223AE /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				627BA2FB27E1030A00E223AE /* FinanceServiceMock.swift */,
+				A1A94E0E27E77815000730D1 /* TransferAmount */,
 				627D180627E148D4000EF942 /* home_data.json */,
 				6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */,
+				A1A94E1627E77C33000730D1 /* FinanceServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -385,6 +391,16 @@
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A1A94E0E27E77815000730D1 /* TransferAmount */ = {
+			isa = PBXGroup;
+			children = (
+				A1A94E0F27E77826000730D1 /* NetworkClientTransferAmountMockError.swift */,
+				A1A94E1227E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift */,
+				A1A94E1427E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift */,
+			);
+			path = TransferAmount;
 			sourceTree = "<group>";
 		};
 		A232E1B48D411F72B9A39C8D /* Frameworks */ = {
@@ -683,17 +699,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				627BA2FC27E1030A00E223AE /* FinanceServiceMock.swift in Sources */,
 				6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */,
 				6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */,
 				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
+				A1A94E1327E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift in Sources */,
 				F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				A1248A7A27E40C7A006269BE /* FinanceServiceTests.swift in Sources */,
+				A1A94E1527E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift in Sources */,
+				A1A94E1727E77C33000730D1 /* FinanceServiceMock.swift in Sources */,
 				7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */,
 				BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */,
 				B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */,
 				F87E905227E0367B00FD934A /* UserProfile.swift in Sources */,
+				A1A94E1027E77826000730D1 /* NetworkClientTransferAmountMockError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,11 +14,9 @@ enum APIError: Error {
 }
 
 class FinanceServiceMock: FinanceServiceProtocol {
-
     var errorAPI: APIError? = nil
 
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
-
         switch errorAPI {
             case .parseError:
                 completion(nil)
@@ -31,22 +29,6 @@ class FinanceServiceMock: FinanceServiceProtocol {
                 completion(nil)
             }
         }
-    }
-
-    func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) {
-
-    }
-
-    func fetchContactList(_ completion: @escaping ([Contact]?) -> Void) {
-
-    }
-
-    func transferAmount(_ completion: @escaping (TransferResult?) -> Void) {
-
-    }
-
-    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {
-
     }
 
     private func parseJSONMock() -> HomeData? {
