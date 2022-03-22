@@ -12,28 +12,28 @@ class HttpClient {
 
 class HomeService {
     private let httpClient: HttpClient
+    private let url: URL
 
-    init(httpClient: HttpClient) {
+    init(url: URL, httpClient: HttpClient) {
+        self.url = url
         self.httpClient = httpClient
     }
 
     func getHome() {
-        httpClient.request(url: URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!)
+        httpClient.request(url: url)
     }
 }
 
 class HomeServiceTests: XCTestCase {
 
     func test_initDoesNotPerformAnyRequest() {
-        let httpClient = HttpClient()
-        let _ = HomeService(httpClient: httpClient)
+        let (_, httpClient) = makeSUT()
 
         XCTAssertEqual(httpClient.requestsCallsCount, 0)
     }
 
     func test_performsRequestOnGet() {
-        let httpClient = HttpClient()
-        let sut = HomeService(httpClient: httpClient)
+        let (sut, httpClient) = makeSUT()
 
         sut.getHome()
 
@@ -41,11 +41,26 @@ class HomeServiceTests: XCTestCase {
     }
 
     func test_sendsUrlOnRequest() {
-        let httpClient = HttpClient()
-        let sut = HomeService(httpClient: httpClient)
+        let expectedUrl = URL.anyValue
+        let (sut, httpClient) = makeSUT(url: expectedUrl)
 
         sut.getHome()
 
-        XCTAssertEqual(httpClient.urls, [URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!])
+        XCTAssertEqual(httpClient.urls, [expectedUrl])
+    }
+
+    // MARK: Helpers
+
+    private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClient) {
+        let httpClient = HttpClient()
+        let sut = HomeService(url: url, httpClient: httpClient)
+
+        return (sut, httpClient)
+    }
+}
+
+extension URL {
+    static var anyValue: URL {
+        URL(fileURLWithPath: UUID().uuidString)
     }
 }
