@@ -2,7 +2,7 @@
 //  FinanceAppUITests.swift
 //  FinanceAppUITests
 //
-//  Created by Rodrigo Borges on 30/12/21.
+//  Created by Willian Policiano on 22/03/22.
 //
 
 import XCTest
