@@ -2,9 +2,11 @@ import XCTest
 
 class HttpClient {
     private(set) var requestsCallsCount = 0
+    private(set) var urls: [URL] = []
 
-    func request() {
+    func request(url: URL) {
         requestsCallsCount += 1
+        urls.append(url)
     }
 }
 
@@ -16,7 +18,7 @@ class HomeService {
     }
 
     func getHome() {
-        httpClient.request()
+        httpClient.request(url: URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!)
     }
 }
 
@@ -36,5 +38,14 @@ class HomeServiceTests: XCTestCase {
         sut.getHome()
 
         XCTAssertEqual(httpClient.requestsCallsCount, 1)
+    }
+
+    func test_sendsUrlOnRequest() {
+        let httpClient = HttpClient()
+        let sut = HomeService(httpClient: httpClient)
+
+        sut.getHome()
+
+        XCTAssertEqual(httpClient.urls, [URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!])
     }
 }
