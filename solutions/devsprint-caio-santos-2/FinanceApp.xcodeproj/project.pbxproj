@@ -73,6 +73,9 @@
 		A1A94E3027E78F8A000730D1 /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E2A27E78F8A000730D1 /* CreateAccountInteractor.swift */; };
 		A1A94E3127E78F8A000730D1 /* CreateAccountConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E2B27E78F8A000730D1 /* CreateAccountConfigurator.swift */; };
 		B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B947710C27E26B9D00743A84 /* HomeDataTests.swift */; };
+		BBAB635027E8BADB005C9384 /* ActivityCellViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB634F27E8BADB005C9384 /* ActivityCellViewSnapshotTests.swift */; };
+		BBAB635427E8BD82005C9384 /* ActivityCellViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB635327E8BD82005C9384 /* ActivityCellViewConfiguration.swift */; };
+		BBAB635627E8BD92005C9384 /* HomeHeaderViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB635527E8BD92005C9384 /* HomeHeaderViewConfiguration.swift */; };
 		B9DE4A2D27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE4A2C27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift */; };
 		B9DE4A3127E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE4A3027E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift */; };
 		BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */; };
@@ -175,6 +178,9 @@
 		A1A94E2A27E78F8A000730D1 /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
 		A1A94E2B27E78F8A000730D1 /* CreateAccountConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountConfigurator.swift; sourceTree = "<group>"; };
 		B947710C27E26B9D00743A84 /* HomeDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataTests.swift; sourceTree = "<group>"; };
+		BBAB634F27E8BADB005C9384 /* ActivityCellViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellViewSnapshotTests.swift; sourceTree = "<group>"; };
+		BBAB635327E8BD82005C9384 /* ActivityCellViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellViewConfiguration.swift; sourceTree = "<group>"; };
+		BBAB635527E8BD92005C9384 /* HomeHeaderViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewConfiguration.swift; sourceTree = "<group>"; };
 		B9DE4A2C27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientUserProfiletMockSuccess.swift; sourceTree = "<group>"; };
 		B9DE4A3027E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientUserProfiletMockError.swift; sourceTree = "<group>"; };
 		BBEE1AF727E11FF600A65145 /* ClassIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassIdentifierTests.swift; sourceTree = "<group>"; };
@@ -394,8 +400,8 @@
 		98584AF8277E511C0028DBEA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				98584AF9277E51850028DBEA /* HomeHeaderView.swift */,
-				98584AFB277E51960028DBEA /* ActivityCellView.swift */,
+				BBAB635227E8BD5F005C9384 /* ActivityCellView */,
+				BBAB635127E8BD49005C9384 /* HomeHeaderView */,
 				98584AFD277E51A70028DBEA /* ActivityListView.swift */,
 				98584B03277E51DA0028DBEA /* ContactCellView.swift */,
 				98426FA927A6EC8700B09645 /* TabBarController.swift */,
@@ -470,6 +476,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BBAB635127E8BD49005C9384 /* HomeHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				98584AF9277E51850028DBEA /* HomeHeaderView.swift */,
+				BBAB635527E8BD92005C9384 /* HomeHeaderViewConfiguration.swift */,
+			);
+			path = HomeHeaderView;
+			sourceTree = "<group>";
+		};
+		BBAB635227E8BD5F005C9384 /* ActivityCellView */ = {
+			isa = PBXGroup;
+			children = (
+				98584AFB277E51960028DBEA /* ActivityCellView.swift */,
+				BBAB635327E8BD82005C9384 /* ActivityCellViewConfiguration.swift */,
+			);
+			path = ActivityCellView;
 		B9DE4A2B27E8FEDD00D820D3 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				BBEE1AFA27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift */,
+				BBAB634F27E8BADB005C9384 /* ActivityCellViewSnapshotTests.swift */,
 			);
 			path = SnapshotTests;
 			sourceTree = "<group>";
@@ -723,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A94E2427E78163000730D1 /* LoginConfigurator.swift in Sources */,
+				BBAB635427E8BD82005C9384 /* ActivityCellViewConfiguration.swift in Sources */,
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
@@ -748,6 +772,7 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				980E002127DBCCC30082E6E9 /* ContactListViewController.swift in Sources */,
+				BBAB635627E8BD92005C9384 /* HomeHeaderViewConfiguration.swift in Sources */,
 				A1A94E2227E78163000730D1 /* LoginProtocols.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
@@ -777,6 +802,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAB635027E8BADB005C9384 /* ActivityCellViewSnapshotTests.swift in Sources */,
 				6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */,
 				6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */,
 				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
