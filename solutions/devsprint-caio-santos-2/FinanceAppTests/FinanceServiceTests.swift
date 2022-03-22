@@ -77,4 +77,27 @@ class FinanceServiceTests: XCTestCase {
             XCTAssertNil(result)
         }
     }
+    
+    func test_userProfile_WithValidJson_ShouldReturnParsedObject() {
+        let sut = FinanceService(networkClient: NetworkClientUserProfiletMockSuccess())
+        sut.fetchUserProfile { result in
+            XCTAssertNotNil(result)
+            XCTAssertEqual(result?.name, "Tatiana")
+            XCTAssertEqual(result?.email, "teste@gmail.com")
+        }
+}
+    
+    func test_userProfile_WithInvalidJson_ShouldReturnNil() {
+        let sut = FinanceService(networkClient: NetworkClientUserProfiletMockError())
+        sut.fetchUserProfile { result in
+            XCTAssertNil(result)
+        }
+    }
+
+    func test_userProfile_WithVilValue_ShouldReturnNil() {
+        let sut = FinanceService(networkClient: NetworkClientTransferAmountMockNil())
+        sut.fetchUserProfile { result in
+            XCTAssertNil(result)
+        }
+    }
 }
