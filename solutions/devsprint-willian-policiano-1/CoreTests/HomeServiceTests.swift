@@ -16,6 +16,8 @@ class HttpClient {
 }
 
 class HomeService {
+    typealias Result = Swift.Result<Home, Error>
+
     private let httpClient: HttpClient
     private let url: URL
 
@@ -24,13 +26,15 @@ class HomeService {
         self.httpClient = httpClient
     }
 
-    func getHome(completion: @escaping (Error) -> Void) {
+    func getHome(completion: @escaping (Result) -> Void) {
         httpClient.request(url: url) { result in
             switch result {
+            case let .success(httpCode) where httpCode != 200:
+                completion(.failure(HttpCodeNotOkError()))
             case .success:
-                completion(HttpCodeNotOkError())
+                completion(.success(Home()))
             case .failure(let error):
-                completion(error)
+                completion(.failure(error))
             }
 
         }
@@ -39,9 +43,10 @@ class HomeService {
 
 struct HttpCodeNotOkError: Error { }
 
-struct Home { }
+struct Home: Equatable { }
 
 class HomeServiceTests: XCTestCase {
+    typealias Result = HomeService.Result
 
     func test_initDoesNotPerformAnyRequest() {
         let (_, httpClient) = makeSUT()
@@ -69,26 +74,42 @@ class HomeServiceTests: XCTestCase {
     func test_failsOnRequestError() {
         let (sut, httpClient) = makeSUT()
 
-        var actualResult: Error?
+        var actualResult: Result?
         sut.getHome { result in
             actualResult = result
         }
         let expectedError = NSError.anyValue
         httpClient.completions[0](.failure(expectedError))
 
-        XCTAssertEqual(actualResult as NSError?, expectedError)
+        XCTAssertThrowsError(try actualResult?.get()) { actualError in
+            XCTAssertEqual(actualError as NSError?, expectedError)
+        }
     }
 
     func test_failsOnHttpCodeDifferentThanOk() {
         let (sut, httpClient) = makeSUT()
 
-        var actualResult: Error?
+        var actualResult: Result?
         sut.getHome { result in
             actualResult = result
         }
         httpClient.completions[0](.success(400))
 
-        XCTAssertNotNil(actualResult as? HttpCodeNotOkError)
+        XCTAssertThrowsError(try actualResult?.get()) { actualError in
+            XCTAssertNotNil(actualError as? HttpCodeNotOkError)
+        }
+    }
+
+    func test_deliversHomeOnHttpCodeOk() {
+        let (sut, httpClient) = makeSUT()
+
+        var actualResult: Result?
+        sut.getHome { result in
+            actualResult = result
+        }
+        httpClient.completions[0](.success(200))
+
+        XCTAssertEqual(try? actualResult?.get(), Home())
     }
 
     // MARK: Helpers
