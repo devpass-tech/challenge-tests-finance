@@ -52,7 +52,7 @@ targets:
           - "**/*.swift"
 
     settings:
-      TEST_TARGET_NAME: "$(BUILT_PRODUCTS_DIR)/FinanceApp.app/FinanceApp"
+      TEST_TARGET_NAME: "FinanceApp"
 
     info:
       path: FinanceAppUITests/Info.plist      
