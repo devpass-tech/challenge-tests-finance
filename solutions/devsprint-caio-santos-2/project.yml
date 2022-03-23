@@ -44,7 +44,7 @@ targets:
       path: FinanceAppTests/Info.plist
 
   FinanceAppUITests:
-    type: bundle.unit-test
+    type: bundle.ui-testing
     platform: iOS
     sources:
       - path: FinanceAppUITests
@@ -52,7 +52,7 @@ targets:
           - "**/*.swift"
 
     settings:
-      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/FinanceApp.app/FinanceApp"
+      TEST_TARGET_NAME: "$(BUILT_PRODUCTS_DIR)/FinanceApp.app/FinanceApp"
 
     info:
       path: FinanceAppUITests/Info.plist      

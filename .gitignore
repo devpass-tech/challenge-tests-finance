@@ -33,6 +33,12 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
+## XCodegen
+solutions/devsprint-caio-santos-2/
+
+solutions/devsprint-caio-santos-2/*.xcodeproj/*
+solutions/devsprint-caio-santos-2/*.xcworkspace/*
+
 ### AppCode ###
 .idea
 
