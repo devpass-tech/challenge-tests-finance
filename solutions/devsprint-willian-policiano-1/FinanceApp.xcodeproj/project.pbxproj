@@ -20,6 +20,8 @@
 		B0DDC51A27EA8E4300CDEA05 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC51927EA8E4300CDEA05 /* CoreTests.swift */; };
 		B0DDC51B27EA8E4300CDEA05 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = B0DDC50F27EA8E4300CDEA05 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0DDC52327EA8E9100CDEA05 /* HomeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */; };
+		B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52427EAA21700CDEA05 /* HomeService.swift */; };
+		B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52627EAA24600CDEA05 /* HttpClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		B0DDC51427EA8E4300CDEA05 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC51927EA8E4300CDEA05 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceTests.swift; sourceTree = "<group>"; };
+		B0DDC52427EAA21700CDEA05 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		B0DDC52627EAA24600CDEA05 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				B0DDC50F27EA8E4300CDEA05 /* Core.h */,
+				B0DDC52427EAA21700CDEA05 /* HomeService.swift */,
+				B0DDC52627EAA24600CDEA05 /* HttpClient.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 					};
 					B0DDC50C27EA8E4300CDEA05 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 					B0DDC51327EA8E4300CDEA05 = {
 						CreatedOnToolsVersion = 13.1;
@@ -406,6 +413,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */,
+				B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +738,7 @@
 		B0DDC51C27EA8E4300CDEA05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -752,6 +762,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -761,6 +772,7 @@
 		B0DDC51D27EA8E4300CDEA05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -793,6 +805,7 @@
 		B0DDC51E27EA8E4300CDEA05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -816,6 +829,7 @@
 		B0DDC51F27EA8E4300CDEA05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
