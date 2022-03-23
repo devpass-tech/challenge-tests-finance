@@ -1,11 +1,15 @@
 import XCTest
 
 class HttpClient {
-    private(set) var requestsCallsCount = 0
-    private(set) var urls: [URL] = []
+    var requestsCallsCount: Int {
+        completions.count
+    }
 
-    func request(url: URL) {
-        requestsCallsCount += 1
+    private(set) var urls: [URL] = []
+    private(set) var completions: [(Error) -> Void] = []
+
+    func request(url: URL, completion: @escaping (Error) -> Void) {
+        completions.append(completion)
         urls.append(url)
     }
 }
@@ -19,10 +23,12 @@ class HomeService {
         self.httpClient = httpClient
     }
 
-    func getHome() {
-        httpClient.request(url: url)
+    func getHome(completion: @escaping (Error) -> Void) {
+        httpClient.request(url: url, completion: completion)
     }
 }
+
+struct Home { }
 
 class HomeServiceTests: XCTestCase {
 
@@ -35,7 +41,7 @@ class HomeServiceTests: XCTestCase {
     func test_performsRequestOnGet() {
         let (sut, httpClient) = makeSUT()
 
-        sut.getHome()
+        sut.getHome { _ in }
 
         XCTAssertEqual(httpClient.requestsCallsCount, 1)
     }
@@ -44,9 +50,22 @@ class HomeServiceTests: XCTestCase {
         let expectedUrl = URL.anyValue
         let (sut, httpClient) = makeSUT(url: expectedUrl)
 
-        sut.getHome()
+        sut.getHome { _ in }
 
         XCTAssertEqual(httpClient.urls, [expectedUrl])
+    }
+
+    func test_failsOnRequestError() {
+        let (sut, httpClient) = makeSUT()
+
+        var actualResult: Error?
+        sut.getHome { result in
+            actualResult = result
+        }
+        let expectedError = NSError.anyValue
+        httpClient.completions[0](expectedError)
+
+        XCTAssertEqual(actualResult as NSError?, expectedError)
     }
 
     // MARK: Helpers
@@ -62,5 +81,11 @@ class HomeServiceTests: XCTestCase {
 extension URL {
     static var anyValue: URL {
         URL(fileURLWithPath: UUID().uuidString)
+    }
+}
+
+extension NSError {
+    static var anyValue: NSError {
+        NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
     }
 }
