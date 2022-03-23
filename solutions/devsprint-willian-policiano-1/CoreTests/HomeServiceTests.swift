@@ -1,14 +1,15 @@
 import XCTest
 
 class HttpClient {
+    typealias Result = Swift.Result<Int, Error>
     var requestsCallsCount: Int {
         completions.count
     }
 
     private(set) var urls: [URL] = []
-    private(set) var completions: [(Error) -> Void] = []
+    private(set) var completions: [(Result) -> Void] = []
 
-    func request(url: URL, completion: @escaping (Error) -> Void) {
+    func request(url: URL, completion: @escaping (Result) -> Void) {
         completions.append(completion)
         urls.append(url)
     }
@@ -24,9 +25,19 @@ class HomeService {
     }
 
     func getHome(completion: @escaping (Error) -> Void) {
-        httpClient.request(url: url, completion: completion)
+        httpClient.request(url: url) { result in
+            switch result {
+            case .success:
+                completion(HttpCodeNotOkError())
+            case .failure(let error):
+                completion(error)
+            }
+
+        }
     }
 }
+
+struct HttpCodeNotOkError: Error { }
 
 struct Home { }
 
@@ -63,9 +74,21 @@ class HomeServiceTests: XCTestCase {
             actualResult = result
         }
         let expectedError = NSError.anyValue
-        httpClient.completions[0](expectedError)
+        httpClient.completions[0](.failure(expectedError))
 
         XCTAssertEqual(actualResult as NSError?, expectedError)
+    }
+
+    func test_failsOnHttpCodeDifferentThanOk() {
+        let (sut, httpClient) = makeSUT()
+
+        var actualResult: Error?
+        sut.getHome { result in
+            actualResult = result
+        }
+        httpClient.completions[0](.success(400))
+
+        XCTAssertNotNil(actualResult as? HttpCodeNotOkError)
     }
 
     // MARK: Helpers
