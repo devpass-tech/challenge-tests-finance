@@ -1,7 +1,7 @@
 import XCTest
 
 class HttpClient {
-    typealias Result = Swift.Result<Int, Error>
+    typealias Result = Swift.Result<(code: Int, data: Data), Error>
     var requestsCallsCount: Int {
         completions.count
     }
@@ -31,21 +31,30 @@ class HomeService {
     func getHome(completion: @escaping (Result) -> Void) {
         httpClient.request(url: url) { result in
             switch result {
-            case let .success(httpCode) where httpCode != self.httpOK:
+            case let .success(response) where response.code != self.httpOK:
                 completion(.failure(HttpCodeNotOkError()))
-            case .success:
-                completion(.success(Home()))
+            case let .success(response):
+                let decoder = JSONDecoder()
+
+                do {
+                    let home = try decoder.decode(Home.self, from: response.data)
+
+                    completion(.success(home))
+                } catch {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
-
         }
     }
 }
 
 struct HttpCodeNotOkError: Error { }
 
-struct Home: Equatable { }
+struct Home: Decodable, Equatable {
+    let balance: Decimal
+}
 
 class HomeServiceTests: XCTestCase {
     typealias Result = HomeService.Result
@@ -95,26 +104,32 @@ class HomeServiceTests: XCTestCase {
         sut.getHome { result in
             actualResult = result
         }
-        httpClient.completions[0](.success(400))
+        httpClient.completions[0](.success((400, jsonData)))
 
         XCTAssertThrowsError(try actualResult?.get()) { actualError in
             XCTAssertNotNil(actualError as? HttpCodeNotOkError)
         }
     }
 
-    func test_deliversHomeOnHttpCodeOk() {
+    func test_parseHomeFromDataOnHttpCodeOk() {
         let (sut, httpClient) = makeSUT()
 
         var actualResult: Result?
         sut.getHome { result in
             actualResult = result
         }
-        httpClient.completions[0](.success(200))
+        httpClient.completions[0](.success((200, jsonData)))
 
-        XCTAssertEqual(try? actualResult?.get(), Home())
+        XCTAssertEqual(try? actualResult?.get(), Home(balance: 123))
     }
 
     // MARK: Helpers
+
+    private let jsonData = Data(
+        """
+        { "balance": 123 }
+        """.utf8
+    )
 
     private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClient) {
         let httpClient = HttpClient()
