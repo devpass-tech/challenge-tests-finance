@@ -21,6 +21,8 @@ class HomeService {
     private let httpClient: HttpClient
     private let url: URL
 
+    private let httpOK = 200
+
     init(url: URL, httpClient: HttpClient) {
         self.url = url
         self.httpClient = httpClient
@@ -29,7 +31,7 @@ class HomeService {
     func getHome(completion: @escaping (Result) -> Void) {
         httpClient.request(url: url) { result in
             switch result {
-            case let .success(httpCode) where httpCode != 200:
+            case let .success(httpCode) where httpCode != self.httpOK:
                 completion(.failure(HttpCodeNotOkError()))
             case .success:
                 completion(.success(Home()))
