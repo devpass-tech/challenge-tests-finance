@@ -5,7 +5,10 @@ import UIKit
 // SUT
 
 class HomeTableViewController: UITableViewController {
+    private let service: HomeLoader
+
     init(service: HomeLoader) {
+        self.service = service
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -17,6 +20,10 @@ class HomeTableViewController: UITableViewController {
 
         refreshControl = UIRefreshControl()
         refreshControl?.beginRefreshing()
+
+        service.getHome { _ in
+            self.refreshControl?.endRefreshing()
+        }
     }
 }
 
@@ -49,6 +56,22 @@ class HomeTableViewControllerTests: XCTestCase {
         sut.render()
 
         XCTAssertTrue(sut.isRefreshing)
+    }
+
+    func test_hideLoadingAfterFailure() {
+        let (sut, service) = makeSUT()
+
+        sut.render()
+        service.completions[0](.failure(anyError))
+
+        XCTAssertFalse(sut.isRefreshing)
+    }
+
+
+    // MARK: Helpers
+
+    private var anyError: NSError {
+        NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
     }
 
     func makeSUT() -> (HomeTableViewController, HomeLoaderSpy) {
