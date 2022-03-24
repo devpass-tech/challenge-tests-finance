@@ -75,6 +75,10 @@
 		A1A94E2F27E78F8A000730D1 /* CreateAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E2927E78F8A000730D1 /* CreateAccountProtocols.swift */; };
 		A1A94E3027E78F8A000730D1 /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E2A27E78F8A000730D1 /* CreateAccountInteractor.swift */; };
 		A1A94E3127E78F8A000730D1 /* CreateAccountConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A94E2B27E78F8A000730D1 /* CreateAccountConfigurator.swift */; };
+		A1F0F94027EA990E004DBD58 /* LoginConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0F93F27EA990E004DBD58 /* LoginConfiguratorTests.swift */; };
+		A1F0F94227EAA6D0004DBD58 /* LoginRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0F94127EAA6D0004DBD58 /* LoginRouterTests.swift */; };
+		A1F0F94527EBE621004DBD58 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0F94427EBE621004DBD58 /* XCTestCase+Extensions.swift */; };
+		A1F0F94B27EBF83B004DBD58 /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0F94A27EBF83B004DBD58 /* LoginInteractorTests.swift */; };
 		B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B947710C27E26B9D00743A84 /* HomeDataTests.swift */; };
 		B9DE4A2D27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE4A2C27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift */; };
 		B9DE4A3127E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE4A3027E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift */; };
@@ -180,6 +184,10 @@
 		A1A94E2927E78F8A000730D1 /* CreateAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountProtocols.swift; sourceTree = "<group>"; };
 		A1A94E2A27E78F8A000730D1 /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
 		A1A94E2B27E78F8A000730D1 /* CreateAccountConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountConfigurator.swift; sourceTree = "<group>"; };
+		A1F0F93F27EA990E004DBD58 /* LoginConfiguratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfiguratorTests.swift; sourceTree = "<group>"; };
+		A1F0F94127EAA6D0004DBD58 /* LoginRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterTests.swift; sourceTree = "<group>"; };
+		A1F0F94427EBE621004DBD58 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		A1F0F94A27EBF83B004DBD58 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
 		B947710C27E26B9D00743A84 /* HomeDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataTests.swift; sourceTree = "<group>"; };
 		B9DE4A2C27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientUserProfiletMockSuccess.swift; sourceTree = "<group>"; };
 		B9DE4A3027E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientUserProfiletMockError.swift; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1F0F93D27EA98B7004DBD58 /* Modules */,
 				627BA2FA27E1026800E223AE /* Mock */,
 				BBEE1AF927E1282200A65145 /* SnapshotTests */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
@@ -482,6 +491,33 @@
 				A1A94E2B27E78F8A000730D1 /* CreateAccountConfigurator.swift */,
 			);
 			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		A1F0F93D27EA98B7004DBD58 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A1F0F94327EBE5F7004DBD58 /* Extensions */,
+				A1F0F93E27EA98BF004DBD58 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A1F0F93E27EA98BF004DBD58 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A1F0F93F27EA990E004DBD58 /* LoginConfiguratorTests.swift */,
+				A1F0F94127EAA6D0004DBD58 /* LoginRouterTests.swift */,
+				A1F0F94A27EBF83B004DBD58 /* LoginInteractorTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A1F0F94327EBE5F7004DBD58 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1F0F94427EBE621004DBD58 /* XCTestCase+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A232E1B48D411F72B9A39C8D /* Frameworks */ = {
@@ -805,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */,
+				A1F0F94B27EBF83B004DBD58 /* LoginInteractorTests.swift in Sources */,
 				6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */,
 				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
 				A1A94E1327E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift in Sources */,
@@ -812,13 +849,16 @@
 				F87E905027E035B200FD934A /* UserProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				A1248A7A27E40C7A006269BE /* FinanceServiceTests.swift in Sources */,
+				A1F0F94027EA990E004DBD58 /* LoginConfiguratorTests.swift in Sources */,
 				A1A94E1527E778B6000730D1 /* NetworkClientTransferAmountMockNil.swift in Sources */,
 				A1A94E1727E77C33000730D1 /* FinanceServiceMock.swift in Sources */,
 				7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */,
+				A1F0F94527EBE621004DBD58 /* XCTestCase+Extensions.swift in Sources */,
 				BBEE1AF827E11FF600A65145 /* ClassIdentifierTests.swift in Sources */,
 				B947710D27E26B9D00743A84 /* HomeDataTests.swift in Sources */,
 				F87E905227E0367B00FD934A /* UserProfile.swift in Sources */,
 				B9DE4A2D27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift in Sources */,
+				A1F0F94227EAA6D0004DBD58 /* LoginRouterTests.swift in Sources */,
 				A10260C027E955DE00910E5A /* ActivityCellViewSnapshotTests.swift in Sources */,
 				A1A94E1027E77826000730D1 /* NetworkClientTransferAmountMockError.swift in Sources */,
 			);
