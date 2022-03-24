@@ -23,6 +23,7 @@
 		B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52627EAA24600CDEA05 /* HttpClient.swift */; };
 		B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
 		B0DDC53227EBE60000CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
+		B0DDC53A27EC4CED00CDEA05 /* HomeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B0DDC52427EAA21700CDEA05 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		B0DDC52627EAA24600CDEA05 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		B0DDC52A27EBE41E00CDEA05 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				B0DDC52427EAA21700CDEA05 /* HomeService.swift */,
+				B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */,
+				B0DDC53A27EC4CED00CDEA05 /* HomeMapper.swift in Sources */,
 				B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */,
 				B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */,
 			);

@@ -8,25 +8,7 @@
 import Foundation
 
 class HomeService {
-    typealias Result = Swift.Result<Home, Error>
-
-    private struct HomeResponse: Decodable {
-        var balance_price: String?
-        var svgs: Decimal?
-        var spending: Decimal?
-
-        func toDomain() -> Home?  {
-            guard let savings = svgs,
-                  let spending = spending,
-                  let balanceString = balance_price,
-                  let balance = Double(balanceString) else { return nil }
-
-            return Home(
-                balance: Decimal(balance),
-                savings: savings,
-                spending: spending)
-        }
-    }
+    typealias Result = Swift.Result<Home, Swift.Error>
 
     private let httpClient: HttpClient
     private let url: URL
@@ -42,31 +24,10 @@ class HomeService {
         httpClient.request(url: url) { result in
             switch result {
             case let .success(response):
-                completion(self.map(response: response))
+                completion(HomeMapper.map(response: response))
             case .failure:
-                completion(.failure(.connection))
+                completion(.failure(Error.connection))
             }
-        }
-    }
-
-    private func map(response: (code: Int, data: Data)) -> Result {
-        let httpOK = 200
-
-        guard response.code == httpOK else {
-            return .failure(.notOk)
-        }
-
-        let decoder = JSONDecoder()
-
-        do {
-            let response = try decoder.decode(HomeResponse.self, from: response.data)
-            guard let home = response.toDomain() else {
-                return .failure(.invalidData)
-            }
-
-            return .success(home)
-        } catch {
-            return .failure(.invalidData)
         }
     }
 
