@@ -19,6 +19,7 @@ class HttpClientSpy: HttpClient {
 
 class HomeServiceTests: XCTestCase {
     typealias Result = HomeService.Result
+    typealias ServiceError = HomeService.Error
 
     func test_initDoesNotPerformAnyRequest() {
         let (_, httpClient) = makeSUT()
@@ -54,7 +55,7 @@ class HomeServiceTests: XCTestCase {
         httpClient.completions[0](.failure(expectedError))
 
         XCTAssertThrowsError(try actualResult?.get()) { actualError in
-            XCTAssertEqual(actualError as NSError?, expectedError)
+            XCTAssertEqual(actualError as? ServiceError, .connection)
         }
     }
 
@@ -68,11 +69,11 @@ class HomeServiceTests: XCTestCase {
         httpClient.completions[0](.success((400, jsonData)))
 
         XCTAssertThrowsError(try actualResult?.get()) { actualError in
-            XCTAssertNotNil(actualError as? HttpCodeNotOkError)
+            XCTAssertEqual(actualError as? ServiceError, .notOk)
         }
     }
 
-    func test_parseHomeFromDataOnHttpCodeOk() {
+    func test_parseHomeFromDataOnHttpCodeOk() throws {
         let (sut, httpClient) = makeSUT()
 
         var actualResult: Result?
@@ -81,16 +82,18 @@ class HomeServiceTests: XCTestCase {
         }
         httpClient.completions[0](.success((200, jsonData)))
 
-        XCTAssertEqual(try? actualResult?.get(), Home(balance: 123))
+        XCTAssertEqual(try actualResult?.get(), Home(balance: 15459.27, savings: 1000.0, spending: 500.0))
     }
 
     // MARK: Helpers
 
-    private let jsonData = Data(
-        """
-        { "balance": 123 }
-        """.utf8
-    )
+    private let jsonData = Data("""
+    {
+        "balance_price": "15459.27",
+        "svgs": 1000.0,
+        "spending": 500.0
+    }
+    """.utf8)
 
     private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClientSpy) {
         let httpClient = HttpClientSpy()

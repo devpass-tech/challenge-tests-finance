@@ -17,11 +17,12 @@
 		B0DDC4FA27EA446800CDEA05 /* FinanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4F927EA446800CDEA05 /* FinanceAppUITests.swift */; };
 		B0DDC4FC27EA446800CDEA05 /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4FB27EA446800CDEA05 /* FinanceAppUITestsLaunchTests.swift */; };
 		B0DDC51527EA8E4300CDEA05 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DDC50D27EA8E4300CDEA05 /* Core.framework */; };
-		B0DDC51A27EA8E4300CDEA05 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC51927EA8E4300CDEA05 /* CoreTests.swift */; };
 		B0DDC51B27EA8E4300CDEA05 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = B0DDC50F27EA8E4300CDEA05 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0DDC52327EA8E9100CDEA05 /* HomeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */; };
 		B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52427EAA21700CDEA05 /* HomeService.swift */; };
 		B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52627EAA24600CDEA05 /* HttpClient.swift */; };
+		B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
+		B0DDC53227EBE60000CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +66,10 @@
 		B0DDC50D27EA8E4300CDEA05 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC50F27EA8E4300CDEA05 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		B0DDC51427EA8E4300CDEA05 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0DDC51927EA8E4300CDEA05 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceTests.swift; sourceTree = "<group>"; };
 		B0DDC52427EAA21700CDEA05 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		B0DDC52627EAA24600CDEA05 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		B0DDC52A27EBE41E00CDEA05 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 				B0DDC50E27EA8E4300CDEA05 /* Core */,
 				B0DDC51827EA8E4300CDEA05 /* CoreTests */,
 				B0DDC4D627EA446600CDEA05 /* Products */,
+				B0DDC52C27EBE5C100CDEA05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,9 +171,9 @@
 		B0DDC50E27EA8E4300CDEA05 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B0DDC53427EC3ECA00CDEA05 /* Domain */,
+				B0DDC53327EC3EBF00CDEA05 /* Data */,
 				B0DDC50F27EA8E4300CDEA05 /* Core.h */,
-				B0DDC52427EAA21700CDEA05 /* HomeService.swift */,
-				B0DDC52627EAA24600CDEA05 /* HttpClient.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -179,10 +181,57 @@
 		B0DDC51827EA8E4300CDEA05 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0DDC51927EA8E4300CDEA05 /* CoreTests.swift */,
 				B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */,
 			);
 			path = CoreTests;
+			sourceTree = "<group>";
+		};
+		B0DDC52C27EBE5C100CDEA05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0DDC53327EC3EBF00CDEA05 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B0DDC53627EC3EEC00CDEA05 /* Infra */,
+				B0DDC53527EC3EE500CDEA05 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B0DDC53427EC3ECA00CDEA05 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B0DDC53727EC3EFF00CDEA05 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B0DDC53527EC3EE500CDEA05 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B0DDC52427EAA21700CDEA05 /* HomeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B0DDC53627EC3EEC00CDEA05 /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				B0DDC52627EAA24600CDEA05 /* HttpClient.swift */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		B0DDC53727EC3EFF00CDEA05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0DDC52A27EBE41E00CDEA05 /* Home.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +437,7 @@
 			files = (
 				B0DDC4DD27EA446600CDEA05 /* ViewController.swift in Sources */,
 				B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */,
+				B0DDC53227EBE60000CDEA05 /* Home.swift in Sources */,
 				B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */,
+				B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */,
 				B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +474,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDC52327EA8E9100CDEA05 /* HomeServiceTests.swift in Sources */,
-				B0DDC51A27EA8E4300CDEA05 /* CoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
