@@ -11,6 +11,10 @@
 		511A7DBF1D7194C2088A0FDA /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4EAEEA271B5D8C52BA94885 /* Pods_FinanceAppTests.framework */; };
 		6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203A45927E4BEB1007CF218 /* HomeViewModelTests.swift */; };
 		6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */; };
+		6245FB1227ECE29B001855A2 /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245FB1127ECE29B001855A2 /* ActivityDetailsViewModelTests.swift */; };
+		6245FB1627ECE35D001855A2 /* ActivityDetailsViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245FB1527ECE35D001855A2 /* ActivityDetailsViewModelDelegateMock.swift */; };
+		6245FB1827ECE721001855A2 /* NetworkClientActivityDetailsMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245FB1727ECE721001855A2 /* NetworkClientActivityDetailsMockSuccess.swift */; };
+		6245FB1A27ECE733001855A2 /* NetworkClientActivityDetailsMockNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245FB1927ECE733001855A2 /* NetworkClientActivityDetailsMockNil.swift */; };
 		627D180427E148D4000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
 		627D180727E148E2000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
 		7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */; };
@@ -109,6 +113,10 @@
 		5BD4A57A1AE61F9997499202 /* Pods-FinanceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6203A45927E4BEB1007CF218 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateMock.swift; sourceTree = "<group>"; };
+		6245FB1127ECE29B001855A2 /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		6245FB1527ECE35D001855A2 /* ActivityDetailsViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateMock.swift; sourceTree = "<group>"; };
+		6245FB1727ECE721001855A2 /* NetworkClientActivityDetailsMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientActivityDetailsMockSuccess.swift; sourceTree = "<group>"; };
+		6245FB1927ECE733001855A2 /* NetworkClientActivityDetailsMockNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientActivityDetailsMockNil.swift; sourceTree = "<group>"; };
 		627BA2F827E0FE0E00E223AE /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		627D180527E148D4000EF942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/home_data.json; sourceTree = "<group>"; };
 		660D86BB312848DC3247757F /* Pods-FinanceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.release.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,13 +226,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6245FB1327ECE317001855A2 /* HomeData */ = {
+			isa = PBXGroup;
+			children = (
+				627D180627E148D4000EF942 /* home_data.json */,
+				6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */,
+			);
+			path = HomeData;
+			sourceTree = "<group>";
+		};
+		6245FB1427ECE336001855A2 /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6245FB1527ECE35D001855A2 /* ActivityDetailsViewModelDelegateMock.swift */,
+				6245FB1727ECE721001855A2 /* NetworkClientActivityDetailsMockSuccess.swift */,
+				6245FB1927ECE733001855A2 /* NetworkClientActivityDetailsMockNil.swift */,
+			);
+			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
 		627BA2FA27E1026800E223AE /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				6245FB1427ECE336001855A2 /* ActivityDetails */,
+				6245FB1327ECE317001855A2 /* HomeData */,
 				B9DE4A2B27E8FEDD00D820D3 /* UserProfile */,
 				A1A94E0E27E77815000730D1 /* TransferAmount */,
-				627D180627E148D4000EF942 /* home_data.json */,
-				6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */,
 				A1A94E1627E77C33000730D1 /* FinanceServiceMock.swift */,
 			);
 			path = Mock;
@@ -291,6 +318,7 @@
 				F87E904F27E035B200FD934A /* UserProfileTests.swift */,
 				B947710C27E26B9D00743A84 /* HomeDataTests.swift */,
 				A1248A7927E40C7A006269BE /* FinanceServiceTests.swift */,
+				6245FB1127ECE29B001855A2 /* ActivityDetailsViewModelTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -804,8 +832,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6245FB1627ECE35D001855A2 /* ActivityDetailsViewModelDelegateMock.swift in Sources */,
 				6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */,
 				6203A45A27E4BEB1007CF218 /* HomeViewModelTests.swift in Sources */,
+				6245FB1A27ECE733001855A2 /* NetworkClientActivityDetailsMockNil.swift in Sources */,
+				6245FB1827ECE721001855A2 /* NetworkClientActivityDetailsMockSuccess.swift in Sources */,
 				BBEE1AFB27E1285200A65145 /* HomeHeaderViewSnapshotTests.swift in Sources */,
 				A1A94E1327E77897000730D1 /* NetworkClientTransferAmountMockSuccess.swift in Sources */,
 				B9DE4A3127E90D3900D820D3 /* NetworkClientUserProfiletMockError.swift in Sources */,
@@ -820,6 +851,7 @@
 				F87E905227E0367B00FD934A /* UserProfile.swift in Sources */,
 				B9DE4A2D27E9022A00D820D3 /* NetworkClientUserProfiletMockSuccess.swift in Sources */,
 				A10260C027E955DE00910E5A /* ActivityCellViewSnapshotTests.swift in Sources */,
+				6245FB1227ECE29B001855A2 /* ActivityDetailsViewModelTests.swift in Sources */,
 				A1A94E1027E77826000730D1 /* NetworkClientTransferAmountMockError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
