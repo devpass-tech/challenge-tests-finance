@@ -72,80 +72,60 @@ class HomeServiceTests: XCTestCase {
     }
 
     func test_failsWhenBalanceIsNotNumber() throws {
-        let invalidJson = Data("""
-        {
-            "balance_price": "ABC$#@",
-            "svgs": 1000.0,
-            "spending": 500.0
-        }
-        """.utf8)
-
-        let actualResult = result(when: { httpClient in
-            httpClient.completeWithSuccess((200, invalidJson))
-        })
-
-        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+        expectFail(forJson:
+            """
+            {
+                "balance_price": "ABC$#@",
+                "svgs": 1000.0,
+                "spending": 500.0
+            }
+            """
+        )
     }
 
     func test_failsWhenBalanceIsEmpty() throws {
-        let invalidJson = Data("""
-        {
-            "balance_price": "",
-            "svgs": 1000.0,
-            "spending": 500.0
-        }
-        """.utf8)
-
-        let actualResult = result(when: { httpClient in
-            httpClient.completeWithSuccess((200, invalidJson))
-        })
-
-        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+        expectFail(forJson:
+            """
+            {
+                "balance_price": "",
+                "svgs": 1000.0,
+                "spending": 500.0
+            }
+            """
+        )
     }
 
     func test_failsWhenThereIsNoBalance() throws {
-        let invalidJson = Data("""
-        {
-            "svgs": 1000.0,
-            "spending": 500.0
-        }
-        """.utf8)
-
-        let actualResult = result(when: { httpClient in
-            httpClient.completeWithSuccess((200, invalidJson))
-        })
-
-        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+        expectFail(forJson:
+            """
+            {
+                "svgs": 1000.0,
+                "spending": 500.0
+            }
+            """
+        )
     }
 
     func test_failsWhenThereIsNoSavings() throws {
-        let invalidJson = Data("""
-        {
-            "balance_price": "15459.27",
-            "spending": 500.0
-        }
-        """.utf8)
-
-        let actualResult = result(when: { httpClient in
-            httpClient.completeWithSuccess((200, invalidJson))
-        })
-
-        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+        expectFail(forJson:
+            """
+            {
+                "balance_price": "15459.27",
+                "spending": 500.0
+            }
+            """
+        )
     }
 
     func test_failsWhenThereIsNoSpending() throws {
-        let invalidJson = Data("""
-        {
-            "balance_price": "15459.27",
-            "svgs": 1000.0
-        }
-        """.utf8)
-
-        let actualResult = result(when: { httpClient in
-            httpClient.completeWithSuccess((200, invalidJson))
-        })
-
-        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+        expectFail(forJson:
+            """
+            {
+                "balance_price": "15459.27",
+                "svgs": 1000.0
+            }
+            """
+        )
     }
 
     // MARK: Helpers
@@ -168,6 +148,16 @@ class HomeServiceTests: XCTestCase {
         when(httpClient)
 
         return actualResult
+    }
+
+    private func expectFail(forJson json: String, file: StaticString = #file, line: UInt = #line) {
+        let invalidJson = Data(json.utf8)
+
+        let actualResult = result(when: { httpClient in
+            httpClient.completeWithSuccess((200, invalidJson))
+        })
+
+        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData, file: file, line: line)
     }
 
     private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClientSpy) {
