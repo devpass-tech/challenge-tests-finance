@@ -13,7 +13,7 @@
 		B0DDC4E027EA446600CDEA05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DDC4DE27EA446600CDEA05 /* Main.storyboard */; };
 		B0DDC4E227EA446800CDEA05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DDC4E127EA446800CDEA05 /* Assets.xcassets */; };
 		B0DDC4E527EA446800CDEA05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DDC4E327EA446800CDEA05 /* LaunchScreen.storyboard */; };
-		B0DDC4F027EA446800CDEA05 /* FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4EF27EA446800CDEA05 /* FinanceAppTests.swift */; };
+		B0DDC4F027EA446800CDEA05 /* HomeTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4EF27EA446800CDEA05 /* HomeTableViewControllerTests.swift */; };
 		B0DDC51527EA8E4300CDEA05 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DDC50D27EA8E4300CDEA05 /* Core.framework */; };
 		B0DDC51B27EA8E4300CDEA05 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = B0DDC50F27EA8E4300CDEA05 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0DDC52327EA8E9100CDEA05 /* HomeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52227EA8E9100CDEA05 /* HomeServiceTests.swift */; };
@@ -75,7 +75,7 @@
 		B0DDC4E427EA446800CDEA05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0DDC4E627EA446800CDEA05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0DDC4EB27EA446800CDEA05 /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0DDC4EF27EA446800CDEA05 /* FinanceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppTests.swift; sourceTree = "<group>"; };
+		B0DDC4EF27EA446800CDEA05 /* HomeTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B0DDC50D27EA8E4300CDEA05 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC50F27EA8E4300CDEA05 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		B0DDC51427EA8E4300CDEA05 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +161,7 @@
 		B0DDC4EE27EA446800CDEA05 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0DDC4EF27EA446800CDEA05 /* FinanceAppTests.swift */,
+				B0DDC4EF27EA446800CDEA05 /* HomeTableViewControllerTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0DDC4F027EA446800CDEA05 /* FinanceAppTests.swift in Sources */,
+				B0DDC4F027EA446800CDEA05 /* HomeTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
