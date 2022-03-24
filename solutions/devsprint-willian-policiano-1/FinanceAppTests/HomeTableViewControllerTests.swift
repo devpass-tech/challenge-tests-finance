@@ -21,8 +21,8 @@ class HomeTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.beginRefreshing()
 
-        service.getHome { _ in
-            self.refreshControl?.endRefreshing()
+        service.getHome { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
         }
     }
 }
@@ -78,11 +78,21 @@ class HomeTableViewControllerTests: XCTestCase {
         NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
     }
 
-    func makeSUT() -> (HomeTableViewController, HomeLoaderSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (HomeTableViewController, HomeLoaderSpy) {
         let service = HomeLoaderSpy()
         let sut = HomeTableViewController(service: service)
 
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(service, file: file, line: line)
+
         return (sut, service)
+    }
+
+    private func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
     }
 }
 
