@@ -5,7 +5,7 @@ import Core
 
 class HomeTableViewController {
     init(service: HomeLoader) {
-        
+
     }
 }
 
@@ -27,9 +27,15 @@ class HomeLoaderSpy: HomeLoader {
 
 class HomeTableViewControllerTests: XCTestCase {
     func test_initShouldNotPerformAnyRequest() {
-        let service = HomeLoaderSpy()
-        let _ = HomeTableViewController(service: service)
+        let (_, service) = makeSUT()
 
         XCTAssertEqual(service.getHomeCallsCount, 0)
+    }
+
+    func makeSUT() -> (HomeTableViewController, HomeLoaderSpy) {
+        let service = HomeLoaderSpy()
+        let sut = HomeTableViewController(service: service)
+
+        return (sut, service)
     }
 }
