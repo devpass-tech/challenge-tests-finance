@@ -46,9 +46,9 @@ class HomeTableViewControllerTests: XCTestCase {
     func test_showLoadingOnRender() {
         let (sut, _) = makeSUT()
 
-        sut.beginAppearanceTransition(true, animated: false)
+        sut.render()
 
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertTrue(sut.isRefreshing)
     }
 
     func makeSUT() -> (HomeTableViewController, HomeLoaderSpy) {
@@ -56,5 +56,15 @@ class HomeTableViewControllerTests: XCTestCase {
         let sut = HomeTableViewController(service: service)
 
         return (sut, service)
+    }
+}
+
+extension HomeTableViewController {
+    func render() {
+        beginAppearanceTransition(true, animated: false)
+    }
+
+    var isRefreshing: Bool {
+        refreshControl?.isRefreshing == true
     }
 }
