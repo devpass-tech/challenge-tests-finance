@@ -128,6 +128,21 @@ class HomeServiceTests: XCTestCase {
         )
     }
 
+    func test_doesNotCompleteWhenSutHaveBeenDeallocated() {
+        let httpClient = HttpClientSpy()
+        var sut: HomeService? = HomeService(url: .anyValue, httpClient: httpClient)
+
+        var actualResult: Result?
+        sut?.getHome { result in
+            actualResult = result
+        }
+
+        sut = nil // the sut have been deallocated
+        httpClient.completeWithError(ServiceError.notOk) // And the client completes
+
+        XCTAssertNil(actualResult) // Then the getHome closure will never be executed
+    }
+
     // MARK: Helpers
 
     private let jsonData = Data("""
@@ -138,8 +153,12 @@ class HomeServiceTests: XCTestCase {
     }
     """.utf8)
 
-    private func result(when: @escaping (HttpClientSpy) -> Void) -> Result? {
-        let (sut, httpClient) = makeSUT()
+    private func result(
+        when: @escaping (HttpClientSpy) -> Void,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> Result? {
+        let (sut, httpClient) = makeSUT(file: file, line: line)
 
         var actualResult: Result?
         sut.getHome { result in
@@ -150,21 +169,37 @@ class HomeServiceTests: XCTestCase {
         return actualResult
     }
 
-    private func expectFail(forJson json: String, file: StaticString = #file, line: UInt = #line) {
+    private func expectFail(
+        forJson json: String,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
         let invalidJson = Data(json.utf8)
 
         let actualResult = result(when: { httpClient in
             httpClient.completeWithSuccess((200, invalidJson))
-        })
+        }, file: file, line: line)
 
         XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData, file: file, line: line)
     }
 
-    private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClientSpy) {
+    private func makeSUT(
+        url: URL = .anyValue,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> (HomeService, HttpClientSpy) {
         let httpClient = HttpClientSpy()
         let sut = HomeService(url: url, httpClient: httpClient)
 
+        trackForMemoryLeak(sut, file: file, line: line)
+
         return (sut, httpClient)
+    }
+
+    private func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
     }
 }
 

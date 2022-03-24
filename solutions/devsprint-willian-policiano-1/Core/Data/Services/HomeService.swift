@@ -21,7 +21,9 @@ class HomeService {
     }
 
     func getHome(completion: @escaping (Result) -> Void) {
-        httpClient.request(url: url) { result in
+        httpClient.request(url: url) { [weak self] result in
+            guard self != nil else { return }
+            
             switch result {
             case let .success(response):
                 completion(HomeMapper.map(response: response))
