@@ -39,6 +39,10 @@ class HomeLoaderSpy: HomeLoader {
     func getHome(completion: @escaping (HomeLoader.Result) -> Void) {
         completions.append(completion)
     }
+
+    func completeWithFailure(_ error: Error) {
+        completions[0](.failure(error))
+    }
 }
 
 // Test
@@ -62,7 +66,7 @@ class HomeTableViewControllerTests: XCTestCase {
         let (sut, service) = makeSUT()
 
         sut.render()
-        service.completions[0](.failure(anyError))
+        service.completeWithFailure(anyError)
 
         XCTAssertFalse(sut.isRefreshing)
     }
