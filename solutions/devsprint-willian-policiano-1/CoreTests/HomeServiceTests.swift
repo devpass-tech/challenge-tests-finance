@@ -3,6 +3,7 @@ import XCTest
 @testable import Core
 
 class HttpClientSpy: HttpClient {
+    typealias Success = (code: Int, data: Data)
     typealias Result = Swift.Result<(code: Int, data: Data), Error>
     var requestsCallsCount: Int {
         completions.count
@@ -14,6 +15,14 @@ class HttpClientSpy: HttpClient {
     func request(url: URL, completion: @escaping (Result) -> Void) {
         completions.append(completion)
         urls.append(url)
+    }
+
+    func completeWithSuccess(_ data: Success) {
+        completions[0](.success(data))
+    }
+
+    func completeWithError(_ error: Error) {
+        completions[0](.failure(error))
     }
 }
 
@@ -27,14 +36,6 @@ class HomeServiceTests: XCTestCase {
         XCTAssertEqual(httpClient.requestsCallsCount, 0)
     }
 
-    func test_performsRequestOnGet() {
-        let (sut, httpClient) = makeSUT()
-
-        sut.getHome { _ in }
-
-        XCTAssertEqual(httpClient.requestsCallsCount, 1)
-    }
-
     func test_sendsUrlOnRequest() {
         let expectedUrl = URL.anyValue
         let (sut, httpClient) = makeSUT(url: expectedUrl)
@@ -45,42 +46,27 @@ class HomeServiceTests: XCTestCase {
     }
 
     func test_failsOnRequestError() {
-        let (sut, httpClient) = makeSUT()
-
-        var actualResult: Result?
-        sut.getHome { result in
-            actualResult = result
-        }
         let expectedError = NSError.anyValue
-        httpClient.completions[0](.failure(expectedError))
 
-        XCTAssertThrowsError(try actualResult?.get()) { actualError in
-            XCTAssertEqual(actualError as? ServiceError, .connection)
-        }
+        let actualResult = result(when: { httpClient in
+            httpClient.completeWithError(expectedError)
+        })
+
+        XCTAssertEqual(actualResult?.error as? ServiceError, .connection)
     }
 
     func test_failsOnHttpCodeDifferentThanOk() {
-        let (sut, httpClient) = makeSUT()
+        let actualResult = result(when: { httpClient in
+            httpClient.completeWithSuccess((400, self.jsonData))
+        })
 
-        var actualResult: Result?
-        sut.getHome { result in
-            actualResult = result
-        }
-        httpClient.completions[0](.success((400, jsonData)))
-
-        XCTAssertThrowsError(try actualResult?.get()) { actualError in
-            XCTAssertEqual(actualError as? ServiceError, .notOk)
-        }
+        XCTAssertEqual(actualResult?.error as? ServiceError, .notOk)
     }
 
     func test_parseHomeFromDataOnHttpCodeOk() throws {
-        let (sut, httpClient) = makeSUT()
-
-        var actualResult: Result?
-        sut.getHome { result in
-            actualResult = result
-        }
-        httpClient.completions[0](.success((200, jsonData)))
+        let actualResult = result(when: { httpClient in
+            httpClient.completeWithSuccess((200, self.jsonData))
+        })
 
         XCTAssertEqual(try actualResult?.get(), Home(balance: 15459.27, savings: 1000.0, spending: 500.0))
     }
@@ -94,6 +80,18 @@ class HomeServiceTests: XCTestCase {
         "spending": 500.0
     }
     """.utf8)
+
+    private func result(when: @escaping (HttpClientSpy) -> Void) -> Result? {
+        let (sut, httpClient) = makeSUT()
+
+        var actualResult: Result?
+        sut.getHome { result in
+            actualResult = result
+        }
+        when(httpClient)
+
+        return actualResult
+    }
 
     private func makeSUT(url: URL = .anyValue) -> (HomeService, HttpClientSpy) {
         let httpClient = HttpClientSpy()
@@ -112,5 +110,14 @@ extension URL {
 extension NSError {
     static var anyValue: NSError {
         NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
+    }
+}
+
+extension Result {
+    var error: Error? {
+        if case let .failure(error) = self {
+            return error
+        }
+        return nil
     }
 }
