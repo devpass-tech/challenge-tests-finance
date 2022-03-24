@@ -13,6 +13,7 @@
 		6203A45C27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6203A45B27E4C0C3007CF218 /* HomeViewModelDelegateMock.swift */; };
 		627D180427E148D4000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
 		627D180727E148E2000EF942 /* home_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 627D180627E148D4000EF942 /* home_data.json */; };
+		7B53C07927ED291300F808A1 /* ProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B53C07827ED291300F808A1 /* ProfileUITests.swift */; };
 		7BF9E23327E02971002DB678 /* InsideNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */; };
 		980E001F27DBCCC30082E6E9 /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */; };
 		980E002027DBCCC30082E6E9 /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */; };
@@ -113,6 +114,7 @@
 		627D180527E148D4000EF942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/home_data.json; sourceTree = "<group>"; };
 		660D86BB312848DC3247757F /* Pods-FinanceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.release.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		77FEEFA347C4AD2456FB4334 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B53C07827ED291300F808A1 /* ProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITests.swift; sourceTree = "<group>"; };
 		7BF9E23227E02971002DB678 /* InsideNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideNavigationTests.swift; sourceTree = "<group>"; };
 		980E001927DBCCC30082E6E9 /* ContactListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
 		980E001A27DBCCC30082E6E9 /* ContactListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			children = (
 				98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */,
 				98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */,
+				7B53C07827ED291300F808A1 /* ProfileUITests.swift */,
 			);
 			path = FinanceAppUITests;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 			files = (
 				98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */,
 				98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */,
+				7B53C07927ED291300F808A1 /* ProfileUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
