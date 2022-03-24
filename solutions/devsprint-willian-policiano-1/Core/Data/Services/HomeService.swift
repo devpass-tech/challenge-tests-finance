@@ -7,9 +7,7 @@
 
 import Foundation
 
-class HomeService {
-    typealias Result = Swift.Result<Home, Swift.Error>
-
+class HomeService: HomeLoader {
     private let httpClient: HttpClient
     private let url: URL
 
@@ -20,7 +18,7 @@ class HomeService {
         self.httpClient = httpClient
     }
 
-    func getHome(completion: @escaping (Result) -> Void) {
+    func getHome(completion: @escaping (HomeLoader.Result) -> Void) {
         httpClient.request(url: url) { [weak self] result in
             guard self != nil else { return }
             
