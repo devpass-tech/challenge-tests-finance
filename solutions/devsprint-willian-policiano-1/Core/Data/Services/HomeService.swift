@@ -69,5 +69,3 @@ class HomeService {
         case notOk
     }
 }
-
-struct HttpCodeNotOkError: Error { }
