@@ -71,6 +71,22 @@ class HomeServiceTests: XCTestCase {
         XCTAssertEqual(try actualResult?.get(), Home(balance: 15459.27, savings: 1000.0, spending: 500.0))
     }
 
+    func test_failsWhenBalanceIsNotNumber() throws {
+        let invalidJson = Data("""
+        {
+            "balance_price": "ABC$#@",
+            "svgs": 1000.0,
+            "spending": 500.0
+        }
+        """.utf8)
+
+        let actualResult = result(when: { httpClient in
+            httpClient.completeWithSuccess((200, invalidJson))
+        })
+
+        XCTAssertEqual(actualResult?.error as? ServiceError, .invalidData)
+    }
+
     // MARK: Helpers
 
     private let jsonData = Data("""
