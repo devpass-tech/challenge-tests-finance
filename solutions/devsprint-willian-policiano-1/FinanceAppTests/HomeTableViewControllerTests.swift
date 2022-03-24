@@ -1,11 +1,22 @@
 import XCTest
 import Core
+import UIKit
 
 // SUT
 
-class HomeTableViewController {
+class HomeTableViewController: UITableViewController {
     init(service: HomeLoader) {
+        super.init(nibName: nil, bundle: nil)
+    }
 
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        refreshControl = UIRefreshControl()
+        refreshControl?.beginRefreshing()
     }
 }
 
@@ -30,6 +41,14 @@ class HomeTableViewControllerTests: XCTestCase {
         let (_, service) = makeSUT()
 
         XCTAssertEqual(service.getHomeCallsCount, 0)
+    }
+
+    func test_showLoadingOnRender() {
+        let (sut, _) = makeSUT()
+
+        sut.beginAppearanceTransition(true, animated: false)
+
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
 
     func makeSUT() -> (HomeTableViewController, HomeLoaderSpy) {
