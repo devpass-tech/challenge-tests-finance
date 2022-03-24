@@ -41,25 +41,32 @@ class HomeService {
     func getHome(completion: @escaping (Result) -> Void) {
         httpClient.request(url: url) { result in
             switch result {
-            case let .success(response) where response.code != self.httpOK:
-                completion(.failure(Error.notOk))
             case let .success(response):
-                let decoder = JSONDecoder()
-
-                do {
-                    let response = try decoder.decode(HomeResponse.self, from: response.data)
-                    guard let home = response.toDomain() else {
-                        return completion(.failure(Error.invalidData))
-                    }
-
-                    completion(.success(home))
-                } catch {
-                    print(error)
-                    completion(.failure(Error.invalidData))
-                }
+                completion(self.map(response: response))
             case .failure:
                 completion(.failure(.connection))
             }
+        }
+    }
+
+    private func map(response: (code: Int, data: Data)) -> Result {
+        let httpOK = 200
+
+        guard response.code == httpOK else {
+            return .failure(.notOk)
+        }
+
+        let decoder = JSONDecoder()
+
+        do {
+            let response = try decoder.decode(HomeResponse.self, from: response.data)
+            guard let home = response.toDomain() else {
+                return .failure(.invalidData)
+            }
+
+            return .success(home)
+        } catch {
+            return .failure(.invalidData)
         }
     }
 
