@@ -21,8 +21,15 @@ class HomeTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.beginRefreshing()
 
-        service.getHome { [weak self] _ in
+        service.getHome { [weak self] result in
             self?.refreshControl?.endRefreshing()
+
+            switch result {
+            case .success: break
+            case .failure:
+                let alert = UIAlertController()
+                self?.present(alert, animated: true)
+            }
         }
     }
 }
@@ -42,6 +49,10 @@ class HomeLoaderSpy: HomeLoader {
 
     func completeWithFailure(_ error: Error) {
         completions[0](.failure(error))
+    }
+
+    func completeWithSuccess(_ data: Home) {
+        completions[0](.success(data))
     }
 }
 
@@ -71,6 +82,23 @@ class HomeTableViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isRefreshing)
     }
 
+    func test_showsErrorDialogOnFailure() {
+        let (sut, service) = makeSUT()
+
+        sut.render()
+        service.completeWithFailure(anyError)
+
+        XCTAssertNotNil(sut.presentedError)
+    }
+
+    func test_doesNotShowErrorDialogOnSuccess() {
+        let (sut, service) = makeSUT()
+
+        sut.render()
+        service.completeWithSuccess(Home(balance: 123, savings: 321, spending: 213))
+
+        XCTAssertNil(sut.presentedError)
+    }
 
     // MARK: Helpers
 
@@ -78,9 +106,9 @@ class HomeTableViewControllerTests: XCTestCase {
         NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
     }
 
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (HomeTableViewController, HomeLoaderSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (TestableHomeTableViewController, HomeLoaderSpy) {
         let service = HomeLoaderSpy()
-        let sut = HomeTableViewController(service: service)
+        let sut = TestableHomeTableViewController(service: service)
 
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(service, file: file, line: line)
@@ -96,12 +124,23 @@ class HomeTableViewControllerTests: XCTestCase {
     }
 }
 
-extension HomeTableViewController {
+class TestableHomeTableViewController: HomeTableViewController {
+    private(set) var presentedViewControllers: [UIViewController] = []
+
     func render() {
         beginAppearanceTransition(true, animated: false)
     }
 
     var isRefreshing: Bool {
         refreshControl?.isRefreshing == true
+    }
+
+    var presentedError: UIAlertController? {
+        presentedViewControllers.last as? UIAlertController
+    }
+
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        presentedViewControllers.append(viewControllerToPresent)
+//        super.present(viewControllerToPresent, animated: false, completion: completion)
     }
 }
