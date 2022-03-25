@@ -31,12 +31,6 @@ class LoginInteractorTests: XCTestCase {
         sut.authenticate(email: "teste@teste.com", password: "1111")
         XCTAssertEqual(output.authenticationSuccessfulCalls, 1)
         XCTAssertEqual(output.authenticationFailedCalls, 0)
-        
-        
-        let label = UILabel()
-        label.isAccessibilityElement == true
-        label.accessibilityLabel?.isEmpty == false
-        label.accessibilityLabel == "TESTE"
     }
     
     func test_authenticate_WithInvalidUser_ShouldReturnError() throws {
