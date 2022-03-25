@@ -13,8 +13,8 @@ class ProfileUITests: XCTestCase {
         
         let userName = app.staticTexts["User Name"]
         let bankName = app.staticTexts["Devpass Bank"]
-        XCTAssert(userName.waitForExistence(timeout: 5))
-        XCTAssert(bankName.waitForExistence(timeout: 5))
+        XCTAssert(userName.exists)
+        XCTAssert(bankName.exists)
     }
 
 }

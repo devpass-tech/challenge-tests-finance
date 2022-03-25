@@ -12,6 +12,4 @@ class UserProfileHeaderViewSnapshotTests: XCTestCase {
         
         assertSnapshot(matching: sut, as: .image(size: size), record: isRecord)
     }
- 
-
 }
