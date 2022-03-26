@@ -15,19 +15,34 @@ class HomeTableViewController: UITableViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
+    override func viewDidLoad() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(getHome), for: .valueChanged)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        refreshControl = UIRefreshControl()
         refreshControl?.beginRefreshing()
+        getHome()
+    }
 
+    @objc
+    func getHome() {
         service.getHome { [weak self] result in
             self?.refreshControl?.endRefreshing()
 
             switch result {
             case .success: break
             case .failure:
-                let alert = UIAlertController()
+                let alert = UIAlertController(
+                    title: "Ops!",
+                    message: "Algo de errado aconteceu. Tente novamente.",
+                    preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default))
+
                 self?.present(alert, animated: true)
             }
         }
@@ -88,7 +103,17 @@ class HomeTableViewControllerTests: XCTestCase {
         sut.render()
         service.completeWithFailure(anyError)
 
-        XCTAssertNotNil(sut.presentedError)
+        XCTAssertEqual(sut.presentedError?.title, "Ops!")
+        XCTAssertEqual(sut.presentedError?.message, "Algo de errado aconteceu. Tente novamente.")
+        XCTAssertEqual(sut.presentedError?.preferredStyle, .alert)
+
+        let actions = sut.presentedError?.actions
+
+        XCTAssertEqual(actions?.count, 2)
+        XCTAssertEqual(actions?[0].title, "Cancel")
+        XCTAssertEqual(actions?[1].title, "Tentar novamente")
+        XCTAssertEqual(actions?[0].style, .destructive)
+        XCTAssertEqual(actions?[1].style, .default)
     }
 
     func test_doesNotShowErrorDialogOnSuccess() {
@@ -98,6 +123,15 @@ class HomeTableViewControllerTests: XCTestCase {
         service.completeWithSuccess(Home(balance: 123, savings: 321, spending: 213))
 
         XCTAssertNil(sut.presentedError)
+    }
+
+    func test_performsRequestOnPullToRefresh() {
+        let (sut, service) = makeSUT()
+
+        sut.render()
+        sut.pullToRefresh()
+
+        XCTAssertEqual(service.getHomeCallsCount, 2)
     }
 
     // MARK: Helpers
@@ -127,10 +161,6 @@ class HomeTableViewControllerTests: XCTestCase {
 class TestableHomeTableViewController: HomeTableViewController {
     private(set) var presentedViewControllers: [UIViewController] = []
 
-    func render() {
-        beginAppearanceTransition(true, animated: false)
-    }
-
     var isRefreshing: Bool {
         refreshControl?.isRefreshing == true
     }
@@ -139,8 +169,15 @@ class TestableHomeTableViewController: HomeTableViewController {
         presentedViewControllers.last as? UIAlertController
     }
 
+    func render() {
+        beginAppearanceTransition(true, animated: false)
+    }
+
+    func pullToRefresh() {
+        refreshControl?.sendActions(for: .valueChanged)
+    }
+
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         presentedViewControllers.append(viewControllerToPresent)
-//        super.present(viewControllerToPresent, animated: false, completion: completion)
     }
 }
