@@ -22,10 +22,31 @@ class FinanceAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    fileprivate func performLogin(_ app: XCUIApplication) {
+        app.textFields["Email"].tap()
+        "Teste@teste.com".forEach { char in
+            app.keys["\(char)"].tap()
+        }
+        
+        app.secureTextFields["Password"].tap()
+        app.keys["numbers"].tap()
+        
+        "1111".forEach { char in
+            app.keys["\(char)"].tap()
+        }
+        
+        
+        app.buttons["Return"].tap()
+        app.buttons["Login"].tap()
+    }
+    
     func test_chooseContact_findAnnetteCooper_ShouldBeSuccessfull() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+        performLogin(app)
+        
 
         let tabBar = app.tabBars["Tab Bar"]
         let transfersButton = tabBar.buttons["Transfers"]
@@ -47,6 +68,8 @@ class FinanceAppUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        performLogin(app)
+        
         XCTAssert(app.staticTexts["Mall"].exists)
                 
         app.tables.children(matching: .cell).element(boundBy: 0).staticTexts["Mall"].tap()
@@ -61,6 +84,8 @@ class FinanceAppUITests: XCTestCase {
     func test_transfer_tapNameOnTextField_ShouldBeSuccessfull() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        performLogin(app)
         
         let tabBar = app.tabBars["Tab Bar"]
         let transfersButton = tabBar.buttons["Transfers"]
@@ -78,5 +103,19 @@ class FinanceAppUITests: XCTestCase {
         app.keys["o"].tap()
         
         XCTAssert(app.textFields["Caio"].exists)
+    }
+    
+    func test_transfer_tapTransfetButton_ShouldShowSuccessFeedback() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        performLogin(app)
+        
+        let tabBar = app.tabBars["Tab Bar"]
+        tabBar.buttons["Transfers"].tap()
+        app.buttons["Transfer"].tap()
+        
+        XCTAssert(app.images["SUCESSO"].exists)
+        XCTAssert(app.staticTexts["Your transfer was successful"].exists)
     }
 }

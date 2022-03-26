@@ -11,7 +11,7 @@ final class LoginViewController: UIViewController {
     
 
     // MARK: - Private Properties
-    private let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -19,7 +19,7 @@ final class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
         label.font = UIFont.boldSystemFont(ofSize: 40)
@@ -27,17 +27,18 @@ final class LoginViewController: UIViewController {
         return label
     }()
 
-    private let emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
         textField.font = UIFont.boldSystemFont(ofSize: 21)
         textField.textAlignment = .center
         textField.keyboardType = .emailAddress
         textField.borderStyle = .line
+        textField.delegate = self
         return textField
     }()
     
-    private let passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
         textField.font = UIFont.boldSystemFont(ofSize: 21)
@@ -45,10 +46,11 @@ final class LoginViewController: UIViewController {
         textField.keyboardType = .default
         textField.borderStyle = .line
         textField.isSecureTextEntry = true
+        textField.delegate = self
         return textField
     }()
     
-    private let feedbackLabel: UILabel = {
+    lazy var feedbackLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .red
@@ -58,7 +60,7 @@ final class LoginViewController: UIViewController {
         return label
     }()
 
-    private let createAccountButton: UIButton = {
+    lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Create account", for: .normal)
@@ -67,7 +69,7 @@ final class LoginViewController: UIViewController {
         return button
     }()
 
-    private let loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
@@ -110,8 +112,12 @@ final class LoginViewController: UIViewController {
 
     @objc
     func didTapLoginButton() {
-        presenter.authenticate(email: emailTextField.text ?? "",
-                               password: passwordTextField.text ?? "")
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+                  return
+              }
+        
+        presenter.authenticate(email: email, password: password)
     }
     
     // MARK: - Private Methods
@@ -162,5 +168,13 @@ extension LoginViewController: LoginPresenterOutputProtocol {
     func authenticationFailed(message: String) {
         feedbackLabel.text = message
         feedbackLabel.isHidden = false
+    }
+}
+
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
