@@ -52,6 +52,20 @@ class LoginPresenterTests: XCTestCase {
         sut.authenticate(email: "teste@teste.com", password: "1111")
         XCTAssertTrue(self.routerSpy.showHomeViewCalled)
     }
+    
+    func test_Authenticate_WithInvalidUser_ShouldCallAuthenticationFailed() throws {
+        let sut = try XCTUnwrap(sut)
+
+        sut.authenticate(email: "aaaa@teste.com", password: "1111")
+        XCTAssertTrue(self.viewContollerSpy.authenticationFailedCalled)
+    }
+
+    func test_createAccount_ShouldShowCreateAccountView() throws {
+        let sut = try XCTUnwrap(sut)
+
+        sut.showCreateAccountView()
+        XCTAssertTrue(self.routerSpy.showCreateAccountViewCalled)
+    }
 }
 
 class LoginRouterProtocolSpy: LoginRouterProtocol {
