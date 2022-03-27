@@ -16,6 +16,7 @@ final class LoginInteractor {
         self.network = network
     }
 
+
     // MARK: - Internal Methods
     
     // MARK: - Private Methods 

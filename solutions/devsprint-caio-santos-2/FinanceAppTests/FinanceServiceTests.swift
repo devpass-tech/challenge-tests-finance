@@ -82,9 +82,6 @@ class FinanceServiceTests: XCTestCase {
         let sut = FinanceService(networkClient: NetworkClientUserProfiletMockSuccess())
         sut.fetchUserProfile { result in
             XCTAssertNotNil(result)
-            
-//            let result = try XCTUnwrap(result)
-            
             XCTAssertEqual(result?.name, "Tatiana")
             XCTAssertEqual(result?.email, "teste@gmail.com")
         }
