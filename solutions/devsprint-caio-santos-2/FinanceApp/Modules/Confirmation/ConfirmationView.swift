@@ -27,6 +27,7 @@ class ConfirmationView: UIView {
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         imageView.tintColor = .systemGreen
+        imageView.accessibilityLabel = "SUCESSO"
         return imageView
     }()
 
