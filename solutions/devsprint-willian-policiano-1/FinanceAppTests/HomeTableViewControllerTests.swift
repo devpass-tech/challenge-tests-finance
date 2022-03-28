@@ -74,10 +74,22 @@ class HomeLoaderSpy: HomeLoader {
 // Test
 
 class HomeTableViewControllerTests: XCTestCase {
-    func test_initShouldNotPerformAnyRequest() {
-        let (_, service) = makeSUT()
+    func test_shouldRequestProperly() {
+        let (sut, service) = makeSUT()
 
         XCTAssertEqual(service.getHomeCallsCount, 0)
+
+        sut.render()
+
+        XCTAssertEqual(service.getHomeCallsCount, 1)
+
+        sut.pullToRefresh()
+
+        XCTAssertEqual(service.getHomeCallsCount, 2)
+
+        sut.pullToRefresh()
+
+        XCTAssertEqual(service.getHomeCallsCount, 3)
     }
 
     func test_showLoadingOnRender() {
@@ -123,15 +135,6 @@ class HomeTableViewControllerTests: XCTestCase {
         service.completeWithSuccess(Home(balance: 123, savings: 321, spending: 213))
 
         XCTAssertNil(sut.presentedError)
-    }
-
-    func test_performsRequestOnPullToRefresh() {
-        let (sut, service) = makeSUT()
-
-        sut.render()
-        sut.pullToRefresh()
-
-        XCTAssertEqual(service.getHomeCallsCount, 2)
     }
 
     // MARK: Helpers
