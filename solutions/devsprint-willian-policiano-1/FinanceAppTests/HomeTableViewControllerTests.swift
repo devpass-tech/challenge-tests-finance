@@ -3,6 +3,9 @@ import Core
 import UIKit
 
 // SUT
+class BalanceCell: UITableViewCell {
+
+}
 
 class HomeTableViewController: UITableViewController {
     private let service: HomeLoader
@@ -46,6 +49,10 @@ class HomeTableViewController: UITableViewController {
                 self?.present(alert, animated: true)
             }
         }
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        BalanceCell()
     }
 }
 
@@ -137,7 +144,20 @@ class HomeTableViewControllerTests: XCTestCase {
         XCTAssertNil(sut.presentedError)
     }
 
+    func test_showBalanceOnSuccess() {
+        let (sut, service) = makeSUT()
+
+        sut.render()
+        service.completeWithSuccess(anyHomeData)
+
+        XCTAssertNotNil(sut.balanceCell(at: 0))
+    }
+
     // MARK: Helpers
+
+    private var anyHomeData: Home {
+        Home(balance: 123.5, savings: 0.9, spending: 12.05)
+    }
 
     private var anyError: NSError {
         NSError(domain: UUID().uuidString, code: 0, userInfo: nil)
@@ -178,6 +198,10 @@ class TestableHomeTableViewController: HomeTableViewController {
 
     func pullToRefresh() {
         refreshControl?.sendActions(for: .valueChanged)
+    }
+
+    func balanceCell(at row: Int) -> BalanceCell? {
+        tableView(tableView, cellForRowAt: IndexPath(row: row, section: 0)) as? BalanceCell
     }
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
