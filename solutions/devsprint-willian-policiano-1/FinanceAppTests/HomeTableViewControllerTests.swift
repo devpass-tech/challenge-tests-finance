@@ -4,15 +4,20 @@ import UIKit
 
 // SUT
 class BalanceCell: UITableViewCell {
+    let valueLabel = UILabel()
 
+    func display(value: String) {
+        valueLabel.text = value
+    }
 }
 
 class FinanceCell: UITableViewCell {
     let titleLabel = UILabel()
     let valueLabel = UILabel()
 
-    func display(title: String) {
+    func display(title: String, value: String) {
         titleLabel.text = title
+        valueLabel.text = value
     }
 }
 
@@ -71,16 +76,24 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let formater = NumberFormatter()
+        formater.maximumFractionDigits = 2
+        formater.numberStyle = .currency
+        formater.currencyCode = "USD"
+
         switch indexPath.row {
         case 0:
-            return BalanceCell()
+            let cell = BalanceCell()
+            cell.display(value: formater.string(from: home!.balance as NSDecimalNumber)!)
+            return cell
         case 1:
             let cell = FinanceCell()
-            cell.display(title: "Savings")
+            cell.display(title: "Savings", value: formater.string(from: home!.savings as NSDecimalNumber)!)
             return cell
         default:
             let cell = FinanceCell()
-            cell.display(title: "Spending")
+            cell.display(title: "Spending", value: formater.string(from: home!.spending as NSDecimalNumber)!)
             return cell
         }
     }
@@ -178,26 +191,37 @@ class HomeTableViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.numberOfLoadedItems, 0)
 
         sut.pullToRefresh()
-        service.completeWithSuccess(anyHomeData)
+        service.completeWithSuccess(Home(balance: 123.5, savings: 0.9, spending: 12.05))
 
         XCTAssertEqual(sut.numberOfSections, 1)
         XCTAssertEqual(sut.numberOfLoadedItems, 3)
-        XCTAssertNotNil(sut.balance(at: 0))
+        XCTAssertEqual(sut.balance(at: 0)?.value, "$123.50")
         XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
-//        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
+        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
         XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
-//        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
 
         sut.pullToRefresh()
         service.completeWithFailure(anyError)
 
         XCTAssertEqual(sut.numberOfSections, 1)
         XCTAssertEqual(sut.numberOfLoadedItems, 3)
-        XCTAssertNotNil(sut.balance(at: 0))
+        XCTAssertEqual(sut.balance(at: 0)?.value, "$123.50")
         XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
-//        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
+        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
         XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
-//        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+
+        sut.pullToRefresh()
+        service.completeWithSuccess(Home(balance: 0.15, savings: 56, spending: 26))
+
+        XCTAssertEqual(sut.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfLoadedItems, 3)
+        XCTAssertEqual(sut.balance(at: 0)?.value, "$0.15")
+        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
+        XCTAssertEqual(sut.finance(at: 1)?.value, "$56.00")
+        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
+        XCTAssertEqual(sut.finance(at: 2)?.value, "$26.00")
     }
 
     func test_doesNotShowErrorDialogOnSuccess() {
@@ -242,6 +266,12 @@ extension FinanceCell {
         titleLabel.text
     }
 
+    var value: String? {
+        valueLabel.text
+    }
+}
+
+extension BalanceCell {
     var value: String? {
         valueLabel.text
     }
