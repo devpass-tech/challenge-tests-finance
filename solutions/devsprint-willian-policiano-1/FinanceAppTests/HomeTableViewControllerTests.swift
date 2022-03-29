@@ -7,8 +7,22 @@ class BalanceCell: UITableViewCell {
 
 }
 
+class FinanceCell: UITableViewCell {
+    let titleLabel = UILabel()
+    let valueLabel = UILabel()
+
+    func display(title: String) {
+        titleLabel.text = title
+    }
+}
+
 class HomeTableViewController: UITableViewController {
     private let service: HomeLoader
+    private var home: Home? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     init(service: HomeLoader) {
         self.service = service
@@ -36,7 +50,8 @@ class HomeTableViewController: UITableViewController {
             self?.refreshControl?.endRefreshing()
 
             switch result {
-            case .success: break
+            case let .success(home):
+                self?.home = home
             case .failure:
                 let alert = UIAlertController(
                     title: "Ops!",
@@ -51,8 +66,23 @@ class HomeTableViewController: UITableViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        home == nil ? 0 : 3
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        BalanceCell()
+        switch indexPath.row {
+        case 0:
+            return BalanceCell()
+        case 1:
+            let cell = FinanceCell()
+            cell.display(title: "Savings")
+            return cell
+        default:
+            let cell = FinanceCell()
+            cell.display(title: "Spending")
+            return cell
+        }
     }
 }
 
@@ -135,6 +165,41 @@ class HomeTableViewControllerTests: XCTestCase {
         XCTAssertEqual(actions?[1].style, .default)
     }
 
+    func test_showDataProperly() {
+        let (sut, service) = makeSUT()
+
+        XCTAssertEqual(sut.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfLoadedItems, 0)
+
+        sut.render()
+        service.completeWithFailure(anyError)
+
+        XCTAssertEqual(sut.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfLoadedItems, 0)
+
+        sut.pullToRefresh()
+        service.completeWithSuccess(anyHomeData)
+
+        XCTAssertEqual(sut.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfLoadedItems, 3)
+        XCTAssertNotNil(sut.balance(at: 0))
+        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
+//        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
+        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
+//        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+
+        sut.pullToRefresh()
+        service.completeWithFailure(anyError)
+
+        XCTAssertEqual(sut.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfLoadedItems, 3)
+        XCTAssertNotNil(sut.balance(at: 0))
+        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
+//        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
+        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
+//        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+    }
+
     func test_doesNotShowErrorDialogOnSuccess() {
         let (sut, service) = makeSUT()
 
@@ -142,15 +207,6 @@ class HomeTableViewControllerTests: XCTestCase {
         service.completeWithSuccess(Home(balance: 123, savings: 321, spending: 213))
 
         XCTAssertNil(sut.presentedError)
-    }
-
-    func test_showBalanceOnSuccess() {
-        let (sut, service) = makeSUT()
-
-        sut.render()
-        service.completeWithSuccess(anyHomeData)
-
-        XCTAssertNotNil(sut.balanceCell(at: 0))
     }
 
     // MARK: Helpers
@@ -181,8 +237,20 @@ class HomeTableViewControllerTests: XCTestCase {
     }
 }
 
+extension FinanceCell {
+    var title: String? {
+        titleLabel.text
+    }
+
+    var value: String? {
+        valueLabel.text
+    }
+}
+
 class TestableHomeTableViewController: HomeTableViewController {
     private(set) var presentedViewControllers: [UIViewController] = []
+
+    private let firstSection = 0
 
     var isRefreshing: Bool {
         refreshControl?.isRefreshing == true
@@ -200,8 +268,24 @@ class TestableHomeTableViewController: HomeTableViewController {
         refreshControl?.sendActions(for: .valueChanged)
     }
 
-    func balanceCell(at row: Int) -> BalanceCell? {
-        tableView(tableView, cellForRowAt: IndexPath(row: row, section: 0)) as? BalanceCell
+    func balance(at row: Int) -> BalanceCell? {
+        cell(at: row) as? BalanceCell
+    }
+
+    func finance(at row: Int) -> FinanceCell? {
+        cell(at: row) as? FinanceCell
+    }
+
+    var numberOfLoadedItems: Int {
+        tableView(tableView, numberOfRowsInSection: firstSection)
+    }
+
+    var numberOfSections: Int {
+        numberOfSections(in: tableView)
+    }
+
+    private func cell(at row: Int) -> UITableViewCell {
+        tableView(tableView, cellForRowAt: IndexPath(row: row, section: firstSection))
     }
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
