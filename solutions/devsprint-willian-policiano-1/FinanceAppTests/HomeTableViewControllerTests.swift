@@ -193,35 +193,23 @@ class HomeTableViewControllerTests: XCTestCase {
         sut.pullToRefresh()
         service.completeWithSuccess(Home(balance: 123.5, savings: 0.9, spending: 12.05))
 
-        XCTAssertEqual(sut.numberOfSections, 1)
-        XCTAssertEqual(sut.numberOfLoadedItems, 3)
-        XCTAssertEqual(sut.balance(at: 0)?.value, "$123.50")
-        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
-        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
-        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
-        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+        expectToHaveValidTitles(for: sut)
+        expectToHaveValidSectionAfterSucces(for: sut)
+        expectThat(sut, hasBalance: "$123.50", savings: "$0.90", spending: "$12.05")
 
         sut.pullToRefresh()
         service.completeWithFailure(anyError)
 
-        XCTAssertEqual(sut.numberOfSections, 1)
-        XCTAssertEqual(sut.numberOfLoadedItems, 3)
-        XCTAssertEqual(sut.balance(at: 0)?.value, "$123.50")
-        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
-        XCTAssertEqual(sut.finance(at: 1)?.value, "$0.90")
-        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
-        XCTAssertEqual(sut.finance(at: 2)?.value, "$12.05")
+        expectToHaveValidTitles(for: sut)
+        expectToHaveValidSectionAfterSucces(for: sut)
+        expectThat(sut, hasBalance: "$123.50", savings: "$0.90", spending: "$12.05")
 
         sut.pullToRefresh()
         service.completeWithSuccess(Home(balance: 0.15, savings: 56, spending: 26))
 
-        XCTAssertEqual(sut.numberOfSections, 1)
-        XCTAssertEqual(sut.numberOfLoadedItems, 3)
-        XCTAssertEqual(sut.balance(at: 0)?.value, "$0.15")
-        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings")
-        XCTAssertEqual(sut.finance(at: 1)?.value, "$56.00")
-        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending")
-        XCTAssertEqual(sut.finance(at: 2)?.value, "$26.00")
+        expectToHaveValidTitles(for: sut)
+        expectToHaveValidSectionAfterSucces(for: sut)
+        expectThat(sut, hasBalance: "$0.15", savings: "$56.00", spending: "$26.00")
     }
 
     func test_doesNotShowErrorDialogOnSuccess() {
@@ -234,6 +222,22 @@ class HomeTableViewControllerTests: XCTestCase {
     }
 
     // MARK: Helpers
+
+    private func expectToHaveValidTitles(for sut: TestableHomeTableViewController, file: StaticString = #file, line: UInt = #line) {
+        XCTAssertEqual(sut.finance(at: 1)?.title, "Savings", file: file, line: line)
+        XCTAssertEqual(sut.finance(at: 2)?.title, "Spending", file: file, line: line)
+    }
+
+    private func expectToHaveValidSectionAfterSucces(for sut: TestableHomeTableViewController, file: StaticString = #file, line: UInt = #line) {
+        XCTAssertEqual(sut.numberOfSections, 1, file: file, line: line)
+        XCTAssertEqual(sut.numberOfLoadedItems, 3, file: file, line: line)
+    }
+
+    private func expectThat(_ sut: TestableHomeTableViewController, hasBalance balance: String, savings: String, spending: String, file: StaticString = #file, line: UInt = #line) {
+        XCTAssertEqual(sut.balance(at: 0)?.value, balance, file: file, line: line)
+        XCTAssertEqual(sut.finance(at: 1)?.value, savings, file: file, line: line)
+        XCTAssertEqual(sut.finance(at: 2)?.value, spending, file: file, line: line)
+    }
 
     private var anyHomeData: Home {
         Home(balance: 123.5, savings: 0.9, spending: 12.05)
