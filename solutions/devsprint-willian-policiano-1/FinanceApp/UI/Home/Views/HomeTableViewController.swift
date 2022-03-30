@@ -10,7 +10,7 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     private let service: HomeLoader
-    private var home: Home? {
+    private var home: HomeViewModel = HomeViewModel() {
         didSet {
             tableView.reloadData()
         }
@@ -44,7 +44,7 @@ class HomeTableViewController: UITableViewController {
 
             switch result {
             case let .success(home):
-                self?.home = home
+                self?.home = HomeViewModel(home: home)
             case .failure:
                 let alert = UIAlertController(
                     title: "Ops!",
@@ -62,28 +62,21 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        home == nil ? 0 : 3
+        home.rows.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let formater = NumberFormatter()
-        formater.maximumFractionDigits = 2
-        formater.numberStyle = .currency
-        formater.currencyCode = "USD"
+        let row = home.rows[indexPath.row]
 
-        switch indexPath.row {
-        case 0:
+        switch row {
+        case let .untitled(value):
             let cell = BalanceCell()
-            cell.display(value: formater.string(from: home!.balance as NSDecimalNumber)!)
+            cell.display(value: value)
             return cell
-        case 1:
+        case let .titled(title, value):
             let cell = FinanceCell()
-            cell.display(title: "Savings", value: formater.string(from: home!.savings as NSDecimalNumber)!)
-            return cell
-        default:
-            let cell = FinanceCell()
-            cell.display(title: "Spending", value: formater.string(from: home!.spending as NSDecimalNumber)!)
+            cell.display(title: title, value: value)
             return cell
         }
     }

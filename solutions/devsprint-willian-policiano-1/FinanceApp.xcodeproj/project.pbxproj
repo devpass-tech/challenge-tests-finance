@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B046657D27F3D61A00712FB0 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046657C27F3D61A00712FB0 /* BalanceCell.swift */; };
 		B046657F27F3D62800712FB0 /* FinanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046657E27F3D62800712FB0 /* FinanceCell.swift */; };
+		B046658527F3DB4600712FB0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046658427F3DB4600712FB0 /* HomeViewModel.swift */; };
 		B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */; };
 		B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */; };
 		B0DDC4DD27EA446600CDEA05 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC4DC27EA446600CDEA05 /* HomeTableViewController.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		B046657C27F3D61A00712FB0 /* BalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
 		B046657E27F3D62800712FB0 /* FinanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCell.swift; sourceTree = "<group>"; };
+		B046658427F3DB4600712FB0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B0DDC4D527EA446600CDEA05 /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDC4D827EA446600CDEA05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0DDC4DA27EA446600CDEA05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,9 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				B046658227F3D66E00712FB0 /* Views */,
-				B0DDC4DC27EA446600CDEA05 /* HomeTableViewController.swift */,
-				B046657C27F3D61A00712FB0 /* BalanceCell.swift */,
-				B046657E27F3D62800712FB0 /* FinanceCell.swift */,
+				B046658427F3DB4600712FB0 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -146,6 +146,9 @@
 		B046658227F3D66E00712FB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B046657E27F3D62800712FB0 /* FinanceCell.swift */,
+				B046657C27F3D61A00712FB0 /* BalanceCell.swift */,
+				B0DDC4DC27EA446600CDEA05 /* HomeTableViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDC4DD27EA446600CDEA05 /* HomeTableViewController.swift in Sources */,
+				B046658527F3DB4600712FB0 /* HomeViewModel.swift in Sources */,
 				B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */,
 				B046657D27F3D61A00712FB0 /* BalanceCell.swift in Sources */,
 				B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */,
