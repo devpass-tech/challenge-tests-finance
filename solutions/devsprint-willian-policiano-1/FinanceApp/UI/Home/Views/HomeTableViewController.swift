@@ -27,6 +27,8 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(getHome), for: .valueChanged)
+
+        tableView.separatorStyle = .none
     }
 
     override func viewWillAppear(_ animated: Bool) {
