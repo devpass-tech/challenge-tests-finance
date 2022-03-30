@@ -32,12 +32,13 @@ class HomeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        refreshControl?.beginRefreshing()
         getHome()
     }
 
     @objc
     func getHome() {
+        refreshControl?.beginRefreshing()
+
         service.getHome { [weak self] result in
             self?.refreshControl?.endRefreshing()
 
@@ -51,7 +52,9 @@ class HomeTableViewController: UITableViewController {
                     preferredStyle: .alert)
 
                 alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
-                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default))
+                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default) { [weak self] _ in
+                    self?.getHome()
+                })
 
                 self?.present(alert, animated: true)
             }
