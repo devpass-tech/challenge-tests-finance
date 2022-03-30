@@ -20,7 +20,6 @@
 		B0DDC52527EAA21700CDEA05 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52427EAA21700CDEA05 /* HomeService.swift */; };
 		B0DDC52727EAA24600CDEA05 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52627EAA24600CDEA05 /* HttpClient.swift */; };
 		B0DDC52B27EBE41E00CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
-		B0DDC53227EBE60000CDEA05 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC52A27EBE41E00CDEA05 /* Home.swift */; };
 		B0DDC53A27EC4CED00CDEA05 /* HomeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53927EC4CED00CDEA05 /* HomeMapper.swift */; };
 		B0DDC53C27EC50C800CDEA05 /* HomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDC53B27EC50C800CDEA05 /* HomeServiceProtocol.swift */; };
 		B0DDC53D27EC524C00CDEA05 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DDC50D27EA8E4300CDEA05 /* Core.framework */; };
@@ -409,7 +408,6 @@
 			files = (
 				B0DDC4DD27EA446600CDEA05 /* ViewController.swift in Sources */,
 				B0DDC4D927EA446600CDEA05 /* AppDelegate.swift in Sources */,
-				B0DDC53227EBE60000CDEA05 /* Home.swift in Sources */,
 				B0DDC4DB27EA446600CDEA05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
