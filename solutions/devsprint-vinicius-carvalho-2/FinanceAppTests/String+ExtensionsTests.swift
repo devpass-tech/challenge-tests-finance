@@ -10,7 +10,7 @@ import XCTest
 
 class String_ExtensionsTests: XCTestCase {
 
-    func test_removingSpaces_removeBlankSpaces() {
+    func test_whenRemovingSpaces_shouldReturnWithoutSpaces() {
         let string = "Lorem ipsum dolar sit"
         XCTAssertEqual(string.removingSpaces(), "Loremipsumdolarsit")
     }
