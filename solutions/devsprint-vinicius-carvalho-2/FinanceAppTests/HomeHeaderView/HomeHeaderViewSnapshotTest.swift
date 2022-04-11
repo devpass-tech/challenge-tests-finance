@@ -14,6 +14,6 @@ class HomeHeaderViewSnapshotTest: XCTestCase {
     func test_HomeHeaderView() {
         let sut: HomeHeaderView = HomeHeaderView()
         
-        assertSnapshot(matching: sut, as: .image)
+        assertSnapshot(matching: sut, as: .image(size: CGSize(width: 414, height: 149)))
     }
 }
