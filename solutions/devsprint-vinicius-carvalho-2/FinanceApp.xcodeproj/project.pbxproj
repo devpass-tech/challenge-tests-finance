@@ -44,6 +44,14 @@
 		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
+		F3186EF428045D450074EB49 /* NetworkClientMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EEE28022D6A0074EB49 /* NetworkClientMockSuccess.swift */; };
+		F3186EF528045D4C0074EB49 /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EF2280459AE0074EB49 /* ActivityDetailsViewModelTests.swift */; };
+		F3186EF628045D540074EB49 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EF0280454840074EB49 /* ActivityDetailsViewModelDelegateSpy.swift */; };
+		F3186EF728045D570074EB49 /* NetworkClientMockNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EEC28022B770074EB49 /* NetworkClientMockNil.swift */; };
+		F3186EFB2804A0DD0074EB49 /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EFA2804A0DD0074EB49 /* HomeViewModelDelegateSpy.swift */; };
+		F3186EFC2804A0F20074EB49 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186EE9280223450074EB49 /* HomeViewModelTests.swift */; };
+		F3186F022804AB020074EB49 /* NetworkClientHomeMockSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186F012804AB020074EB49 /* NetworkClientHomeMockSuccess.swift */; };
+		F3186F062804BE740074EB49 /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3186F052804BE740074EB49 /* HomeData+Fixture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +113,14 @@
 		9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
+		F3186EE9280223450074EB49 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		F3186EEC28022B770074EB49 /* NetworkClientMockNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMockNil.swift; sourceTree = "<group>"; };
+		F3186EEE28022D6A0074EB49 /* NetworkClientMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMockSuccess.swift; sourceTree = "<group>"; };
+		F3186EF0280454840074EB49 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		F3186EF2280459AE0074EB49 /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		F3186EFA2804A0DD0074EB49 /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		F3186F012804AB020074EB49 /* NetworkClientHomeMockSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientHomeMockSuccess.swift; sourceTree = "<group>"; };
+		F3186F052804BE740074EB49 /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +184,11 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F3186F032804BE560074EB49 /* Utils */,
+				F3186EEB2802282B0074EB49 /* Mock */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
+				F3186EE9280223450074EB49 /* HomeViewModelTests.swift */,
+				F3186EF2280459AE0074EB49 /* ActivityDetailsViewModelTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -176,6 +196,7 @@
 		98584A8C277E32C60028DBEA /* FinanceAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F3186EE8280100720074EB49 /* Doubles */,
 				98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */,
 				98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */,
 			);
@@ -313,6 +334,57 @@
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F3186EE8280100720074EB49 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		F3186EEB2802282B0074EB49 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F3186EF92804A08F0074EB49 /* Home */,
+				F3186EF82804A04B0074EB49 /* ActivityDetails */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		F3186EF82804A04B0074EB49 /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F3186EEC28022B770074EB49 /* NetworkClientMockNil.swift */,
+				F3186EEE28022D6A0074EB49 /* NetworkClientMockSuccess.swift */,
+				F3186EF0280454840074EB49 /* ActivityDetailsViewModelDelegateSpy.swift */,
+			);
+			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
+		F3186EF92804A08F0074EB49 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F3186EFA2804A0DD0074EB49 /* HomeViewModelDelegateSpy.swift */,
+				F3186F012804AB020074EB49 /* NetworkClientHomeMockSuccess.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F3186F032804BE560074EB49 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F3186F042804BE5B0074EB49 /* Fixture */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F3186F042804BE5B0074EB49 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				F3186F052804BE740074EB49 /* HomeData+Fixture.swift */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +557,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				F3186F062804BE740074EB49 /* HomeData+Fixture.swift in Sources */,
+				F3186EFC2804A0F20074EB49 /* HomeViewModelTests.swift in Sources */,
+				F3186F022804AB020074EB49 /* NetworkClientHomeMockSuccess.swift in Sources */,
+				F3186EFB2804A0DD0074EB49 /* HomeViewModelDelegateSpy.swift in Sources */,
+				F3186EF528045D4C0074EB49 /* ActivityDetailsViewModelTests.swift in Sources */,
+				F3186EF728045D570074EB49 /* NetworkClientMockNil.swift in Sources */,
+				F3186EF628045D540074EB49 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
+				F3186EF428045D450074EB49 /* NetworkClientMockSuccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

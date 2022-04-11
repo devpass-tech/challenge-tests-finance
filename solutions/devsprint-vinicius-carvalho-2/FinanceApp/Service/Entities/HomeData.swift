@@ -15,7 +15,7 @@ struct HomeData: Decodable {
     let activity: [Activity]
 }
 
-struct Activity: Decodable {
+public struct Activity: Decodable {
     let name: String
     let price: Float
     let time: String

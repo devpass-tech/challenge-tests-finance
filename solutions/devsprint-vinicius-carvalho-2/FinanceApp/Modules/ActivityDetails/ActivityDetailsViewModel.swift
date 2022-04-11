@@ -30,10 +30,9 @@ struct ActivityDetailsViewModel {
                 return
             }
 
-            DispatchQueue.main.async {
-
-                delegate?.didFetchActivityDetails(activityDetails)
-            }
+//            DispatchQueue.main.async {
+//            }
+            delegate?.didFetchActivityDetails(activityDetails)
         }
     }
 }
