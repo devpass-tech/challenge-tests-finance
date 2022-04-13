@@ -10,11 +10,13 @@ import XCTest
 
 class UITableViewCell_ExtensionsTests: XCTestCase {
 
-    func test_whenGettingClassIdentifier_shouldReturnEquallyAsClassName() {
+    func test_whenGettingActivityCellIdentifier_shouldReturnEquallyAsClassName() {
         let activityCellIdentifier = ActivityCellView.classIdentifier()
-        let contactCellIdentifier = ContactCellView.classIdentifier()
-        
         XCTAssertEqual(activityCellIdentifier, "ActivityCellView")
+    }
+    
+    func test_whenGettingContactCellIdentifier_shouldReturnEquallyAsClassName() {
+        let contactCellIdentifier = ContactCellView.classIdentifier()
         XCTAssertEqual(contactCellIdentifier, "ContactCellView")
     }
 
