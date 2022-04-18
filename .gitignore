@@ -69,3 +69,9 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+# Suporte Julio 
+
+solutions/devsprint-julio-fernandes-2/Podfile.lock
+solutions/devsprint-julio-fernandes-2/*.xcodeproj
+solutions/devsprint-julio-fernandes-2/*.xcworkspace
