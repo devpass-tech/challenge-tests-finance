@@ -16,9 +16,16 @@ class NetworkClientHomeMockSuccess: NetworkClientProtocol {
             "savings": 10.22,
             "spending": 9.94,
             "activity": [
-                "name": "Supermarket",
-                "price": 5.9345,
-                "time": "11:53"
+                [
+                    "name": "Supermarket",
+                    "price": 5.9345,
+                    "time": "11:53"
+                ],
+                [
+                    "name": "Supermarket",
+                    "price": 5.9345,
+                    "time": "11:53"
+                ]
             ]
         ]
 
