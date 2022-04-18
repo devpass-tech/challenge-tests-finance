@@ -1,0 +1,75 @@
+#==================================================================================================
+# Xcodegen documentation
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#target-scheme
+#==================================================================================================
+
+# Definimos o nome do projeto
+name: FinanceApp
+
+# Configuracoes de compilacao
+settings: 
+  MARKETING_VERSION: "1.0.0"
+  SWIFT_VERSION: 5.0
+  VERSIONING_SYSTEM: "apple-generic"
+  CODE_SIGN_IDENTITY: "iPhone Developer"
+  ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: "YES"
+  ARCHS: $(ARCHS_STANDARD)
+
+options:
+  # Estamos usando a versão Base como 12.4, ja que algumas pessoas não estão com a versão mais recente
+  xcodeVersion: "12.4"
+  deploymentTarget:
+    iOS: "12.4"
+
+targets: 
+  FinanceApp:
+    platform: iOS
+    type: application
+
+    sources:
+      - path: FinanceApp
+    
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.devpass.FinanceApp
+      INFOPLIST_FILE: FinanceApp/Resources/Info.plist
+      CODE_SIGN_STYLE: "Manual"
+      DEVELOPMENT_TEAM: ""
+      PROVISIONING_PROFILE: "Wildcard"
+  
+  FinanceAppTests:
+    platform: iOS
+    type: bundle.unit-test
+
+    sources:
+      - path: FinanceAppTests
+  
+    dependencies:
+      - target: FinanceApp
+  
+  FinanceAppUITests:
+    platform: iOS
+    type: bundle.ui-testing
+
+    sources:
+      - path: FinanceAppUITests
+  
+    dependencies:
+      - target: FinanceApp
+
+schemes:
+  FinanceApp:
+    build:
+      targets:
+        FinanceApp: [run, test]
+      parallelizeBuild: true
+      buildImplicitDependencies: true
+    run:
+      config: Debug
+    test: 
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets: 
+        - FinanceApp
+      targets:
+        - FinanceAppTests
+        - FinanceAppUITests
