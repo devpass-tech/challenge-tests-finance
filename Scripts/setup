@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Script path
+scriptPath="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+# Helper funcs
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+#check if a received path exists, if it doesn't show error and stop script
+foundPath() {
+	pathToCheck="$1"
+	if [ -d  $pathToCheck ]; then
+		true
+	else
+		echo "Couldn't find path: $pathToCheck" && exit 0
+		false
+	fi
+}
+
+# Go to root
+goToMainPath() {
+    cd $scriptPath
+    cd ..
+}
+
+# pod install
+podInstall() {
+    if [[ $(uname -m) == 'arm64' ]]; then
+        # M1
+        arch -x86_64 pod install
+    else
+        pod install
+    fi
+}
+
+createFinanceAppProject() {
+    goToMainPath
+    cd solutions/devsprint-julio-fernandes-2/
+    echo .
+    echo ==================================================================
+    echo Preparing FinanceApp workspace
+    echo "Project path: $PWD"
+    echo ==================================================================
+    echo .
+    # Xcodegen for framework
+    xcodegen generate
+    echo .
+    echo ==================================================================
+    echo FinanceApp Pod Install
+    echo ==================================================================
+    echo .
+    podInstall
+    echo .
+    echo ==================================================================
+    echo FinanceApp.xcworkspace created
+    echo ==================================================================
+    echo .
+}
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Start setup
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# Script for sync templates, generate projects and install dependencies.
+echo .
+echo ==================================
+echo Starting setup
+echo "Script path: $scriptPath"
+echo ==================================
+echo .
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# # Create Projects
+# #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+isOpen="$1"
+
+if  [ "$isOpen" == "open" ]; then
+    killall Xcode || true
+fi
+
+createFinanceAppProject
+
+if  [ "$isOpen" == "open" ]; then
+    open FinanceApp.xcworkspace
+fi
+
