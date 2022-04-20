@@ -9,13 +9,18 @@ import XCTest
 @testable import FinanceApp
 
 class UserProfileTests: XCTestCase {
-    var sut: UserProfile!
-    
+    var sut: UserProfile?
+
     override func setUpWithError() throws {
         try super.setUpWithError()
-        let account = Account(agency: "9345", account: "0023519034")
         
-        sut = UserProfile(name: "Paulo Henrique Silva", phone: "(81) 998904067", email: "psilva@gmail.com", address: "Rua São João", account: account)
+        sut = UserProfile(
+            name: "Paulo Henrique Silva",
+            phone: "(81) 998904067",
+            email: "psilva@gmail.com",
+            address: "Rua São João",
+            account: Account(agency: "9345", account: "0023519034")
+        )
     }
     
     override func tearDownWithError() throws {
@@ -25,29 +30,41 @@ class UserProfileTests: XCTestCase {
     
     func test_formattedAgency_filledAgency_shouldReturnValidFormat() {
         let formattedAgency = "Agency: 9345"
-        XCTAssertEqual(formattedAgency, sut.account.formattedAgency())
+        if let value = sut {
+            XCTAssertEqual(formattedAgency, value.account.formattedAgency())
+        }
     }
     
-    func test_formattedAgency_filledAgency_shouldHasAgencyPrefix() {
+    func test_formattedAgency_filledAgency_shouldHaveAgencyPrefix() {
         let formattedAgency = "Agency"
-        XCTAssertTrue(sut.account.formattedAgency().hasPrefix(formattedAgency))
+        if let value = sut {
+            XCTAssertTrue(value.account.formattedAgency().hasPrefix(formattedAgency))
+        }
     }
     
-    func test_formattedAgency_filledAgency_shouldNotAgencyPrefix() {
+    func test_formattedAgency_filledAgency_shouldNotHaveAgencyPrefix() {
         let formattedAgency = "Agencia"
-        XCTAssertFalse(sut.account.formattedAgency().hasPrefix(formattedAgency))
+        if let value = sut {
+            XCTAssertFalse(value.account.formattedAgency().hasPrefix(formattedAgency))
+        }
     }
     
     func test_formattedAgency_invalidAgency_shouldReturnNotValidFormat() {
         let formattedAgency = "9345"
-        XCTAssertNotEqual(formattedAgency, sut.account.formattedAgency())
+        if let value = sut {
+            XCTAssertNotEqual(formattedAgency, value.account.formattedAgency())
+        }
     }
     
     func test_formattedAgency_shouldReturnNotNil() {
-        XCTAssertNotNil(sut.account.formattedAgency())
+        if let value = sut {
+            XCTAssertNotNil(value.account.formattedAgency())
+        }
     }
     
     func test_formattedAgency_filledAgency_shouldReturnString() {
-        XCTAssertTrue(type(of: sut.account.formattedAgency()) == String.self)
+        if let value = sut {
+            XCTAssertTrue(type(of: value.account.formattedAgency()) == String.self)
+        }
     }
 }
