@@ -10,8 +10,10 @@ import XCTest
 
 final class UITableViewCellTests: XCTestCase {
     func test_classIdentifier_should_be_return_CellView() {
-        let sut = ActivityCellView.classIdentifier()
+        var sut: String = ActivityCellView.classIdentifier()
         XCTAssertEqual(sut, "ActivityCellView")
-        XCTAssertEqual(ContactCellView.classIdentifier(), "ContactCellView")
+        
+        sut = ContactCellView.classIdentifier()
+        XCTAssertEqual(sut, "ContactCellView")
     }
 }
