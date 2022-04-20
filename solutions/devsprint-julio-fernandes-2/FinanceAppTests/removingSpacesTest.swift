@@ -20,7 +20,6 @@ final class removingSpacesTest: XCTestCase {
 
     func test_removingSpaces() throws {
        let shouldRemovingSpaces = "        É um teste"
-        shouldRemovingSpaces.removingSpaces()
         
         XCTAssertEqual("Éumteste", shouldRemovingSpaces.removingSpaces())
         

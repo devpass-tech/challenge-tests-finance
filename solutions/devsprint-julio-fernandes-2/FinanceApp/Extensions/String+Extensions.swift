@@ -11,6 +11,6 @@ extension String {
 
     func removingSpaces() -> String {
 
-        return self.replacingOccurrences(of: " ", with: "")
+            return self.replacingOccurrences(of: " ", with: "")
     }
 }
