@@ -10,7 +10,7 @@ import XCTest
 
 class HomeDataTests: XCTestCase {
     
-    var activity = Activity(name: "atividade", price: 1000.0, time: "50")
+    let activity = Activity(name: "atividade", price: 1000.0, time: "50")
     
     func test_formattedInfo_shouldReturnValidFormat() {
         let formattedStringValue = "$\(1000.0) • \("50")"
