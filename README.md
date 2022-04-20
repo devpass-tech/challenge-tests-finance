@@ -14,10 +14,27 @@ Neste desafio, você também verá conceitos de Injeção de Dependência e cria
 
 # Iniciando os trabalhos
 
-
 1. Clone este repositório na sua máquina.
 2. Abra a pasta `solutions` e acesse o projeto referente à sua Sprint.
 3. Faça um build e rode o projeto. ▶️
+
+# Extras (DevSprint do Julio)
+
+Estamos utilizando o [xcodeGen](https://github.com/yonaskolb/XcodeGen) para gerar nosso projeto, segue as instruções para instalações e rodar o ambiente
+
+## Instalação 
+
+```
+brew install xcodegen
+```
+
+## Configuração
+
+```
+cd Scripts && ./setup open
+```
+
+> Faça um build e rode o projeto. ▶️
 
 # Sobre a Devpass
 
