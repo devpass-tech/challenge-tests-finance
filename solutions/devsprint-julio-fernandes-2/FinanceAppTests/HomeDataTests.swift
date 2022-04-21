@@ -8,16 +8,27 @@
 import XCTest
 @testable import FinanceApp
 
-class HomeDataTests: XCTestCase {
+final class HomeDataTests: XCTestCase {
     
-    let activity = Activity(name: "atividade", price: 1000.0, time: "50")
+    var sut: Activity?
+    
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+
+        sut = Activity(name: "atividade", price: 1000, time: "50")
+    }
+
+    override func tearDownWithError() throws {
+        sut = nil
+        try super.tearDownWithError()
+    }
     
     func test_formattedInfo_shouldReturnValidFormat() {
-        let formattedStringValue = "$\(1000.0) • \("50")"
-        XCTAssertEqual(formattedStringValue, activity.formattedInfo())
+        let formattedStringValue: String = "$\(1000.0) • \("50")"
+        XCTAssertEqual(formattedStringValue, sut?.formattedInfo())
     }
 
     func test_formattedInfo_shouldReturnNotNil() {
-        XCTAssertNotNil(activity.formattedInfo())
+        XCTAssertNotNil(sut?.formattedInfo())
     }
 }
