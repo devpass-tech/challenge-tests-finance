@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class UserProfileTests: XCTestCase {
+final class UserProfileTests: XCTestCase {
     var sut: UserProfile?
 
     override func setUpWithError() throws {
@@ -29,28 +29,28 @@ class UserProfileTests: XCTestCase {
     }
     
     func test_formattedAgency_filledAgency_shouldReturnValidFormat() {
-        let formattedAgency = "Agency: 9345"
+        let formattedAgency: String = "Agency: 9345"
         if let value = sut {
             XCTAssertEqual(formattedAgency, value.account.formattedAgency())
         }
     }
     
     func test_formattedAgency_filledAgency_shouldHaveAgencyPrefix() {
-        let formattedAgency = "Agency"
+        let formattedAgency: String = "Agency"
         if let value = sut {
             XCTAssertTrue(value.account.formattedAgency().hasPrefix(formattedAgency))
         }
     }
     
     func test_formattedAgency_filledAgency_shouldNotHaveAgencyPrefix() {
-        let formattedAgency = "Agencia"
+        let formattedAgency: String = "Agencia"
         if let value = sut {
             XCTAssertFalse(value.account.formattedAgency().hasPrefix(formattedAgency))
         }
     }
     
     func test_formattedAgency_invalidAgency_shouldReturnNotValidFormat() {
-        let formattedAgency = "9345"
+        let formattedAgency: String = "9345"
         if let value = sut {
             XCTAssertNotEqual(formattedAgency, value.account.formattedAgency())
         }
