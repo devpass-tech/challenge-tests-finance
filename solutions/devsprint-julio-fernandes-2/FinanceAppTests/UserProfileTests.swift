@@ -61,4 +61,38 @@ final class UserProfileTests: XCTestCase {
         let sut = try XCTUnwrap(sut)
         XCTAssertTrue(type(of: sut.account.formattedAgency()) == String.self)
     }
+    
+    func test_formattedAccount_filledAccount_shouldReturnValidFormat() throws {
+        let formattedAccount: String = "Account: 0023519034"
+        let sut = try XCTUnwrap(sut)
+        XCTAssertEqual(formattedAccount, sut.account.formattedAccount())
+    }
+    
+    func test_formattedAccount_filledAccount_shouldHaveAccountPrefix() throws {
+        let formattedAccount: String = "Account"
+        let sut = try XCTUnwrap(sut)
+        XCTAssertTrue(sut.account.formattedAccount().hasPrefix(formattedAccount))
+    }
+    
+    func test_formattedAccount_filledAccount_shouldNotHaveAccountPrefix() throws {
+        let formattedAccount: String = "Conta"
+        let sut = try XCTUnwrap(sut)
+        XCTAssertFalse(sut.account.formattedAccount().hasPrefix(formattedAccount))
+    }
+    
+    func test_formattedAccount_invalidAccount_shouldReturnNotValidFormat() throws {
+        let formattedAccount: String = "0023519034"
+        let sut = try XCTUnwrap(sut)
+        XCTAssertNotEqual(formattedAccount, sut.account.formattedAccount())
+    }
+    
+    func test_formattedAccount_shouldReturnNotNil() throws {
+        let sut = try XCTUnwrap(sut)
+        XCTAssertNotNil(sut.account.formattedAccount())
+    }
+    
+    func test_formattedAccount_filledAccount_shouldReturnString() throws {
+        let sut = try XCTUnwrap(sut)
+        XCTAssertTrue(type(of: sut.account.formattedAccount()) == String.self)
+    }
 }
