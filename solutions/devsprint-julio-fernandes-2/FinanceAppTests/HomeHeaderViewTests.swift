@@ -9,11 +9,23 @@
 import SnapshotTesting
 import XCTest
 
-class HomeHeaderViewTests: XCTestCase {
-    func test_HomeHeaderView() throws {
-        let size: CGSize = .init(width: 320, height: 140)
-        let sut = HomeHeaderView()
-
+final class HomeHeaderViewTests: XCTestCase {
+    
+    private var sut: HomeHeaderView?
+    private let size: CGSize = .init(width: 320, height: 140)
+    
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        sut = HomeHeaderView()
+    }
+    
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+        sut = nil
+    }
+    
+    private func test_HomeHeaderView() throws {
+        let sut = try XCTUnwrap(sut)
         assertSnapshot(matching: sut, as: .image(size: size), record: false)
     }
 }
