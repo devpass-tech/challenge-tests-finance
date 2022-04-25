@@ -10,14 +10,6 @@ import XCTest
 
 final class removingSpacesTest: XCTestCase {
 
-    override func setUpWithError() throws {
-       
-    }
-
-    override func tearDownWithError() throws {
-      
-    }
-
     func test_removingSpaces() throws {
        let shouldRemovingSpaces = "        É um teste"
         
@@ -25,7 +17,5 @@ final class removingSpacesTest: XCTestCase {
         
         
     }
-
-    
 
 }
