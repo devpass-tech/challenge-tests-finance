@@ -9,14 +9,24 @@
 import SnapshotTesting
 import XCTest
 
-class ActivityCellViewTests: XCTestCase {
-    func test_ActivityCellView_WhiteBackground() throws {
-        
-        let size: CGSize = .init(width: 320, height: 120)
-        
-        let sut = ActivityCellView()
+final class ActivityCellViewTests: XCTestCase {
+    
+    private var sut: ActivityCellView?
+    private let size: CGSize = .init(width: 320, height: 120)
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        sut = ActivityCellView()
+    }
+    
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+         sut = nil
+    }
+    
+    private func test_ActivityCellView_WhiteBackground() throws {
+        let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .white
-        
         assertSnapshot(matching: sut, as: .image(size: size), record:  false)
     }
 }
