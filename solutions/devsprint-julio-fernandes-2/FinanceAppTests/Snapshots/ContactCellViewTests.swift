@@ -22,6 +22,7 @@ final class ContactCellViewTests: XCTestCase {
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
+        sut = nil
     }
 
     func test_ContactCellView_LightMode() throws {
