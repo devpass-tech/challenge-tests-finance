@@ -10,7 +10,6 @@ import SnapshotTesting
 import XCTest
 
 final class ActivityCellViewTests: XCTestCase {
-    
     private var sut: ActivityCellView?
     private let size: CGSize = .init(width: 320, height: 120)
 
@@ -18,15 +17,21 @@ final class ActivityCellViewTests: XCTestCase {
         try super.setUpWithError()
         sut = ActivityCellView()
     }
-    
+
     override func tearDownWithError() throws {
         try super.tearDownWithError()
-         sut = nil
+        sut = nil
     }
-    
-    private func test_ActivityCellView_WhiteBackground() throws {
+
+     func test_ActivityCellView_LightContent() throws {
         let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .white
-        assertSnapshot(matching: sut, as: .image(size: size), record:  false)
+        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .light)), record: false)
+    }
+    
+    func test_ActivityCellView_DarkContent() throws {
+        let sut = try XCTUnwrap(sut)
+        sut.backgroundColor = .black
+        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .dark)), record: false)
     }
 }
