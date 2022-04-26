@@ -10,22 +10,28 @@ import SnapshotTesting
 import XCTest
 
 final class HomeHeaderViewTests: XCTestCase {
-    
     private var sut: HomeHeaderView?
     private let size: CGSize = .init(width: 320, height: 140)
-    
+
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = HomeHeaderView()
     }
-    
+
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         sut = nil
     }
-    
-    private func test_HomeHeaderView() throws {
+
+    func test_HomeHeaderView_LightContent() throws {
         let sut = try XCTUnwrap(sut)
-        assertSnapshot(matching: sut, as: .image(size: size), record: false)
+        sut.backgroundColor = .white
+        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .light)), record: false)
+    }
+
+    func test_HomeHeaderView_DarkContent() throws {
+        let sut = try XCTUnwrap(sut)
+        sut.backgroundColor = .black
+        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .dark)), record: false)
     }
 }
