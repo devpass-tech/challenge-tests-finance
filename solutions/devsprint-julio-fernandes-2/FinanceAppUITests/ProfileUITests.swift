@@ -7,7 +7,7 @@
 
 import XCTest
 
-class ProfileUITests: XCTestCase {
+final class ProfileUITests: XCTestCase {
     func test_navigation_home_to_profile() {
         let app = XCUIApplication()
         app.launch()
