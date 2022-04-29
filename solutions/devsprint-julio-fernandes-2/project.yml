@@ -42,6 +42,9 @@ targets:
 
     sources:
       - path: FinanceAppTests
+        excludes:
+          - "__Snapshots__"
+          - "**/__Snapshots__"
   
     dependencies:
       - target: FinanceApp

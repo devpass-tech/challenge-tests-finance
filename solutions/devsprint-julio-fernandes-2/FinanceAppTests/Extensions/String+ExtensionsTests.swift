@@ -1,21 +1,18 @@
 //
-//  removingSpacesTest.swift
+//  String+ExtensionsTests.swift
 //  FinanceAppTests
 //
-//  Created by Michelli Cristina de Paulo Lima on 20/04/22.
+//  Created by Julio Fernandes on 29/04/22.
 //
 
 import XCTest
 @testable import FinanceApp
 
-final class removingSpacesTest: XCTestCase {
+final class String_ExtensionsTests: XCTestCase {
 
-    func test_removingSpaces() throws {
+    func test_removingSpaces() {
        let shouldRemovingSpaces = "        É um teste"
-        
         XCTAssertEqual("Éumteste", shouldRemovingSpaces.removingSpaces())
-        
-        
     }
 
 }

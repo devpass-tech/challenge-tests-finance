@@ -1,14 +1,15 @@
 //
-//  UITableViewCellTests.swift
+//  UITableViewCell+ExtensionsTests.swift
 //  FinanceAppTests
 //
-//  Created by Tatiana Rico on 20/04/22.
+//  Created by Julio Fernandes on 29/04/22.
 //
 
 import XCTest
 @testable import FinanceApp
 
-final class UITableViewCellTests: XCTestCase {
+class UITableViewCell_ExtensionsTests: XCTestCase {
+
     func test_classIdentifier_should_be_return_CellView() {
         var sut: String = ActivityCellView.classIdentifier()
         XCTAssertEqual(sut, "ActivityCellView")
@@ -16,4 +17,5 @@ final class UITableViewCellTests: XCTestCase {
         sut = ContactCellView.classIdentifier()
         XCTAssertEqual(sut, "ContactCellView")
     }
+
 }

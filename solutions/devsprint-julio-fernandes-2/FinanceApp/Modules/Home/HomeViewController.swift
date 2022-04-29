@@ -10,14 +10,12 @@ import UIKit
 class HomeViewController: UIViewController {
 
     lazy var homeView: HomeView = {
-
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
 
     override func viewDidLoad() {
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
     }
 
@@ -27,7 +25,6 @@ class HomeViewController: UIViewController {
 
     @objc
     func openProfile() {
-
         let navigationController = UINavigationController(rootViewController: UserProfileViewController())
         self.present(navigationController, animated: true)
     }
@@ -36,7 +33,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewDelegate {
 
     func didSelectActivity() {
-
         let activityDetailsViewController = ActivityDetailsViewController()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
     }
