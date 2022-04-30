@@ -7,7 +7,7 @@
 
 import XCTest
 
-class ActivityDetailsUITests: XCTestCase {
+final class ActivityDetailsUITests: XCTestCase {
     func test_navigation_activityList_to_activityDetails() {
         let app = XCUIApplication()
         app.launch()

@@ -5,22 +5,26 @@
 //  Created by Dairan on 19/04/22.
 //
 
-@testable import FinanceApp
-import SnapshotTesting
 import XCTest
+import SnapshotTesting
+@testable import FinanceApp
 
 final class HomeHeaderViewTests: XCTestCase {
-    private var sut: HomeHeaderView?
+    
     private let size: CGSize = .init(width: 320, height: 140)
-
+    private let lightMode = UITraitCollection(userInterfaceStyle: .light)
+    private let darkMode = UITraitCollection(userInterfaceStyle: .dark)
+    
+    private var sut: HomeHeaderView?
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = HomeHeaderView()
     }
 
     override func tearDownWithError() throws {
-        try super.tearDownWithError()
         sut = nil
+        try super.tearDownWithError()
     }
     
     func test_initCoder() {
@@ -31,12 +35,12 @@ final class HomeHeaderViewTests: XCTestCase {
     func test_HomeHeaderView_LightContent() throws {
         let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .white
-        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .light)), record: false)
+        assertSnapshot(matching: sut, as: .image(size: size, traits: lightMode))
     }
 
     func test_HomeHeaderView_DarkContent() throws {
         let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .black
-        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .dark)), record: false)
+        assertSnapshot(matching: sut, as: .image(size: size, traits: darkMode))
     }
 }

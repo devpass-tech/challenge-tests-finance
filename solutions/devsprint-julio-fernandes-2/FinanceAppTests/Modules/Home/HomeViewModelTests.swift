@@ -12,7 +12,7 @@ final class HomeViewModelTests: XCTestCase {
     
     private let delegate = HomeViewModelDelegateSpy()
     private let financeService = FinanceServiceProtocolMock()
-    var sut: HomeViewModel?
+    private var sut: HomeViewModel?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

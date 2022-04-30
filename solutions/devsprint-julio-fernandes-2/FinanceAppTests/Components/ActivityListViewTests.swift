@@ -5,11 +5,11 @@
 //  Created by Dairan on 25/04/22.
 //
 
-@testable import FinanceApp
-import SnapshotTesting
 import XCTest
+import SnapshotTesting
+@testable import FinanceApp
 
-class ActivityListViewTests: XCTestCase {
+final class ActivityListViewTests: XCTestCase {
     
     private let size = CGSize(width: 320, height: 500)
     private let lightMode = UITraitCollection(userInterfaceStyle: .light)

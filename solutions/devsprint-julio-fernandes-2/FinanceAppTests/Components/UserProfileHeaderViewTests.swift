@@ -5,13 +5,17 @@
 //  Created by Pedro Henrique Martins Barbosa on 25/04/22.
 //
 
-import SnapshotTesting
 import XCTest
+import SnapshotTesting
 @testable import FinanceApp
 
 final class UserProfileHeaderViewTests: XCTestCase {
-    var sut: UserProfileHeaderView?
-    let size: CGSize = .init(width: 400, height: 300)
+    
+    private let size: CGSize = .init(width: 400, height: 300)
+    private let lightMode = UITraitCollection(userInterfaceStyle: .light)
+    private let darkMode = UITraitCollection(userInterfaceStyle: .dark)
+    
+    private var sut: UserProfileHeaderView?
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -31,12 +35,12 @@ final class UserProfileHeaderViewTests: XCTestCase {
     func test_UserProfileHeaderView_LightMode() throws {
         let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .white
-        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .light)), record: false)
+        assertSnapshot(matching: sut, as: .image(size: size, traits: lightMode))
     }
     
     func test_UserProfileHeaderView_DarkMode() throws {
         let sut = try XCTUnwrap(sut)
         sut.backgroundColor = .black
-        assertSnapshot(matching: sut, as: .image(size: size, traits: .init(userInterfaceStyle: .dark)), record: false)
+        assertSnapshot(matching: sut, as: .image(size: size, traits: darkMode))
     }
 }

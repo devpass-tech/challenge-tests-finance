@@ -10,7 +10,7 @@ import XCTest
 
 final class ConfirmationViewControllerTests: XCTestCase {
     
-    var sut: ConfirmationViewController?
+    private var sut: ConfirmationViewController?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

@@ -10,7 +10,7 @@ import XCTest
 
 final class HomeViewTests: XCTestCase {
 
-    var sut: HomeView?
+    private var sut: HomeView?
     
     override func setUpWithError() throws {
         try super.setUpWithError()

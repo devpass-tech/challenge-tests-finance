@@ -11,7 +11,7 @@ import XCTest
 final class TransfersViewControllerTests: XCTestCase {
     
     static var presentedViewController: UIViewController?
-    var sut: TransfersViewController?
+    private var sut: TransfersViewController?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

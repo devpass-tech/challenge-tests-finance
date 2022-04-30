@@ -5,9 +5,9 @@
 //  Created by Dairan on 25/04/22.
 //
 
-@testable import FinanceApp
-import SnapshotTesting
 import XCTest
+import SnapshotTesting
+@testable import FinanceApp
 
 final class ContactCellViewTests: XCTestCase {
     

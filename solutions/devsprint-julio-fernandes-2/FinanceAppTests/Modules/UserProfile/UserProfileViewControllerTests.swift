@@ -10,7 +10,7 @@ import XCTest
 
 final class UserProfileViewControllerTests: XCTestCase {
     
-    var sut: UserProfileViewController?
+    private var sut: UserProfileViewController?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

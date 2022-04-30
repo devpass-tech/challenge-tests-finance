@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class UITableViewCell_ExtensionsTests: XCTestCase {
+final class UITableViewCell_ExtensionsTests: XCTestCase {
 
     func test_classIdentifier_should_be_return_CellView() {
         var sut: String = ActivityCellView.classIdentifier()

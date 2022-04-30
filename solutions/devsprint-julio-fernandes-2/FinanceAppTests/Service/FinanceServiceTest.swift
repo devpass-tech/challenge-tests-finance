@@ -54,7 +54,7 @@ class FinanceServiceTest: XCTestCase {
 final class FinanceService2Tests: XCTestCase {
     
     private let networkClient = NetworkClientProtocolSpy()
-    var sut: FinanceService?
+    private var sut: FinanceService?
     
     override func setUpWithError() throws {
         try super.setUpWithError()

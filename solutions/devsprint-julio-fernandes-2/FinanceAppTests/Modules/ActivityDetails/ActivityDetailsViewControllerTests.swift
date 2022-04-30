@@ -10,7 +10,7 @@ import XCTest
 
 final class ActivityDetailsViewControllerTests: XCTestCase {
     
-    var sut: ActivityDetailsViewController?
+    private var sut: ActivityDetailsViewController?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

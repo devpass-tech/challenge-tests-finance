@@ -14,7 +14,7 @@ final class ActivityDetailsViewTests: XCTestCase {
     private let size: CGSize = .init(width: 320, height: 480)
     private let lightMode = UITraitCollection(userInterfaceStyle: .light)
     private let darkMode = UITraitCollection(userInterfaceStyle: .dark)
-    
+
     private var sut: ActivityDetailsView?
 
     override func setUpWithError() throws {

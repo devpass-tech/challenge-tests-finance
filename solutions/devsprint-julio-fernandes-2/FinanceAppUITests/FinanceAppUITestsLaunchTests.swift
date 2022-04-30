@@ -7,7 +7,7 @@
 
 import XCTest
 
-class FinanceAppUITestsLaunchTests: XCTestCase {
+final class FinanceAppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

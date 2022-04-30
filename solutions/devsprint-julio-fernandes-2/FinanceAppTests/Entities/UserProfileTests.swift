@@ -9,11 +9,11 @@ import XCTest
 @testable import FinanceApp
 
 final class UserProfileTests: XCTestCase {
-    var sut: UserProfile?
+    
+    private var sut: UserProfile?
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
         sut = UserProfile(
             name: "Paulo Henrique Silva",
             phone: "(81) 998904067",

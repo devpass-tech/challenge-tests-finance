@@ -12,7 +12,7 @@ final class ActivityDetailsViewModelTests: XCTestCase {
     
     private let delegate = ActivityDetailsViewModelDelegateSpy()
     private let financeService = FinanceServiceProtocolMock()
-    var sut: ActivityDetailsViewModel?
+    private var sut: ActivityDetailsViewModel?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

@@ -10,11 +10,10 @@ import XCTest
 
 final class HomeDataTests: XCTestCase {
     
-    var sut: Activity?
+    private var sut: Activity?
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-
         sut = Activity(name: "atividade", price: 1000, time: "50")
     }
 

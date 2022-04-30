@@ -10,7 +10,7 @@ import XCTest
 
 final class ContactListViewControllerTests: XCTestCase {
     
-    var sut: ContactListViewController?
+    private var sut: ContactListViewController?
 
     override func setUpWithError() throws {
         try super.setUpWithError()

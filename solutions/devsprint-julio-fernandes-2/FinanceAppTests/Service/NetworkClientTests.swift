@@ -10,7 +10,7 @@ import XCTest
 
 final class NetworkClientTests: XCTestCase {
 
-    var sut: NetworkClient?
+    private var sut: NetworkClient?
     
     override func setUpWithError() throws {
         try super.setUpWithError()

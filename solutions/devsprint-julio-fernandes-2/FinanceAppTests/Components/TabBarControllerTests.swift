@@ -5,13 +5,13 @@
 //  Created by Julio Fernandes on 29/04/22.
 //
 
-import SnapshotTesting
 import XCTest
+import SnapshotTesting
 @testable import FinanceApp
 
 final class TabBarControllerTests: XCTestCase {
     
-    var sut: TabBarController?
+    private var sut: TabBarController?
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -19,8 +19,8 @@ final class TabBarControllerTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        try super.tearDownWithError()
         sut = nil
+        try super.tearDownWithError()
     }
     
     func test_viewDidLoad() {
