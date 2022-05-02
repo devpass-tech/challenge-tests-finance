@@ -1,37 +1,46 @@
 import Foundation
 import UIKit
 
+protocol ContactListViewDelegate: AnyObject {
+    func didSelectItemAt(_ indexPath: IndexPath)
+}
+
 final class ContactListView: UIView {
     static let cellSize = CGFloat(82)
-
-    private let cellIdentifier = "ContactCellIdentifier"
+    
+    weak var delegate: ContactListViewDelegate?
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ContactCellView.self, forCellReuseIdentifier: self.cellIdentifier)
-        tableView.dataSource = self
+        tableView.register(ContactCellView.self, forCellReuseIdentifier: ContactCellView.className)
         tableView.delegate = self
         return tableView
     }()
 
-    init() {
+    init(dataSource: UITableViewDataSource) {
         super.init(frame: .zero)
-
-        backgroundColor = .white
-        addSubviews()
-        configureConstraints()
-
-        tableView.reloadData()
+        tableView.dataSource = dataSource
+        setupUI()
     }
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func reloadData() {
+        tableView.reloadData()
+    }
 }
 
 private extension ContactListView {
+    func setupUI() {
+        backgroundColor = .white
+        addSubviews()
+        configureConstraints()
+    }
+    
     func addSubviews() {
         addSubview(tableView)
     }
@@ -46,20 +55,13 @@ private extension ContactListView {
     }
 }
 
-extension ContactListView: UITableViewDataSource {
-    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
-    }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
-
-        return cell
-    }
-}
-
 extension ContactListView: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return ContactListView.cellSize
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelectItemAt(indexPath)
     }
 }

@@ -4,10 +4,22 @@ import UIKit
 protocol TransferViewDelegate: AnyObject {
     func didPressChooseContactButton()
     func didPressTransferButton()
+    func amountTextChanged(_ text: String?)
 }
 
 final class TransfersView: UIView {
     weak var delegate: TransferViewDelegate?
+    var isTransferButtonEnabled: Bool {
+        get { transferButton.isEnabled }
+        set {
+            transferButton.isEnabled = newValue
+            transferButton.backgroundColor = newValue ? .systemBlue : .gray
+        }
+    }
+    var amountText: String? {
+        get { amountTextField.text }
+        set { amountTextField.text = newValue }
+    }
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -24,6 +36,7 @@ final class TransfersView: UIView {
         textField.font = UIFont.boldSystemFont(ofSize: 34)
         textField.textAlignment = .center
         textField.keyboardType = .numbersAndPunctuation
+        textField.addTarget(self, action: #selector(amountTextChanged), for: .editingChanged)
         return textField
     }()
 
@@ -75,6 +88,10 @@ final class TransfersView: UIView {
 
     @objc private func transfer() {
         delegate?.didPressTransferButton()
+    }
+    
+    @objc private func amountTextChanged() {
+        delegate?.amountTextChanged(amountTextField.text)
     }
 
     @available(*, unavailable)

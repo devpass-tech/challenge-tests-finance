@@ -58,7 +58,7 @@ final class ActivityDetailsView: UIView {
     private lazy var reportIssueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Report a issue", for: .normal)
+        button.setTitle("Report an issue", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14

@@ -1,7 +1,8 @@
 import UIKit
 
 final class ConfirmationViewController: UIViewController {
+    var onConfirmationButtonTapped: (() -> Void)?
     override func loadView() {
-        view = ConfirmationView()
+        view = ConfirmationView(onConfirmationButtonTapped: onConfirmationButtonTapped)
     }
 }

@@ -48,7 +48,6 @@ final class UserProfileHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Devpass Bank"
         label.font = UIFont.systemFont(ofSize: 15)
-
         return label
     }()
 
@@ -78,5 +77,11 @@ final class UserProfileHeaderView: UIView {
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setData(_ data: UserProfileViewData) {
+        nameLabel.text = data.name
+        agencyLabel.text = data.agency
+        accountLabel.text = data.account
     }
 }
