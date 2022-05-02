@@ -34,7 +34,7 @@
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
 		9882465427D01210001DD0C5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465327D01210001DD0C5 /* String+Extensions.swift */; };
-		9882465627D0121F001DD0C5 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */; };
+		9882465627D0121F001DD0C5 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465527D0121F001DD0C5 /* NSObject+Extensions.swift */; };
 		9882465827D013A3001DD0C5 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465727D013A3001DD0C5 /* HomeData.swift */; };
 		9882465A27D013B4001DD0C5 /* ActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465927D013B4001DD0C5 /* ActivityDetails.swift */; };
 		9882465C27D013C1001DD0C5 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465B27D013C1001DD0C5 /* Contact.swift */; };
@@ -44,6 +44,7 @@
 		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
+		E5C716D1281FB36F00BD22B2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716D0281FB36F00BD22B2 /* HomeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +96,7 @@
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		9882465327D01210001DD0C5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		9882465527D0121F001DD0C5 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		9882465727D013A3001DD0C5 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		9882465927D013B4001DD0C5 /* ActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetails.swift; sourceTree = "<group>"; };
 		9882465B27D013C1001DD0C5 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
+		E5C716D0281FB36F00BD22B2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,12 +157,10 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				98584A9C277E350D0028DBEA /* Application */,
+				E5C716CF281FB18400BD22B2 /* Core */,
+				98584A9E277E35700028DBEA /* Scenes */,
 				98584A9D277E351B0028DBEA /* Resources */,
-				98584A9C277E350D0028DBEA /* AppDelegate */,
-				98584A9E277E35700028DBEA /* Modules */,
-				98584AF8277E511C0028DBEA /* Components */,
-				98584AB8277E374A0028DBEA /* Service */,
-				9882465227D011FC001DD0C5 /* Extensions */,
 			);
 			path = FinanceApp;
 			sourceTree = "<group>";
@@ -182,13 +182,13 @@
 			path = FinanceAppUITests;
 			sourceTree = "<group>";
 		};
-		98584A9C277E350D0028DBEA /* AppDelegate */ = {
+		98584A9C277E350D0028DBEA /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				98584A6C277E32C30028DBEA /* AppDelegate.swift */,
 				98584A6E277E32C30028DBEA /* SceneDelegate.swift */,
 			);
-			path = AppDelegate;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		98584A9D277E351B0028DBEA /* Resources */ = {
@@ -201,7 +201,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		98584A9E277E35700028DBEA /* Modules */ = {
+		98584A9E277E35700028DBEA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				98584B08277E602C0028DBEA /* ContactList */,
@@ -211,7 +211,7 @@
 				98584A9F277E35780028DBEA /* Home */,
 				98584B07277E5FF60028DBEA /* ActivityDetails */,
 			);
-			path = Modules;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		98584A9F277E35780028DBEA /* Home */ = {
@@ -224,14 +224,12 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		98584AB8277E374A0028DBEA /* Service */ = {
+		98584AB8277E374A0028DBEA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				98584AC2277E42E80028DBEA /* FinanceService.swift */,
 				9882466127D016F8001DD0C5 /* NetworkClient.swift */,
-				98584AC1277E42CB0028DBEA /* Entities */,
 			);
-			path = Service;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		98584AC1277E42CB0028DBEA /* Entities */ = {
@@ -273,7 +271,7 @@
 			path = Confirmation;
 			sourceTree = "<group>";
 		};
-		98584AF8277E511C0028DBEA /* Components */ = {
+		98584AF8277E511C0028DBEA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				98584AF9277E51850028DBEA /* HomeHeaderView.swift */,
@@ -283,7 +281,7 @@
 				98426FA927A6EC8700B09645 /* TabBarController.swift */,
 				98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */,
 			);
-			path = Components;
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		98584B07277E5FF60028DBEA /* ActivityDetails */ = {
@@ -309,10 +307,31 @@
 			isa = PBXGroup;
 			children = (
 				9882465327D01210001DD0C5 /* String+Extensions.swift */,
-				9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */,
+				9882465527D0121F001DD0C5 /* NSObject+Extensions.swift */,
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5C716CF281FB18400BD22B2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				98584AB8277E374A0028DBEA /* Networking */,
+				E5C716D2281FB3AB00BD22B2 /* Services */,
+				98584AF8277E511C0028DBEA /* UIComponents */,
+				9882465227D011FC001DD0C5 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E5C716D2281FB3AB00BD22B2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E5C716D0281FB36F00BD22B2 /* HomeService.swift */,
+				98584AC2277E42E80028DBEA /* FinanceService.swift */,
+				98584AC1277E42CB0028DBEA /* Entities */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,8 +492,9 @@
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
-				9882465627D0121F001DD0C5 /* UITableViewCell+Extensions.swift in Sources */,
+				9882465627D0121F001DD0C5 /* NSObject+Extensions.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
+				E5C716D1281FB36F00BD22B2 /* HomeService.swift in Sources */,
 				9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */,
 				9882466227D016F8001DD0C5 /* NetworkClient.swift in Sources */,
 			);

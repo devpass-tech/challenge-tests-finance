@@ -1,14 +1,6 @@
-//
-//  FinanceAppUITestsLaunchTests.swift
-//  FinanceAppUITests
-//
-//  Created by Rodrigo Borges on 30/12/21.
-//
-
 import XCTest
 
 class FinanceAppUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

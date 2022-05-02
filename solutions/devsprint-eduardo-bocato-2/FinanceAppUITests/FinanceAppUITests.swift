@@ -1,14 +1,6 @@
-//
-//  FinanceAppUITests.swift
-//  FinanceAppUITests
-//
-//  Created by Rodrigo Borges on 30/12/21.
-//
-
 import XCTest
 
 class FinanceAppUITests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
