@@ -7,12 +7,18 @@ protocol HomeViewModelDelegate: AnyObject {
 struct HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
 
+    private let service: FinanceServiceProtocol
+
+    init(with service: FinanceServiceProtocol) {
+        self.service = service
+    }
+
     func fetchData() {
-        FinanceService.fetchHomeData { homeData in
+        service.fetchHomeData { homeData in
             guard let homeData = homeData else { return }
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self.delegate?.didFetchHomeData(homeData)
-            }
+//            }
         }
     }
 }

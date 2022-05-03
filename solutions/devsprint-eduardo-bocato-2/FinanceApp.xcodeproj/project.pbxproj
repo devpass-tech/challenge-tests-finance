@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622E33D62821B0CF00DAE432 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */; };
+		622E33D92821B14200DAE432 /* HomeViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33D82821B14200DAE432 /* HomeViewModelDelegateMock.swift */; };
+		622E33DB2821B60F00DAE432 /* FinanceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33DA2821B60F00DAE432 /* FinanceServiceMock.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -60,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		622E33D82821B14200DAE432 /* HomeViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateMock.swift; sourceTree = "<group>"; };
+		622E33DA2821B60F00DAE432 /* FinanceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceMock.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +129,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622E33D72821B12000DAE432 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				622E33D82821B14200DAE432 /* HomeViewModelDelegateMock.swift */,
+				622E33DA2821B60F00DAE432 /* FinanceServiceMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +382,9 @@
 		E5C717032820762500BD22B2 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				622E33D72821B12000DAE432 /* Mock */,
 				E5C7170B2820763A00BD22B2 /* FinanceAppTests.swift */,
+				622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -518,6 +535,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C7170C2820763A00BD22B2 /* FinanceAppTests.swift in Sources */,
+				622E33D92821B14200DAE432 /* HomeViewModelDelegateMock.swift in Sources */,
+				622E33DB2821B60F00DAE432 /* FinanceServiceMock.swift in Sources */,
+				622E33D62821B0CF00DAE432 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

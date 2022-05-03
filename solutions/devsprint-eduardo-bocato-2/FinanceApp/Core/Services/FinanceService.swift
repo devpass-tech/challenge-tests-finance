@@ -1,8 +1,12 @@
 import Foundation
 import Combine
 
-final class FinanceService {
-    class func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
+protocol FinanceServiceProtocol {
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
+}
+
+final class FinanceService: FinanceServiceProtocol {
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
 
         NetworkClient.shared.performRequest(with: url) { data in
