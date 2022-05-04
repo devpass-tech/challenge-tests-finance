@@ -29,7 +29,7 @@ final class ActivityCellView: UITableViewCell {
         return imageView
     }()
 
-    private lazy var activityNameLabel: UILabel = {
+    lazy var activityNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
@@ -37,7 +37,7 @@ final class ActivityCellView: UITableViewCell {
         return label
     }()
 
-    private lazy var activityInfoLabel: UILabel = {
+    lazy var activityInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray

@@ -105,4 +105,11 @@ final class ActivityDetailsView: UIView {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setData(_ data: ActivityDetails) {
+        activityNameLabel.text = data.name
+        categoryLabel.text = data.category
+        priceLabel.text = String(format: "$%.2f", data.price)
+        timeLabel.text = data.time // This needs to be formatted...
+    }
 }

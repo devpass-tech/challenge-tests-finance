@@ -2,7 +2,11 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     override func viewWillAppear(_: Bool) {
-        let homeViewController = HomeViewController()
+        var homeViewModel = HomeViewModel()
+        let homeViewController = HomeViewController(
+            viewModel: homeViewModel
+        )
+        homeViewModel.delegate = homeViewController
         let homeNavigationController = UINavigationController(rootViewController: homeViewController)
         let homeTabBar = UITabBarItem(title: "Home", image: UIImage(named: "house.fill"), tag: 0)
         homeNavigationController.tabBarItem = homeTabBar
