@@ -13,12 +13,6 @@ struct HomeViewModel {
         self.homeService = homeService
     }
 
-    private let service: FinanceServiceProtocol
-
-    init(with service: FinanceServiceProtocol) {
-        self.service = service
-    }
-
     func fetchData() {
         homeService.fetchHomeData { homeData in
             guard let homeData = homeData else { return }
@@ -26,3 +20,17 @@ struct HomeViewModel {
         }
     }
 }
+
+#if DEBUG
+ final class HomeViewModelDelegateSpy: HomeViewModelDelegate {
+     private(set) var didFetchHomeDataCalled = false
+     private(set) var dataPassed: HomeData?
+
+     init() {}
+
+     func didFetchHomeData(_ data: HomeData) {
+         didFetchHomeDataCalled = true
+         dataPassed = data
+     }
+ }
+ #endif

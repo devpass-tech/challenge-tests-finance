@@ -18,3 +18,21 @@ extension Activity {
         return "$\(price) • \(time)"
     }
 }
+
+#if DEBUG
+ extension HomeData {
+     static func fixture(
+         balance: Float = 3.0,
+         savings: Float = 2.0,
+         spending: Float = 1.0,
+         activity: [Activity] = []
+     ) -> Self {
+         .init(
+             balance: balance,
+             savings: savings,
+             spending: spending,
+             activity: activity
+         )
+     }
+ }
+ #endif

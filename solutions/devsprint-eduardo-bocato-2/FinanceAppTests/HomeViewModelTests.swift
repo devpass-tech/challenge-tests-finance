@@ -10,29 +10,40 @@ import XCTest
 
 class HomeViewModelTests: XCTestCase {
 
-    var sut: HomeViewModel!
-    let delegate = HomeViewModelDelegateMock()
-    let service = FinanceServiceMock()
+    let service = FinanceServiceStub.self
+    private let homeViewModelDelegateSpy: HomeViewModelDelegateSpy = .init()
 
-    override func setUp() {
-        sut = HomeViewModel(with: service)
-        sut.delegate = delegate
-        super.setUp()
-    }
+    private lazy var sut: HomeViewModel = {
+        var viewModel = HomeViewModel(
+            homeService: service
+        )
+        viewModel.delegate = homeViewModelDelegateSpy
+        return viewModel
+    }()
 
-    override func tearDown() {
-        super.tearDown()
-        sut = nil
-    }
+    func test_fetchData_whenServiceReturnsNil_didFetchHomeDataShouldNotBeCalled() {
+        // Given
+        let homeDataMock: HomeData? = nil
+        service.homeDataToBeReturned = homeDataMock
 
-    func test_fetchData_withData_shouldCallWithSuccess() throws {
+        // When
         sut.fetchData()
-        XCTAssertTrue(delegate.displayedHomeData)
+
+        // Then
+        XCTAssertNil(homeViewModelDelegateSpy.dataPassed)
+        XCTAssertFalse(homeViewModelDelegateSpy.didFetchHomeDataCalled)
     }
 
-    func test_fetchData_withoutData_shouldCallWithError() throws {
-        service.errorAPI = .noData
+    func test_fetchData_whenServiceReturnsValidData_didFetchHomeDataShouldBeCalled() {
+        // Given
+        let homeDataMock: HomeData = .fixture()
+        service.homeDataToBeReturned = homeDataMock
+
+        // When
         sut.fetchData()
-        XCTAssertFalse(delegate.displayedError)
+
+        // Then
+        XCTAssertNotNil(homeViewModelDelegateSpy.dataPassed)
+        XCTAssertTrue(homeViewModelDelegateSpy.didFetchHomeDataCalled)
     }
 }
