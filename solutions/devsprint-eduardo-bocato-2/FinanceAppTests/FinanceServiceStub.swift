@@ -1,5 +1,5 @@
 //
-//  FinanceServiceMock.swift
+//  FinanceServiceStub.swift
 //  FinanceAppTests
 //
 //  Created by Murillo R. Araújo on 03/05/22.
