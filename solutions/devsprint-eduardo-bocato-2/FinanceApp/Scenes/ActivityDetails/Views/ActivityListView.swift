@@ -12,6 +12,10 @@ final class ActivityListView: UIView {
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "ActivityCellIdentifier"
+    
+    var activities: [Activity] = [] {
+        didSet { tableView.reloadData() }
+    }
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -24,12 +28,9 @@ final class ActivityListView: UIView {
 
     init() {
         super.init(frame: .zero)
-
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
-        tableView.reloadData()
     }
 
     @available(*, unavailable)
@@ -55,11 +56,16 @@ private extension ActivityListView {
 
 extension ActivityListView: UITableViewDataSource {
     public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 5
+        return activities.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
+        let activity = activities[indexPath.row]
+        cell.activityNameLabel.text = activity.name
+        cell.activityInfoLabel.text = activity.formattedInfo()
+        
         return cell
     }
 }

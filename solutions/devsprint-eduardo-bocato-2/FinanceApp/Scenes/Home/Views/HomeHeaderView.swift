@@ -12,7 +12,7 @@ final class HomeHeaderView: UIView {
         return stackView
     }()
 
-    private lazy var label: UILabel = {
+    lazy var label: UILabel = {
         let label = UILabel()
         label.text = "$15,459.27"
         label.font = UIFont.boldSystemFont(ofSize: 34)
@@ -34,7 +34,7 @@ final class HomeHeaderView: UIView {
         return label
     }()
 
-    private lazy var savingsValueLabel: UILabel = {
+    lazy var savingsValueLabel: UILabel = {
         let label = UILabel()
         label.text = "$100.00"
         label.textColor = .lightGray
@@ -56,7 +56,7 @@ final class HomeHeaderView: UIView {
         return label
     }()
 
-    private lazy var spendingValueLabel: UILabel = {
+    lazy var spendingValueLabel: UILabel = {
         let label = UILabel()
         label.text = "$100.00"
         label.textColor = .lightGray

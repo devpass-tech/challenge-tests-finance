@@ -53,6 +53,14 @@ final class HomeView: UIView {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setData(_ data: HomeData) {
+        self.homeHeaderView.label.text = String(format: "$%.2f", data.balance)
+        self.homeHeaderView.savingsValueLabel.text = String(format: "$%.2f", data.savings)
+        self.homeHeaderView.spendingValueLabel.text = String(format: "$%.2f", data.spending)
+        
+        self.activityListView.activities = data.activity
+    }
 }
 
 extension HomeView: ActivityListViewDelegate {
