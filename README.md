@@ -1,9 +1,9 @@
 
 # Tests Challenge - Finance App 💰
 
-No Desafio Testes, temos apenas tarefas de implementação de testes em uma aplicação iOS. Nosso objetivo é implementar testes unitários, de Snapshot e de UI em uma aplicação de Finanças, seguindo todas as boas práticas de desenvolvimento ágil e Git. 
+In the Tests Challenge, we only have tasks of implementing tests in an iOS application. Our goal is to implement unit, Snapshot and UI tests in a Finance application, following all the best practices of agile development and Git.
 
-Neste desafio, você também verá conceitos de Injeção de Dependência e criação de mocks de classes e dados.
+In this challenge, you will also see Dependency Injection concepts and creating mocks of classes and data.
 
 <p float="left">
 <img src="screenshots/screenshot-1.png" alt="drawing" width="200"/>
@@ -12,23 +12,24 @@ Neste desafio, você também verá conceitos de Injeção de Dependência e cria
 <img src="screenshots/screenshot-8.png" alt="drawing" width="200"/>
 </p>
 
-# Iniciando os trabalhos
+# Contributing
 
-1. Clone este repositório na sua máquina.
-2. Abra a pasta `solutions` e acesse o projeto referente à sua Sprint.
-3. Faça um build e rode o projeto. ▶️
+1. Clone this repository.
+2. Start a new feature branch.
+3. Open solutions folder and access your Dev Sprint's project.
+4. Build, run and code! 👩‍💻
 
-# Extras (DevSprint do Julio)
+# Extras (Julio Fernandes' sprints)
 
-Estamos utilizando o [xcodeGen](https://github.com/yonaskolb/XcodeGen) para gerar nosso projeto, segue as instruções para instalações e rodar o ambiente
+We are using [XcodeGen](https://github.com/yonaskolb/XcodeGen) to generate our project, follow the instructions bellow for installation and running the environment.
 
-## Instalação 
+## Installation 
 
 ```
 brew install xcodegen
 ```
 
-## Configuração
+## Configuration
 
 ```
 cd Scripts && ./setup open
@@ -36,8 +37,8 @@ cd Scripts && ./setup open
 
 > Faça um build e rode o projeto. ▶️
 
-# Sobre a Devpass
+# About Devpass
 
-A Devpass é uma comunidade de pessoas desenvolvedoras de alto potencial acelerando suas carreiras através de desenvolvimento de produtos reais, como o Hereminders, e conexões com as principais lideranças de tecnologia do país, através de mentorias particulares e Tech Talks.
+Devpass is a diverse community of high-potential software developers accelerating their careers through real-world product development and mentorship from tech leaders of the best tech companies.
 
-Se interessou? Acesse www.devpass.com.br e se inscreva na nossa lista para ficar por dentro das novidades!
+Interested? Access www.devpass.com.br for more information!
