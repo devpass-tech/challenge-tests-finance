@@ -1,13 +1,19 @@
 import UIKit
 
-final class HomeViewController: UIViewController, HomeViewModelDelegate {
+final class HomeViewController: UIViewController {
+    // MARK: - Dependencies
+    
     private var viewModel: HomeViewModel
+    
+    // MARK: - UI
     
     private lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
+    
+    // MARK: - Initialization
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -20,8 +26,16 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
+        super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Profile",
+            style: .plain,
+            target: self,
+            action: #selector(openProfile)
+        )
         viewModel.fetchData()
     }
 
@@ -29,11 +43,18 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
         view = homeView
     }
 
+    // MARK: - Actions
+    
     @objc private func openProfile() {
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
+        let navigationController = UINavigationController(
+            rootViewController: UserProfileViewController()
+        )
         present(navigationController, animated: true)
     }
-    
+}
+
+// MARK: - HomeViewModelDelegate
+extension HomeViewController: HomeViewModelDelegate {
     func didFetchHomeData(_ data: HomeData) {
         DispatchQueue.main.async {
             self.homeView.setData(data)
@@ -41,6 +62,7 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
     }
 }
 
+// MARK: - HomeViewDelegate
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
         let activityDetailsViewController = ActivityDetailsViewController(

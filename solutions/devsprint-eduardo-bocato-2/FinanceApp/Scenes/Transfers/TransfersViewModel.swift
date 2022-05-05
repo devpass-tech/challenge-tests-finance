@@ -13,7 +13,7 @@ struct TransfersEnvironment {
 }
 extension TransfersEnvironment {
     static let live: Self = .init(
-        transferAmountUseCase: .live()
+        transferAmountUseCase: .live
     )
 }
 

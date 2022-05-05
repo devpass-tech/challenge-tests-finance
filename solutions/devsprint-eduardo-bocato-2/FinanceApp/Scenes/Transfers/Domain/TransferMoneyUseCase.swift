@@ -2,15 +2,18 @@ import Foundation
 import Combine
 
 struct TransferMoneyUseCase {
-    enum Error: Swift.Error {
+    enum Error: Swift.Error, Equatable {
         case invalidInput
         case serviceError
     }
     
     let execute: (String) -> AnyPublisher<Bool, Error>
 }
+
 extension TransferMoneyUseCase {
-    static func live() -> Self {
+    static let live: Self = .instantiate(transferService: FinanceService())
+    
+    static func instantiate(transferService: TransfersServiceProtocol) -> Self {
         .init(
             execute: { amountString in
                 let future = Future<Bool, Error> { promise in
@@ -20,7 +23,7 @@ extension TransferMoneyUseCase {
                         return
                     }
                     
-                    FinanceService().transferAmount(amount) { result in
+                    transferService.transferAmount(amount) { result in
                         guard let result = result else {
                             promise(.failure(.serviceError))
                             return
@@ -34,3 +37,11 @@ extension TransferMoneyUseCase {
         )
     }
 }
+
+#if DEBUG
+extension TransferMoneyUseCase {
+    static func stub(returning result: Result<Bool, Error>) -> Self {
+        .init(execute: { _ in result.publisher.eraseToAnyPublisher() })
+    }
+}
+#endif

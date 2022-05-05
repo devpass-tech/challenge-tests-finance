@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		622E33D62821B0CF00DAE432 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */; };
-		622E33DB2821B60F00DAE432 /* FinanceServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33DA2821B60F00DAE432 /* FinanceServiceStub.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -42,13 +40,17 @@
 		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
+		E55B7FEF28246647004AC76A /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */; };
+		E55B7FF628246818004AC76A /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B7FF528246818004AC76A /* HomeService.swift */; };
+		E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B7FF928246B7B004AC76A /* TransferMoneyUseCaseTests.swift */; };
+		E55B7FFD28246E94004AC76A /* TransfersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B7FFC28246E94004AC76A /* TransfersService.swift */; };
+		E55B7FFF282475C4004AC76A /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B7FFE282475C4004AC76A /* HomeViewControllerTests.swift */; };
 		E5C716DB281FBE3F00BD22B2 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716DA281FBE3F00BD22B2 /* PhoneNumberFormatter.swift */; };
 		E5C716DD281FC46700BD22B2 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716DC281FC46700BD22B2 /* NetworkingError.swift */; };
 		E5C716E1281FCCCE00BD22B2 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716E0281FCCCE00BD22B2 /* UserProfileView.swift */; };
 		E5C716E5281FD04000BD22B2 /* UserProfileViewDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716E4281FD04000BD22B2 /* UserProfileViewDataMapper.swift */; };
 		E5C716EC281FD8AB00BD22B2 /* TransferMoneyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716EB281FD8AB00BD22B2 /* TransferMoneyUseCase.swift */; };
 		E5C716EE281FE84900BD22B2 /* TransfersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716ED281FE84900BD22B2 /* TransfersViewModel.swift */; };
-		E5C7170C2820763A00BD22B2 /* FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7170B2820763A00BD22B2 /* FinanceAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +65,6 @@
 
 /* Begin PBXFileReference section */
 		622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		622E33DA2821B60F00DAE432 /* FinanceServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceStub.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,10 @@
 		9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
+		E55B7FF528246818004AC76A /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		E55B7FF928246B7B004AC76A /* TransferMoneyUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMoneyUseCaseTests.swift; sourceTree = "<group>"; };
+		E55B7FFC28246E94004AC76A /* TransfersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersService.swift; sourceTree = "<group>"; };
+		E55B7FFE282475C4004AC76A /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		E5C716DA281FBE3F00BD22B2 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		E5C716DC281FC46700BD22B2 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		E5C716E0281FCCCE00BD22B2 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -106,7 +111,6 @@
 		E5C716EB281FD8AB00BD22B2 /* TransferMoneyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMoneyUseCase.swift; sourceTree = "<group>"; };
 		E5C716ED281FE84900BD22B2 /* TransfersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewModel.swift; sourceTree = "<group>"; };
 		E5C717022820762500BD22B2 /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5C7170B2820763A00BD22B2 /* FinanceAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 		98584A9F277E35780028DBEA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E55B7FF4282467FE004AC76A /* Service */,
 				E5C716D7281FBD0900BD22B2 /* Views */,
 				98584AA4277E35E90028DBEA /* HomeViewController.swift */,
 				9882466527D13AC0001DD0C5 /* HomeViewModel.swift */,
@@ -223,6 +228,7 @@
 		98584AD1277E50430028DBEA /* Transfers */ = {
 			isa = PBXGroup;
 			children = (
+				E55B7FFB28246E7D004AC76A /* Services */,
 				E5C716EA281FD88A00BD22B2 /* Domain */,
 				98584AD3277E50430028DBEA /* TransfersView.swift */,
 				E5C716ED281FE84900BD22B2 /* TransfersViewModel.swift */,
@@ -280,6 +286,64 @@
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E55B7FF028246683004AC76A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FF728246B48004AC76A /* Transfers */,
+				E55B7FF12824668D004AC76A /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E55B7FF12824668D004AC76A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */,
+				E55B7FFE282475C4004AC76A /* HomeViewControllerTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E55B7FF2282466E6004AC76A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FF028246683004AC76A /* Scenes */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		E55B7FF4282467FE004AC76A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FF528246818004AC76A /* HomeService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E55B7FF728246B48004AC76A /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FF828246B6B004AC76A /* Domain */,
+			);
+			path = Transfers;
+			sourceTree = "<group>";
+		};
+		E55B7FF828246B6B004AC76A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FF928246B7B004AC76A /* TransferMoneyUseCaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E55B7FFB28246E7D004AC76A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E55B7FFC28246E94004AC76A /* TransfersService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E5C716CF281FB18400BD22B2 /* Core */ = {
@@ -371,9 +435,7 @@
 		E5C717032820762500BD22B2 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5C7170B2820763A00BD22B2 /* FinanceAppTests.swift */,
-				622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */,
-				622E33DA2821B60F00DAE432 /* FinanceServiceStub.swift */,
+				E55B7FF2282466E6004AC76A /* Tests */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -505,6 +567,8 @@
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
+				E55B7FF628246818004AC76A /* HomeService.swift in Sources */,
+				E55B7FFD28246E94004AC76A /* TransfersService.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				E5C716DD281FC46700BD22B2 /* NetworkingError.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
@@ -523,9 +587,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C7170C2820763A00BD22B2 /* FinanceAppTests.swift in Sources */,
-				622E33DB2821B60F00DAE432 /* FinanceServiceStub.swift in Sources */,
-				622E33D62821B0CF00DAE432 /* HomeViewModelTests.swift in Sources */,
+				E55B7FEF28246647004AC76A /* HomeViewModelTests.swift in Sources */,
+				E55B7FFF282475C4004AC76A /* HomeViewControllerTests.swift in Sources */,
+				E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

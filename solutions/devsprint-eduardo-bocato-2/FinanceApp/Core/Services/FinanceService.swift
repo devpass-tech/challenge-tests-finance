@@ -1,11 +1,7 @@
 import Foundation
 import Combine
 
-protocol HomeServiceProtocol {
-    static func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
-}
-
-final class FinanceService: HomeServiceProtocol {
+final class FinanceService {
     static func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
 
