@@ -51,6 +51,7 @@
 		E5C716E5281FD04000BD22B2 /* UserProfileViewDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716E4281FD04000BD22B2 /* UserProfileViewDataMapper.swift */; };
 		E5C716EC281FD8AB00BD22B2 /* TransferMoneyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716EB281FD8AB00BD22B2 /* TransferMoneyUseCase.swift */; };
 		E5C716EE281FE84900BD22B2 /* TransfersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C716ED281FE84900BD22B2 /* TransfersViewModel.swift */; };
+		E5D1E5E4282485C000DC3AE6 /* UIViewControllerExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5E3282485C000DC3AE6 /* UIViewControllerExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		E5C716EB281FD8AB00BD22B2 /* TransferMoneyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMoneyUseCase.swift; sourceTree = "<group>"; };
 		E5C716ED281FE84900BD22B2 /* TransfersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewModel.swift; sourceTree = "<group>"; };
 		E5C717022820762500BD22B2 /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D1E5E3282485C000DC3AE6 /* UIViewControllerExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,14 +308,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E55B7FF2282466E6004AC76A /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				E55B7FF028246683004AC76A /* Scenes */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
 		E55B7FF4282467FE004AC76A /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,9 +429,26 @@
 		E5C717032820762500BD22B2 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E55B7FF2282466E6004AC76A /* Tests */,
+				E5D1E5E5282485C500DC3AE6 /* Core */,
+				E55B7FF028246683004AC76A /* Scenes */,
 			);
 			path = FinanceAppTests;
+			sourceTree = "<group>";
+		};
+		E5D1E5E5282485C500DC3AE6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E5E6282485CA00DC3AE6 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E5D1E5E6282485CA00DC3AE6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E5E3282485C000DC3AE6 /* UIViewControllerExtensionTests.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D1E5E4282485C000DC3AE6 /* UIViewControllerExtensionTests.swift in Sources */,
 				E55B7FEF28246647004AC76A /* HomeViewModelTests.swift in Sources */,
 				E55B7FFF282475C4004AC76A /* HomeViewControllerTests.swift in Sources */,
 				E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */,
