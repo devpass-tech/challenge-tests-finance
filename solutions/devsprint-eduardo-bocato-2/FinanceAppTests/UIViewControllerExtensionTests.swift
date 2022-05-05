@@ -1,0 +1,19 @@
+import XCTest
+@testable import FinanceApp
+
+final class ViewControllerDummy: UIViewController { }
+
+final class UIViewControllerExtensionTests: XCTestCase {
+    func test_insideNavigation_whenCalled_wrapsViewController() throws {
+        //Given
+        let sut = ViewControllerDummy()
+
+        //When
+        let result = sut.insideNavigationController()
+
+        //Then
+        XCTAssertTrue(result.modalPresentationStyle == .formSheet)
+        XCTAssertEqual(result.viewControllers.count, 1)
+        XCTAssertTrue(result.viewControllers.first is ViewControllerDummy)
+    }
+}
