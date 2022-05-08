@@ -4,6 +4,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Dependencies
     
     private var viewModel: HomeViewModel
+    private let userProfileSceneFactory: UserProfileSceneFactoryProtocol
     
     // MARK: - UI
     
@@ -15,8 +16,12 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Initialization
     
-    init(viewModel: HomeViewModel) {
+    init(
+        viewModel: HomeViewModel,
+        userProfileSceneFactory: UserProfileSceneFactoryProtocol
+    ) {
         self.viewModel = viewModel
+        self.userProfileSceneFactory = userProfileSceneFactory
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
     }
@@ -30,24 +35,30 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchData()
+    }
+
+    override func loadView() {
+        view = homeView
+        setupNavigationBar()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Profile",
             style: .plain,
             target: self,
             action: #selector(openProfile)
         )
-        viewModel.fetchData()
-    }
-
-    override func loadView() {
-        view = homeView
     }
 
     // MARK: - Actions
     
     @objc private func openProfile() {
         let navigationController = UINavigationController(
-            rootViewController: UserProfileViewController()
+            rootViewController: userProfileSceneFactory.makeViewController()
         )
         present(navigationController, animated: true)
     }

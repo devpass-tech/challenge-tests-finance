@@ -2,9 +2,14 @@ import Foundation
 import Combine
 
 final class FinanceService {
+    private let networkClient: NetworkClient
+    
+    init(networkClient: NetworkClient = NetworkClient.shared) {
+        self.networkClient = networkClient
+    }
+    
     static func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
-
         NetworkClient.shared.performRequest(with: url) { data in
             guard let data = data else {
                 completion(nil)
@@ -24,7 +29,6 @@ final class FinanceService {
     
     static func fetchContactList(_ completion: @escaping (Result<[Contact], NetworkingError>) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")!
-
         NetworkClient.shared.performRequest(with: url) { data in
             guard let data = data else {
                 completion(.failure(.unexpected))
@@ -44,8 +48,7 @@ final class FinanceService {
     
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")!
-
-        NetworkClient.shared.performRequest(with: url) { data in
+        networkClient.performRequest(with: url) { data in
             guard let data = data else {
                 completion(nil)
                 return
@@ -64,8 +67,7 @@ final class FinanceService {
 
     func transferAmount(_ amount: Float, _ completion: @escaping (TransferResult?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/transfer_successful_endpoint.json")!
-
-        NetworkClient.shared.performRequest(with: url) { data in
+        networkClient.performRequest(with: url) { data in
             guard let data = data else {
                 completion(nil)
                 return
@@ -84,7 +86,7 @@ final class FinanceService {
 
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")!
-        NetworkClient.shared.performRequest(with: url) { data in
+        networkClient.performRequest(with: url) { data in
             guard let data = data else {
                 completion(nil)
                 return

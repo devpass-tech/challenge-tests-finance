@@ -4,32 +4,32 @@ import UIKit
 
 final class HomeViewControllerTests: XCTestCase {
     
-    func test_openProfile_shouldOpenUserProfileViewController() {
+    func test_openProfile_shouldOpenUserProfileViewController() throws {
         // Given
-        HomeViewControllerSpy.reset()
+        
+        let homeViewControllerSpy = HomeViewControllerSpy.self
+        homeViewControllerSpy.reset()
+        
+        let userProfileSceneFactorySpy: UserProfileSceneFactorySpy = .init()
         
         let sut = HomeViewController(
-            viewModel: .init()
+            viewModel: .init(homeService: HomeServiceDummy.self),
+            userProfileSceneFactory: userProfileSceneFactorySpy
         )
-        sut.viewDidLoad()
+        _ = sut.view // calls loadView
+        let openProfileSelector = try XCTUnwrap(sut.navigationItem.rightBarButtonItem?.action)
         
         // When
-        let selector = Selector("openProfile")
-        sut.perform(selector)
+        sut.perform(openProfileSelector)
         
         // Then
         XCTAssertEqual(HomeViewControllerSpy.animatedFlagPassed, true)
         XCTAssertNil(HomeViewControllerSpy.completionPassed)
-        guard
-            let navigationController = HomeViewControllerSpy.viewControllerToPresentPassed as? UINavigationController,
-            let firstViewController = navigationController.viewControllers.first
-        else {
-            XCTFail("Expected an UINavigationController, with valid first ViewController!")
-            return
-        }
         
-        XCTAssertEqual(navigationController.viewControllers.count, 1)
-        XCTAssertTrue(firstViewController is UserProfileViewController)
+        let navigationController = HomeViewControllerSpy.viewControllerToPresentPassed as? UINavigationController
+        XCTAssertEqual(navigationController?.viewControllers.count, 1)
+        
+        XCTAssertTrue(userProfileSceneFactorySpy.makeViewControllerCalled)
     }
 }
 

@@ -4,7 +4,8 @@ final class TabBarController: UITabBarController {
     override func viewWillAppear(_: Bool) {
         var homeViewModel = HomeViewModel()
         let homeViewController = HomeViewController(
-            viewModel: homeViewModel
+            viewModel: homeViewModel,
+            userProfileSceneFactory: UserProfileSceneFactory()
         )
         homeViewModel.delegate = homeViewController
         let homeNavigationController = UINavigationController(rootViewController: homeViewController)
