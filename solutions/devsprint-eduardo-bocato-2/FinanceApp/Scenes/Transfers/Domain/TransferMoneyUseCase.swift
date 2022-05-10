@@ -40,6 +40,10 @@ extension TransferMoneyUseCase {
 
 #if DEBUG
 extension TransferMoneyUseCase {
+    static func dummy(transferService: TransfersServiceProtocol = TransfersServiceDummy()) -> Self {
+        return .instantiate(transferService: transferService)
+    }
+
     static func stub(returning result: Result<Bool, Error>) -> Self {
         .init(execute: { _ in result.publisher.eraseToAnyPublisher() })
     }
