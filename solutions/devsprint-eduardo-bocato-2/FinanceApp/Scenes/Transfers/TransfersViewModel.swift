@@ -17,8 +17,20 @@ extension TransfersEnvironment {
     )
 }
 
+#if DEBUG
+extension TransfersEnvironment {
+    static func mocking(
+        transferAmountUseCase: TransferMoneyUseCase = .dummy
+    ) -> Self {
+        .init(
+            transferAmountUseCase: transferAmountUseCase
+        )
+    }
+}
+#endif
+
 final class TransfersViewModel: ObservableObject {
-    @Published private(set) var state: TransfersState
+    @Published var state: TransfersState
     private let environment: TransfersEnvironment
     
     private var subscriptions: Set<AnyCancellable> = .init()

@@ -2,23 +2,39 @@ import UIKit
 import Combine
 
 final class TransfersViewController: UIViewController {
+    // MARK: - Properties
+    
     private var subscriptions: Set<AnyCancellable> = .init()
-    private let viewModel = TransfersViewModel()
+    private let viewModel: TransfersViewModel
+    
+    // MARK: - UI
     
     private lazy var transferView: TransfersView = {
         let transferView = TransfersView()
         transferView.delegate = self
         return transferView
     }()
+    
+    // MARK: - Initialization
+    
+    init(viewModel: TransfersViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
 
     override func loadView() {
         view = transferView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         bindViewModel()
     }
+    
+    // MARK: - Setup
     
     private func bindViewModel() {
         viewModel.$state
@@ -46,6 +62,8 @@ final class TransfersViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
+    // MARK: - Actions
+    
     private func showConfirmationDialog() {
         let confirmationViewController = ConfirmationViewController()
         confirmationViewController.onConfirmationButtonTapped = {
@@ -55,6 +73,7 @@ final class TransfersViewController: UIViewController {
     }
 }
 
+// MARK: - TransferViewDelegate
 extension TransfersViewController: TransferViewDelegate {
     func didPressChooseContactButton() {
         let navigationController = UINavigationController(

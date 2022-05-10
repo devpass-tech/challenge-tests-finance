@@ -3,7 +3,6 @@ import XCTest
 import UIKit
 
 final class HomeViewControllerTests: XCTestCase {
-    
     func test_openProfile_shouldOpenUserProfileViewController() throws {
         // Given
         

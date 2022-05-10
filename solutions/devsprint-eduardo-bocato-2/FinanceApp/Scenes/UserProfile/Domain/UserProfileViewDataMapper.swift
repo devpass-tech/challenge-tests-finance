@@ -19,8 +19,8 @@ extension UserProfileViewDataMapper {
             phone: PhoneNumberFormatter.format(entity.phone),
             email: entity.email,
             address: entity.address,
-            agency: "Agency: \(entity.account.agency)",
-            account: "Account: \(entity.account.account)"
+            agency: entity.account.formattedAgency(),
+            account: entity.account.formattedAccount()
         )
     }
 }
