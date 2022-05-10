@@ -11,39 +11,21 @@ import XCTest
 @testable import FinanceApp
 
 final class HomeServiceTests: XCTestCase {
-
     func test_homeService_whenFetchHomeData_shouldReturnHomeData() {
-
         // Given
         let sut = HomeServiceStub.self
         sut.homeDataToBeReturned = MockHomeData.homeData
 
-        let expectation = expectation(description: #function)
+        let expectation = expectation(description: "Expected return HomeData")
 
+        // When / Then
         sut.fetchHomeData { homeData in
-            XCTAssertEqual(homeData?.balance, MockHomeData.homeData?.balance)
-            XCTAssertEqual(homeData?.spending, MockHomeData.homeData?.spending)
-            XCTAssertEqual(homeData?.savings, MockHomeData.homeData?.savings)
+            XCTAssertEqual(homeData?.balance, 8001.00)
+            XCTAssertEqual(homeData?.spending, 8000.00)
+            XCTAssertEqual(homeData?.savings, 1.0)
             expectation.fulfill()
         }
 
         wait(for: [expectation], timeout: 1.0)
-    }
-}
-
-final class MockHomeData {
-    static var homeData: HomeData? {
-        if let fileURL = Bundle(for: self)
-            .url(forResource: "homedatamock",
-                 withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: fileURL)
-                return try JSONDecoder()
-                    .decode(HomeData.self, from: data)
-            } catch {
-                return nil
-            }
-        }
-        return nil
     }
 }
