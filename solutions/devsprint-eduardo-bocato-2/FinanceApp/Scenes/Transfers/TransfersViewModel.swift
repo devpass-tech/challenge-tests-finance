@@ -17,8 +17,9 @@ extension TransfersEnvironment {
     )
 }
 
+
 final class TransfersViewModel: ObservableObject {
-    @Published private(set) var state: TransfersState
+    @Published var state: TransfersState
     private let environment: TransfersEnvironment
     
     private var subscriptions: Set<AnyCancellable> = .init()

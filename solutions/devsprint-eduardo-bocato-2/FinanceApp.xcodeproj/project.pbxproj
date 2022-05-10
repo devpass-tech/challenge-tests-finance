@@ -54,6 +54,11 @@
 		E5D1E5E4282485C000DC3AE6 /* UIViewControllerExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5E3282485C000DC3AE6 /* UIViewControllerExtensionTests.swift */; };
 		E5D1E5E82825BB0500DC3AE6 /* UserProfileSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5E72825BB0500DC3AE6 /* UserProfileSceneFactory.swift */; };
 		E5D1E5EB2825BE0700DC3AE6 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5EA2825BE0700DC3AE6 /* UserProfileService.swift */; };
+		E5D1E5F12827F35F00DC3AE6 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5F02827F35F00DC3AE6 /* HomeViewTests.swift */; };
+		E5D1E5FA2827F82500DC3AE6 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E5D1E5F92827F82500DC3AE6 /* SnapshotTesting */; };
+		E5D1E6002829868800DC3AE6 /* ConfirmationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E5FF2829868800DC3AE6 /* ConfirmationViewControllerTests.swift */; };
+		E5D1E605282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E604282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift */; };
+		E5D1E6082829919100DC3AE6 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E6072829919100DC3AE6 /* TabBarControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +122,10 @@
 		E5D1E5E3282485C000DC3AE6 /* UIViewControllerExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionTests.swift; sourceTree = "<group>"; };
 		E5D1E5E72825BB0500DC3AE6 /* UserProfileSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSceneFactory.swift; sourceTree = "<group>"; };
 		E5D1E5EA2825BE0700DC3AE6 /* UserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
+		E5D1E5F02827F35F00DC3AE6 /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
+		E5D1E5FF2829868800DC3AE6 /* ConfirmationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewControllerTests.swift; sourceTree = "<group>"; };
+		E5D1E604282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewDataMapperTests.swift; sourceTree = "<group>"; };
+		E5D1E6072829919100DC3AE6 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D1E5FA2827F82500DC3AE6 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +309,10 @@
 		E55B7FF028246683004AC76A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E5D1E6062829917C00DC3AE6 /* TabBar */,
+				E5D1E6012829868E00DC3AE6 /* Confirmation */,
 				E55B7FF728246B48004AC76A /* Transfers */,
+				E5D1E6022829899C00DC3AE6 /* UserProfile */,
 				E55B7FF12824668D004AC76A /* Home */,
 			);
 			path = Scenes;
@@ -308,6 +321,7 @@
 		E55B7FF12824668D004AC76A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5D1E5EF2827F34F00DC3AE6 /* Views */,
 				622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */,
 				E55B7FFE282475C4004AC76A /* HomeViewControllerTests.swift */,
 			);
@@ -465,6 +479,46 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E5D1E5EF2827F34F00DC3AE6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E5F02827F35F00DC3AE6 /* HomeViewTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5D1E6012829868E00DC3AE6 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E5FF2829868800DC3AE6 /* ConfirmationViewControllerTests.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		E5D1E6022829899C00DC3AE6 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E603282989AC00DC3AE6 /* Domain */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		E5D1E603282989AC00DC3AE6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E604282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E5D1E6062829917C00DC3AE6 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1E6072829919100DC3AE6 /* TabBarControllerTests.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +535,8 @@
 			dependencies = (
 			);
 			name = FinanceApp;
+			packageProductDependencies = (
+			);
 			productName = FinanceApp;
 			productReference = 98584A69277E32C30028DBEA /* FinanceApp.app */;
 			productType = "com.apple.product-type.application";
@@ -499,6 +555,9 @@
 				E5C717072820762500BD22B2 /* PBXTargetDependency */,
 			);
 			name = FinanceAppTests;
+			packageProductDependencies = (
+				E5D1E5F92827F82500DC3AE6 /* SnapshotTesting */,
+			);
 			productName = FinanceAppTests;
 			productReference = E5C717022820762500BD22B2 /* FinanceAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -532,6 +591,9 @@
 				Base,
 			);
 			mainGroup = 98584A60277E32C30028DBEA;
+			packageReferences = (
+				E5D1E5F82827F82500DC3AE6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 98584A6A277E32C30028DBEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -615,9 +677,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D1E5E4282485C000DC3AE6 /* UIViewControllerExtensionTests.swift in Sources */,
+				E5D1E6082829919100DC3AE6 /* TabBarControllerTests.swift in Sources */,
 				E55B7FEF28246647004AC76A /* HomeViewModelTests.swift in Sources */,
 				E55B7FFF282475C4004AC76A /* HomeViewControllerTests.swift in Sources */,
 				E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */,
+				E5D1E5F12827F35F00DC3AE6 /* HomeViewTests.swift in Sources */,
+				E5D1E605282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift in Sources */,
+				E5D1E6002829868800DC3AE6 /* ConfirmationViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,6 +961,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5D1E5F82827F82500DC3AE6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5D1E5F92827F82500DC3AE6 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5D1E5F82827F82500DC3AE6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98584A61277E32C30028DBEA /* Project object */;
 }

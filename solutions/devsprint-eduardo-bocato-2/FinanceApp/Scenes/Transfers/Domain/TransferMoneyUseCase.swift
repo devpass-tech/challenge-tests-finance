@@ -43,5 +43,9 @@ extension TransferMoneyUseCase {
     static func stub(returning result: Result<Bool, Error>) -> Self {
         .init(execute: { _ in result.publisher.eraseToAnyPublisher() })
     }
+    
+    static let dummy: Self = .init(
+        execute: { _ in Empty().eraseToAnyPublisher() }
+    )
 }
 #endif

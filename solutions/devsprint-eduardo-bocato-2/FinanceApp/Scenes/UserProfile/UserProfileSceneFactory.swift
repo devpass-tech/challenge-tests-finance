@@ -21,4 +21,8 @@ final class UserProfileSceneFactorySpy: UserProfileSceneFactoryProtocol {
         return .init()
     }
 }
+
+struct UserProfileSceneFactoryDummy: UserProfileSceneFactoryProtocol {
+    func makeViewController() -> UIViewController { .init() }
+}
 #endif

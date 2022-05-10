@@ -9,7 +9,7 @@ final class TransferMoneyUseCaseTests: XCTestCase {
     
     // MARK: - Tests
     
-    func test_execute_() {
+    func test_execute_whenAnInvalidInputIsSent_itShouldReturnInvalidIputError() {
         // Given
         let input = "haha"
         let sut: TransferMoneyUseCase = .instantiate(
@@ -36,9 +36,5 @@ final class TransferMoneyUseCaseTests: XCTestCase {
         
         // Then
         XCTAssertEqual(errorReceived, .invalidInput)
-    }
-    
-    func util(file: StaticString = #file, line: UInt = #line) {
-        XCTFail("blah", file: file, line: line)
     }
 }
