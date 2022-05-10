@@ -8,9 +8,9 @@
 import XCTest
 @testable import FinanceApp
 
-class HomeViewModelTests: XCTestCase {
+final class HomeViewModelTests: XCTestCase {
 
-    let service = FinanceServiceStub.self
+    private let service = HomeServiceStub.self
     private let homeViewModelDelegateSpy: HomeViewModelDelegateSpy = .init()
 
     private lazy var sut: HomeViewModel = {

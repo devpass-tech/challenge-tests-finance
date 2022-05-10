@@ -1,7 +1,12 @@
 import UIKit
 
-final class HomeViewController: UIViewController, HomeViewModelDelegate {
+final class HomeViewController: UIViewController {
+    // MARK: - Dependencies
+    
     private var viewModel: HomeViewModel
+    private let userProfileSceneFactory: UserProfileSceneFactoryProtocol
+    
+    // MARK: - UI
     
     private lazy var homeView: HomeView = {
         let homeView = HomeView()
@@ -9,8 +14,14 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
         return homeView
     }()
     
-    init(viewModel: HomeViewModel) {
+    // MARK: - Initialization
+    
+    init(
+        viewModel: HomeViewModel,
+        userProfileSceneFactory: UserProfileSceneFactoryProtocol
+    ) {
         self.viewModel = viewModel
+        self.userProfileSceneFactory = userProfileSceneFactory
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
     }
@@ -20,20 +31,41 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
+        super.viewDidLoad()
         viewModel.fetchData()
     }
 
     override func loadView() {
         view = homeView
-    }
-
-    @objc private func openProfile() {
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
-        present(navigationController, animated: true)
+        setupNavigationBar()
     }
     
+    // MARK: - Setup
+    
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Profile",
+            style: .plain,
+            target: self,
+            action: #selector(openProfile)
+        )
+    }
+
+    // MARK: - Actions
+    
+    @objc private func openProfile() {
+        let navigationController = UINavigationController(
+            rootViewController: userProfileSceneFactory.makeViewController()
+        )
+        present(navigationController, animated: true)
+    }
+}
+
+// MARK: - HomeViewModelDelegate
+extension HomeViewController: HomeViewModelDelegate {
     func didFetchHomeData(_ data: HomeData) {
         DispatchQueue.main.async {
             self.homeView.setData(data)
@@ -41,6 +73,7 @@ final class HomeViewController: UIViewController, HomeViewModelDelegate {
     }
 }
 
+// MARK: - HomeViewDelegate
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
         let activityDetailsViewController = ActivityDetailsViewController(
