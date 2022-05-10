@@ -5,6 +5,7 @@ import XCTest
 final class HomeViewTests: XCTestCase {
     func test_homeView_whenTheListIsEmpty() {
         // Given
+        let isRecordModeEnabled = false
         let sut = HomeView()
         
         // When
@@ -13,7 +14,8 @@ final class HomeViewTests: XCTestCase {
         // Then
         assertSnapshot(
             matching: sut,
-            as: .image
+            as: .image(size: UIScreen.main.bounds.size),
+            record: isRecordModeEnabled
         )
     }
 }

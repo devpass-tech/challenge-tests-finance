@@ -17,6 +17,17 @@ extension TransfersEnvironment {
     )
 }
 
+#if DEBUG
+extension TransfersEnvironment {
+    static func mocking(
+        transferAmountUseCase: TransferMoneyUseCase = .dummy
+    ) -> Self {
+        .init(
+            transferAmountUseCase: transferAmountUseCase
+        )
+    }
+}
+#endif
 
 final class TransfersViewModel: ObservableObject {
     @Published var state: TransfersState

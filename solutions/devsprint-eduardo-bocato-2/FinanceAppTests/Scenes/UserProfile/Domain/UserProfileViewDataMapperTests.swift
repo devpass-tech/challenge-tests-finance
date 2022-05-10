@@ -5,12 +5,14 @@ import XCTest
 final class UserProfileViewDataMapperTests: XCTestCase {
     func test_map_shouldReturnCorrectlyConvertedValues() {
         // Given
+        let isRecordModeEnabled = false
+        
         let sut: UserProfileViewDataMapper = .live
         let userProfile: UserProfile = .init(
             name: "John",
             phone: "+31 06 1234 1234",
             email: "john@email.com",
-            address: "Some Street 123",
+            address: "Some address, 10",
             account: .init(
                 agency: "1234",
                 account: "56789"
@@ -23,7 +25,57 @@ final class UserProfileViewDataMapperTests: XCTestCase {
         // Then
         assertSnapshot(
             matching: result,
-            as: .dump
+            as: .dump,
+            record: isRecordModeEnabled
         )
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

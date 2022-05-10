@@ -14,7 +14,7 @@ final class ConfirmationViewControllerSnapshotTests: XCTestCase {
         // Then
         assertSnapshot(
             matching: sut,
-            as: .image,
+            as: .image(on: .iPadPro11),
             record: isRecordModeOn
         )
     }

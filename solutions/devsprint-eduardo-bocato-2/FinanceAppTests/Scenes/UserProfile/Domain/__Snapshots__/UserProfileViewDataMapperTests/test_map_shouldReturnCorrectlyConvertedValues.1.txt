@@ -1,6 +1,6 @@
 ▿ UserProfileViewData
   - account: "Account: 56789"
-  - address: "Some Street 123"
+  - address: "Some address, 10"
   - agency: "Agency: 1234"
   - email: "john@email.com"
   - name: "John"
