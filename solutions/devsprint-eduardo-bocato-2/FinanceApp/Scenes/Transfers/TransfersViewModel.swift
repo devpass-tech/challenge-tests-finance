@@ -17,6 +17,15 @@ extension TransfersEnvironment {
     )
 }
 
+#if DEBUG
+extension TransfersEnvironment {
+    static func mocking(
+        transferService: TransfersServiceProtocol = TransfersServiceDummy()    ) -> Self {
+        .init(transferAmountUseCase: .dummy(transferService: transferService))
+    }
+}
+#endif
+
 final class TransfersViewModel: ObservableObject {
     @Published private(set) var state: TransfersState
     private let environment: TransfersEnvironment
@@ -65,3 +74,15 @@ final class TransfersViewModel: ObservableObject {
         state.canExecuteTransfer = state.amountToTransfer?.isEmpty == false && state.selectedContact != nil
     }
 }
+
+#if DEBUG
+extension TransfersViewModel {
+    static func mocking(
+        transferService: TransfersServiceProtocol = TransfersServiceDummy()
+    ) -> TransfersViewModel {
+        let environment = TransfersEnvironment.mocking(transferService: transferService)
+
+        return .init(initialState: .init(), environment: environment)
+    }
+}
+#endif

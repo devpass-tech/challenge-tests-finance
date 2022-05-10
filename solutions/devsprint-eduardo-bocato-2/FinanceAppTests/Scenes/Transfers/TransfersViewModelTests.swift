@@ -6,9 +6,7 @@ final class TransfersViewModelTests: XCTestCase {
 
     func test_updateAmountToTransfer_whenValueEmpty_shouldNotExecuteTransfer() {
         // Given
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: TransfersServiceDummy())
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel(initialState: .init(), environment: TransfersEnvironment.mocking())
 
         // When
         sut.updateAmountToTransfer("")
@@ -20,9 +18,7 @@ final class TransfersViewModelTests: XCTestCase {
 
     func test_updateAmountToTransfer_whenHasValueAndContact_shouldLetExecuteTransfer() {
         // Given
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: TransfersServiceDummy())
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel(initialState: .init(), environment: TransfersEnvironment.mocking())
 
         // When
         sut.updateAmountToTransfer("123")
@@ -35,9 +31,7 @@ final class TransfersViewModelTests: XCTestCase {
 
     func test_selectContact_whenContactIsNotSelected_shouldNotExecuteTransfer() {
         // Given
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: TransfersServiceDummy())
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel(initialState: .init(), environment: TransfersEnvironment.mocking())
 
         // When
         // If state is not changed, contact is nil
@@ -51,109 +45,65 @@ final class TransfersViewModelTests: XCTestCase {
     func test_executeTransfer_whenStateCantExecuteTransfer_shouldNotTransfer() {
         let transferStub: TransfersServiceStub = .init()
         transferStub.transferAmountResultToBeReturned = TransferResult.fixture()
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: transferStub)
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel.mocking(transferService: transferStub)
 
-        var cancellables: Set<AnyCancellable> = []
-        var collectedStates: [TransfersState] = []
-
-        let objectWillChangeCompletionExpectation = expectation(description: "objectWillChangeCompletionExpectation")
-        objectWillChangeCompletionExpectation.expectedFulfillmentCount = 2
-
-        sut.$state
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { newState in
-                    collectedStates.append(newState)
-                    objectWillChangeCompletionExpectation.fulfill()
-                }
-            ).store(in: &cancellables)
+        let collector = PublisherCollector<TransfersState, Never>()
+        collector.collect(from: sut.$state.eraseToAnyPublisher())
 
         // When
         sut.executeTransfer()
 
         // Then
-        wait(for: [objectWillChangeCompletionExpectation], timeout: 1.0)
 
         let expectedStates: [TransfersState] = [
             .init(amountToTransfer: nil, selectedContact: nil, canExecuteTransfer: false, transferRequestSuceeded: false),
             .init(amountToTransfer: nil, selectedContact: nil, canExecuteTransfer: false, transferRequestSuceeded: false)
         ]
 
-        XCTAssertEqual(expectedStates, collectedStates)
+        XCTAssertEqual(expectedStates, collector.values)
     }
 
     func test_executeTransfer_whenStateCanExecuteTransferAndWithoutAmountToTransfer_shouldNotTransfer() {
         // Given
         let transferStub: TransfersServiceStub = .init()
         transferStub.transferAmountResultToBeReturned = TransferResult.fixture()
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: transferStub)
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel.mocking(transferService: transferStub)
 
         sut.selectContact(Contact.fixture())
 
-        var cancellables: Set<AnyCancellable> = []
-        var collectedStates: [TransfersState] = []
-
-        let objectWillChangeCompletionExpectation = expectation(description: "objectWillChangeCompletionExpectation")
-        objectWillChangeCompletionExpectation.expectedFulfillmentCount = 2
-
-        sut.$state
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { newState in
-                    collectedStates.append(newState)
-                    objectWillChangeCompletionExpectation.fulfill()
-                }
-            ).store(in: &cancellables)
+        let collector = PublisherCollector<TransfersState, Never>()
+        collector.collect(from: sut.$state.eraseToAnyPublisher())
 
         // When
         sut.executeTransfer()
 
         // Then
-        wait(for: [objectWillChangeCompletionExpectation], timeout: 1.0)
 
         let expectedStates: [TransfersState] = [
             .init(amountToTransfer: nil, selectedContact: Contact.fixture(), canExecuteTransfer: false, transferRequestSuceeded: false),
             .init(amountToTransfer: nil, selectedContact: Contact.fixture(), canExecuteTransfer: false, transferRequestSuceeded: false),
         ]
 
-        XCTAssertEqual(expectedStates, collectedStates)
+        XCTAssertEqual(expectedStates, collector.values)
     }
 
     func test_executeTransfer_whenHasAmountToTransferAndStateCanExecuteTransfer_shouldTransfer() {
         // Given
         let transferStub: TransfersServiceStub = .init()
         transferStub.transferAmountResultToBeReturned = TransferResult.fixture()
-        let dummyUseCase: TransferMoneyUseCase = .instantiate(transferService: transferStub)
-        let dummyEnvironment: TransfersEnvironment = .init(transferAmountUseCase: dummyUseCase)
-        let sut = TransfersViewModel(initialState: .init(), environment: dummyEnvironment)
+        let sut = TransfersViewModel.mocking(transferService: transferStub)
+
 
         sut.updateAmountToTransfer("123")
         sut.selectContact(Contact.fixture())
 
-        var cancellables: Set<AnyCancellable> = []
-        var collectedStates: [TransfersState] = []
-
-        let objectWillChangeCompletionExpectation = expectation(description: "objectWillChangeCompletionExpectation")
-        objectWillChangeCompletionExpectation.expectedFulfillmentCount = 3
-
-        sut.$state
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { newState in
-                    collectedStates.append(newState)
-                    objectWillChangeCompletionExpectation.fulfill()
-                }
-            ).store(in: &cancellables)
+        let collector = PublisherCollector<TransfersState, Never>()
+        collector.collect(from: sut.$state.eraseToAnyPublisher())
 
         // When
         sut.executeTransfer()
 
         // Then
-        wait(for: [objectWillChangeCompletionExpectation], timeout: 1.0)
 
         let expectedStates: [TransfersState] = [
             .init(amountToTransfer: "123", selectedContact: Contact.fixture(), canExecuteTransfer: true, transferRequestSuceeded: false),
@@ -161,6 +111,6 @@ final class TransfersViewModelTests: XCTestCase {
             .init(amountToTransfer: "123", selectedContact: Contact.fixture(), canExecuteTransfer: true, transferRequestSuceeded: true),
         ]
 
-        XCTAssertEqual(expectedStates, collectedStates)
+        XCTAssertEqual(expectedStates, collector.values)
     }
 }
