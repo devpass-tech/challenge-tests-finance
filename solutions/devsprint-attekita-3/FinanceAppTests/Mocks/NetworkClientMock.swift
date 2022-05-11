@@ -8,7 +8,7 @@
 import Foundation
 @testable import FinanceApp
 
-class NetworkClientMock: NetworkClientProtocol {
+final class NetworkClientMock: NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
 
         guard let json = Bundle.main.path(forResource: self.getResourceName(url: url), ofType: "json") else { return }
