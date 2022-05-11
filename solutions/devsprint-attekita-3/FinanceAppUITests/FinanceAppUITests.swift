@@ -6,37 +6,32 @@
 //
 
 import XCTest
+@testable import FinanceApp
 
-class FinanceAppUITests: XCTestCase {
+final class FinanceAppUITests: XCTestCase {
+    
+    var app: XCUIApplication!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    override func setUp() {
+        super.setUp()
+        XCUIApplication().launch()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        app.terminate()
     }
+    
+    func testHomeToActivityDetailsFlow_WhenClickInTheCell_ShouldNavigateToActivityDetailsView() {
+        app = XCUIApplication()
+        app.tables.cells.element(boundBy: 0).tap()
+        
+        let icon = app.images
+        let activityNameLabel = app.staticTexts.element(boundBy: 0)
+        let categoryLabel = app.staticTexts.element(boundBy: 1)
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        XCTAssertEqual(icon.element.exists, true)
+        XCTAssertEqual(activityNameLabel.label, "Mall")
+        XCTAssertEqual(categoryLabel.label, "Shopping")
     }
 }
