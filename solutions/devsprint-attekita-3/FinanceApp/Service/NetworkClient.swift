@@ -12,7 +12,7 @@ protocol NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ())
 }
 
-final class NetworkClient: NetworkClientProtocol {
+class NetworkClient: NetworkClientProtocol {
 
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
 
