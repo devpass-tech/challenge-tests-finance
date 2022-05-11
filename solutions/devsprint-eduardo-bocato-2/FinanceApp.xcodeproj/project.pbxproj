@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1526B5EC282B3F7700FDD9AD /* homedatamock.json in Resources */ = {isa = PBXBuildFile; fileRef = 1526B5EB282B3F7700FDD9AD /* homedatamock.json */; };
+		1526B5F0282B3F8C00FDD9AD /* MockHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B5EE282B3F8C00FDD9AD /* MockHomeData.swift */; };
+		1526B5F1282B3F8C00FDD9AD /* HomeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B5EF282B3F8C00FDD9AD /* HomeServiceTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -78,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1526B5EB282B3F7700FDD9AD /* homedatamock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homedatamock.json; sourceTree = "<group>"; };
+		1526B5EE282B3F8C00FDD9AD /* MockHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHomeData.swift; sourceTree = "<group>"; };
+		1526B5EF282B3F8C00FDD9AD /* HomeServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceTests.swift; sourceTree = "<group>"; };
 		622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -159,6 +165,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1526B5EA282B3F7700FDD9AD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1526B5EB282B3F7700FDD9AD /* homedatamock.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1526B5ED282B3F8C00FDD9AD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1526B5EE282B3F8C00FDD9AD /* MockHomeData.swift */,
+				1526B5EF282B3F8C00FDD9AD /* HomeServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +364,7 @@
 		E55B7FF12824668D004AC76A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1526B5ED282B3F8C00FDD9AD /* Service */,
 				E5D1E5EF2827F34F00DC3AE6 /* Views */,
 				622E33D52821B0CF00DAE432 /* HomeViewModelTests.swift */,
 				E55B7FFE282475C4004AC76A /* HomeViewControllerTests.swift */,
@@ -471,6 +495,7 @@
 		E5C717032820762500BD22B2 /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1526B5EA282B3F7700FDD9AD /* Resource */,
 				A0B56B4F2829EA83006726E1 /* Helpers */,
 				E5D1E5E5282485C500DC3AE6 /* Core */,
 				E55B7FF028246683004AC76A /* Scenes */,
@@ -653,6 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1526B5EC282B3F7700FDD9AD /* homedatamock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +749,8 @@
 				E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */,
 				E5D1E5F12827F35F00DC3AE6 /* HomeViewTests.swift in Sources */,
 				E5D1E605282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift in Sources */,
+				1526B5F1282B3F8C00FDD9AD /* HomeServiceTests.swift in Sources */,
+				1526B5F0282B3F8C00FDD9AD /* MockHomeData.swift in Sources */,
 				E5D1E6002829868800DC3AE6 /* ConfirmationViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
