@@ -17,7 +17,8 @@ final class MockHomeData {
             do {
                 let data = try Data(contentsOf: fileURL)
                 return try JSONDecoder()
-                    .decode(HomeData.self, from: data)
+                    .decode(HomeData.self,
+                            from: data)
             } catch {
                 return nil
             }

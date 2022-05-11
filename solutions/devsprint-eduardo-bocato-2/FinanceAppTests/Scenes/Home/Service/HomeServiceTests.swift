@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+import SnapshotTesting
 
 @testable import FinanceApp
 
@@ -20,9 +21,11 @@ final class HomeServiceTests: XCTestCase {
 
         // When / Then
         sut.fetchHomeData { homeData in
-            XCTAssertEqual(homeData?.balance, 8001.00)
-            XCTAssertEqual(homeData?.spending, 8000.00)
-            XCTAssertEqual(homeData?.savings, 1.0)
+
+            assertSnapshot(
+                matching: homeData,
+                as: .dump)
+
             expectation.fulfill()
         }
 
