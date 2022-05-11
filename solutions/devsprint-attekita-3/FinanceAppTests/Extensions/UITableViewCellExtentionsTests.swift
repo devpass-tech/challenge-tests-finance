@@ -14,6 +14,10 @@ class UITableViewCellExtensionsTests: XCTestCase {
         let identifier = UITableViewCell.classIdentifier()
         
         XCTAssertEqual(identifier, "UITableViewCell")
+        
+        let activityCellIdentifier = ActivityCellView.classIdentifier()
+        
+        XCTAssertEqual(activityCellIdentifier, "ActivityCellView")
     }
 
 }
