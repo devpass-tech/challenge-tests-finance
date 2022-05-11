@@ -10,7 +10,6 @@ import Foundation
 
 final class NetworkClientMock: NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-
         guard let json = Bundle.main.path(forResource: self.getResourceName(url: url), ofType: "json") else { return }
         let url = URL(fileURLWithPath: json)
 
@@ -20,19 +19,11 @@ final class NetworkClientMock: NetworkClientProtocol {
         } catch {
             completion(nil)
         }
-        
     }
     
-    func getResourceName(url: URL) -> String {
-        
-        var resourceName = ""
-        
-        let separatedValues = url.absoluteString.components(separatedBy: "/")
-        resourceName = separatedValues[separatedValues.count - 1]
-        let removeExtension = resourceName.components(separatedBy: ".")
-        resourceName = removeExtension[0]
-        
+    private func getResourceName(url: URL) -> String {
+        var resourceName = url.lastPathComponent
+        resourceName = resourceName.components(separatedBy: ".")[0]
         return resourceName
     }
-    
 }
