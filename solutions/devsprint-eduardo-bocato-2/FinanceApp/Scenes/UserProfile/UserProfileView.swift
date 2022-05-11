@@ -1,6 +1,10 @@
 import UIKit
 
-final class UserProfileView: UIView {
+protocol UserProfileViewProtocol where Self: UIView {
+    func setData(_ data: UserProfileViewData)
+}
+
+final class UserProfileView: UIView, UserProfileViewProtocol {
     private var data: UserProfileViewData?
     
     private lazy var headerView = UserProfileHeaderView()
