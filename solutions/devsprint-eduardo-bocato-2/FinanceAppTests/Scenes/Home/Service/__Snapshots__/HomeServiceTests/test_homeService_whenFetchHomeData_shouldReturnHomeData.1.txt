@@ -1,0 +1,10 @@
+▿ Optional<HomeData>
+  ▿ some: HomeData
+    ▿ activity: 1 element
+      ▿ Activity
+        - name: "Mac Studio Apple M1 Max"
+        - price: 8000.0
+        - time: "2022-05-04 23:17:13.854"
+    - balance: 8001.0
+    - savings: 1.0
+    - spending: 8000.0
