@@ -12,11 +12,9 @@ class UITableViewCellExtensionsTests: XCTestCase {
 
     func testClassIdentifierMethod_WhenUITableViewCell_ShouldReturnIdentifier() throws {
         let identifier = UITableViewCell.classIdentifier()
-        
-        XCTAssertEqual(identifier, "UITableViewCell")
-        
         let activityCellIdentifier = ActivityCellView.classIdentifier()
         
+        XCTAssertEqual(identifier, "UITableViewCell")
         XCTAssertEqual(activityCellIdentifier, "ActivityCellView")
     }
 
