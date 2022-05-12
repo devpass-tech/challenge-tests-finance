@@ -46,6 +46,9 @@
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		D5A5E01CED87A92D74A25F2F /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A050C3F2BC84DBB3F75A0E6 /* Pods_FinanceAppTests.framework */; };
+		D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */; };
+		D9B4FFB62829FD4E00EC6A62 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */; };
+		D9B4FFBC282A11F900EC6A62 /* activity_details_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */; };
 		E0AC8D6E973BD60507F27E4F /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +118,9 @@
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		B0B4A5C707A5A6FC7DE9F378 /* Pods-FinanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceApp.debug.xcconfig"; path = "Target Support Files/Pods-FinanceApp/Pods-FinanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
+		D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
+		D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activity_details_endpoint.json; sourceTree = "<group>"; };
 		D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBEDDA04951E983432B2135 /* Pods-FinanceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +201,8 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9B4FFB42829FD3300EC6A62 /* Service */,
+				D9B4FFB12829FC6700EC6A62 /* Mocks */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -342,6 +350,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D9B4FFB12829FC6700EC6A62 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */,
+				D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		D9B4FFB42829FD3300EC6A62 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F3F1D66A82F7B7EA8B968A4F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,7 +377,6 @@
 				EDBEDDA04951E983432B2135 /* Pods-FinanceAppTests.debug.xcconfig */,
 				3C00CCDB7578FC4FDA761D1B /* Pods-FinanceAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -385,6 +409,7 @@
 				98584A7B277E32C60028DBEA /* Sources */,
 				98584A7C277E32C60028DBEA /* Frameworks */,
 				98584A7D277E32C60028DBEA /* Resources */,
+				389046AF1BEC055A463DC804 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -463,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B4FFBC282A11F900EC6A62 /* activity_details_endpoint.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
@@ -485,6 +511,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		389046AF1BEC055A463DC804 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4BA067F6022FA14575CAEA7E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,6 +641,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				D9B4FFB62829FD4E00EC6A62 /* FinanceServiceTests.swift in Sources */,
+				D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
