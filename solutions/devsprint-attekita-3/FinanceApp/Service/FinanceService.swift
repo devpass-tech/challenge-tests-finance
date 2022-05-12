@@ -11,7 +11,7 @@ protocol FinanceServiceProtocol {
 
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
-    func fetchContactList(_ completion: @escaping (Result<[Contact]?, Error>) -> Void)
+    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void)
     func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
 }
@@ -67,9 +67,11 @@ class FinanceService: FinanceServiceProtocol {
         }
     }
 
-    func fetchContactList(_ completion: @escaping (Result<[Contact]?, Error>) -> Void) {
+    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
 
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")!
+        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json") else {
+            return completion(.failure(HTTPClientError.invalidURL))
+        }
 
         networkClient.performRequest(with: url) { data in
             guard let data = data else {

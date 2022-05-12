@@ -10,27 +10,37 @@ import XCTest
 @testable import FinanceApp
 
 class ContactListTest: XCTestCase {
-    private let networkClientProtocol = NetworkClientProtocolStub()
-    private let financeService = FinanceServiceProtocolStub()
+    
+    private var networkClientProtocol: NetworkClientProtocolStub!
+    private var financeService:FinanceService!
     private lazy var sut = FinanceService(networkClient: networkClientProtocol)
-    typealias ContactListResult = Result<[Contact]?, Error>
+    
+    override func setUp() async throws {
+        networkClientProtocol = NetworkClientProtocolStub()
+        financeService = FinanceService(networkClient: networkClientProtocol)
+    }
     
     func test_fetchContactList_givenValidData_andSessionReturningSuccess() {
         
-        var result: ContactListResult?
-        financeService.fetchContactList({
-            result = $0
+        networkClientProtocol.completionHandlerToBeReturned = ContactListMocks.validData
+        let expectations = expectation(description: "Loading contact list")
+        var result: Result<[Contact], Error>?
+        
+        financeService.fetchContactList({ response in
+            result = response
+            expectations.fulfill()
         })
         
-        XCTAssertTrue(financeService.fetchDataCalled)
+        XCTAssertNotNil(result)
+        self.waitForExpectations(timeout: 3.0)
         
         switch result {
         case .success(let contact):
-            XCTAssertEqual(contact?.first?.name, "Ronald Robertson")
-            XCTAssertEqual(contact?.first?.phone, "+55 (11) 99999-9999")
+            XCTAssertNotNil(contact)
         default:
-            XCTFail("Result should be fetch without error")
+            XCTFail()
         }
+
 }
 
 class FinanceServiceProtocolStub: FinanceServiceProtocol {
@@ -41,7 +51,7 @@ class FinanceServiceProtocolStub: FinanceServiceProtocol {
     
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) { }
     
-    func fetchContactList(_ completion: @escaping (Result<[Contact]?, Error>) -> Void) {
+    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
         fetchDataCalled = true
     }
     
@@ -52,9 +62,16 @@ class FinanceServiceProtocolStub: FinanceServiceProtocol {
 }
 
 class NetworkClientProtocolStub: NetworkClientProtocol {
+    var completionHandlerToBeReturned: (Data?)?
+    private(set) var fetchDataUrlPassed: URL?
+    
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        let newData = ContactListMocks.validData
-        completion(newData)
+        do {
+            let newData = ContactListMocks.validData
+            completion(newData)
+        } catch {
+            completion(nil)
+        }
     }
 }
 
@@ -69,10 +86,10 @@ class ContactListMocks {
     
     static var validData: Data? = {
              """
-            {
+            {[
                 "name": "Ronald Robertson",
                 "phone": "+55 (11) 99999-9999"
-            }
+            ]}
             """.data(using: .utf8)
         }()
 }
