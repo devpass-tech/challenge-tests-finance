@@ -25,18 +25,16 @@ final class FinanceServiceTests: XCTestCase {
     
     func testFinanceServiceFetchActivityDetailsMethod_WhenJSONDecoded_ShouldBeNotNil() {
         let expectations = self.expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
-        sut.fetchActivityDetails { result in
-            
-            guard let _ = result else {
-                XCTAssertNil(result, "the response result fails because it's not nil.")
-                XCTFail("API Response Error.")
-                expectations.fulfill()
-                return
-            }
+        var result: ActivityDetails? = nil
+        
+        sut.fetchActivityDetails { response in
+            result = response
             expectations.fulfill()
         }
         
-        self.waitForExpectations(timeout: 3.0)
+        waitForExpectations(timeout: 3.0)
+
+        XCTAssertNotNil(result, "fails because result is nil")
     }
     
     func testFinanceServiceFetchActivityDetailsMethod_WhenJSONDecoded_ShouldHaveCorrectInformations() {
