@@ -24,3 +24,39 @@ extension UserProfileViewDataMapper {
         )
     }
 }
+
+#if DEBUG
+import XCTestDynamicOverlay
+
+extension UserProfileViewDataMapper {
+    static let failing: Self = .init(
+        map: { _ in
+            XCTFail("UserProfileViewDataMapper.map was not implemented.")
+            return .fixture()
+        }
+    )
+}
+#endif
+
+#if DEBUG
+extension UserProfileViewData {
+    static func fixture(
+        name: String = "name",
+        phone: String = "phone",
+        email: String = "email",
+        address: String = "address",
+        agency: String = "agency",
+        account: String = "account"
+    ) -> Self {
+        .init(
+            name: name,
+            phone: phone,
+            email: email,
+            address: address,
+            agency: agency,
+            account: account
+        )
+    }
+}
+
+#endif
