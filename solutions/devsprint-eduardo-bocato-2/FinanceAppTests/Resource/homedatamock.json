@@ -1,0 +1,12 @@
+{
+    "balance": 8001.00,
+    "savings": 1.00,
+    "spending": 8000.00,
+    "activity": [
+        {
+            "name": "Mac Studio Apple M1 Max",
+            "price": 8000.00,
+            "time":  "2022-05-04 23:17:13.854"
+        }
+    ]
+}

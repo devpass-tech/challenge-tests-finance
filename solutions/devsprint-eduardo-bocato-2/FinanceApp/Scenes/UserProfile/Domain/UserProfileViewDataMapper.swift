@@ -19,8 +19,44 @@ extension UserProfileViewDataMapper {
             phone: PhoneNumberFormatter.format(entity.phone),
             email: entity.email,
             address: entity.address,
-            agency: "Agency: \(entity.account.agency)",
-            account: "Account: \(entity.account.account)"
+            agency: entity.account.formattedAgency(),
+            account: entity.account.formattedAccount()
         )
     }
 }
+
+#if DEBUG
+import XCTestDynamicOverlay
+
+extension UserProfileViewDataMapper {
+    static let failing: Self = .init(
+        map: { _ in
+            XCTFail("UserProfileViewDataMapper.map was not implemented.")
+            return .fixture()
+        }
+    )
+}
+#endif
+
+#if DEBUG
+extension UserProfileViewData {
+    static func fixture(
+        name: String = "name",
+        phone: String = "phone",
+        email: String = "email",
+        address: String = "address",
+        agency: String = "agency",
+        account: String = "account"
+    ) -> Self {
+        .init(
+            name: name,
+            phone: phone,
+            email: email,
+            address: address,
+            agency: agency,
+            account: account
+        )
+    }
+}
+
+#endif

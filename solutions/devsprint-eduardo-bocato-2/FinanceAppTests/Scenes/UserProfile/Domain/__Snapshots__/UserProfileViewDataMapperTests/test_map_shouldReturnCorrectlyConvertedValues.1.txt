@@ -1,0 +1,7 @@
+▿ UserProfileViewData
+  - account: "Account: 56789"
+  - address: "Some address, 10"
+  - agency: "Agency: 1234"
+  - email: "john@email.com"
+  - name: "John"
+  - phone: "+31 06 1234 1234"

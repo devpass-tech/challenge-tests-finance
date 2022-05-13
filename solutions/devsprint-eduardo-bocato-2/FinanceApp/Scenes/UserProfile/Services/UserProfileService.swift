@@ -13,4 +13,12 @@ final class UserProfileServiceStub: UserProfileServiceProtocol {
         completion(userProfileToBeReturned)
     }
 }
+
+import XCTestDynamicOverlay
+
+final class UserProfileServiceFailing: UserProfileServiceProtocol {
+    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {
+        XCTFail("UserProfileService.fetchUserProfile was not implemented.")
+    }
+}
 #endif
