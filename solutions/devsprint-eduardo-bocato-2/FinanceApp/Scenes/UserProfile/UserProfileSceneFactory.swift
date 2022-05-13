@@ -7,8 +7,11 @@ protocol UserProfileSceneFactoryProtocol {
 struct UserProfileSceneFactory: UserProfileSceneFactoryProtocol {
     func makeViewController() -> UIViewController {
         UserProfileViewController(
-            userService: FinanceService(),
-            userProfileViewDataMapper: .live
+            environment: .init(
+                userService: FinanceService(),
+                userProfileViewDataMapper: .live,
+                mainQueue: AsyncQueue.main
+            )
         )
     }
 }

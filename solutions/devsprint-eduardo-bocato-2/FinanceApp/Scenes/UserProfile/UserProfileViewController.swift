@@ -1,23 +1,26 @@
 import UIKit
 
+extension UserProfileViewController {
+    struct Environment {
+        var userService: UserProfileServiceProtocol
+        var userProfileViewDataMapper: UserProfileViewDataMapper
+        var mainQueue: Dispatching = AsyncQueue.main
+    }
+}
+
 final class UserProfileViewController: UIViewController {
     // MARK: - Dependencies
     
-    private let userService: UserProfileServiceProtocol
-    private let userProfileViewDataMapper: UserProfileViewDataMapper
+    private let environment: Environment
     
     // MARK: - Properties
     
-    private var customView: UserProfileView? { view as? UserProfileView }
+    var customView: UserProfileViewProtocol?
     
     // MARK: - Initialization
     
-    init(
-        userService: UserProfileServiceProtocol,
-        userProfileViewDataMapper: UserProfileViewDataMapper
-    ) {
-        self.userService = userService
-        self.userProfileViewDataMapper = userProfileViewDataMapper
+    init(environment: Environment) {
+        self.environment = environment
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,7 +32,9 @@ final class UserProfileViewController: UIViewController {
     // MARK: - Lifecycle
     
     override func loadView() {
-        view = UserProfileView()
+        let customView = UserProfileView()
+        view = customView
+        self.customView = customView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +43,24 @@ final class UserProfileViewController: UIViewController {
     }
     
     private func loadViewData() {
-        userService.fetchUserProfile { [userProfileViewDataMapper, customView] profile in
+        environment.userService.fetchUserProfile { [environment, customView] profile in
             guard let profile = profile else { return }
-            let viewData = userProfileViewDataMapper.map(profile)
-            DispatchQueue.main.async {
+            let viewData = environment.userProfileViewDataMapper.map(profile)
+            environment.mainQueue.dispatch {
                 customView?.setData(viewData)
             }
         }
     }
 }
+
+#if DEBUG
+extension UserProfileViewController.Environment {
+    static let failing: Self = .init(
+        userService: UserProfileServiceFailing(),
+        userProfileViewDataMapper: .failing,
+        mainQueue: AsyncQueue.failing
+    )
+}
+#endif
+
+

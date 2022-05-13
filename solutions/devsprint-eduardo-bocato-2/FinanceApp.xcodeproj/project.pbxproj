@@ -65,6 +65,9 @@
 		E5D1E605282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E604282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift */; };
 		E5D1E6082829919100DC3AE6 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E6072829919100DC3AE6 /* TabBarControllerTests.swift */; };
 		E5D1E60B282B040000DC3AE6 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E5D1E60A282B040000DC3AE6 /* SnapshotTesting */; };
+		E5D1E60E282C480700DC3AE6 /* XCTestDynamicOverlay in Frameworks */ = {isa = PBXBuildFile; productRef = E5D1E60D282C480700DC3AE6 /* XCTestDynamicOverlay */; };
+		E5D1E610282C4A4F00DC3AE6 /* UserProfileViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E60F282C4A4F00DC3AE6 /* UserProfileViewControllerTests.swift */; };
+		E5D1E613282C77A700DC3AE6 /* DispatchingQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1E612282C77A700DC3AE6 /* DispatchingQueues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,8 @@
 		E5D1E5FF2829868800DC3AE6 /* ConfirmationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewControllerTests.swift; sourceTree = "<group>"; };
 		E5D1E604282989B800DC3AE6 /* UserProfileViewDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewDataMapperTests.swift; sourceTree = "<group>"; };
 		E5D1E6072829919100DC3AE6 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
+		E5D1E60F282C4A4F00DC3AE6 /* UserProfileViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewControllerTests.swift; sourceTree = "<group>"; };
+		E5D1E612282C77A700DC3AE6 /* DispatchingQueues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchingQueues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D1E60E282C480700DC3AE6 /* XCTestDynamicOverlay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +408,7 @@
 		E5C716CF281FB18400BD22B2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E5D1E611282C779100DC3AE6 /* CommonDomain */,
 				E5C716E6281FD06300BD22B2 /* Utils */,
 				98584AB8277E374A0028DBEA /* Networking */,
 				E5C716D2281FB3AB00BD22B2 /* Services */,
@@ -447,7 +454,7 @@
 		E5C716E6281FD06300BD22B2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E5C716DA281FBE3F00BD22B2 /* PhoneNumberFormatter.swift */,
+				E5D1E612282C77A700DC3AE6 /* DispatchingQueues.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -541,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D1E603282989AC00DC3AE6 /* Domain */,
+				E5D1E60F282C4A4F00DC3AE6 /* UserProfileViewControllerTests.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -561,6 +569,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		E5D1E611282C779100DC3AE6 /* CommonDomain */ = {
+			isa = PBXGroup;
+			children = (
+				E5C716DA281FBE3F00BD22B2 /* PhoneNumberFormatter.swift */,
+			);
+			path = CommonDomain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -578,6 +594,7 @@
 			);
 			name = FinanceApp;
 			packageProductDependencies = (
+				E5D1E60D282C480700DC3AE6 /* XCTestDynamicOverlay */,
 			);
 			productName = FinanceApp;
 			productReference = 98584A69277E32C30028DBEA /* FinanceApp.app */;
@@ -635,6 +652,7 @@
 			mainGroup = 98584A60277E32C30028DBEA;
 			packageReferences = (
 				E5D1E609282B040000DC3AE6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				E5D1E60C282C480700DC3AE6 /* XCRemoteSwiftPackageReference "xctest-dynamic-overlay" */,
 			);
 			productRefGroup = 98584A6A277E32C30028DBEA /* Products */;
 			projectDirPath = "";
@@ -689,6 +707,7 @@
 				9882465A27D013B4001DD0C5 /* ActivityDetails.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				E5C716EC281FD8AB00BD22B2 /* TransferMoneyUseCase.swift in Sources */,
+				E5D1E613282C77A700DC3AE6 /* DispatchingQueues.swift in Sources */,
 				9882465427D01210001DD0C5 /* String+Extensions.swift in Sources */,
 				9882465827D013A3001DD0C5 /* HomeData.swift in Sources */,
 				E5D1E5E82825BB0500DC3AE6 /* UserProfileSceneFactory.swift in Sources */,
@@ -724,6 +743,7 @@
 				E5D1E5E4282485C000DC3AE6 /* UIViewControllerExtensionTests.swift in Sources */,
 				E5D1E6082829919100DC3AE6 /* TabBarControllerTests.swift in Sources */,
 				E55B7FEF28246647004AC76A /* HomeViewModelTests.swift in Sources */,
+				E5D1E610282C4A4F00DC3AE6 /* UserProfileViewControllerTests.swift in Sources */,
 				E55B7FFF282475C4004AC76A /* HomeViewControllerTests.swift in Sources */,
 				A0B56B532829F3D5006726E1 /* StringExtensionTests.swift in Sources */,
 				E55B7FFA28246B7B004AC76A /* TransferMoneyUseCaseTests.swift in Sources */,
@@ -1019,6 +1039,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E5D1E60C282C480700DC3AE6 /* XCRemoteSwiftPackageReference "xctest-dynamic-overlay" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/xctest-dynamic-overlay.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1026,6 +1054,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5D1E609282B040000DC3AE6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
+		};
+		E5D1E60D282C480700DC3AE6 /* XCTestDynamicOverlay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5D1E60C282C480700DC3AE6 /* XCRemoteSwiftPackageReference "xctest-dynamic-overlay" */;
+			productName = XCTestDynamicOverlay;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
