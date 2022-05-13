@@ -11,28 +11,30 @@ import XCTest
 
 class ContactListTest: XCTestCase {
     
-    private var networkClientProtocol: NetworkClientProtocolStub!
-    private var financeService:FinanceService!
-    private lazy var sut = FinanceService(networkClient: networkClientProtocol)
+    private var networkClientProtocol: NetworkClientMock!
+    private var sut: FinanceService!
     
     override func setUp() async throws {
-        networkClientProtocol = NetworkClientProtocolStub()
-        financeService = FinanceService(networkClient: networkClientProtocol)
+        networkClientProtocol = NetworkClientMock()
+        sut = FinanceService(networkClient: networkClientProtocol)
     }
     
-    func test_fetchContactList_givenValidData_andSessionReturningSuccess() {
+    override func tearDown() {
+        sut = nil
+        networkClientProtocol = nil
+    }
+    
+    func testFinanceServiceContactListMethod_WhenJSONDecoded_ShouldBeNotNil() {
+//        let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
+        let contacts = [Contact(name: "Ronald Robertson", phone: "+55 (11) 99999-9999")]
+        var result = Result<[Contact], Error>.success(contacts)
         
-        networkClientProtocol.completionHandlerToBeReturned = ContactListMocks.validData
-        let expectations = expectation(description: "Loading contact list")
-        var result: Result<[Contact], Error>?
-        
-        financeService.fetchContactList({ response in
+        sut.fetchContactList({ response in
             result = response
-            expectations.fulfill()
+//            expectations.fulfill()
         })
         
         XCTAssertNotNil(result)
-        self.waitForExpectations(timeout: 3.0)
         
         switch result {
         case .success(let contact):
@@ -42,55 +44,23 @@ class ContactListTest: XCTestCase {
         }
 
 }
-
-class FinanceServiceProtocolStub: FinanceServiceProtocol {
     
-    private(set) var fetchDataCalled = false
-    
-    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) { }
-    
-    func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) { }
-    
-    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
-        fetchDataCalled = true
-    }
-    
-    func transferAmount(_ completion: @escaping (TransferResult?) -> Void) { }
-    
-    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) { }
-    
-}
-
-class NetworkClientProtocolStub: NetworkClientProtocol {
-    var completionHandlerToBeReturned: (Data?)?
-    private(set) var fetchDataUrlPassed: URL?
-    
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        do {
-            let newData = ContactListMocks.validData
-            completion(newData)
-        } catch {
-            completion(nil)
+    func testFinanceServiceContactListMethod_WhenJSONDontDecoded_ShouldBeDecodeError() {
+//        let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
+        let error = HTTPClientError.decodeError
+        var result = Result<[Contact], Error>.failure(error)
+        
+        sut.fetchContactList({ response in
+            result = response
+//            expectations.fulfill()
+        })
+        
+        switch result {
+        case .failure(let error):
+            XCTAssertNotNil(error)
+        default:
+            XCTFail()
         }
-    }
-}
 
-class ContactListMocks {
-    
-    static var validURL = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")
-    
-    struct DecodableFake: Decodable {
-        let name: String?
-        let phone: String?
-    }
-    
-    static var validData: Data? = {
-             """
-            {[
-                "name": "Ronald Robertson",
-                "phone": "+55 (11) 99999-9999"
-            ]}
-            """.data(using: .utf8)
-        }()
 }
 }

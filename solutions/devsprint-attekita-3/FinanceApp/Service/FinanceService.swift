@@ -4,7 +4,6 @@
 //
 //  Created by Rodrigo Borges on 30/12/21.
 //
-
 import Foundation
 
 protocol FinanceServiceProtocol {
@@ -74,37 +73,20 @@ class FinanceService: FinanceServiceProtocol {
 
     func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
 
-<<<<<<< HEAD
-        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json") else {
-            return completion(.failure(HTTPClientError.invalidURL))
-        }
-=======
         let url = URL(string: URLString.contactList.rawValue)!
->>>>>>> main
 
         networkClient.performRequest(with: url) { data in
             guard let data = data else {
                 completion(.failure(HTTPClientError.invalidData))
                 return
             }
-<<<<<<< HEAD
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let contactList = try decoder.decode([Contact].self, from: data)
-                completion(.success(contactList))
-            } catch {
-                completion(.failure(HTTPClientError.decodeError))
-=======
             let contactList = self.decodeJson(data: data, type: [Contact].self)
     
             guard let contactList = contactList else {
-                completion(nil)
+                completion(.failure(HTTPClientError.decodeError))
                 return
->>>>>>> main
             }
-            completion(contactList)
+            completion(.success(contactList))
         }
     }
 
@@ -157,8 +139,8 @@ class FinanceService: FinanceServiceProtocol {
 }
 
 enum HTTPClientError: Error {
-    case unexpectedStatusCode
-    case invalidData
-    case decodeError
-    case invalidURL
-}
+     case unexpectedStatusCode
+     case invalidData
+     case decodeError
+     case invalidURL
+ }
