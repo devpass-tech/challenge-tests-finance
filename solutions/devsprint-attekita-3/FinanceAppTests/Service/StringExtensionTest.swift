@@ -9,14 +9,20 @@ import XCTest
 
 class StringExtensionTest: XCTestCase {
 
-    func test_remove_space_String_Text_dont_have_Space() {
+    func test_removeSpaceString_ShouldRemoveTextSpaces() {
         let textOneSpace = "Dia Lindo"
         let textTwoSpace = "Dia a dia"
         let text2TwoSpace = "Algo  Aconteceu"
+        let textLongSpace = "long              space"
+        let text = ""
+        let textSpace = " Work,  work, work  "
         
         XCTAssertEqual(textOneSpace.removingSpaces(), "DiaLindo")
         XCTAssertEqual(textTwoSpace.removingSpaces(), "Diaadia")
         XCTAssertEqual(text2TwoSpace.removingSpaces(), "AlgoAconteceu")
+        XCTAssertEqual(text.removingSpaces(), "")
+        XCTAssertEqual(textLongSpace.removingSpaces(), "longspace")
+        XCTAssertEqual(textSpace.removingSpaces(), "Work,work,work")
     }
 
 }
