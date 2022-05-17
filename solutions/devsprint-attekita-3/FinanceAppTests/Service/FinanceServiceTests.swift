@@ -29,6 +29,7 @@ final class FinanceServiceTests: XCTestCase {
     func testFinanceServiceFetchActivityDetailsMethod_WhenJSONDecoded_ShouldBeNotNil() {
         let expectations = self.expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
         var result: ActivityDetails? = nil
+        networkClientMock.expectedResponse = .success
         
         sut.fetchActivityDetails { response in
             result = response
@@ -56,6 +57,55 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(result?.price, 100.0, "the received price property fails becuase is not equal to json payload.")
         XCTAssertEqual(result?.time, "8:57 AM", "the received time property fails becuase is not equal to json payload.")
     }
+    
+    func testFinanceServiceTransferAmountMethod_WhenJSONDecoded_ShouldBeNotNil() {
+        let expectations = self.expectation(description: "When JSON of TransferResult request is decoded it should be not nil")
+        
+        networkClientMock.expectedResponse = .success
+        var result: TransferResult? = nil
+        
+        sut.transferAmount { response in
+            result = response
+            expectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0)
+        
+        XCTAssertNotNil(result, "test failed because the received TransferResult is nil" )
+    }
+    
+    func testFinanceServiceTransferAmountMethod_WhenJSONDecoded_ShouldHaveCorrectInformations() {
+        let expectations = self.expectation(description: "When JSON of TransferResult request is decoded it should be with the right info")
+        
+        networkClientMock.expectedResponse = .successWithCustomJson("transfer_amount_endpoint_false")
+        var result: TransferResult? = nil
+        
+        sut.transferAmount { response in
+            result = response
+            expectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0)
+        
+        XCTAssertEqual(result?.success, false, "the received success property fails because is not equal to json payload")
+    }
+    
+    func testFinanceServiceTransferAmountMethod_WhenApiError_ShouldReturnNil() {
+        let expectations = self.expectation(description: "When the request is made with an Error, the response returned should be nil")
+        
+        networkClientMock.expectedResponse = .error(.noData)
+        var result: TransferResult? = nil
+        
+        sut.transferAmount { response in
+            result = response
+            expectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0)
+        
+        XCTAssertNil(result, "fails because the result is not nil")
+    }
+    
 
     func testFetchHomeDataMethod_WhenJSONDecoded_ShouldBeNotNil() {
         // Given
