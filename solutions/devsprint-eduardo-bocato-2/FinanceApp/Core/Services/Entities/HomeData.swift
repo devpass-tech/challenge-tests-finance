@@ -20,7 +20,7 @@ extension Activity {
 }
 
 #if DEBUG
- extension HomeData {
+extension HomeData {
      static func fixture(
          balance: Float = 3.0,
          savings: Float = 2.0,

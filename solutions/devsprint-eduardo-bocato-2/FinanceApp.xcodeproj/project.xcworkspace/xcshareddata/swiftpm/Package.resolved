@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      "state" : {
+        "revision" : "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "xctest-dynamic-overlay",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay.git",
+      "state" : {
+        "revision" : "50a70a9d3583fe228ce672e8923010c8df2deddd",
+        "version" : "0.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}
