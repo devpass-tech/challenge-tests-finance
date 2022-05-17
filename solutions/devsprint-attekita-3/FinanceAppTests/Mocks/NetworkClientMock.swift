@@ -9,16 +9,42 @@ import Foundation
 @testable import FinanceApp
 
 final class NetworkClientMock: NetworkClientProtocol {
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        guard let json = Bundle.main.path(forResource: self.getResourceName(url: url), ofType: "json") else { return }
+    
+    enum Response {
+        case success
+        case successWithCustomJson(String)
+        case error(ApiError)
+    }
+    
+    var expectedResponse: Response = .success
+    
+    func performRequest(with url: URL, completion: @escaping Completion) {
+        var json: String? = nil
+        
+        switch expectedResponse {
+        case .success:
+            json = Bundle(for: FinanceAppTests.self).path(forResource: self.getResourceName(url: url), ofType: "json")
+        case .successWithCustomJson(let jsonFilename):
+            json = Bundle(for: FinanceAppTests.self).path(forResource: jsonFilename, ofType: "json")
+        case .error(let error):
+            completion(.failure(error))
+            return
+        }
+        
+        guard let json = json else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
         let url = URL(fileURLWithPath: json)
 
         do {
             let newData = try Data(contentsOf: url)
-            completion(newData)
+            completion(.success(newData))
         } catch {
-            completion(nil)
+            completion(.failure(.noData))
         }
+        
     }
     
     private func getResourceName(url: URL) -> String {
