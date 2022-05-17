@@ -61,7 +61,6 @@ final class FinanceServiceTests: XCTestCase {
         networkClientMock.expectedResponse = .success
         var result: TransferResult? = nil
         
-        
         sut.transferAmount { response in
             result = response
             expectations.fulfill()
@@ -78,7 +77,6 @@ final class FinanceServiceTests: XCTestCase {
         networkClientMock.expectedResponse = .successWithCustomJson("transfer_amount_endpoint_false")
         var result: TransferResult? = nil
         
-        
         sut.transferAmount { response in
             result = response
             expectations.fulfill()
@@ -88,4 +86,21 @@ final class FinanceServiceTests: XCTestCase {
         
         XCTAssertEqual(result?.success, false, "the received success property fails because is not equal to json payload")
     }
+    
+    func testFinanceServiceTransferAmountMethod_WhenApiError_ShouldReturnNil() {
+        let expectations = self.expectation(description: "When the request is made with an Error, the response returned should be nil")
+        
+        networkClientMock.expectedResponse = .error(.noData)
+        var result: TransferResult? = nil
+        
+        sut.transferAmount { response in
+            result = response
+            expectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0)
+        
+        XCTAssertNil(result, "fails because the result is not nil")
+    }
+    
 }
