@@ -1,0 +1,10 @@
+{
+    "name": "Teste teste",
+    "phone": "(11) 1234-5678",
+    "email": "teste@teste.com.br",
+    "address": "Rua teste, 123",
+    "account": {
+        "agency": "1234",
+        "account": "12345678"
+    }
+}

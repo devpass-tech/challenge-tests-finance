@@ -10,7 +10,11 @@ import Foundation
 
 final class NetworkClientMock: NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        guard let json = Bundle.main.path(forResource: self.getResourceName(url: url), ofType: "json") else { return }
+        guard let json = Bundle(for: FinanceAppTests.self).path(forResource: self.getResourceName(url: url), ofType: "json") else {
+            completion(nil)
+            return
+        }
+
         let url = URL(fileURLWithPath: json)
 
         do {

@@ -25,15 +25,16 @@ class ContactListTest: XCTestCase {
     }
     
     func testFinanceServiceContactListMethod_WhenJSONDecoded_ShouldBeNotNil() {
-//        let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
+        let expectations = expectation(description: "WhenJSONDecoded_NotNil")
         let contacts = [Contact(name: "Ronald Robertson", phone: "+55 (11) 99999-9999")]
         var result = Result<[Contact], Error>.success(contacts)
         
         sut.fetchContactList({ response in
             result = response
-//            expectations.fulfill()
+            expectations.fulfill()
         })
         
+        waitForExpectations(timeout: 3.0)
         XCTAssertNotNil(result)
         
         switch result {
@@ -46,14 +47,16 @@ class ContactListTest: XCTestCase {
 }
     
     func testFinanceServiceContactListMethod_WhenJSONDontDecoded_ShouldBeDecodeError() {
-//        let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
+        let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
         let error = HTTPClientError.decodeError
         var result = Result<[Contact], Error>.failure(error)
         
         sut.fetchContactList({ response in
             result = response
-//            expectations.fulfill()
+            expectations.fulfill()
         })
+        
+        waitForExpectations(timeout: 3.0)
         
         switch result {
         case .failure(let error):
