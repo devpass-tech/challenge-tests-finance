@@ -27,7 +27,6 @@ class HomeView: UIView {
     }()
 
     let homeHeaderView: HomeHeaderView = {
-
         let homeHeaderView = HomeHeaderView()
         return homeHeaderView
     }()
