@@ -36,19 +36,21 @@ class FinanceService: FinanceServiceProtocol {
 
         let url = URL(string: URLString.homeData.rawValue)!
 
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
+        networkClient.performRequest(with: url) { result in
+            switch result {
+            case .success(let data):
+                let homeData = self.decodeJson(data: data, type: HomeData.self)
+                
+                guard let homeData = homeData else {
+                    completion(nil)
+                    return
+                }
+
+                completion(homeData)
+            case .failure:
                 completion(nil)
-                return
-            }
-            let homeData = self.decodeJson(data: data, type: HomeData.self)
-            
-            guard let homeData = homeData else {
-                completion(nil)
-                return
             }
 
-            completion(homeData)
         }
     }
 
@@ -56,18 +58,19 @@ class FinanceService: FinanceServiceProtocol {
         
         let url = URL(string: URLString.activityDetails.rawValue)!
         
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
+        networkClient.performRequest(with: url) { result in
+            switch result {
+            case .success(let data):
+                let activityDetails = self.decodeJson(data: data, type: ActivityDetails.self)
+                
+                guard let activityDetails = activityDetails else {
+                    completion(nil)
+                    return
+                }
+                completion(activityDetails)
+            case .failure:
                 completion(nil)
-                return
             }
-            let activityDetails = self.decodeJson(data: data, type: ActivityDetails.self)
-            
-            guard let activityDetails = activityDetails else {
-                completion(nil)
-                return
-            }
-            completion(activityDetails)
         }
     }
 
@@ -75,18 +78,19 @@ class FinanceService: FinanceServiceProtocol {
 
         let url = URL(string: URLString.contactList.rawValue)!
 
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(.failure(HTTPClientError.invalidData))
-                return
+        networkClient.performRequest(with: url) { result in
+            switch result {
+            case .success(let data):
+                let contactList = self.decodeJson(data: data, type: [Contact].self)
+                
+                guard let contactList = contactList else {
+                    completion(nil)
+                    return
+                }
+                completion(contactList)
+            case .failure:
+                completion(nil)
             }
-            let contactList = self.decodeJson(data: data, type: [Contact].self)
-    
-            guard let contactList = contactList else {
-                completion(.failure(HTTPClientError.decodeError))
-                return
-            }
-            completion(.success(contactList))
         }
     }
 
@@ -94,19 +98,19 @@ class FinanceService: FinanceServiceProtocol {
         
         let url = URL(string: URLString.transferAmount.rawValue)!
         
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
+        networkClient.performRequest(with: url) { result in
+            switch result {
+            case .success(let data):
+                let transferResult = self.decodeJson(data: data, type: TransferResult.self)
+                
+                guard let transferResult = transferResult else {
+                    completion(nil)
+                    return
+                }
+                completion(transferResult)
+            case .failure:
                 completion(nil)
-                return
             }
-            let transferResult = self.decodeJson(data: data, type: TransferResult.self)
-            
-            guard let transferResult = transferResult else {
-                completion(nil)
-                return
-            }
-
-            completion(transferResult)
         }
     }
 
@@ -114,19 +118,20 @@ class FinanceService: FinanceServiceProtocol {
         
         let url = URL(string: URLString.userProfile.rawValue)!
         
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-            let userProfile = self.decodeJson(data: data, type: UserProfile.self)
-            
-            guard let userProfile = userProfile else {
-                completion(nil)
-                return
-            }
+        networkClient.performRequest(with: url) { result in
+            switch result {
+            case .success(let data):
+                let userProfile = self.decodeJson(data: data, type: UserProfile.self)
+                
+                guard let userProfile = userProfile else {
+                    completion(nil)
+                    return
+                }
 
-            completion(userProfile)
+                completion(userProfile)
+            case .failure:
+                completion(nil)
+            }
         }
     }
     
