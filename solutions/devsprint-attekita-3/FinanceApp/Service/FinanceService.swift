@@ -84,12 +84,12 @@ class FinanceService: FinanceServiceProtocol {
                 let contactList = self.decodeJson(data: data, type: [Contact].self)
                 
                 guard let contactList = contactList else {
-                    completion(nil)
+                    completion(.failure(HTTPClientError.invalidData))
                     return
                 }
-                completion(contactList)
+                completion(.success(contactList))
             case .failure:
-                completion(nil)
+                completion(.failure(HTTPClientError.decodeError))
             }
         }
     }

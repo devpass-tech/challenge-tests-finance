@@ -15,8 +15,7 @@ class ContactListTest: XCTestCase {
     private var sut: FinanceService!
     
     override func setUp() async throws {
-        networkClientProtocol = NetworkClientMock()
-        sut = FinanceService(networkClient: networkClientProtocol)
+        try? await super.setUp()
     }
     
     override func tearDown() {
@@ -25,6 +24,8 @@ class ContactListTest: XCTestCase {
     }
     
     func testFinanceServiceContactListMethod_WhenJSONDecoded_ShouldBeNotNil() {
+        networkClientProtocol = NetworkClientMock()
+        sut = FinanceService(networkClient: networkClientProtocol)
         let expectations = expectation(description: "WhenJSONDecoded_NotNil")
         let contacts = [Contact(name: "Ronald Robertson", phone: "+55 (11) 99999-9999")]
         var result = Result<[Contact], Error>.success(contacts)
@@ -49,6 +50,10 @@ class ContactListTest: XCTestCase {
     func testFinanceServiceContactListMethod_WhenJSONDontDecoded_ShouldBeDecodeError() {
         let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
         let error = HTTPClientError.decodeError
+        let responseError = NetworkClientMock.Response.error(.noData)
+        let networkClientProtocolWithError = NetworkClientMock()
+        networkClientProtocolWithError.expectedResponse = responseError
+        sut = FinanceService(networkClient: networkClientProtocolWithError)
         var result = Result<[Contact], Error>.failure(error)
         
         sut.fetchContactList({ response in
@@ -61,9 +66,36 @@ class ContactListTest: XCTestCase {
         switch result {
         case .failure(let error):
             XCTAssertNotNil(error)
+            XCTAssertEqual(error as! HTTPClientError, HTTPClientError.decodeError)
         default:
             XCTFail()
         }
 
 }
+    
+    func test_WhenJSONDecode_ShouldHaveReturnCorrectInformations() {
+        networkClientProtocol = NetworkClientMock()
+        sut = FinanceService(networkClient: networkClientProtocol)
+        let expectations = expectation(description: "WhenJSONDecoded_NotNil")
+        let contacts = [Contact(name: "Ronald Robertson", phone: "+55 (11) 99999-9999")]
+        var result = Result<[Contact], Error>.success(contacts)
+        
+        sut.fetchContactList({ response in
+            result = response
+            expectations.fulfill()
+        })
+        
+        waitForExpectations(timeout: 3.0)
+        XCTAssertNotNil(result)
+        
+        switch result {
+        case .success(let contact):
+            XCTAssertNotNil(contact)
+            XCTAssertEqual(try? result.get().first?.name, "Ronald Robertson")
+            XCTAssertEqual(try? result.get().first?.phone, "+55 (11) 99999-9999")
+        default:
+            XCTFail()
+        }
+    }
+
 }

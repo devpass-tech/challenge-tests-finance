@@ -59,7 +59,6 @@
 		F8B74C2128330AEC002EEE0A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B74C2028330AEC002EEE0A /* ApiError.swift */; };
 		F8B74C22283314B5002EEE0A /* transfer_amount_endpoint_false.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0B1B3282EFCAF00E52869 /* transfer_amount_endpoint_false.json */; };
 		F8B74C23283314B8002EEE0A /* transfer_successful_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0B1B5282EFCC200E52869 /* transfer_successful_endpoint.json */; };
-		F8B74C2428331C46002EEE0A /* activity_details_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */; };
 		F8C98F00282C5947004CC7E5 /* UITableViewCellExtentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C98EFF282C5947004CC7E5 /* UITableViewCellExtentionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -226,7 +225,6 @@
 				D9B4FFB42829FD3300EC6A62 /* Service */,
 				D9B4FFB12829FC6700EC6A62 /* Mocks */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
-				70798B832829F6C9007E52BE /* ContactListTest.swift */,
 				B71B6CF6282C700E0060CC8A /* UIViewControllerExtensionTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -382,8 +380,8 @@
 				B73A066C282DDADC004C2162 /* home_endpoint.json */,
 				D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */,
 				7E4D0F3D282D6C8900A0DD00 /* user_profile_endpoint.json */,
-				D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */,
 				70C39567282EE85200FDAB5B /* contact_list_endpoint.json */,
+				D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -393,6 +391,7 @@
 			children = (
 				D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */,
 				B92093D7282DBD5500F57258 /* StringExtensionTest.swift */,
+				70798B832829F6C9007E52BE /* ContactListTest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
