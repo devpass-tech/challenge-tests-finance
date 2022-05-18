@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		70798B842829F6C9007E52BE /* ContactListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70798B832829F6C9007E52BE /* ContactListTest.swift */; };
+		70BE2FA128344E6B002C48EA /* contact_list_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C39567282EE85200FDAB5B /* contact_list_endpoint.json */; };
 		8416C7F8CC0157CE0A3447ED /* Pods_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DC97CAB5873A2E2C3D78FA /* Pods_FinanceApp.framework */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -526,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73A0673282F1101004C2162 /* activity_details_endpoint.json in Resources */,
+				70BE2FA128344E6B002C48EA /* contact_list_endpoint.json in Resources */,
 				B73A0672282F10FE004C2162 /* home_endpoint.json in Resources */,
 				B73A06742834458B004C2162 /* user_profile_endpoint.json in Resources */,
 			);
