@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct ContactCellViewConfiguration {
+    let contactNameLabel: String?
+    let contactPhoneLabel: String?
+    let imageView: UIImage?
+}
+
 class ContactCellView: UITableViewCell {
 
    private var mainStackView: UIStackView = {
@@ -88,6 +94,12 @@ extension ContactCellView {
             self.avatarImageView.heightAnchor.constraint(equalToConstant: 50),
 
         ])
+    }
+    
+    func setup(configure: ContactCellViewConfiguration) {
+        self.contactNameLabel.text = configure.contactNameLabel
+        self.contactPhoneLabel.text = configure.contactPhoneLabel
+        self.avatarImageView.image = configure.imageView ?? UIImage(named: "")
     }
 }
 
