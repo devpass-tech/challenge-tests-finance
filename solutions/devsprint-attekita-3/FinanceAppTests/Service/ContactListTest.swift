@@ -14,11 +14,8 @@ class ContactListTest: XCTestCase {
     private var networkClientProtocol: NetworkClientMock!
     private var sut: FinanceService!
     
-    override func setUp() async throws {
-        try? await super.setUp()
-    }
-    
     override func tearDown() {
+        super.tearDown()
         sut = nil
         networkClientProtocol = nil
     }
@@ -44,8 +41,7 @@ class ContactListTest: XCTestCase {
         default:
             XCTFail()
         }
-
-}
+    }
     
     func testFinanceServiceContactListMethod_WhenJSONDontDecoded_ShouldBeDecodeError() {
         let expectations = expectation(description: "WhenJSONDecoded_ShouldBeNotNil")
@@ -70,8 +66,7 @@ class ContactListTest: XCTestCase {
         default:
             XCTFail()
         }
-
-}
+    }
     
     func test_WhenJSONDecode_ShouldHaveReturnCorrectInformations() {
         networkClientProtocol = NetworkClientMock()
@@ -97,5 +92,4 @@ class ContactListTest: XCTestCase {
             XCTFail()
         }
     }
-
 }
