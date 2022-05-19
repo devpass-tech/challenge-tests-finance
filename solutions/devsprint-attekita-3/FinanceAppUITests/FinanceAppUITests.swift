@@ -27,12 +27,11 @@ final class FinanceAppUITests: XCTestCase {
         app.tables.element(boundBy: 0).cells.element(boundBy: 0).tap()
         
         let activityIcon = app.images.element(boundBy: 0)
-        let allElements = app.descendants(matching: .any)
-        let activityNameLabel = allElements.staticTexts["Mall"]
-        let activityCategoryLabel = allElements.staticTexts["Shopping"]
-        let activityPriceLabel = allElements.staticTexts["$100"]
-        let activityTimeLabel = allElements.staticTexts["8:57 AM"]
-        let activityButton = allElements.buttons["Report a issue"]
+        let activityNameLabel = app.staticTexts["Mall"]
+        let activityCategoryLabel = app.staticTexts["Shopping"]
+        let activityPriceLabel = app.staticTexts["$100"]
+        let activityTimeLabel = app.staticTexts["8:57 AM"]
+        let activityButton = app.buttons["Report a issue"]
         
         XCTAssertTrue(activityIcon.exists)
         XCTAssertTrue(activityNameLabel.exists)
