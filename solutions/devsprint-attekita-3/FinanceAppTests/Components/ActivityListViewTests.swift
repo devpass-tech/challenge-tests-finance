@@ -25,10 +25,6 @@ class ActivityListViewTests: XCTestCase {
         super.tearDown()
     }
     
-    func testActivityListView_WhenSnapshotAssert_ShouldBeCorrect() {
-        assertSnapshot(matching: sut, as: .image(size: viewSize), record: isRecording)
-    }
-    
     func testActivityListView_WhenSnapshotAssertInMultiplesDevices_ShouldBeCorrect() {
         mockVC = UIViewController()
         mockVC.view = sut
