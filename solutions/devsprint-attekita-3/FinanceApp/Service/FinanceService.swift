@@ -4,14 +4,13 @@
 //
 //  Created by Rodrigo Borges on 30/12/21.
 //
-
 import Foundation
 
 protocol FinanceServiceProtocol {
 
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
-    func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
+    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void)
     func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
 }
@@ -75,7 +74,7 @@ class FinanceService: FinanceServiceProtocol {
         }
     }
 
-    func fetchContactList(_ completion: @escaping ([Contact]?) -> Void) {
+    func fetchContactList(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
 
         let url = URL(string: URLString.contactList.rawValue)!
 
@@ -85,12 +84,12 @@ class FinanceService: FinanceServiceProtocol {
                 let contactList = self.decodeJson(data: data, type: [Contact].self)
                 
                 guard let contactList = contactList else {
-                    completion(nil)
+                    completion(.failure(HTTPClientError.invalidData))
                     return
                 }
-                completion(contactList)
+                completion(.success(contactList))
             case .failure:
-                completion(nil)
+                completion(.failure(HTTPClientError.decodeError))
             }
         }
     }
@@ -143,3 +142,10 @@ class FinanceService: FinanceServiceProtocol {
         return decodedData
     }
 }
+
+enum HTTPClientError: Error {
+     case unexpectedStatusCode
+     case invalidData
+     case decodeError
+     case invalidURL
+ }
