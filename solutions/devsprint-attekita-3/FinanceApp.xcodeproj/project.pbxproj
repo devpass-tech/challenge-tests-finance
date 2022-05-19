@@ -47,6 +47,9 @@
 		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
+		B9EF9097282E96B900802B52 /* HomeDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF9096282E96B800802B52 /* HomeDataTest.swift */; };
+		B92093D8282DBD5500F57258 /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92093D7282DBD5500F57258 /* StringExtensionTest.swift */; };
+		B9EF909928344ABD00802B52 /* ContactCellViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF909828344ABC00802B52 /* ContactCellViewTest.swift */; };
 		B71B6CF7282C700E0060CC8A /* UIViewControllerExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71B6CF6282C700E0060CC8A /* UIViewControllerExtensionTests.swift */; };
 		B73A0670282F1046004C2162 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */; };
 		B73A0672282F10FE004C2162 /* home_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = B73A066C282DDADC004C2162 /* home_endpoint.json */; };
@@ -57,6 +60,7 @@
 		D5A5E01CED87A92D74A25F2F /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A050C3F2BC84DBB3F75A0E6 /* Pods_FinanceAppTests.framework */; };
 		D95F868D2836D8500002AF6D /* ActivityListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */; };
 		D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */; };
+		D9D6DBC6283453A9000AF4FA /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6DBC5283453A9000AF4FA /* UserProfileTests.swift */; };
 		E0AC8D6E973BD60507F27E4F /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
 		F8B74C2128330AEC002EEE0A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B74C2028330AEC002EEE0A /* ApiError.swift */; };
 		F8B74C22283314B5002EEE0A /* transfer_amount_endpoint_false.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0B1B3282EFCAF00E52869 /* transfer_amount_endpoint_false.json */; };
@@ -133,6 +137,9 @@
 		9882466527D13AC0001DD0C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		B0B4A5C707A5A6FC7DE9F378 /* Pods-FinanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceApp.debug.xcconfig"; path = "Target Support Files/Pods-FinanceApp/Pods-FinanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B9EF9096282E96B800802B52 /* HomeDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataTest.swift; sourceTree = "<group>"; };
+		B92093D7282DBD5500F57258 /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
+		B9EF909828344ABC00802B52 /* ContactCellViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewTest.swift; sourceTree = "<group>"; };
 		B71B6CF6282C700E0060CC8A /* UIViewControllerExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionTests.swift; sourceTree = "<group>"; };
 		B73A066C282DDADC004C2162 /* home_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = home_endpoint.json; sourceTree = "<group>"; };
 		B92093D7282DBD5500F57258 /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
@@ -141,6 +148,7 @@
 		D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
 		D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activity_details_endpoint.json; sourceTree = "<group>"; };
+		D9D6DBC5283453A9000AF4FA /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBEDDA04951E983432B2135 /* Pods-FinanceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8A0B1B3282EFCAF00E52869 /* transfer_amount_endpoint_false.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = transfer_amount_endpoint_false.json; sourceTree = "<group>"; };
@@ -404,7 +412,9 @@
 			isa = PBXGroup;
 			children = (
 				D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */,
+				B9EF9096282E96B800802B52 /* HomeDataTest.swift */,
 				B92093D7282DBD5500F57258 /* StringExtensionTest.swift */,
+				D9D6DBC5283453A9000AF4FA /* UserProfileTests.swift */,
 				70798B832829F6C9007E52BE /* ContactListTest.swift */,
 			);
 			path = Service;
@@ -659,6 +669,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CEE5C93D938B5F2E10163DAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FinanceAppTests/Pods-FinanceAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -706,8 +733,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9EF9097282E96B900802B52 /* HomeDataTest.swift in Sources */,
 				70798B842829F6C9007E52BE /* ContactListTest.swift in Sources */,
 				B73A0670282F1046004C2162 /* FinanceServiceTests.swift in Sources */,
+				D9D6DBC6283453A9000AF4FA /* UserProfileTests.swift in Sources */,
 				B92093D8282DBD5500F57258 /* StringExtensionTest.swift in Sources */,
 				B71B6CF7282C700E0060CC8A /* UIViewControllerExtensionTests.swift in Sources */,
 				F8C98F00282C5947004CC7E5 /* UITableViewCellExtentionsTests.swift in Sources */,
