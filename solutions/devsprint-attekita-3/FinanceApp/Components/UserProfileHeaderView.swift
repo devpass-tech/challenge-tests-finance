@@ -7,10 +7,10 @@
 
 import UIKit
 
-class UserProfileHeaderView: UIView {
-
-    let stackView: UIStackView = {
-
+final class UserProfileHeaderView: UIView {
+    
+    // MARK: - Private Constants
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -20,8 +20,7 @@ class UserProfileHeaderView: UIView {
         return stackView
     }()
 
-    let imageView: UIImageView = {
-
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "avatar-placeholder")
         imageView.layer.cornerRadius = 50
@@ -29,8 +28,7 @@ class UserProfileHeaderView: UIView {
         return imageView
     }()
 
-    let nameLabel: UILabel = {
-
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "User Name"
         label.textAlignment = .center
@@ -38,8 +36,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let agencyLabel: UILabel = {
-
+    private let agencyLabel: UILabel = {
         let label = UILabel()
         label.text = "Agency 0001"
         label.textAlignment = .center
@@ -47,8 +44,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let accountLabel: UILabel = {
-
+    private let accountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Account 123456-7"
@@ -56,8 +52,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let bankLabel: UILabel = {
-
+    private let bankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Devpass Bank"
@@ -66,19 +61,38 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
-
+        setup()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setup
+    private func setup() {
+        setupViews()
+        setupConstraints()
+        setupBackgroundColor()
+    }
+    
+    private func setupBackgroundColor() {
         backgroundColor = .white
-
+    }
+    
+    private func setupViews() {
+        addSubview(stackView)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(agencyLabel)
         stackView.addArrangedSubview(accountLabel)
         stackView.addArrangedSubview(bankLabel)
-
-        addSubview(stackView)
-
+    }
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
@@ -88,8 +102,15 @@ class UserProfileHeaderView: UIView {
             imageView.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
+}
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+// MARK: - Extension UserProfileHeaderView
+extension UserProfileHeaderView {
+    func setup(with values: UserProfileHeaderConfiguration) {
+        imageView.image = values.imageView
+        nameLabel.text = values.name
+        agencyLabel.text = values.agency
+        accountLabel.text = values.account
+        bankLabel.text = values.bank
     }
 }
