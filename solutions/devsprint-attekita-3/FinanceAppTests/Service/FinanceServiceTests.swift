@@ -34,6 +34,7 @@ final class FinanceServiceTests: XCTestCase {
         sut.fetchActivityDetails { response in
             result = response
             expectations.fulfill()
+            
         }
         
         waitForExpectations(timeout: 3.0)
