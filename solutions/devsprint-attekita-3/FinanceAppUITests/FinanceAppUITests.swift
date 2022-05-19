@@ -9,51 +9,36 @@ import XCTest
 @testable import FinanceApp
 
 final class FinanceAppUITests: XCTestCase {
-    
-    private var app: XCUIApplication!
-    private var activityDetailsTable: XCUIElement!
-    private var activityDetailsIcon: XCUIElement!
-    private var activityDetailsNameLabel: XCUIElement!
-    private var activityDetailsCategoryLabel: XCUIElement!
-    private var activityDetailsPriceLabel: XCUIElement!
-    private var activityDetailsTimeLabel: XCUIElement!
-    private var activityDetailsReportButton: XCUIElement!
 
+    private var app: XCUIApplication!
+    
     override func setUp() {
         super.setUp()
         app = XCUIApplication()
         app.launch()
-        
-        activityDetailsTable = app.tables.cells.element(boundBy: 0)
-        activityDetailsIcon = app.images["ActivityDetailsIconImage"]
-        activityDetailsNameLabel = app.staticTexts["ActivityDetailsNameLabel"]
-        activityDetailsCategoryLabel = app.staticTexts["ActivityDetailsCategoryLabel"]
-        activityDetailsPriceLabel = app.staticTexts["ActivityDetailsPriceLabel"]
-        activityDetailsTimeLabel = app.staticTexts["ActivityDetailsTimeLabel"]
-        activityDetailsReportButton = app.buttons["ActivityDetailsReportButton"]
-        
         continueAfterFailure = false
     }
 
     override func tearDown() {
-        activityDetailsTable = nil
-        activityDetailsIcon = nil
-        activityDetailsNameLabel = nil
-        activityDetailsCategoryLabel = nil
-        activityDetailsPriceLabel = nil
-        activityDetailsTimeLabel = nil
-        activityDetailsReportButton = nil
         app.terminate()
     }
     
     func testHomeToActivityDetailsFlow_WhenClickInTheCell_ShouldNavigateToActivityDetailsView() {
-        activityDetailsTable.tap()
-
-        XCTAssertEqual(activityDetailsIcon.exists, true, "fails because activityDetailsIcon does not exists")
-        XCTAssertEqual(activityDetailsNameLabel.label, "Mall", "fails because activityDetailsNameLabel its not equal to expected value")
-        XCTAssertEqual(activityDetailsCategoryLabel.label, "Shopping", "fails because activityDetailsCategoryLabel its not equal to expected value")
-        XCTAssertEqual(activityDetailsPriceLabel.label, "$100", "fails because activityDetailsPriceLabel its not equal to expected value")
-        XCTAssertEqual(activityDetailsTimeLabel.label, "8:57 AM", "fails because activityDetailsTimeLabel its not equal to expected value")
-        XCTAssertEqual(activityDetailsReportButton.exists, true, "fails because activityDetailsReportButton does not exists")
+        app.tables.element(boundBy: 0).cells.element(boundBy: 0).tap()
+        
+        let activityIcon = app.images.element(boundBy: 0)
+        let allElements = app.descendants(matching: .any)
+        let activityNameLabel = allElements.staticTexts["Mall"]
+        let activityCategoryLabel = allElements.staticTexts["Shopping"]
+        let activityPriceLabel = allElements.staticTexts["$100"]
+        let activityTimeLabel = allElements.staticTexts["8:57 AM"]
+        let activityButton = allElements.buttons["Report a issue"]
+        
+        XCTAssertTrue(activityIcon.exists)
+        XCTAssertTrue(activityNameLabel.exists)
+        XCTAssertTrue(activityCategoryLabel.exists)
+        XCTAssertTrue(activityPriceLabel.exists)
+        XCTAssertTrue(activityTimeLabel.exists)
+        XCTAssertTrue(activityButton.exists)
     }
 }

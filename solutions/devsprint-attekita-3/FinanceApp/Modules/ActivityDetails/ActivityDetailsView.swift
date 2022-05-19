@@ -27,7 +27,6 @@ class ActivityDetailsView: UIView {
         imageView.image = UIImage(named: "bag.circle.fill")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.accessibilityIdentifier = "ActivityDetailsIconImage"
         return imageView
     }()
 
@@ -37,7 +36,6 @@ class ActivityDetailsView: UIView {
         label.text = "Mall"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.accessibilityIdentifier = "ActivityDetailsNameLabel"
         return label
     }()
 
@@ -46,7 +44,6 @@ class ActivityDetailsView: UIView {
         let label = UILabel()
         label.text = "Shopping"
         label.textAlignment = .center
-        label.accessibilityIdentifier = "ActivityDetailsCategoryLabel"
         return label
     }()
 
@@ -62,7 +59,6 @@ class ActivityDetailsView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "$100"
         label.font = UIFont.boldSystemFont(ofSize: 34)
-        label.accessibilityIdentifier = "ActivityDetailsPriceLabel"
         return label
     }()
 
@@ -71,7 +67,6 @@ class ActivityDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "8:57 AM"
-        label.accessibilityIdentifier = "ActivityDetailsTimeLabel"
         return label
     }()
 
@@ -83,7 +78,6 @@ class ActivityDetailsView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
-        button.accessibilityIdentifier = "ActivityDetailsReportButton"
         return button
     }()
 
