@@ -56,7 +56,9 @@
 		B73A0673282F1101004C2162 /* activity_details_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */; };
 		B73A06742834458B004C2162 /* user_profile_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D0F3D282D6C8900A0DD00 /* user_profile_endpoint.json */; };
 		B92093D8282DBD5500F57258 /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92093D7282DBD5500F57258 /* StringExtensionTest.swift */; };
+		B9EF909928344ABD00802B52 /* ContactCellViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF909828344ABC00802B52 /* ContactCellViewTest.swift */; };
 		D5A5E01CED87A92D74A25F2F /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A050C3F2BC84DBB3F75A0E6 /* Pods_FinanceAppTests.framework */; };
+		D95F868D2836D8500002AF6D /* ActivityListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */; };
 		D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */; };
 		D9D6DBC6283453A9000AF4FA /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6DBC5283453A9000AF4FA /* UserProfileTests.swift */; };
 		E0AC8D6E973BD60507F27E4F /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
@@ -141,6 +143,8 @@
 		B71B6CF6282C700E0060CC8A /* UIViewControllerExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionTests.swift; sourceTree = "<group>"; };
 		B73A066C282DDADC004C2162 /* home_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = home_endpoint.json; sourceTree = "<group>"; };
 		B92093D7282DBD5500F57258 /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
+		B9EF909828344ABC00802B52 /* ContactCellViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewTest.swift; sourceTree = "<group>"; };
+		D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewTests.swift; sourceTree = "<group>"; };
 		D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
 		D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activity_details_endpoint.json; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D95F868B2836D8310002AF6D /* Components */,
 				F8982385282C48BB00304124 /* Extensions */,
 				D9B4FFB42829FD3300EC6A62 /* Service */,
 				D9B4FFB12829FC6700EC6A62 /* Mocks */,
@@ -380,6 +385,14 @@
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D95F868B2836D8310002AF6D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		D9B4FFB12829FC6700EC6A62 /* Mocks */ = {
@@ -729,6 +742,7 @@
 				F8C98F00282C5947004CC7E5 /* UITableViewCellExtentionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */,
+				D95F868D2836D8500002AF6D /* ActivityListViewTests.swift in Sources */,
 				B9EF909928344ABD00802B52 /* ContactCellViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
