@@ -14,6 +14,7 @@ class HomeViewModelTests: XCTestCase {
     private let networkClientMock = NetworkClientMock()
     private var didFetchHomeDataCalled = false
     private var expectations: XCTestExpectation? = nil
+    private var financeServiceSpy: FinanceServiceSpy!
 
     override func setUp() {
         financeService = FinanceService(networkClient: self.networkClientMock)
@@ -34,6 +35,15 @@ class HomeViewModelTests: XCTestCase {
         self.waitForExpectations(timeout: 3.0)
         
         XCTAssertTrue(self.didFetchHomeDataCalled, "fails because the fetchData method does not call the didFetchData delegate method")
+    }
+    
+    func testHomeViewModel_WhenFetchHomeDataMethodCalled_ShouldReturnTrue() {
+        financeServiceSpy = FinanceServiceSpy()
+        sut = HomeViewModel(financeService: self.financeServiceSpy)
+        
+        sut.fetchData()
+        
+        XCTAssertTrue(financeServiceSpy.fetchHomeDataWasCalled)
     }
 }
 
