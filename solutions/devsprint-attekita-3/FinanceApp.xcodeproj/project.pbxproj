@@ -58,6 +58,7 @@
 		D5A5E01CED87A92D74A25F2F /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A050C3F2BC84DBB3F75A0E6 /* Pods_FinanceAppTests.framework */; };
 		D95F868D2836D8500002AF6D /* ActivityListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */; };
 		D95F8691283726A70002AF6D /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95F8690283726A70002AF6D /* HomeViewModelTests.swift */; };
+		D99C5D2728383AAC00D4CD8B /* FinanceServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C5D2628383AAC00D4CD8B /* FinanceServiceSpy.swift */; };
 		D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */; };
 		D9D6DBC6283453A9000AF4FA /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6DBC5283453A9000AF4FA /* UserProfileTests.swift */; };
 		E0AC8D6E973BD60507F27E4F /* Pods_FinanceApp_FinanceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FFC44F2BA9F3BE4107E393 /* Pods_FinanceApp_FinanceAppUITests.framework */; };
@@ -143,6 +144,7 @@
 		B9EF909828344ABC00802B52 /* ContactCellViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewTest.swift; sourceTree = "<group>"; };
 		D95F868C2836D8500002AF6D /* ActivityListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewTests.swift; sourceTree = "<group>"; };
 		D95F8690283726A70002AF6D /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		D99C5D2628383AAC00D4CD8B /* FinanceServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceSpy.swift; sourceTree = "<group>"; };
 		D9B4FFB22829FC8700EC6A62 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
 		D9B4FFB52829FD4E00EC6A62 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		D9B4FFBB282A11F900EC6A62 /* activity_details_endpoint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activity_details_endpoint.json; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D99C5D2528383A5600D4CD8B /* Spy */,
 				D95F868E2837265B0002AF6D /* Modules */,
 				D95F868B2836D8310002AF6D /* Components */,
 				F8982385282C48BB00304124 /* Extensions */,
@@ -408,6 +411,14 @@
 				D95F8690283726A70002AF6D /* HomeViewModelTests.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D99C5D2528383A5600D4CD8B /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				D99C5D2628383AAC00D4CD8B /* FinanceServiceSpy.swift */,
+			);
+			path = Spy;
 			sourceTree = "<group>";
 		};
 		D9B4FFB12829FC6700EC6A62 /* Mocks */ = {
@@ -737,6 +748,7 @@
 				D9D6DBC6283453A9000AF4FA /* UserProfileTests.swift in Sources */,
 				B92093D8282DBD5500F57258 /* StringExtensionTest.swift in Sources */,
 				B71B6CF7282C700E0060CC8A /* UIViewControllerExtensionTests.swift in Sources */,
+				D99C5D2728383AAC00D4CD8B /* FinanceServiceSpy.swift in Sources */,
 				F8C98F00282C5947004CC7E5 /* UITableViewCellExtentionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				D9B4FFB32829FC8700EC6A62 /* NetworkClientMock.swift in Sources */,
