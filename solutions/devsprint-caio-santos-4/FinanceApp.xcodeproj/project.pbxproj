@@ -47,6 +47,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DCD51284F6B18003A75B2 /* ActivityTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		A14DCD51284F6B18003A75B2 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				8715E319284F75ED00E9F4BD /* Extensions */,
+				A14DCD4F284F6ADC003A75B2 /* Service */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -338,6 +341,22 @@
 				98E0E87A28299EB400560502 /* RepositoryListViewController.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		A14DCD4F284F6ADC003A75B2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A14DCD50284F6AE4003A75B2 /* Entities */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A14DCD50284F6AE4003A75B2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A14DCD51284F6B18003A75B2 /* ActivityTests.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
 			);
