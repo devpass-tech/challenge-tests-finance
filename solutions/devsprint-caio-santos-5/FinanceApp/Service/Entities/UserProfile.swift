@@ -23,14 +23,11 @@ struct Account: Decodable {
 }
 
 extension Account {
-
     func formattedAgency() -> String {
-
         return "Agency: \(agency)"
     }
 
     func formattedAccount() -> String {
-
         return "Account: \(account)"
     }
 }
