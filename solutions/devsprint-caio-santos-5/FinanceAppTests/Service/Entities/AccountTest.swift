@@ -35,7 +35,7 @@ final class AccountTest: XCTestCase {
         XCTAssertEqual(formatterAgency, "Agency:          ")
     }
     
-    func test_formattedAccount_WhenGivenAgencyInformation_ShouldFormatCorrectly() throws {
+    func test_formattedAccount_WhenGivenAccountInformation_ShouldFormatCorrectly() throws {
         // GIVEN
         let sut = Account(agency: "dummy", account: "123456-3")
         
@@ -46,7 +46,7 @@ final class AccountTest: XCTestCase {
         XCTAssertEqual(formatterAgency, "Account: 123456-3")
     }
     
-    func test_formattedAccount_WhenGivenAnEmptyAgencyInformation_ShouldReturnAFormattedString() throws {
+    func test_formattedAccount_WhenGivenAnEmptyAccountInformation_ShouldReturnAFormattedString() throws {
         // GIVEN
         let sut = Account(agency: "dummy", account: "")
         
@@ -57,7 +57,7 @@ final class AccountTest: XCTestCase {
         XCTAssertEqual(formatterAgency, "Account: ")
     }
     
-    func test_formattedAccount_multipleBlanksAgencyInformation_ShouldReturnAFormattedString() throws {
+    func test_formattedAccount_multipleBlanksAccountInformation_ShouldReturnAFormattedString() throws {
         // GIVEN
         let sut = Account(agency: "dummy", account: "         ")
         
@@ -65,6 +65,6 @@ final class AccountTest: XCTestCase {
         let formatterAgency = sut.formattedAccount()
         
         // THEN
-        XCTAssertEqual(formatterAgency, ("Account:          ")
+        XCTAssertEqual(formatterAgency, "Account:          ")
     }
 }
