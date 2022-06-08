@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
+		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8715E319284F75ED00E9F4BD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				8715E319284F75ED00E9F4BD /* Extensions */,
 				A14DCD4F284F6ADC003A75B2 /* Service */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
@@ -525,6 +536,7 @@
 				A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */,
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
