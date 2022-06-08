@@ -1,14 +1,6 @@
-//
-//  UserProfile.swift
-//  FinanceApp
-//
-//  Created by Rodrigo Borges on 02/03/22.
-//
-
 import Foundation
 
 struct UserProfile: Decodable {
-
     let name: String
     let phone: String
     let email: String
@@ -17,7 +9,6 @@ struct UserProfile: Decodable {
 }
 
 struct Account: Decodable {
-
     let agency: String
     let account: String
 }
