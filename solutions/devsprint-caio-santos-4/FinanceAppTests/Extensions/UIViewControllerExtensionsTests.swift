@@ -15,7 +15,9 @@ class UIViewControllerExtensionsTests: XCTestCase {
 
     override func setUpWithError() throws {}
 
-    func test_insideNavigationController_whenCalledByRepositoryListViewController_ShouldVadalite() {
+    // Anderson
+    
+    func test_insideNavigationController_whenCalledByRepositoryListViewController_ShouldValidate() {
         sut = RepositoryListViewController()
         let navController = sut.insideNavigationController()
 
@@ -24,7 +26,7 @@ class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertTrue(navController.viewControllers.first is RepositoryListViewController)
     }
 
-    func test_insideNavigationController_whenCalledByConfirmationViewController_ShouldVadalite() {
+    func test_insideNavigationController_whenCalledByConfirmationViewController_ShouldValidate() {
         sut = ConfirmationViewController()
         let navController = sut.insideNavigationController()
 
@@ -32,4 +34,43 @@ class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(navController.viewControllers.count, 1 )
         XCTAssertTrue(navController.viewControllers.first is ConfirmationViewController)
     }
+    
+    // Caio
+    
+    func test_insideNavigationController_whenCalledByUIViewController_ShouldPresentFormSheet() {
+        // GIVE
+        sut = UIViewController()
+        
+        // WHEN
+        let navigationController = sut.insideNavigationController()
+
+        // THEN
+        XCTAssertEqual(navigationController.modalPresentationStyle, .formSheet)
+    }
+    
+    func test_insideNavigationController_whenCalledByUIViewController_ShouldReturnANavigationWithOneViewController() {
+        // GIVE
+        sut = ConfirmationViewController()
+        
+        // WHEN
+        let navigationController = sut.insideNavigationController()
+
+        // THEN
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+    }
+    
+    func test_insideNavigationController_whenCalledByUIViewController_ShouldReturnANavigationWithOneViewControllerOfSpecificType() throws {
+        // GIVE
+        var navigationController: UINavigationController?
+        sut = ConfirmationViewController()
+        
+        // WHEN
+        navigationController = sut.insideNavigationController()
+        let validNavigation = try XCTUnwrap(navigationController, "***** Ooops: Found nil navigationController!")
+        
+        // THEN
+        XCTAssertTrue(validNavigation.viewControllers.first is ConfirmationViewController)
+        XCTAssertEqual(validNavigation.viewControllers.first, sut)
+    }
+
 }
