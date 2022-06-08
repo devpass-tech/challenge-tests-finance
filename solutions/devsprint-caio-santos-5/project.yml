@@ -2,8 +2,8 @@ name: FinanceApp
 options:
   bundleIdPrefix: com.devpass
   deploymentTarget:
-    iOS: 15.0
-  postGenCommand: pod install
+    iOS: 15.2
+  # postGenCommand: pod install
 
 targets:
   FinanceApp:
@@ -19,6 +19,7 @@ targets:
     info:
       path: FinanceApp/Resources/Info.plist
       properties:
+        ONLY_ACTIVE_ARCH: NO
         UISupportedInterfaceOrientations: []
         NSAppTransportSecurity: true
         UILaunchStoryboardName: LaunchScreen
