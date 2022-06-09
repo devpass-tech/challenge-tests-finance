@@ -39,7 +39,7 @@ class ActivityTests: XCTestCase {
         let formatterInfo = sut.formattedInfo() as String
         
         // THEN
-        XCTAssertNotNil(formatterInfo, String())
+        XCTAssertNotNil(formatterInfo, "$50.00 • 20")
     }
     
     func test_formattedInfo_WhenGivenEmptyActivityInformation_ShouldReturnEmpty() throws {
