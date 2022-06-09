@@ -6,72 +6,86 @@ final class FinanceServiceTests: XCTestCase {
     
     func test_FetchHomeData_URLValidation() throws {
         // given
-        var urlReceived = [URL]()
+        var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { url, _ in
-            urlReceived.append(url)
+            XCTAssertEqual(url, fields.urlExpected)
+            callOrder.append("performRequest called")
         }
         
         // when
         sut.fetchHomeData { _ in
-            XCTFail("Não deveria ser chamado")
+            callOrder.append("fetchHomeData não deveria ser chamado")
         }
         
         // then
-        XCTAssertEqual(urlReceived, [fields.urlExpected])
+        XCTAssertEqual(callOrder, ["performRequest called"])
     }
     
-    func test_FetchHomeData_WtihSuccess() throws {
+    func test_FetchHomeData_WithSuccess() throws {
         // given
-        var homeDataReceived = [HomeData?]()
+        var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { _, completion in
+            callOrder.append("performRequest called")
             completion(homeDataJsonData)
         }
         
         // when
         sut.fetchHomeData { homeData in
-            homeDataReceived.append(homeData)
+            callOrder.append("fetchHomeData called")
+            XCTAssertEqual(homeData, .fixture())
         }
         
         // then
-        XCTAssertEqual(homeDataReceived, [.fixture()])
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "fetchHomeData called"
+        ])
     }
     
-    func test_FetchHomeData_WtihInvalidData() throws {
+    func test_FetchHomeData_WithInvalidData() throws {
         // given
-        var homeDataReceived = [HomeData?]()
+        var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { _, completion in
+            callOrder.append("performRequest called")
             completion(Data())
         }
         
         // when
         sut.fetchHomeData { homeData in
-            homeDataReceived.append(homeData)
+            callOrder.append("fetchHomeData called")
+            XCTAssertNil(homeData)
         }
         
         // then
-        XCTAssertEqual(homeDataReceived.count, 1)
-        XCTAssertNil(homeDataReceived[0])
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "fetchHomeData called"
+        ])
     }
     
-    func test_FetchHomeData_WtihNullableData() throws {
+    func test_FetchHomeData_WithNullableData() throws {
         // given
-        var homeDataReceived = [HomeData?]()
+        var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { _, completion in
+            callOrder.append("performRequest called")
             completion(nil)
         }
         
         // when
         sut.fetchHomeData { homeData in
-            homeDataReceived.append(homeData)
+            callOrder.append("fetchHomeData called")
+            XCTAssertNil(homeData)
         }
         
         // then
-        XCTAssertEqual(homeDataReceived.count, 1)
-        XCTAssertNil(homeDataReceived[0])
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "fetchHomeData called"
+        ])
     }
     
     func makeSut() throws -> (sut: Sut, (networkClient: NetworkClientMock, urlExpected: URL)) {
