@@ -9,8 +9,7 @@ final class FinanceServiceTests: XCTestCase {
         var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { url, _ in
-            XCTAssertEqual(url, fields.urlExpected)
-            callOrder.append("performRequest called")
+            callOrder.append("performRequest called \(url)")
         }
         
         // when
@@ -19,66 +18,45 @@ final class FinanceServiceTests: XCTestCase {
         }
         
         // then
-        XCTAssertEqual(callOrder, ["performRequest called"])
+        XCTAssertEqual(callOrder, ["performRequest called \(fields.urlExpected)"])
     }
     
     func test_FetchHomeData_WithSuccess() throws {
-        // given
-        var callOrder = [String]()
-        let (sut, fields) = try makeSut()
-        fields.networkClient.performRequestImpl = { _, completion in
-            callOrder.append("performRequest called")
-            completion(homeDataJsonData)
-        }
-        
-        // when
-        sut.fetchHomeData { homeData in
-            callOrder.append("fetchHomeData called")
+        try fetchHomeData(whenApiReturns: homeDataJsonData) { homeData in
             XCTAssertEqual(homeData, .fixture())
         }
-        
-        // then
-        XCTAssertEqual(callOrder, [
-            "performRequest called",
-            "fetchHomeData called"
-        ])
     }
     
     func test_FetchHomeData_WithInvalidData() throws {
-        // given
-        var callOrder = [String]()
-        let (sut, fields) = try makeSut()
-        fields.networkClient.performRequestImpl = { _, completion in
-            callOrder.append("performRequest called")
-            completion(Data())
-        }
-        
-        // when
-        sut.fetchHomeData { homeData in
-            callOrder.append("fetchHomeData called")
+        try fetchHomeData(whenApiReturns: Data()) { homeData in
             XCTAssertNil(homeData)
         }
-        
-        // then
-        XCTAssertEqual(callOrder, [
-            "performRequest called",
-            "fetchHomeData called"
-        ])
     }
     
     func test_FetchHomeData_WithNullableData() throws {
+        try fetchHomeData(whenApiReturns: nil) { homeData in
+            XCTAssertNil(homeData)
+        }
+    }
+}
+
+private extension FinanceServiceTests {
+    func fetchHomeData(
+        whenApiReturns data: Data?,
+        shouldValidateUsing validation: @escaping (HomeData?) -> Void
+    ) throws {
         // given
         var callOrder = [String]()
         let (sut, fields) = try makeSut()
         fields.networkClient.performRequestImpl = { _, completion in
             callOrder.append("performRequest called")
-            completion(nil)
+            completion(data)
         }
         
         // when
         sut.fetchHomeData { homeData in
             callOrder.append("fetchHomeData called")
-            XCTAssertNil(homeData)
+            validation(homeData)
         }
         
         // then
@@ -92,6 +70,11 @@ final class FinanceServiceTests: XCTestCase {
         let networkClient = NetworkClientMock()
         let sut = Sut(networkClient: networkClient)
         let urlExpected = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"))
+        
+        addTeardownBlock { [weak sut, weak networkClient] in
+            XCTAssertNil(sut)
+            XCTAssertNil(networkClient)
+        }
         return (sut, (networkClient, urlExpected))
     }
 }
@@ -123,15 +106,5 @@ extension Activity {
             price: price,
             time: time
         )
-    }
-}
-
-final class NetworkClientMock: NetworkClientProtocol {
-    var performRequestImpl: (_ url: URL, _ completion: @escaping (Data?) -> ()) -> Void = { _, _ in
-        XCTFail("performRequestImpl não foi implementada")
-    }
-    
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        performRequestImpl(url, completion)
     }
 }
