@@ -18,13 +18,11 @@ class ActivityListView: UIView {
 
     static let cellSize = CGFloat(82)
 
-    private let cellIdentifier = "ActivityCellIdentifier"
-
     lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ActivityCellView.self, forCellReuseIdentifier: self.cellIdentifier)
+        tableView.register(ActivityCellView.self, forCellReuseIdentifier: ActivityCellView.classIdentifier())
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -73,8 +71,8 @@ extension ActivityListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityCellView.classIdentifier(), for: indexPath) as! ActivityCellView
+        
         return cell
     }
 }
