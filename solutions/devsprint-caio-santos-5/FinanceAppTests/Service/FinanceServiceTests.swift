@@ -4,11 +4,11 @@ import XCTest
 final class FinanceServiceTests: XCTestCase {
     typealias Sut = FinanceService
     
-    func testfetchHomeData_URLValidation() throws {
+    func test_FetchHomeData_URLValidation() throws {
         // given
         var urlReceived = [URL]()
         let (sut, fields) = try makeSut()
-        fields.networkClient.performRequestImpl = { url, completion in
+        fields.networkClient.performRequestImpl = { url, _ in
             urlReceived.append(url)
         }
         
@@ -21,7 +21,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(urlReceived, [fields.urlExpected])
     }
     
-    func testfetchHomeData_WtihSuccess() throws {
+    func test_FetchHomeData_WtihSuccess() throws {
         // given
         var homeDataReceived = [HomeData?]()
         let (sut, fields) = try makeSut()
@@ -38,7 +38,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(homeDataReceived, [.fixture()])
     }
     
-    func testfetchHomeData_WtihInvalidData() throws {
+    func test_FetchHomeData_WtihInvalidData() throws {
         // given
         var homeDataReceived = [HomeData?]()
         let (sut, fields) = try makeSut()
@@ -56,7 +56,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertNil(homeDataReceived[0])
     }
     
-    func testfetchHomeData_WtihNullableData() throws {
+    func test_FetchHomeData_WtihNullableData() throws {
         // given
         var homeDataReceived = [HomeData?]()
         let (sut, fields) = try makeSut()
