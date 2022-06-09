@@ -144,14 +144,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5EF6C6EE284FE8F200B43B57 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */,
 		8715E319284F75ED00E9F4BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */,
+				5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

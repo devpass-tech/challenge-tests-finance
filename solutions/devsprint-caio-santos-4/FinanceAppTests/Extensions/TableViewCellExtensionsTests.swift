@@ -17,8 +17,15 @@ class TableViewCellExtensionsTests: XCTestCase {
     func test_classIdentifier_tableViewCell_shouldReturnClassName() {
         let activityCell = ActivityCellView.classIdentifier()
         XCTAssertEqual(activityCell, "ActivityCellView")
-
+        
         let tableViewCell = UITableViewCell.classIdentifier()
         XCTAssertEqual(tableViewCell, "UITableViewCell")
+        
+        let sampleTableViewCell = SampleTableViewCell.classIdentifier()
+        XCTAssertEqual(sampleTableViewCell, "SampleTableViewCell")
+    }
+    
+    private class SampleTableViewCell: UITableViewCell {
+        
     }
 }
