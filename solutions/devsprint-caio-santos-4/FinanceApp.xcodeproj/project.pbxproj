@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
+		8707390F2851775C007FC173 /* AgencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8707390E2851775C007FC173 /* AgencyTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
+		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -69,8 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		8707390E2851775C007FC173 /* AgencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
+		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +360,7 @@
 			children = (
 				A14DCD51284F6B18003A75B2 /* ActivityTests.swift */,
 				87627DCD284FD03B003B0BA4 /* AccountTests.swift */,
+				8707390E2851775C007FC173 /* AgencyTests.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
+				8707390F2851775C007FC173 /* AgencyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
