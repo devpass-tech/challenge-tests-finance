@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8707390F2851775C007FC173 /* AgencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8707390E2851775C007FC173 /* AgencyTests.swift */; };
 		5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
 		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
@@ -72,7 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8707390E2851775C007FC173 /* AgencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyTests.swift; sourceTree = "<group>"; };
 		5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensionsTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -366,7 +364,6 @@
 			children = (
 				A14DCD51284F6B18003A75B2 /* ActivityTests.swift */,
 				87627DCD284FD03B003B0BA4 /* AccountTests.swift */,
-				8707390E2851775C007FC173 /* AgencyTests.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
-				8707390F2851775C007FC173 /* AgencyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
