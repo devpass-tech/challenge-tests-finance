@@ -28,7 +28,7 @@ class ActivityTests: XCTestCase {
         let formatterInfo = sut.formattedInfo()
 
         // THEN
-        XCTAssertEqual(formatterInfo, sut.formattedInfo())
+        XCTAssertEqual(formatterInfo, "$50.0 • 20")
     }
     
     func test_formattedInfo_WhenGivenActivityInformation_ShouldReturnNotNill() throws {
@@ -36,8 +36,10 @@ class ActivityTests: XCTestCase {
         sut = Activity(name: "Farmácia",price: 50.0, time: "20")
         let sut = try XCTUnwrap(sut, "Erro ao configurar SUT")
         
+        let formatterInfo = sut.formattedInfo() as String
+        
         // THEN
-        XCTAssertNotNil(sut.formattedInfo())
+        XCTAssertNotNil(formatterInfo, String())
     }
     
     func test_formattedInfo_WhenGivenEmptyActivityInformation_ShouldReturnEmpty() throws {
