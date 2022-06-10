@@ -50,6 +50,8 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DCD51284F6B18003A75B2 /* ActivityTests.swift */; };
+		A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */; };
+		A1B6F4F52853634D00041506 /* HomeDataJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6F4F42853634D00041506 /* HomeDataJson.swift */; };
 		E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C94607285176AE005327CA /* StringExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,8 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		A14DCD51284F6B18003A75B2 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
+		A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
+		A1B6F4F42853634D00041506 /* HomeDataJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataJson.swift; sourceTree = "<group>"; };
 		E0C94607285176AE005327CA /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,7 +358,9 @@
 		A14DCD4F284F6ADC003A75B2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A1B6F4F1285362E100041506 /* Mocks */,
 				A14DCD50284F6AE4003A75B2 /* Entities */,
+				A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -366,6 +372,14 @@
 				87627DCD284FD03B003B0BA4 /* AccountTests.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		A1B6F4F1285362E100041506 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A1B6F4F42853634D00041506 /* HomeDataJson.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +555,8 @@
 			files = (
 				E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */,
 				A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */,
+				A1B6F4F52853634D00041506 /* HomeDataJson.swift in Sources */,
+				A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */,
 				5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */,
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
