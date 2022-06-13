@@ -12,7 +12,11 @@ protocol ActivityDetailsViewModelDelegate: AnyObject {
     func didFetchActivityDetails(_ data: ActivityDetails)
 }
 
-struct ActivityDetailsViewModel {
+protocol ActivityDetailsProtocol {
+    func fetchData()
+}
+
+struct ActivityDetailsViewModel: ActivityDetailsProtocol {
 
     weak var delegate: ActivityDetailsViewModelDelegate?
 

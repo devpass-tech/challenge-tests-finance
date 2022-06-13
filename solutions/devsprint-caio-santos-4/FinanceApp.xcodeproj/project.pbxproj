@@ -10,6 +10,10 @@
 		5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
 		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
+		87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */; };
+		87F75F752857C029004710AE /* ActivityDetailsViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */; };
+		87F75F7A2857CD9C004710AE /* ActivityDetailsJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F792857CD9C004710AE /* ActivityDetailsJson.swift */; };
+		87F75F7C2857D0C8004710AE /* ServiceMockForActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F7B2857D0C8004710AE /* ServiceMockForActivityDetails.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -76,6 +80,10 @@
 		5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensionsTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelSpy.swift; sourceTree = "<group>"; };
+		87F75F792857CD9C004710AE /* ActivityDetailsJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsJson.swift; sourceTree = "<group>"; };
+		87F75F7B2857D0C8004710AE /* ServiceMockForActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMockForActivityDetails.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +168,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		87F75F6E2857A654004710AE /* Moduless */ = {
+			isa = PBXGroup;
+			children = (
+				87F75F6F2857A6B6004710AE /* ActivityDetails */,
+			);
+			path = Moduless;
+			sourceTree = "<group>";
+		};
+		87F75F6F2857A6B6004710AE /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				87F75F782857CD8E004710AE /* Mocks */,
+				87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */,
+				87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */,
+			);
+			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
+		87F75F782857CD8E004710AE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				87F75F792857CD9C004710AE /* ActivityDetailsJson.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +230,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				87F75F6E2857A654004710AE /* Moduless */,
 				8715E319284F75ED00E9F4BD /* Extensions */,
 				A14DCD4F284F6ADC003A75B2 /* Service */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
@@ -361,6 +396,7 @@
 				A1B6F4F1285362E100041506 /* Mocks */,
 				A14DCD50284F6AE4003A75B2 /* Entities */,
 				A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */,
+				87F75F7B2857D0C8004710AE /* ServiceMockForActivityDetails.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -554,13 +590,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */,
+				87F75F7A2857CD9C004710AE /* ActivityDetailsJson.swift in Sources */,
 				A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */,
 				A1B6F4F52853634D00041506 /* HomeDataJson.swift in Sources */,
 				A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */,
 				5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */,
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */,
 				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
+				87F75F7C2857D0C8004710AE /* ServiceMockForActivityDetails.swift in Sources */,
+				87F75F752857C029004710AE /* ActivityDetailsViewModelSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
