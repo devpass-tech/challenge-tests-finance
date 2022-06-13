@@ -28,7 +28,7 @@ class FinanceService: FinanceServiceProtocol {
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
 
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
-
+        
         networkClient.performRequest(with: url) { data in
             guard let data = data else {
                 completion(nil)
