@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserProfile: Decodable {
+struct UserProfile: Decodable, Equatable {
 
     let name: String
     let phone: String
@@ -16,7 +16,7 @@ struct UserProfile: Decodable {
     let account: Account
 }
 
-struct Account: Decodable {
+struct Account: Decodable, Equatable {
 
     let agency: String
     let account: String
