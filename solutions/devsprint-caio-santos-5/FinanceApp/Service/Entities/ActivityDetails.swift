@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActivityDetails: Decodable {
+struct ActivityDetails: Decodable, Equatable {
 
     let name: String
     let price: Float
