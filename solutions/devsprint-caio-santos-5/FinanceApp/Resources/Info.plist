@@ -20,8 +20,6 @@
 	<string>1</string>
 	<key>NSAppTransportSecurity</key>
 	<true/>
-	<key>ONLY_ACTIVE_ARCH</key>
-	<false/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
