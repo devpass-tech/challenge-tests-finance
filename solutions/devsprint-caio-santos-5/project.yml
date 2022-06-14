@@ -13,13 +13,20 @@ targets:
       - FinanceApp
     scheme:
       testTargets:
-      - FinanceAppTests
-      - FinanceAppUITests
-
+      - name: FinanceAppTests
+        randomExecutionOrder: true
+      - name: FinanceAppUITests
+        randomExecutionOrder: true
+      gatherCoverageData: true
+      coverageTargets:
+        - FinanceApp
+    settings:
+      configs:
+        Debug:
+          ONLY_ACTIVE_ARCH: NO
     info:
       path: FinanceApp/Resources/Info.plist
       properties:
-        ONLY_ACTIVE_ARCH: NO
         UISupportedInterfaceOrientations: []
         NSAppTransportSecurity: true
         UILaunchStoryboardName: LaunchScreen
