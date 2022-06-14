@@ -38,6 +38,43 @@ final class FinanceServiceTests: XCTestCase {
             XCTAssertNil(homeData)
         }
     }
+
+    func test_FetchActivityDetails_URLValidation() throws {
+        //GIVEN
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut(customUrl: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")
+        fields.networkClient.performRequestImpl = { url, _ in
+            callOrder.append("performRequest called \(url)")
+        }
+
+        // when
+            sut.fetchActivityDetails { _ in
+                callOrder.append("fetchActivityDetails não deveria ser chamado")
+            }
+
+        // then
+        XCTAssertEqual(callOrder, ["performRequest called \(fields.urlExpected)"])
+    }
+
+    func test_FetchActivityDetails_WithSuccess() throws {
+        try fetchActivityDetails(whenApiReturns: ActivityDetailsJsonData
+                                 , shouldValidateUsing: { activityDetails in
+            XCTAssertEqual(activityDetails, .fixture())
+        })
+    }
+
+    func test_FetchActivityDetails_WithInvalidData() throws {
+        try fetchActivityDetails(whenApiReturns: Data(), shouldValidateUsing: { activityDetails in
+            XCTAssertNil(activityDetails)
+        })
+
+    }
+
+    func test_FetchActivityDetails_WithNullableData() throws {
+        try fetchActivityDetails(whenApiReturns: nil, shouldValidateUsing: { activityDetails in
+            XCTAssertNil(activityDetails)
+        })
+    }
     
     func test_FetchContactList_URLValidation() throws {
         //given
@@ -98,6 +135,29 @@ private extension FinanceServiceTests {
         XCTAssertEqual(callOrder, [
             "performRequest called",
             "fetchHomeData called"
+        ])
+    }
+
+    func fetchActivityDetails(whenApiReturns data: Data?,
+                              shouldValidateUsing validation: @escaping (ActivityDetails?) -> Void) throws {
+        //given
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut(customUrl: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")
+        fields.networkClient.performRequestImpl = {_, completion in
+            callOrder.append("performRequest called")
+            completion(data)
+        }
+
+        //when
+        sut.fetchActivityDetails { activityDetails in
+            callOrder.append("activityDetails called")
+            validation(activityDetails)
+        }
+
+        //then
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "activityDetails called"
         ])
     }
     
@@ -167,6 +227,21 @@ extension Activity {
             name: name,
             price: price,
             time: time
+        )
+    }
+}
+
+extension ActivityDetails {
+    static func fixture(
+    name: String = "Mall",
+    price: Float = 100.0,
+    category: String = "Shopping",
+    time: String = "8:57 AM"
+    ) -> ActivityDetails {
+        .init(name: name,
+              price: price,
+              category: category,
+              time: time
         )
     }
 }
