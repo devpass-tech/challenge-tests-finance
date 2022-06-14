@@ -8,14 +8,31 @@
 import Foundation
 @testable import FinanceApp
 
+enum validOrNotJson {
+    case isValid
+    case isNotValid
+}
+
 class ServiceMockForActivityDetails: FinanceServiceProtocol {
     
-    func getMock(data: Data) -> ActivityDetails? {
-        do {
-            let decoder = JSONDecoder()
-            let mock = try decoder.decode(ActivityDetails.self, from: data)
-            return mock
-        } catch {
+    var isValidJson: Bool
+    
+    
+    
+    init(wantValidJson: Bool){
+        self.isValidJson = wantValidJson
+    }
+    
+    func getMock(data: Data, validOrNotJson: Bool) -> ActivityDetails? {
+        if isValidJson {
+            do {
+                let decoder = JSONDecoder()
+                let mock = try decoder.decode(ActivityDetails.self, from: data)
+                return mock
+            } catch {
+                return nil
+            }
+        } else {
             return nil
         }
     }
@@ -25,7 +42,7 @@ class ServiceMockForActivityDetails: FinanceServiceProtocol {
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)  {
         
         if let activityDetailsJson = activityDetailsJson {
-            let mock = getMock(data: activityDetailsJson)
+            let mock = getMock(data: activityDetailsJson, validOrNotJson: isValidJson)
             completion(mock)
         } else {
             completion(nil)

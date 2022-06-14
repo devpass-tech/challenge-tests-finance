@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
+		871592772858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */; };
 		87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87627DCD284FD03B003B0BA4 /* AccountTests.swift */; };
 		87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */; };
-		87F75F752857C029004710AE /* ActivityDetailsViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */; };
 		87F75F7A2857CD9C004710AE /* ActivityDetailsJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F792857CD9C004710AE /* ActivityDetailsJson.swift */; };
 		87F75F7C2857D0C8004710AE /* ServiceMockForActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F75F7B2857D0C8004710AE /* ServiceMockForActivityDetails.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
@@ -79,9 +79,9 @@
 /* Begin PBXFileReference section */
 		5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensionsTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
+		871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		87627DCD284FD03B003B0BA4 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
-		87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelSpy.swift; sourceTree = "<group>"; };
 		87F75F792857CD9C004710AE /* ActivityDetailsJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsJson.swift; sourceTree = "<group>"; };
 		87F75F7B2857D0C8004710AE /* ServiceMockForActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMockForActivityDetails.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 			children = (
 				87F75F782857CD8E004710AE /* Mocks */,
 				87F75F712857A6E0004710AE /* ActivityDetailsViewModelTests.swift */,
-				87F75F742857C029004710AE /* ActivityDetailsViewModelSpy.swift */,
+				871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */,
 			);
 			path = ActivityDetails;
 			sourceTree = "<group>";
@@ -589,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871592772858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */,
 				87F75F7A2857CD9C004710AE /* ActivityDetailsJson.swift in Sources */,
 				A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */,
@@ -600,7 +601,6 @@
 				87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */,
 				870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */,
 				87F75F7C2857D0C8004710AE /* ServiceMockForActivityDetails.swift in Sources */,
-				87F75F752857C029004710AE /* ActivityDetailsViewModelSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

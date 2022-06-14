@@ -10,10 +10,48 @@ import XCTest
 @testable import FinanceApp
 
 class ActivityDetailsViewModelTests: XCTestCase {
-    func test_whenCallFetchData_ShouldCallDidFetchActivityDetailsMethod() {
-        
-        let sut = ActivityDetailsViewModelSpy(financeService: ServiceMockForActivityDetails())
+    
+    var sut: ActivityDetailsViewModel!
+    
+    override func tearDownWithError() throws {
+        sut = nil
+    }
+    
+    func test_whenVielModelHasDelegateAndCallFetchDataWithValidJson_ShouldCallDidFetchActivityDetailsMethod() {
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: true))
+        let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
+        sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
-        XCTAssertTrue(sut.didFetchActivityDetailsWasCalled)
+        let expectation = expectation(description: "async test")
+        DispatchQueue.main.async {
+            expectation.fulfill()
+            XCTAssertTrue(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
+        }
+        waitForExpectations(timeout: 1)
+    }
+    
+    func test_whenViewModelHasDelegateAndCallFetchDataWithInvalidJson_ShouldCallDidFetchActivityDetailsMethod() {
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: false))
+        let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
+        sut.delegate = activityDetailsViewModelDelegateSpy
+        sut.fetchData()
+        let expectation = expectation(description: "async test")
+        DispatchQueue.main.async {
+            expectation.fulfill()
+            XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
+        }
+        waitForExpectations(timeout: 1)
+    }
+    
+    func test_whenViewModelHasNoDelegateAndCallFetchData_shouldNotCallDidFetchActivityDetailsMethod() {
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: true))
+        let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
+        sut.fetchData()
+        let expectation = expectation(description: "async test")
+        DispatchQueue.main.async {
+            expectation.fulfill()
+            XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
+        }
+        waitForExpectations(timeout: 1)
     }
 }
