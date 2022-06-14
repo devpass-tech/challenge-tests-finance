@@ -54,14 +54,96 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(userProfileResult.count, 1)
         XCTAssertEqual(userProfileResult.first, mock)
     }
+    
+    func test_fetchHomeData_WithServiceDown_shouldReturnNil() {
+        sut = .init(networkClient: NetworkClientMock(.error))
+
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        continueAfterFailure = true
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertNil(homeDataResult.first ?? nil)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndValidResponse_shouldReturnHomeData() throws {
+        sut = .init(networkClient: NetworkClientMock(.success(homeDataJson)))
+        let data = try XCTUnwrap(homeDataJson)
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndEmptyResponse_shouldReturnHomeData() throws {
+        let emptyJsonData = "".data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndInvalidResponse_shouldReturnHomeData() throws {
+        let emptyJsonData = "CONTEÚDO INVALIDO, NÃO É UM JSON".data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndInvalidObject_shouldReturnHomeData() throws {
+        let emptyJsonData = """
+        {
+          "balance": 15459.27
+        }
+        """.data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
 }
 
+// MARK: - Private methods
+
 extension FinanceServiceTests {
-    private func getMock(data: Data) -> UserProfile? {
+    private func getMock(data: Data) -> HomeData? {
         do {
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let mock = try decoder.decode(UserProfile.self, from: data)
+            let mock = try decoder.decode(HomeData.self, from: data)
             return mock
         } catch {
             return nil
@@ -70,19 +152,21 @@ extension FinanceServiceTests {
 }
 
 class NetworkClientMock: NetworkClientProtocol {
-    enum NetworkClientStatus {
+    
+    enum NetworkClientMockStatus {
         case success(Data?)
         case error
     }
     
-    var status: NetworkClientStatus?
+    var status: NetworkClientMockStatus?
     
-    init(_ status: NetworkClientMock.NetworkClientStatus? = nil) {
+    init(_ status: NetworkClientMock.NetworkClientMockStatus? = nil) {
         self.status = status
     }
     
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
         guard let status = status else {
+            completion(nil)
             return
         }
         
