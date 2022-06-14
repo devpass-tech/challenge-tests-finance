@@ -14,8 +14,7 @@ class FinanceServiceTests: XCTestCase {
     var sut: FinanceService!
 
     override func setUpWithError() throws {
-        sut = .init(networkClient: NetworkClientMock())
-        let _ = try XCTUnwrap(sut)
+    
     }
 
     override func tearDownWithError() throws {
@@ -23,47 +22,125 @@ class FinanceServiceTests: XCTestCase {
     }
     
     func test_fetchHomeData_WithServiceDown_shouldReturnNil() {
+        sut = .init(networkClient: NetworkClientMock(.error))
+
+        var homeDataResult = [HomeData?]()
+        
         sut.fetchHomeData { homeData in
-            XCTAssertNil(homeData)
+            homeDataResult.append(homeData)
         }
+        
+        continueAfterFailure = true
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertNil(homeDataResult.first ?? nil)
     }
     
     func test_fetchHomeData_WithServiceOnlineAndValidResponse_shouldReturnHomeData() throws {
+        sut = .init(networkClient: NetworkClientMock(.success(homeDataJson)))
         let data = try XCTUnwrap(homeDataJson)
+        let mock = getMock(data: data)
         
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let mock = try decoder.decode(HomeData.self, from: data)
+        var homeDataResult = [HomeData?]()
         
         sut.fetchHomeData { homeData in
-            XCTAssertEqual(homeData, mock)
+            homeDataResult.append(homeData)
         }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
     }
     
-    func test_fetchHomeData_WithServiceOnlineAndInvalidResponse_shouldReturnHomeData() {
+    func test_fetchHomeData_WithServiceOnlineAndEmptyResponse_shouldReturnHomeData() throws {
+        let emptyJsonData = "".data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
         sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndInvalidResponse_shouldReturnHomeData() throws {
+        let emptyJsonData = "CONTEÚDO INVALIDO, NÃO É UM JSON".data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+    
+    func test_fetchHomeData_WithServiceOnlineAndInvalidObject_shouldReturnHomeData() throws {
+        let emptyJsonData = """
+        {
+          "balance": 15459.27
+        }
+        """.data(using: .utf8)
+        sut = .init(networkClient: NetworkClientMock(.success(emptyJsonData)))
+        let data = try XCTUnwrap("".data(using: .utf8))
+        let mock = getMock(data: data)
+        
+        var homeDataResult = [HomeData?]()
+        
+        sut.fetchHomeData { homeData in
+            homeDataResult.append(homeData)
+        }
+        
+        XCTAssertEqual(homeDataResult.count, 1)
+        XCTAssertEqual(homeDataResult.first, mock)
+    }
+}
 
+// MARK: - Private methods
+
+extension FinanceServiceTests {
+    private func getMock(data: Data) -> HomeData? {
+        do {
+            let decoder = JSONDecoder()
+            let mock = try decoder.decode(HomeData.self, from: data)
+            return mock
+        } catch {
+            return nil
         }
     }
 }
 
 class NetworkClientMock: NetworkClientProtocol {
     
-    // TODO: Fazer com que o performRequest se comporte de forma dinamica a cada cenário de teste...
     enum NetworkClientMockStatus {
-        case empty
-        case success
+        case success(Data?)
         case error
     }
     
     var status: NetworkClientMockStatus?
     
-    init(status: NetworkClientMock.NetworkClientMockStatus? = nil) {
+    init(_ status: NetworkClientMock.NetworkClientMockStatus? = nil) {
         self.status = status
     }
     
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        completion(nil)
-//        completion(homeDataJson)
+        guard let status = status else {
+            completion(nil)
+            return
+        }
+        
+        switch status {
+        case .success(let data):
+            completion(data)
+        case .error:
+            completion(nil)
+        }
     }
 }
