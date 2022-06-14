@@ -75,6 +75,41 @@ final class FinanceServiceTests: XCTestCase {
             XCTAssertNil(activityDetails)
         })
     }
+    
+    func test_FetchContactList_URLValidation() throws {
+        //given
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut(customUrl: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")
+        fields.networkClient.performRequestImpl = { url, _ in
+            callOrder.append("performRequest called \(url)")
+        }
+        
+        // when
+        sut.fetchContactList { _ in
+            callOrder.append("fetchContactList não deveria ser chamado")
+        }
+        
+        // then
+        XCTAssertEqual(callOrder, ["performRequest called \(fields.urlExpected)"])
+    }
+    
+    func test_FetchContactList_WithSucess() throws {
+        try fetchContactList(whenApiReturns: contactListJsonData, shouldValidateUsing: { contactList in
+            XCTAssertEqual(contactList, [.fixture()])
+        })
+    }
+    
+    func test_FetchContactList_WithInvalidData() throws {
+        try fetchContactList(whenApiReturns: Data(), shouldValidateUsing: { contactList in
+            XCTAssertNil(contactList)
+        })
+    }
+    
+    func test_FetchContactList_WithNullableData() throws {
+        try fetchContactList(whenApiReturns: nil) { contactList in
+            XCTAssertNil(contactList)
+        }
+    }
 }
 
 private extension FinanceServiceTests {
@@ -126,7 +161,34 @@ private extension FinanceServiceTests {
         ])
     }
     
-    func makeSut(customUrl: String = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json") throws -> (sut: Sut, (networkClient: NetworkClientMock, urlExpected: URL)) {
+    func fetchContactList(
+        whenApiReturns data: Data?,
+        shouldValidateUsing validation: @escaping ([Contact]?) -> Void
+    ) throws {
+        // given
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut()
+        fields.networkClient.performRequestImpl = { _, completion in
+            callOrder.append("performRequest called")
+            completion(data)
+        }
+        
+        // when
+        sut.fetchContactList { contactList in
+            callOrder.append("fetchContactList called")
+            validation(contactList)
+        }
+        
+        // then
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "fetchContactList called"
+        ])
+    }
+    
+    func makeSut(
+        customUrl: String = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
+    ) throws -> (sut: Sut, (networkClient: NetworkClientMock, urlExpected: URL)) {
         let networkClient = NetworkClientMock()
         let sut = Sut(networkClient: networkClient)
         let urlExpected = try XCTUnwrap(URL(string: customUrl))
@@ -182,5 +244,16 @@ extension ActivityDetails {
               time: time
         )
     }
+}
 
+extension Contact {
+    static func fixture(
+        name: String = "Ronald Robertson",
+        phone: String = "+55 (11) 99999-9999"
+    ) -> Contact {
+        .init(
+            name: name,
+            phone: phone
+        )
+    }
 }
