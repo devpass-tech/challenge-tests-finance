@@ -4,21 +4,42 @@ import XCTest
 final class FinanceServiceTests: XCTestCase {
     typealias Sut = FinanceService
     
-    func test_FetchHomeData_URLValidation() throws {
+    func test_FetchHomeData_WhenURLMakerReturnNil_ShouldReturnNil() throws {
+        // given
+        var callOrder = [String]()
+        let urlMaker: Sut.URLMaker = { urlString in
+            callOrder.append("performRequest called with \(urlString)")
+            return nil
+        }
+        let sut = Sut(networkClient: NetworkClientMock(), urlMaker: urlMaker)
+        
+        // when
+        sut.fetchHomeData { homeData in
+            callOrder.append("fetchHomeData called receiving \(String(describing: homeData))")
+        }
+        
+        // then
+        XCTAssertEqual(callOrder, [
+            "performRequest called with https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json",
+            "fetchHomeData called receiving nil"
+        ])
+    }
+    
+    func test_FetchHomeData_WhenNotCallCompletionClient_ShouldNotReturnData() throws {
         // given
         var callOrder = [String]()
         let (sut, fields) = try makeSut()
-        fields.networkClient.performRequestImpl = { url, _ in
-            callOrder.append("performRequest called \(url)")
+        fields.networkClient.performRequestImpl = { _, completion /* não chamar completion */ in
+            callOrder.append("performRequest called")
         }
         
         // when
         sut.fetchHomeData { _ in
-            callOrder.append("fetchHomeData não deveria ser chamado")
+            XCTFail("quando a completion do networkClient não for chamada, fetchHomeData também não deveria ser chamado")
         }
         
         // then
-        XCTAssertEqual(callOrder, ["performRequest called \(fields.urlExpected)"])
+        XCTAssertEqual(callOrder, ["performRequest called"])
     }
     
     func test_FetchHomeData_WithSuccess() throws {
@@ -57,8 +78,7 @@ final class FinanceServiceTests: XCTestCase {
     }
 
     func test_FetchActivityDetails_WithSuccess() throws {
-        try fetchActivityDetails(whenApiReturns: ActivityDetailsJsonData
-                                 , shouldValidateUsing: { activityDetails in
+        try fetchActivityDetails(whenApiReturns: ActivityDetailsJsonData,  shouldValidateUsing: { activityDetails in
             XCTAssertEqual(activityDetails, .fixture())
         })
     }
@@ -138,8 +158,10 @@ private extension FinanceServiceTests {
         ])
     }
 
-    func fetchActivityDetails(whenApiReturns data: Data?,
-                              shouldValidateUsing validation: @escaping (ActivityDetails?) -> Void) throws {
+    func fetchActivityDetails(
+        whenApiReturns data: Data?,
+        shouldValidateUsing validation: @escaping (ActivityDetails?) -> Void
+    ) throws {
         //given
         var callOrder = [String]()
         let (sut, fields) = try makeSut(customUrl: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")
@@ -186,9 +208,7 @@ private extension FinanceServiceTests {
         ])
     }
     
-    func makeSut(
-        customUrl: String = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
-    ) throws -> (sut: Sut, (networkClient: NetworkClientMock, urlExpected: URL)) {
+    func makeSut(customUrl: String = "www.devpass.com") throws -> (sut: Sut, (networkClient: NetworkClientMock, urlExpected: URL)) {
         let networkClient = NetworkClientMock()
         let sut = Sut(networkClient: networkClient)
         let urlExpected = try XCTUnwrap(URL(string: customUrl))
@@ -198,62 +218,5 @@ private extension FinanceServiceTests {
             XCTAssertNil(networkClient)
         }
         return (sut, (networkClient, urlExpected))
-    }
-}
-
-extension HomeData {
-    static func fixture(
-        balance: Float = 15459.27,
-        savings: Float = 1000,
-        spending: Float = 500,
-        activity: [Activity] = [.fixture()]
-    ) -> HomeData {
-        .init(
-            balance: balance,
-            savings: savings,
-            spending: spending,
-            activity: activity
-        )
-    }
-}
-
-extension Activity {
-    static func fixture(
-        name: String = "Mall",
-        price: Float = 100,
-        time: String = "8:57 AM"
-    ) -> Activity {
-        .init(
-            name: name,
-            price: price,
-            time: time
-        )
-    }
-}
-
-extension ActivityDetails {
-    static func fixture(
-    name: String = "Mall",
-    price: Float = 100.0,
-    category: String = "Shopping",
-    time: String = "8:57 AM"
-    ) -> ActivityDetails {
-        .init(name: name,
-              price: price,
-              category: category,
-              time: time
-        )
-    }
-}
-
-extension Contact {
-    static func fixture(
-        name: String = "Ronald Robertson",
-        phone: String = "+55 (11) 99999-9999"
-    ) -> Contact {
-        .init(
-            name: name,
-            phone: phone
-        )
     }
 }
