@@ -69,7 +69,7 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     func test_FetchContactList_WithNullableData() throws {
-        try fetchHomeData(whenApiReturns: nil) { contactList in
+        try fetchContactList(whenApiReturns: nil) { contactList in
             XCTAssertNil(contactList)
         }
     }
