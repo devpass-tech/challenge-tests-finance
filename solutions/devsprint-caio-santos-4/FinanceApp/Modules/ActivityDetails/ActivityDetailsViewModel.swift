@@ -8,15 +8,10 @@
 import Foundation
 
 protocol ActivityDetailsViewModelDelegate: AnyObject {
-
     func didFetchActivityDetails(_ data: ActivityDetails)
 }
 
-protocol ActivityDetailsProtocol {
-    func fetchData()
-}
-
-struct ActivityDetailsViewModel: ActivityDetailsProtocol {
+struct ActivityDetailsViewModel {
 
     weak var delegate: ActivityDetailsViewModelDelegate?
 
@@ -27,15 +22,12 @@ struct ActivityDetailsViewModel: ActivityDetailsProtocol {
     }
 
     func fetchData() {
-
         financeService.fetchActivityDetails { activityDetails in
-
             guard let activityDetails = activityDetails else {
                 return
             }
 
             DispatchQueue.main.async {
-
                 delegate?.didFetchActivityDetails(activityDetails)
             }
         }

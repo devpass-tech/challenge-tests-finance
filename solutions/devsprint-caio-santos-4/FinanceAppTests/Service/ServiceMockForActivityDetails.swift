@@ -8,42 +8,24 @@
 import Foundation
 @testable import FinanceApp
 
-enum validOrNotJson {
-    case isValid
-    case isNotValid
+enum ServiceMockResponseType {
+    case valid
+    case invalid
+    case empty
 }
 
 class ServiceMockForActivityDetails: FinanceServiceProtocol {
+    var serviceMockResponseType: ServiceMockResponseType
     
-    var isValidJson: Bool
-    
-    
-    
-    init(wantValidJson: Bool){
-        self.isValidJson = wantValidJson
-    }
-    
-    func getMock(data: Data, validOrNotJson: Bool) -> ActivityDetails? {
-        if isValidJson {
-            do {
-                let decoder = JSONDecoder()
-                let mock = try decoder.decode(ActivityDetails.self, from: data)
-                return mock
-            } catch {
-                return nil
-            }
-        } else {
-            return nil
-        }
+    init(_ serviceMockResponseType: ServiceMockResponseType) {
+        self.serviceMockResponseType = serviceMockResponseType
     }
     
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {}
     
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)  {
-        
         if let activityDetailsJson = activityDetailsJson {
-            let mock = getMock(data: activityDetailsJson, validOrNotJson: isValidJson)
-            completion(mock)
+            completion(getMock(data: activityDetailsJson))
         } else {
             completion(nil)
         }
@@ -54,4 +36,23 @@ class ServiceMockForActivityDetails: FinanceServiceProtocol {
     func transferAmount(_ completion: @escaping (TransferResult?) -> Void) {}
     
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {}
+}
+
+// MARK: Private Methods
+
+extension ServiceMockForActivityDetails {
+    private func getMock(data: Data) -> ActivityDetails? {
+        switch serviceMockResponseType {
+        case .valid:
+            do {
+                let decoder = JSONDecoder()
+                let mock = try decoder.decode(ActivityDetails.self, from: data)
+                return mock
+            } catch {
+                return nil
+            }
+        case .invalid, .empty:
+            return nil
+        }
+    }
 }

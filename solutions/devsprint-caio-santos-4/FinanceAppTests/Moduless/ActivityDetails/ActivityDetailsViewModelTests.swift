@@ -18,7 +18,7 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenVielModelHasDelegateAndCallFetchDataWithValidJson_ShouldCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: true))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
@@ -31,7 +31,7 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenViewModelHasDelegateAndCallFetchDataWithInvalidJson_ShouldCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: false))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.invalid))
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
@@ -44,7 +44,7 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenViewModelHasNoDelegateAndCallFetchData_shouldNotCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(wantValidJson: true))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.fetchData()
         let expectation = expectation(description: "async test")

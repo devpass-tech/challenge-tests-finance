@@ -11,7 +11,7 @@ import Foundation
 class ActivityDetailsViewModelDelegateSpy: ActivityDetailsViewModelDelegate {
     
     var didFetchActivityDetailsWasCalled: Bool = false
-    
+
     func didFetchActivityDetails(_ data: ActivityDetails) {
         didFetchActivityDetailsWasCalled = true
     }
