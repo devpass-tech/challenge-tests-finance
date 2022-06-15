@@ -1,10 +1,3 @@
-//
-//  FinanceService.swift
-//  FinanceApp
-//
-//  Created by Rodrigo Borges on 30/12/21.
-//
-
 import Foundation
 
 protocol FinanceServiceProtocol {
@@ -16,18 +9,23 @@ protocol FinanceServiceProtocol {
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
 }
 
-class FinanceService: FinanceServiceProtocol {
-
+final class FinanceService: FinanceServiceProtocol {
+    typealias URLMaker = (_ urlString: String) -> URL?
+    
     let networkClient: NetworkClientProtocol
+    let urlMaker: URLMaker
 
-    init(networkClient: NetworkClientProtocol) {
-
+    init(networkClient: NetworkClientProtocol, urlMaker: @escaping URLMaker = URL.init(string:)) {
         self.networkClient = networkClient
+        self.urlMaker = urlMaker
     }
 
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
 
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
+        guard let url = urlMaker("https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json") else {
+            completion(nil)
+            return
+        }
 
         networkClient.performRequest(with: url) { data in
             guard let data = data else {
