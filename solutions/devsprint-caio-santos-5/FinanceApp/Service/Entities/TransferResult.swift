@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct TransferResult: Decodable {
-
+struct TransferResult: Decodable, Equatable {
     let success: Bool
 }
