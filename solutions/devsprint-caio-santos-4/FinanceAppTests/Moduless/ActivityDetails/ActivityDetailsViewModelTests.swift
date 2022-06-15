@@ -22,12 +22,7 @@ class ActivityDetailsViewModelTests: XCTestCase {
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
-        let expectation = expectation(description: "async test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
-            XCTAssertTrue(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
-        }
-        waitForExpectations(timeout: 1)
+        XCTAssertTrue(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
     }
     
     func test_whenViewModelHasDelegateAndCallFetchDataWithInvalidJson_ShouldCallDidFetchActivityDetailsMethod() {
@@ -35,23 +30,13 @@ class ActivityDetailsViewModelTests: XCTestCase {
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
-        let expectation = expectation(description: "async test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
-            XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
-        }
-        waitForExpectations(timeout: 1)
+        XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
     }
     
     func test_whenViewModelHasNoDelegateAndCallFetchData_shouldNotCallDidFetchActivityDetailsMethod() {
         sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.fetchData()
-        let expectation = expectation(description: "async test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
-            XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
-        }
-        waitForExpectations(timeout: 1)
+        XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
     }
 }

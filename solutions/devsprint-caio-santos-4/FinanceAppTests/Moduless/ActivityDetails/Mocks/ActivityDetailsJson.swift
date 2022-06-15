@@ -2,7 +2,7 @@
 //  ActivityDetailsJson.swift
 //  FinanceAppTests
 //
-//  Created by Cora on 13/06/22.
+//  Created by Anderson Oliveira on 13/06/22.
 //
 
 import Foundation

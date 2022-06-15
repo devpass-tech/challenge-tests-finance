@@ -16,9 +16,11 @@ struct ActivityDetailsViewModel {
     weak var delegate: ActivityDetailsViewModelDelegate?
 
     private let financeService: FinanceServiceProtocol
-
-    init(financeService: FinanceServiceProtocol) {
+    private var mainQueue: DispatchQueue
+    
+    init(financeService: FinanceServiceProtocol, mainQueue: DispatchQueue = DispatchQueue.main) {
         self.financeService = financeService
+        self.mainQueue = mainQueue
     }
 
     func fetchData() {
@@ -26,10 +28,7 @@ struct ActivityDetailsViewModel {
             guard let activityDetails = activityDetails else {
                 return
             }
-
-            DispatchQueue.main.async {
                 delegate?.didFetchActivityDetails(activityDetails)
-            }
         }
     }
 }
