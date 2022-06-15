@@ -3,7 +3,7 @@ options:
   bundleIdPrefix: com.devpass
   deploymentTarget:
     iOS: 15.2
-  # postGenCommand: pod install
+  postGenCommand: pod install
 
 targets:
   FinanceApp:
