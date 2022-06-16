@@ -27,7 +27,7 @@ final class ActivityDetailsViewModelTests: XCTestCase {
         }
         fields.queue.asyncImpl = { [unowned fields] in
             fields.callOrder.append("queue called")
-            queueCompletion = $3
+            queueCompletion = $0
         }
         fields.delegate?.didFetchActivityDetailsImpl = { [unowned fields] activityDetails in
             fields.callOrder.append("didFetchActivityDetails called")
