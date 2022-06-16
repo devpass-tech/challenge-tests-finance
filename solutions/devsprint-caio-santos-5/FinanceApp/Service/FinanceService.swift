@@ -45,23 +45,8 @@ final class FinanceService: FinanceServiceProtocol {
     }
 
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {
-
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")!
-
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let userProfile = try decoder.decode(UserProfile.self, from: data)
-                completion(userProfile)
-            } catch {
-                completion(nil)
-            }
+        fetch(urlstring: "user_profile_endpoint.json") { model in
+            completion(model)
         }
     }
     
