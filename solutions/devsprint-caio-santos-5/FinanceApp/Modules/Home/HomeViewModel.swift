@@ -23,15 +23,12 @@ struct HomeViewModel {
     }
 
     func fetchData() {
-
         financeService.fetchHomeData { homeData in
-
             guard let homeData = homeData else {
                 return
             }
 
             DispatchQueue.main.async {
-
                 delegate?.didFetchHomeData(homeData)
             }
         }
