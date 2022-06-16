@@ -1,121 +1,102 @@
-//
-//  HomeViewModelTests.swift
-//  FinanceAppTests
-//
-//  Created by Hyago Henrique on 14/06/22.
-//
-
 import Foundation
 @testable import FinanceApp
 import XCTest
 
-class HomeViewModelTests: XCTestCase {
-    private var onSuccessHandler: ((_ data: HomeData) -> Void)?
+final class HomeViewModelTests: XCTestCase {
+    typealias Sut = HomeViewModel
     
     func test_fetchData_ShouldReturnValidData() {
         // Given
-        let fakeApi = FakeFinanceService(nilData: false, successData: true)
-        var sut = HomeViewModel(financeService: fakeApi)
-        sut.delegate = self
+        let fakeApi = FinanceServiceMock()
+        let delegateMock = HomeViewModelDelegateMock()
+        let queue = DispatchQueueMock()
+        var callOrder = [String]()
+        var queueAction: (() -> Void)?
+        var serviceAction: (() -> Void)?
         
-        let expectation = self.expectation(description: "Test")
-        onSuccessHandler = { homeData in
-            XCTAssertEqual(homeData, responseFetchHomeData)
-            expectation.fulfill()
+        queue.asyncImpl = { completion in
+            queueAction = { completion() }
+            callOrder.append("queue called")
         }
-
+        
+        fakeApi.fetchHomeDataImpl = { completion in
+            serviceAction = { completion(.fixture()) }
+            callOrder.append("service called")
+        }
+        
+        delegateMock.didFetchHomeDataImpl = {
+            XCTAssertEqual($0, .fixture())
+            callOrder.append("delegate called")
+        }
+        
+        var sut = Sut(financeService: fakeApi, queue: queue)
+        sut.delegate = delegateMock
+        
         // When
         sut.fetchData()
         
         // Then
-        waitForExpectations(timeout: 0.1)
-    }
-    
-    func test_fetchData_ShouldReturnValidData_2() {
-        // Given
-        let fakeApi = FakeFinanceService(nilData: false, successData: true)
-        var sut = HomeViewModel(financeService: fakeApi)
-        let spy = HomeViewModelDelegateSpy()
-        sut.delegate = spy
+        XCTAssertEqual(callOrder, ["service called"])
         
-        // When
-        sut.fetchData()
+        serviceAction?()
         
-        // Then
-        executeAsyncBlock(timeout: 0.1) {
-            XCTAssertEqual(spy.data, responseFetchHomeData)
-            XCTAssertTrue(spy.didFetchHomeDataCalled)
-        }
+        XCTAssertEqual(callOrder, ["service called", "queue called"])
+        
+        queueAction?()
+        
+        XCTAssertEqual(callOrder, ["service called", "queue called", "delegate called"])
     }
     
     func test_fetchData_ShouldReturnNilData() {
         // Given
-        let fakeApi = FakeFinanceService(nilData: true, successData: false)
-        var sut = HomeViewModel(financeService: fakeApi)
-        sut.delegate = self
+        let fakeApi = FinanceServiceMock()
+        let delegateMock = HomeViewModelDelegateMock()
+        let queue = DispatchQueueMock()
+        var callOrder = [String]()
+        var serviceAction: (() -> Void)?
+        
+        fakeApi.fetchHomeDataImpl = { completion in
+            serviceAction = { completion(nil) }
+            callOrder.append("service called")
+        }
+        
+        var sut = Sut(financeService: fakeApi, queue: queue)
+        sut.delegate = delegateMock
         
         // When
         sut.fetchData()
         
         // Then
-        XCTAssertTrue(true)
+        XCTAssertEqual(callOrder, ["service called"])
+        
+        serviceAction?()
+        
+        XCTAssertEqual(callOrder, ["service called"])
     }
     
-    func test_fetchData_ShouldReturnNilData_2() {
+    func test_Sut_ShouldNotKeepStrongReferenceToDelegate() {
         // Given
-        let fakeApi = FakeFinanceService(nilData: true, successData: false)
-        var sut = HomeViewModel(financeService: fakeApi)
-        let spy = HomeViewModelDelegateSpy()
-        sut.delegate = spy
+        let fakeApi = FinanceServiceMock()
+        var delegateMock: HomeViewModelDelegateMock? = .init()
+        let queue = DispatchQueueMock()
+        
+        var sut = Sut(financeService: fakeApi, queue: queue)
+        sut.delegate = delegateMock
         
         // When
-        sut.fetchData()
+        delegateMock = nil
         
         // Then
-        executeAsyncBlock(timeout: 0.1) {
-            XCTAssertEqual(spy.data, nil)
-            XCTAssertFalse(spy.didFetchHomeDataCalled)
-        }
+        XCTAssertNil(delegateMock)
+    }
+}
+
+final class HomeViewModelDelegateMock: HomeViewModelDelegate {
+    var didFetchHomeDataImpl: ((_ data: HomeData) -> Void) = { _ in
+        XCTFail("didFetchHomeData should not be called")
     }
     
-}
-
-extension HomeViewModelTests: HomeViewModelDelegate {
     func didFetchHomeData(_ data: HomeData) {
-        self.onSuccessHandler?(data)
+        didFetchHomeDataImpl(data)
     }
 }
-
-class HomeViewModelDelegateSpy: HomeViewModelDelegate {
-    var didFetchHomeDataCalled = false
-    var data: HomeData?
-
-    func didFetchHomeData(_ data: HomeData) {
-        didFetchHomeDataCalled = true
-        self.data = data
-    }
-}
-
-extension XCTestCase {
-    func executeAsyncBlockAfter(timeout: TimeInterval = 10,
-                                deadline: DispatchTime = .now(),
-                                block: @escaping () -> Void) {
-        let expectation = self.expectation(description: "Test async condition")
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            expectation.fulfill()
-            block()
-        }
-        waitForExpectations(timeout: timeout, handler: nil)
-    }
-    
-    func executeAsyncBlock(timeout: TimeInterval = 10,
-                           block: @escaping () -> Void) {
-        let expectation = self.expectation(description: "Test async condition")
-        DispatchQueue.main.async {
-            block()
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: timeout, handler: nil)
-    }
-}
-
