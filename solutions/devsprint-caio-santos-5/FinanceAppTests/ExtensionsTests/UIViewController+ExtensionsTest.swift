@@ -15,7 +15,7 @@ final class InsideNavigationControllerTest: XCTestCase {
         let result = mockController.insideNavigationController()
         
         XCTAssertTrue(result.modalPresentationStyle == .formSheet)
-        XCTAssertNotNil(result.viewControllers.first)
+        XCTAssertIdentical(result.viewControllers.first, mockController)
         XCTAssertEqual(result.viewControllers.count, 1)
     }
 }
