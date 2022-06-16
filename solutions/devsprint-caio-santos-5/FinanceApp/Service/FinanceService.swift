@@ -21,68 +21,20 @@ final class FinanceService: FinanceServiceProtocol {
     }
 
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
-
-        guard let url = urlMaker("https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json") else {
-            completion(nil)
-            return
-        }
-
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let homeData = try decoder.decode(HomeData.self, from: data)
-                completion(homeData)
-            } catch {
-                completion(nil)
-            }
+        fetch(urlstring: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json") { model in
+            completion(model)
         }
     }
 
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) {
-
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")!
-
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let activityDetails = try decoder.decode(ActivityDetails.self, from: data)
-                completion(activityDetails)
-            } catch {
-                completion(nil)
-            }
+        fetch(urlstring: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json") { model in
+            completion(model)
         }
     }
 
     func fetchContactList(_ completion: @escaping ([Contact]?) -> Void) {
-
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")!
-
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let contactList = try decoder.decode([Contact].self, from: data)
-                completion(contactList)
-            } catch {
-                completion(nil)
-            }
+        fetch(urlstring: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json") { model in
+            completion(model)
         }
     }
 
@@ -126,5 +78,38 @@ final class FinanceService: FinanceServiceProtocol {
                 completion(nil)
             }
         }
+    }
+    
+    private func fetch<T: Decodable>(
+        urlstring: String,
+        decoder: JSONDecoder = .init(keyDecodingStrategy: .convertFromSnakeCase),
+        _ completion: @escaping (T?) -> Void
+    ) {
+        
+        guard let url = urlMaker(urlstring) else {
+            completion(nil)
+            return
+        }
+        
+        networkClient.performRequest(with: url) { data in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let decoded = try decoder.decode(T.self, from: data)
+                completion(decoded)
+            } catch {
+                completion(nil)
+            }
+        }
+    }
+}
+
+private extension JSONDecoder {
+    convenience init(keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy) {
+        self.init()
+        self.keyDecodingStrategy = keyDecodingStrategy
     }
 }
