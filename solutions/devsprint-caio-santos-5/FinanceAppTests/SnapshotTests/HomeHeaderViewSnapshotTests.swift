@@ -18,7 +18,7 @@ class HomeHeaderViewSnapshotTests: XCTestCase {
     
     func test_HomeHeaderView() {
         let homeHeaderView = HomeHeaderView()
-        homeHeaderView.backgroundColor = .red
+        homeHeaderView.backgroundColor = .white
         
         assertSnapshot(matching: homeHeaderView, as: .image(size: componentSize))
     }
