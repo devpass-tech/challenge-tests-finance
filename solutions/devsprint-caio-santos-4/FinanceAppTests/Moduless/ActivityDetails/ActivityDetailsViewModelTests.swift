@@ -17,7 +17,7 @@ class ActivityDetailsViewModelTests: XCTestCase {
         sut = nil
     }
     
-    func test_whenVielModelHasDelegateAndCallFetchDataWithValidJson_ShouldCallDidFetchActivityDetailsMethod() {
+    func test_whenViewModelHasDelegateAndCallFetchDataWithValidJson_ShouldCallDidFetchActivityDetailsMethod() {
         sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
