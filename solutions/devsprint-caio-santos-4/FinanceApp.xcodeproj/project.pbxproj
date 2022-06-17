@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E511EE9285A888600B07EA4 /* TransferAmountJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */; };
 		5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
 		871592772858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountJson.swift; sourceTree = "<group>"; };
 		5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensionsTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B6F4F42853634D00041506 /* HomeDataJson.swift */,
+				5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				A1B6F4F52853634D00041506 /* HomeDataJson.swift in Sources */,
 				A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */,
 				5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */,
+				5E511EE9285A888600B07EA4 /* TransferAmountJson.swift in Sources */,
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */,
