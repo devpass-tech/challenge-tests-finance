@@ -7,87 +7,89 @@ final class HomeViewModelTests: XCTestCase {
     
     func test_fetchData_ShouldReturnValidData() {
         // Given
-        let fakeApi = FinanceServiceMock()
-        let delegateMock = HomeViewModelDelegateMock()
-        let queue = DispatchQueueMock()
-        var callOrder = [String]()
-        var queueAction: (() -> Void)?
-        var serviceAction: (() -> Void)?
-        
-        queue.asyncImpl = { completion in
-            queueAction = { completion() }
-            callOrder.append("queue called")
+        let (sut, fields) = makeSut()
+        fields.fakeApi.fetchHomeDataImpl = { [unowned fields] completion in
+            fields.serviceAction = { completion(.fixture()) }
+            fields.callOrder.append("service called")
         }
-        
-        fakeApi.fetchHomeDataImpl = { completion in
-            serviceAction = { completion(.fixture()) }
-            callOrder.append("service called")
+        fields.queue.asyncImpl = { [unowned fields] completion in
+            fields.queueAction = { completion() }
+            fields.callOrder.append("queue called")
         }
-        
-        delegateMock.didFetchHomeDataImpl = {
+        fields.delegateMock?.didFetchHomeDataImpl = { [unowned fields] in
             XCTAssertEqual($0, .fixture())
-            callOrder.append("delegate called")
+            fields.callOrder.append("delegate called")
         }
-        
-        var sut = Sut(financeService: fakeApi, queue: queue)
-        sut.delegate = delegateMock
         
         // When
         sut.fetchData()
         
         // Then
-        XCTAssertEqual(callOrder, ["service called"])
+        XCTAssertEqual(fields.callOrder, ["service called"])
         
-        serviceAction?()
+        fields.serviceAction?()
         
-        XCTAssertEqual(callOrder, ["service called", "queue called"])
+        XCTAssertEqual(fields.callOrder, ["service called", "queue called"])
         
-        queueAction?()
+        fields.queueAction?()
         
-        XCTAssertEqual(callOrder, ["service called", "queue called", "delegate called"])
+        XCTAssertEqual(fields.callOrder, ["service called", "queue called", "delegate called"])
     }
     
     func test_fetchData_ShouldReturnNilData() {
         // Given
-        let fakeApi = FinanceServiceMock()
-        let delegateMock = HomeViewModelDelegateMock()
-        let queue = DispatchQueueMock()
-        var callOrder = [String]()
-        var serviceAction: (() -> Void)?
-        
-        fakeApi.fetchHomeDataImpl = { completion in
-            serviceAction = { completion(nil) }
-            callOrder.append("service called")
+        let (sut, fields) = makeSut()
+        fields.fakeApi.fetchHomeDataImpl = { [unowned fields] completion in
+            fields.serviceAction = { completion(nil) }
+            fields.callOrder.append("service called")
         }
-        
-        var sut = Sut(financeService: fakeApi, queue: queue)
-        sut.delegate = delegateMock
         
         // When
         sut.fetchData()
         
         // Then
-        XCTAssertEqual(callOrder, ["service called"])
+        XCTAssertEqual(fields.callOrder, ["service called"])
         
-        serviceAction?()
+        fields.serviceAction?()
         
-        XCTAssertEqual(callOrder, ["service called"])
+        XCTAssertEqual(fields.callOrder, ["service called"])
     }
     
     func test_Sut_ShouldNotKeepStrongReferenceToDelegate() {
         // Given
+        let (sut, fields) = makeSut()
+        
+        // When
+        fields.delegateMock = nil
+        
+        // Then
+        XCTAssertNil(sut.delegate)
+    }
+}
+
+extension HomeViewModelTests {
+    class Fields {
+        var callOrder = [String]()
+        
         let fakeApi = FinanceServiceMock()
         var delegateMock: HomeViewModelDelegateMock? = .init()
         let queue = DispatchQueueMock()
         
-        var sut = Sut(financeService: fakeApi, queue: queue)
-        sut.delegate = delegateMock
+        var serviceAction: (() -> Void)?
+        var queueAction: (() -> Void)?
+    }
+    
+    func makeSut() -> (sut: Sut, fields: Fields) {
+        let fields = Fields()
         
-        // When
-        delegateMock = nil
+        var sut = Sut(financeService: fields.fakeApi, queue: fields.queue)
+        sut.delegate = fields.delegateMock
         
-        // Then
-        XCTAssertNil(delegateMock)
+        XCTAssertNoMemoryLeak(fields.delegateMock)
+        XCTAssertNoMemoryLeak(fields.fakeApi)
+        XCTAssertNoMemoryLeak(fields.queue)
+        
+        return (sut, fields)
     }
 }
 
@@ -98,5 +100,18 @@ final class HomeViewModelDelegateMock: HomeViewModelDelegate {
     
     func didFetchHomeData(_ data: HomeData) {
         didFetchHomeDataImpl(data)
+    }
+}
+
+extension XCTestCase {
+    public func XCTAssertNoMemoryLeak<T>(
+        _ expression1: @autoclosure () -> T?,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) where T : AnyObject {
+        addTeardownBlock { [weak object = expression1()] in
+            XCTAssertNil(object)
+        }
     }
 }

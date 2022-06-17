@@ -14,20 +14,14 @@ final class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_FetchData_WhenServiceSuccess_ShouldPassDataToDelegate_OnMainThread() {
-        var financeServiceCompletion: ((ActivityDetails?) -> Void)?
-        var queueCompletion: (() -> Void)?
-        defer {
-            financeServiceCompletion = nil
-            queueCompletion = nil
-        }
         let (sut, fields) = makeSut()
-        fields.financeService.fetchActivityDetailsImpl = { [unowned fields] in
+        fields.financeService.fetchActivityDetailsImpl = { [unowned fields] completion in
             fields.callOrder.append("fetchActivityDetails called")
-            financeServiceCompletion = $0
+            fields.financeServiceCompletion = { completion(.fixture()) }
         }
         fields.queue.asyncImpl = { [unowned fields] in
             fields.callOrder.append("queue called")
-            queueCompletion = $0
+            fields.queueCompletion = $0
         }
         fields.delegate?.didFetchActivityDetailsImpl = { [unowned fields] activityDetails in
             fields.callOrder.append("didFetchActivityDetails called")
@@ -38,11 +32,11 @@ final class ActivityDetailsViewModelTests: XCTestCase {
         
         XCTAssertEqual(fields.callOrder, ["fetchActivityDetails called"])
         
-        financeServiceCompletion?(.fixture())
+        fields.financeServiceCompletion?()
         
         XCTAssertEqual(fields.callOrder, ["fetchActivityDetails called", "queue called"])
         
-        queueCompletion?()
+        fields.queueCompletion?()
         
         XCTAssertEqual(fields.callOrder, [
             "fetchActivityDetails called",
@@ -67,9 +61,13 @@ final class ActivityDetailsViewModelTests: XCTestCase {
 extension ActivityDetailsViewModelTests {
     final class Fields {
         var callOrder = [String]()
+        
         let financeService = FinanceServiceMock()
         let queue = DispatchQueueMock()
         var delegate: ActivityDetailsViewModelDelegateMock? = .init()
+        
+        var financeServiceCompletion: (() -> Void)?
+        var queueCompletion: (() -> Void)?
     }
     
     func makeSut() -> (sut: Sut, fields: Fields) {
@@ -78,11 +76,10 @@ extension ActivityDetailsViewModelTests {
         var sut  = Sut(financeService: fields.financeService, queue: fields.queue)
         sut.delegate = fields.delegate
         
-        addTeardownBlock { [weak delegate = fields.delegate, weak queue = fields.queue, weak financeService = fields.financeService] in
-            XCTAssertNil(delegate)
-            XCTAssertNil(queue)
-            XCTAssertNil(financeService)
-        }
+        XCTAssertNoMemoryLeak(fields.delegate)
+        XCTAssertNoMemoryLeak(fields.financeService)
+        XCTAssertNoMemoryLeak(fields.queue)
+        
         return (sut, fields)
     }
 }
