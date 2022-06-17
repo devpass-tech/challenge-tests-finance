@@ -114,7 +114,7 @@ class FinanceServiceTests: XCTestCase {
         }
     }
 
-    func testTransferAmount_whenServiceOnlineAndInvalidResponse_shouldReturnResult() throws {
+    func testTransferAmount_whenServiceOnlineAndInvalidResponse_shouldReturnResult() {
 
         let invalidResponse = "invalid json".data(using: .utf8)
         sut = .init(networkClient: NetworkClientMock(.success(invalidResponse)))
