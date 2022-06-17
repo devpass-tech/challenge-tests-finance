@@ -21,55 +21,36 @@ class HomeViewModelTests: XCTestCase {
         sut = nil
     }
 
-
     func test_whenViewModelHasDelegateAndCallFetchDataWithValidJson_shouldCallDidFetchHomeData() {
-        // GIVEN
         sut = HomeViewModel(financeService: ServiceMockForHomeData(serviceMockResponseType: .valid))
-
-        // WHEN
-        sut.delegate = spy
-
-        // THEN
-        sut.fetchData()
-        let expectation = expectation(description: "async test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
+        callFetchData {
             XCTAssertTrue(self.spy.fetchHomeDataWasCalled)
         }
-        waitForExpectations(timeout: 1)
     }
 
     func test_whenViewModelHasDelegateAndCallFetchDataWithInvalidJson_shouldntCallDidFetchHomeData() {
-        // GIVEN
+
         sut = HomeViewModel(financeService: ServiceMockForHomeData(serviceMockResponseType: .invalid))
-
-        // WHEN
-        sut.delegate = spy
-
-        // THEN
-        sut.fetchData()
-        let expectation = expectation(description: "async test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
+        callFetchData {
             XCTAssertFalse(self.spy.fetchHomeDataWasCalled)
         }
-        waitForExpectations(timeout: 1)
     }
 
     func test_viewModelWithoutDelegateAndCallFetchDataWithEmptyJson_shouldntCallDidFetchHomeData() {
 
-        // GIVEN
         sut = HomeViewModel(financeService: ServiceMockForHomeData(serviceMockResponseType: .empty))
+        callFetchData {
+            XCTAssertFalse(self.spy.fetchHomeDataWasCalled)
+        }
+    }
 
-        // WHEN
+    private func callFetchData(completion: @escaping () -> ()) {
         sut.delegate = spy
-
-        // THEN
         sut.fetchData()
         let expectation = expectation(description: "async test")
         DispatchQueue.main.async {
             expectation.fulfill()
-            XCTAssertFalse(self.spy.fetchHomeDataWasCalled)
+            completion()
         }
         waitForExpectations(timeout: 1)
     }
