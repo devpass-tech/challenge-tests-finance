@@ -6,7 +6,7 @@ final class ActivityListViewSnapshotTests: XCTestCase {
     typealias Sut = ActivityListView
     
     override func setUp() {
-//        SnapshotTesting.isRecording = true
+        // SnapshotTesting.isRecording = true
     }
     
     func test_ActivityListView() {
@@ -14,6 +14,6 @@ final class ActivityListViewSnapshotTests: XCTestCase {
         let sut = SampleViewController<Sut>()
         sut.loadViewIfNeeded()
         
-        assertSnapshot(matching: sut, as: .image(on: .iPhoneX))
+        assertSnapshot(matching: sut, as: .image)
     }
 }

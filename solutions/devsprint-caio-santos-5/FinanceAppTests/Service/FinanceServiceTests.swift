@@ -167,6 +167,43 @@ final class FinanceServiceTests: XCTestCase {
             XCTAssertNil(transferAmount)
         }
     }
+    
+    // MARK: UserProfile_method
+    
+    func test_UserProfile_URLValidation() throws {
+        //given
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut(customUrl: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")
+        fields.networkClient.performRequestImpl = { url, _ in
+            callOrder.append("performRequest called \(url)")
+        }
+        
+        // when
+        sut.fetchUserProfile { _ in
+            callOrder.append("fetchUserProfile não deveria ser chamado")
+        }
+        
+        // then
+        XCTAssertEqual(callOrder, ["performRequest called \(fields.urlExpected)"])
+    }
+    
+    func test_UserProfile_WithSucess() throws {
+        try fetchUserProfile(whenApiReturns: userProfileResultJsonData, shouldValidateUsing: { userProfile in
+            XCTAssertEqual(userProfile, .fixture())
+        })
+    }
+    
+    func test_UserProfile_WithInvalidData() throws {
+        try fetchUserProfile(whenApiReturns: Data(), shouldValidateUsing: { userProfile in
+            XCTAssertNil(userProfile)
+        })
+    }
+    
+    func test_UserProfile_WithNullableData() throws {
+        try fetchUserProfile(whenApiReturns: nil) { userProfile in
+            XCTAssertNil(userProfile)
+        }
+    }
 }
 
 private extension FinanceServiceTests {
@@ -267,6 +304,31 @@ private extension FinanceServiceTests {
         XCTAssertEqual(callOrder, [
             "performRequest called",
             "transferAmount called"
+        ])
+    }
+    
+    func fetchUserProfile(
+        whenApiReturns data: Data?,
+        shouldValidateUsing validation: @escaping (UserProfile?) -> Void
+    ) throws {
+        // given
+        var callOrder = [String]()
+        let (sut, fields) = try makeSut()
+        fields.networkClient.performRequestImpl = { _, completion in
+            callOrder.append("performRequest called")
+            completion(data)
+        }
+        
+        // when
+        sut.fetchUserProfile { userProfile in
+            callOrder.append("fetchUserProfile called")
+            validation(userProfile)
+        }
+        
+        // then
+        XCTAssertEqual(callOrder, [
+            "performRequest called",
+            "fetchUserProfile called"
         ])
     }
     
