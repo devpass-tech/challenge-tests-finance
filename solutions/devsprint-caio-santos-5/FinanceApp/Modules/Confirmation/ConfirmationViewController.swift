@@ -1,15 +1,18 @@
-//
-//  ConfirmationViewController.swift
-//  FinanceApp
-//
-//  Created by Rodrigo Borges on 30/12/21.
-//
-
 import UIKit
 
-class ConfirmationViewController: UIViewController {
-
+final class ConfirmationViewController: UIViewController {
+    lazy var root = ConfirmationView()
+    
     override func loadView() {
-        self.view = ConfirmationView()
+        self.view = root
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        root.confirmationButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
+    }
+    
+    @objc func dismissAction() {
+        dismiss(animated: true)
     }
 }

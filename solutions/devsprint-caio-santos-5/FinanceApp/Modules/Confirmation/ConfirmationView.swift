@@ -27,6 +27,7 @@ class ConfirmationView: UIView {
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         imageView.tintColor = .systemGreen
+        imageView.accessibilityIdentifier = "confirmationImageView"
         return imageView
     }()
 
@@ -36,6 +37,7 @@ class ConfirmationView: UIView {
         label.text = "Your transfer was successful"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textAlignment = .center
+        label.accessibilityIdentifier = "confirmationLabel"
         return label
     }()
 
@@ -47,6 +49,7 @@ class ConfirmationView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
+        button.accessibilityIdentifier = "confirmationButton"
         return button
     }()
 
@@ -54,6 +57,7 @@ class ConfirmationView: UIView {
     init() {
         super.init(frame: .zero)
 
+        accessibilityIdentifier = "ConfirmationView"
         backgroundColor = .white
 
         stackView.addArrangedSubview(confirmationImageView)

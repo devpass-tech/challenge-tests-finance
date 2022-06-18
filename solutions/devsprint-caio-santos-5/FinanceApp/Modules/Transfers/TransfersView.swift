@@ -57,6 +57,7 @@ class TransfersView: UIView {
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
         button.addTarget(self, action: #selector(transfer), for: .touchUpInside)
+        button.accessibilityIdentifier = "transferButton"
         return button
     }()
 
