@@ -1,15 +1,8 @@
-//
-//  HomeHeaderViewSnapshotTests.swift
-//  FinanceAppTests
-//
-//  Created by Caio Santos on 14/06/22.
-//
-
 import XCTest
 import SnapshotTesting
 @testable import FinanceApp
 
-class HomeHeaderViewSnapshotTests: XCTestCase {
+final class HomeHeaderViewSnapshotTests: XCTestCase {
     let componentSize = CGSize(width: 414, height: 149)
     
     override func setUp() {
@@ -18,7 +11,7 @@ class HomeHeaderViewSnapshotTests: XCTestCase {
     
     func test_HomeHeaderView() {
         let homeHeaderView = HomeHeaderView()
-        homeHeaderView.backgroundColor = .red
+        homeHeaderView.backgroundColor = .white
         
         assertSnapshot(matching: homeHeaderView, as: .image(size: componentSize))
     }

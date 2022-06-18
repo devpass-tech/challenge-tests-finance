@@ -1,10 +1,3 @@
-//
-//  ActivityDetails.swift
-//  FinanceAppTests
-//
-//  Created by Natália Sapucaia on 13/06/22.
-//
-
 import Foundation
 
 let ActivityDetailsJsonData = """

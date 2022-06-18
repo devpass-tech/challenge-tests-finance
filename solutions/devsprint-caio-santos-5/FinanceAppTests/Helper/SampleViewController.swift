@@ -5,4 +5,3 @@ final class SampleViewController<View: UIView>: UIViewController {
         view = View()
     }
 }
-

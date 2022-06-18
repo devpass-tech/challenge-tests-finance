@@ -10,6 +10,7 @@
 		5E511EED285BE05E00B07EA4 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E511EEC285BE05D00B07EA4 /* HomeViewModelTests.swift */; };
 		5E511EEF285BE39000B07EA4 /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E511EEE285BE39000B07EA4 /* HomeViewModelDelegateSpy.swift */; };
 		5E511EF1285BE4EF00B07EA4 /* ServiceMockForHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E511EF0285BE4EF00B07EA4 /* ServiceMockForHomeData.swift */; };
+		5E511EE9285A888600B07EA4 /* TransferAmountJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */; };
 		5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */; };
 		870FC082284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */; };
 		871592772858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */; };
@@ -57,6 +58,7 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		A14DCD52284F6B18003A75B2 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DCD51284F6B18003A75B2 /* ActivityTests.swift */; };
+		A169FC8A285E508A000D82F4 /* UserProfileJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169FC89285E508A000D82F4 /* UserProfileJson.swift */; };
 		A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */; };
 		A1B6F4F52853634D00041506 /* HomeDataJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6F4F42853634D00041506 /* HomeDataJson.swift */; };
 		E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C94607285176AE005327CA /* StringExtensionsTests.swift */; };
@@ -83,6 +85,7 @@
 		5E511EEC285BE05D00B07EA4 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		5E511EEE285BE39000B07EA4 /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		5E511EF0285BE4EF00B07EA4 /* ServiceMockForHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMockForHomeData.swift; sourceTree = "<group>"; };
+		5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountJson.swift; sourceTree = "<group>"; };
 		5EF6C6EF284FEC0400B43B57 /* TableViewCellExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensionsTests.swift; sourceTree = "<group>"; };
 		870FC081284E3EF100FEEB9F /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		871592762858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		A14DCD51284F6B18003A75B2 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
+		A169FC89285E508A000D82F4 /* UserProfileJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileJson.swift; sourceTree = "<group>"; };
 		A1B6F4EF28535E4800041506 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		A1B6F4F42853634D00041506 /* HomeDataJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataJson.swift; sourceTree = "<group>"; };
 		E0C94607285176AE005327CA /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
@@ -431,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				A1B6F4F42853634D00041506 /* HomeDataJson.swift */,
+				5E511EE8285A888600B07EA4 /* TransferAmountJson.swift */,
+				A169FC89285E508A000D82F4 /* UserProfileJson.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -607,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E511EED285BE05E00B07EA4 /* HomeViewModelTests.swift in Sources */,
+				A169FC8A285E508A000D82F4 /* UserProfileJson.swift in Sources */,
 				871592772858B81D00209954 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				E0C94608285176AE005327CA /* StringExtensionsTests.swift in Sources */,
 				87F75F7A2857CD9C004710AE /* ActivityDetailsJson.swift in Sources */,
@@ -616,6 +623,7 @@
 				A1B6F4F028535E4800041506 /* FinanceServiceTests.swift in Sources */,
 				5E511EEF285BE39000B07EA4 /* HomeViewModelDelegateSpy.swift in Sources */,
 				5EF6C6F0284FEC0400B43B57 /* TableViewCellExtensionsTests.swift in Sources */,
+				5E511EE9285A888600B07EA4 /* TransferAmountJson.swift in Sources */,
 				87627DCE284FD03B003B0BA4 /* AccountTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				87F75F722857A6E0004710AE /* ActivityDetailsViewModelTests.swift in Sources */,
