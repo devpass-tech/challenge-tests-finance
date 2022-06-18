@@ -11,15 +11,15 @@ import SnapshotTesting
 
 class ActivityCellViewSnapshotTests: XCTestCase {
     
-    let componentSize = CGSize(width: 414, height: 149)
+    let componentSize = CGSize(width: 414, height: 100)
     
     override func setUp() {
-        SnapshotTesting.isRecording = true
+//        SnapshotTesting.isRecording = true
     }
     
-    func test_HomeHeaderView() {
+    func test_ActivityCellView() {
         let activityVC = ActivityCellView()
-        activityVC.backgroundColor = .blue
+        activityVC.backgroundColor = .white
         
         assertSnapshot(matching: activityVC, as: .image(size: componentSize))
     }
