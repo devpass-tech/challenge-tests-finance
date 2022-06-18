@@ -18,7 +18,8 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenVielModelHasDelegateAndCallFetchDataWithValidJson_ShouldCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid),
+                                       queue: DispatchQueueMock())
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
@@ -26,7 +27,8 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenViewModelHasDelegateAndCallFetchDataWithInvalidJson_ShouldCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.invalid))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.invalid),
+                                       queue: DispatchQueueMock())
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.delegate = activityDetailsViewModelDelegateSpy
         sut.fetchData()
@@ -34,9 +36,16 @@ class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenViewModelHasNoDelegateAndCallFetchData_shouldNotCallDidFetchActivityDetailsMethod() {
-        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid))
+        sut = ActivityDetailsViewModel(financeService: ServiceMockForActivityDetails(.valid),
+                                       queue: DispatchQueueMock())
         let activityDetailsViewModelDelegateSpy = ActivityDetailsViewModelDelegateSpy()
         sut.fetchData()
         XCTAssertFalse(activityDetailsViewModelDelegateSpy.didFetchActivityDetailsWasCalled)
+    }
+}
+
+final class DispatchQueueMock: DispatchQueueProtocol {
+    func async(_ work: @escaping () -> Void) {
+        work()
     }
 }
