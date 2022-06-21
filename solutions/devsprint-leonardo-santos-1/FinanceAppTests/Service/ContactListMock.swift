@@ -27,11 +27,4 @@ final class ContactListMock: NetworkClientProtocol {
     }
 }
 
-final class NilContactListMock: NetworkClientProtocol {
-    
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        completion(nil)
-    }
-}
-
 
