@@ -12,15 +12,14 @@ import XCTest
 
 final class ActivityDetailsViewModelTests: XCTestCase {
     
-    var financeService: FinanceServiceProtocol?
-    var activityDetailsViewModel: ActivityDetailsViewModel?
+    var sut: ActivityDetailsViewModel?
     var isActivityDetailsViewModeldelegateCalled = false
     
     func test_whenCallFetchData_itShouldReturnADelegateCall() {
-        self.financeService = FinanceService(networkClient: NetworkingClientDouble())
-        self.activityDetailsViewModel = ActivityDetailsViewModel(financeService: self.financeService!)
-        self.activityDetailsViewModel?.delegate = self
-        self.activityDetailsViewModel?.fetchData()
+        let financeService = FinanceService(networkClient: MockNetworkingClient())
+        self.sut = ActivityDetailsViewModel(financeService: financeService)
+        sut?.delegate = self
+        sut?.fetchData()
         let expec = expectation(description: "")
         DispatchQueue.main.async {
             expec.fulfill()
