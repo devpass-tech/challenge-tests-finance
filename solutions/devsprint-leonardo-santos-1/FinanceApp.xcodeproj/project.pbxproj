@@ -47,6 +47,7 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */; };
+		FC2FF7942862471200593D93 /* ContactListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7932862471200593D93 /* ContactListMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTest.swift; sourceTree = "<group>"; };
+		FC2FF7932862471200593D93 /* ContactListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */,
+				FC2FF7932862471200593D93 /* ContactListMock.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2FF7942862471200593D93 /* ContactListMock.swift in Sources */,
 				FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);
