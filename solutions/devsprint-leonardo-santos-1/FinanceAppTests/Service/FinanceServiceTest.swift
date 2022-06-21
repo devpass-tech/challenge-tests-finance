@@ -11,9 +11,8 @@ import XCTest
 class FinanceServiceTest: XCTestCase {
     
     
-    func test_whenFetchContactList_DecodeShouldMatchMockedData() throws {
+    func test_whenFetchContactList_DecodeShouldMatchMockedData() {
         
-        let url = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json"))
         let contactListMock = ContactListMock()
         let fakeFinanceService = FinanceService(networkClient: contactListMock)
         let mockedContactList = [Contact(name: "Ronald Robertson",
@@ -23,7 +22,6 @@ class FinanceServiceTest: XCTestCase {
         
         fakeFinanceService.fetchContactList { contactList in
             
-            XCTAssertNotNil(contactList)
             XCTAssertEqual(contactList, mockedContactList)
         }
     }
