@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */; };
-		0BEECA2C286140D1003EE1BA /* NetworkingClientDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2B286140D1003EE1BA /* NetworkingClientDouble.swift */; };
+		0BEECA2C286140D1003EE1BA /* MockNetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2B286140D1003EE1BA /* MockNetworkingClient.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -69,7 +69,8 @@
 
 /* Begin PBXFileReference section */
 		0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
-		0BEECA2B286140D1003EE1BA /* NetworkingClientDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientDouble.swift; sourceTree = "<group>"; };
+		0BEECA2B286140D1003EE1BA /* MockNetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingClient.swift; sourceTree = "<group>"; };
+		0BEECA2F286142CB003EE1BA /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +145,25 @@
 			isa = PBXGroup;
 			children = (
 				0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */,
-				0BEECA2B286140D1003EE1BA /* NetworkingClientDouble.swift */,
+				0BEECA2B286140D1003EE1BA /* MockNetworkingClient.swift */,
 			);
 			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
+		0BEECA2D2861429E003EE1BA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0BEECA2828612CA8003EE1BA /* ActivityDetails */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0BEECA2E286142B6003EE1BA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0BEECA2F286142CB003EE1BA /* NetworkClientTests.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -185,7 +202,8 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				0BEECA2828612CA8003EE1BA /* ActivityDetails */,
+				0BEECA2E286142B6003EE1BA /* Service */,
+				0BEECA2D2861429E003EE1BA /* Modules */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -514,7 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BEECA2C286140D1003EE1BA /* NetworkingClientDouble.swift in Sources */,
+				0BEECA2C286140D1003EE1BA /* MockNetworkingClient.swift in Sources */,
 				0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);

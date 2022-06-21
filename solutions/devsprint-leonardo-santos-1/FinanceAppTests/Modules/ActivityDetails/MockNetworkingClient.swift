@@ -1,5 +1,5 @@
 //
-//  NetworkingClientDouble.swift
+//  MockNetworkingClient.swift
 //  FinanceAppTests
 //
 //  Created by Hoff Silva on 2022-06-20.
@@ -9,7 +9,7 @@ import Foundation
 
 @testable import FinanceApp
 
-struct NetworkingClientDouble: NetworkClientProtocol {
+struct MockNetworkingClient: NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
         let data = """
         {
