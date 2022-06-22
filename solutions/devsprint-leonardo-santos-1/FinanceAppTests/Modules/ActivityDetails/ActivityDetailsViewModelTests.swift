@@ -12,16 +12,19 @@ import XCTest
 
 final class ActivityDetailsViewModelTests: XCTestCase {
     
-    var sut: ActivityDetailsViewModel?
+    private lazy var sut: ActivityDetailsViewModel = {
+        ActivityDetailsViewModel(financeService: self.financeService)
+    }()
+    
     private lazy var activityDetailsViewModelDelegateSpy: ActivityDetailsViewModelDelegateSpy = {
         ActivityDetailsViewModelDelegateSpy()
     }()
-    let financeService = FinanceService(networkClient: NetworkingClientMock())
+    
+    private let financeService = FinanceService(networkClient: NetworkingClientMock())
     
     func test_whenCallFetchData_itShouldReturnADelegateCall() {
-        self.sut = ActivityDetailsViewModel(financeService: financeService)
-        sut?.delegate = activityDetailsViewModelDelegateSpy
-        sut?.fetchData()
+        sut.delegate = activityDetailsViewModelDelegateSpy
+        sut.fetchData()
         let expec = expectation(description: "")
         DispatchQueue.main.async {
             expec.fulfill()
@@ -31,9 +34,8 @@ final class ActivityDetailsViewModelTests: XCTestCase {
     }
     
     func test_whenCallFetchData_itShouldReturnADelegateCallWithActivityDetails() {
-        self.sut = ActivityDetailsViewModel(financeService: financeService)
-        sut?.delegate = activityDetailsViewModelDelegateSpy
-        sut?.fetchData()
+        sut.delegate = activityDetailsViewModelDelegateSpy
+        sut.fetchData()
         let expec = expectation(description: "")
         DispatchQueue.main.async {
             expec.fulfill()
