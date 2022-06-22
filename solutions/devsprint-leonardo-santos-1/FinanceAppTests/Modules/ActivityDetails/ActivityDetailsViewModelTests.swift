@@ -10,12 +10,6 @@ import XCTest
 
 @testable import FinanceApp
 
-extension HomeData {
-    static func fixture() -> Self {
-        HomeData(balance: 0, savings: 0, spending: 0, activity: [])
-    }
-}
-
 final class ActivityDetailsViewModelTests: XCTestCase {
     
     var sut: ActivityDetailsViewModel?
