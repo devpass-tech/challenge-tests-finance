@@ -25,3 +25,23 @@ extension Data {
         """.data(using: .utf8)!
     }
 }
+
+extension Error {
+    static func fixture() -> Self {
+        NSError(domain: "", code: 0) as! Self
+    }
+}
+
+extension HTTPURLResponse {
+    static func succesFixture() -> Self {
+        HTTPURLResponse(url: URL.fixture(), statusCode: Int.random(in: 200...299), httpVersion: nil, headerFields: nil) as! Self
+    }
+    
+    static func clientErrorFixture() -> Self {
+        HTTPURLResponse(url: URL.fixture(), statusCode: Int.random(in: 400...451), httpVersion: nil, headerFields: nil) as! Self
+    }
+    
+    static func serverErrorFixture() -> Self {
+        HTTPURLResponse(url: URL.fixture(), statusCode: Int.random(in: 500...511), httpVersion: nil, headerFields: nil) as! Self
+    }
+}
