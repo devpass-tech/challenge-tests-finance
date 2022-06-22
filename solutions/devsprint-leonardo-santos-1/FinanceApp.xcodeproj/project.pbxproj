@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42AA18462863A6E6007E7B5A /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */; };
+		42AA18482863A79E007E7B5A /* NetworkClientFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA18472863A79E007E7B5A /* NetworkClientFake.swift */; };
+		42AA184B2863B02D007E7B5A /* HomeDataFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA184A2863B02D007E7B5A /* HomeDataFixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
+		42AA18472863A79E007E7B5A /* NetworkClientFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientFake.swift; sourceTree = "<group>"; };
+		42AA184A2863B02D007E7B5A /* HomeDataFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataFixture.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +142,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42AA18412863A4AA007E7B5A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42AA18492863AFEE007E7B5A /* Entities */,
+				42AA18472863A79E007E7B5A /* NetworkClientFake.swift */,
+				42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		42AA18492863AFEE007E7B5A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				42AA184A2863B02D007E7B5A /* HomeDataFixture.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +196,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				42AA18412863A4AA007E7B5A /* Service */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -500,6 +525,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42AA18482863A79E007E7B5A /* NetworkClientFake.swift in Sources */,
+				42AA18462863A6E6007E7B5A /* FinanceServiceTests.swift in Sources */,
+				42AA184B2863B02D007E7B5A /* HomeDataFixture.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
