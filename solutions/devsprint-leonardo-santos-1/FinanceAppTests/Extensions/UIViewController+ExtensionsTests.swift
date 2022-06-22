@@ -9,7 +9,7 @@ import XCTest
 @testable import FinanceApp
 
 final class UIViewControllerExtensionsTests: XCTestCase {
-    let sut = UIViewController()
+    private let sut = UIViewController()
     
     func test_insideNavigationController_modalPresentationStyleShouldBeFormSheet() {
         let navigationController = sut.insideNavigationController()
