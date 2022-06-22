@@ -18,12 +18,11 @@ class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(modalPresentationStyle, .formSheet)
     }
     
-    func test_insideNavigationController_rootViewControllerShouldBeItsCaller() {
+    func test_insideNavigationController_navigationsRootViewControllerShouldBeItsCaller() {
         let callerViewController = ViewControllerDouble()
         let navigationController = callerViewController.insideNavigationController()
         let navigationRootViewController = navigationController.viewControllers.first
         
         XCTAssertEqual(navigationRootViewController, callerViewController)
     }
-    
 }
