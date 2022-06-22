@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B8EE9A028627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE99F28627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift */; };
-		0B8EE9A2286295A20067A7BC /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE9A1286295A20067A7BC /* URLProtocolStub.swift */; };
-		0B8EE9A3286295BA0067A7BC /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2F286142CB003EE1BA /* NetworkClientTests.swift */; };
+		0BC150E52863C95C0078951A /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC150E42863C95C0078951A /* Fixtures.swift */; };
 		0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */; };
 		0BEECA2C286140D1003EE1BA /* NetworkingClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2B286140D1003EE1BA /* NetworkingClientMock.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
@@ -72,10 +71,9 @@
 
 /* Begin PBXFileReference section */
 		0B8EE99F28627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
-		0B8EE9A1286295A20067A7BC /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		0BC150E42863C95C0078951A /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		0BEECA2B286140D1003EE1BA /* NetworkingClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientMock.swift; sourceTree = "<group>"; };
-		0BEECA2F286142CB003EE1BA /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC150E32863C95C0078951A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0BC150E42863C95C0078951A /* Fixtures.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0BEECA2828612CA8003EE1BA /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +215,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				0BEECA2E286142B6003EE1BA /* Service */,
+				0BC150E32863C95C0078951A /* Helpers */,
 				0BEECA2D2861429E003EE1BA /* Modules */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
@@ -542,6 +548,7 @@
 				0BEECA2C286140D1003EE1BA /* NetworkingClientMock.swift in Sources */,
 				0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */,
 				0B8EE9A028627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
+				0BC150E52863C95C0078951A /* Fixtures.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				0B8EE9A2286295A20067A7BC /* URLProtocolStub.swift in Sources */,
 				0B8EE9A3286295BA0067A7BC /* NetworkClientTests.swift in Sources */,
