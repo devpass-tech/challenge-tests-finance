@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B8EE9A028627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE99F28627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift */; };
 		0BC150E52863C95C0078951A /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC150E42863C95C0078951A /* Fixtures.swift */; };
+		0BC150E92863CCE30078951A /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC150E72863CCE30078951A /* URLProtocolStub.swift */; };
+		0BC150EA2863CCE30078951A /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC150E82863CCE30078951A /* NetworkClientTests.swift */; };
 		0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */; };
 		0BEECA2C286140D1003EE1BA /* NetworkingClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEECA2B286140D1003EE1BA /* NetworkingClientMock.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
@@ -72,6 +74,8 @@
 /* Begin PBXFileReference section */
 		0B8EE99F28627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		0BC150E42863C95C0078951A /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		0BC150E72863CCE30078951A /* URLProtocolStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		0BC150E82863CCE30078951A /* NetworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		0BEECA2928612CDD003EE1BA /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		0BEECA2B286140D1003EE1BA /* NetworkingClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientMock.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		0BC150E62863CCE30078951A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0BC150E72863CCE30078951A /* URLProtocolStub.swift */,
+				0BC150E82863CCE30078951A /* NetworkClientTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		0BEECA2828612CA8003EE1BA /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,15 +181,6 @@
 				0BEECA2828612CA8003EE1BA /* ActivityDetails */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		0BEECA2E286142B6003EE1BA /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				0BEECA2F286142CB003EE1BA /* NetworkClientTests.swift */,
-				0B8EE9A1286295A20067A7BC /* URLProtocolStub.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -215,6 +219,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				0BC150E62863CCE30078951A /* Service */,
 				0BC150E32863C95C0078951A /* Helpers */,
 				0BEECA2D2861429E003EE1BA /* Modules */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
@@ -546,12 +551,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BEECA2C286140D1003EE1BA /* NetworkingClientMock.swift in Sources */,
+				0BC150E92863CCE30078951A /* URLProtocolStub.swift in Sources */,
 				0BEECA2A28612CDD003EE1BA /* ActivityDetailsViewModelTests.swift in Sources */,
 				0B8EE9A028627D700067A7BC /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				0BC150E52863C95C0078951A /* Fixtures.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
-				0B8EE9A2286295A20067A7BC /* URLProtocolStub.swift in Sources */,
-				0B8EE9A3286295BA0067A7BC /* NetworkClientTests.swift in Sources */,
+				0BC150EA2863CCE30078951A /* NetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
