@@ -15,7 +15,7 @@ final class NetworkClientTests: XCTestCase {
         let sut = NetworkClient()
         let invalidURL = URL(string: "https://www.google.com")!
         URLProtocol.registerClass(URLProtocolStub.self)
-        sut.performRequest(with:invalidURL , completion: { data in
+        sut.performRequest(with: invalidURL , completion: { data in
             XCTAssertNil(data)
         })
     }
