@@ -46,6 +46,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,12 +161,12 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC2FF79F2863B9B300593D93 /* Commoms */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				98584A9E277E35700028DBEA /* Modules */,
 				98584AF8277E511C0028DBEA /* Components */,
 				98584AB8277E374A0028DBEA /* Service */,
-				9882465227D011FC001DD0C5 /* Extensions */,
 			);
 			path = FinanceApp;
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC2FF79E2863B63500593D93 /* New Group */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -329,6 +332,30 @@
 			path = RepositoryList;
 			sourceTree = "<group>";
 		};
+		FC2FF79E2863B63500593D93 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		FC2FF79F2863B9B300593D93 /* Commoms */ = {
+			isa = PBXGroup;
+			children = (
+				FC2FF7A02863B9C100593D93 /* Spies */,
+				9882465227D011FC001DD0C5 /* Extensions */,
+			);
+			path = Commoms;
+			sourceTree = "<group>";
+		};
+		FC2FF7A02863B9C100593D93 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,6 +488,7 @@
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
+				FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */,
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
