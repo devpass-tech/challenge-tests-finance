@@ -12,11 +12,11 @@ import Foundation
 final class ActivityDetailsViewModelDelegateSpy: ActivityDetailsViewModelDelegate {
     
     private(set) var isActivityDetailsViewModeldelegateCalled = false
-    private(set) var data: ActivityDetails?
+    private(set) var dataPassed: ActivityDetails?
     
     func didFetchActivityDetails(_ data: ActivityDetails) {
-        self.isActivityDetailsViewModeldelegateCalled = true
-        self.data = data
+        isActivityDetailsViewModeldelegateCalled = true
+        dataPassed = data
     }
     
 }

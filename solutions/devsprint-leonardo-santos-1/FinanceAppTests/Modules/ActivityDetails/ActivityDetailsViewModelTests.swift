@@ -41,7 +41,7 @@ final class ActivityDetailsViewModelTests: XCTestCase {
             expec.fulfill()
         }
         wait(for: [expec], timeout: 1)
-        XCTAssertNotNil(self.activityDetailsViewModelDelegateSpy.data)
+        XCTAssertNotNil(self.activityDetailsViewModelDelegateSpy.dataPassed)
     }
     
 }

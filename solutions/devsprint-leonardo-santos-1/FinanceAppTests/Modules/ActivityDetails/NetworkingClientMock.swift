@@ -11,15 +11,6 @@ import Foundation
 
 struct NetworkingClientMock: NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        let data = """
-        {
-            "name": "Mall",
-            "category": "Shopping",
-            "price": 100.0,
-            "time": "8:57 AM"
-        }
-        """.data(using: .utf8)
-
-        completion(data)
+        completion(Data.fixture())
     }
 }
