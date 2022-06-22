@@ -47,7 +47,6 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
-		FC2FF79928637CBD00593D93 /* UIViewControllerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79828637CBD00593D93 /* UIViewControllerDouble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +111,6 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
-		FC2FF79828637CBD00593D93 /* UIViewControllerDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
-				FC2FF79828637CBD00593D93 /* UIViewControllerDouble.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
-				FC2FF79928637CBD00593D93 /* UIViewControllerDouble.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

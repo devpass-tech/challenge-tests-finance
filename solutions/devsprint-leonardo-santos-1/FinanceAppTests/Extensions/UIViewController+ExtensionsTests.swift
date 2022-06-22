@@ -8,21 +8,20 @@
 import XCTest
 @testable import FinanceApp
 
-class UIViewControllerExtensionsTests: XCTestCase {
+final class UIViewControllerExtensionsTests: XCTestCase {
+    let sut = UIViewController()
     
     func test_insideNavigationController_modalPresentationStyleShouldBeFormSheet() {
-        let viewController = ViewControllerDouble()
-        let navigationController = viewController.insideNavigationController()
+        let navigationController = sut.insideNavigationController()
         let modalPresentationStyle = navigationController.modalPresentationStyle
         
         XCTAssertEqual(modalPresentationStyle, .formSheet)
     }
     
     func test_insideNavigationController_navigationsRootViewControllerShouldBeItsCaller() {
-        let callerViewController = ViewControllerDouble()
-        let navigationController = callerViewController.insideNavigationController()
+        let navigationController = sut.insideNavigationController()
         let navigationRootViewController = navigationController.viewControllers.first
         
-        XCTAssertEqual(navigationRootViewController, callerViewController)
+        XCTAssertEqual(navigationRootViewController, sut)
     }
 }
