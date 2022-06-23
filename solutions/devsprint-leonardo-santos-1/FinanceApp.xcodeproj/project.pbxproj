@@ -47,6 +47,7 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
+		FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
+		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +163,7 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				FC2FF79F2863B9B300593D93 /* Commoms */,
+				FC2FF7AB2864B74900593D93 /* Commons */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				98584A9E277E35700028DBEA /* Modules */,
@@ -320,6 +322,7 @@
 				9882465327D01210001DD0C5 /* String+Extensions.swift */,
 				9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */,
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
+				FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,21 +342,21 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		FC2FF79F2863B9B300593D93 /* Commoms */ = {
-			isa = PBXGroup;
-			children = (
-				FC2FF7A02863B9C100593D93 /* Spies */,
-				9882465227D011FC001DD0C5 /* Extensions */,
-			);
-			path = Commoms;
-			sourceTree = "<group>";
-		};
-		FC2FF7A02863B9C100593D93 /* Spies */ = {
+		FC2FF7AA2864B73500593D93 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */,
 			);
-			path = Spies;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		FC2FF7AB2864B74900593D93 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				9882465227D011FC001DD0C5 /* Extensions */,
+				FC2FF7AA2864B73500593D93 /* Util */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +510,7 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
+				FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */,

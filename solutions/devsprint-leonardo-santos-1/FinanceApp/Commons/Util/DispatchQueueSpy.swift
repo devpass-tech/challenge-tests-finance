@@ -8,20 +8,11 @@
 import Foundation
 
 protocol DispatchQueueProtocol {
-    func async()
+    func async(execute work: @escaping @convention(block) ()->Void)
 }
 
 final class DispatchQueueSpy: DispatchQueueProtocol {
-    func async() {
-        <#code#>
+    func async(execute work: @escaping @convention(block) ()->Void) {
+        work()
     }
 }
-
-extension DispatchQueue: DispatchQueueProtocol {
-    func async() {
-        <#code#>
-    }
-}
-
-
-
