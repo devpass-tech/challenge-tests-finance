@@ -3,60 +3,77 @@ import XCTest
 
 class FinanceServiceTests: XCTestCase {
 
-    func testFetchUserProfile() {
+    private let networkSpy = NetworkSpy()
+    private lazy var sut = FinanceService(networkClient: networkSpy)
+
+    func test_fetchUserProfile_givenUrl_shouldCallNetworkClientToPerformRequest() {
         //given
-        let networkSpy = NetworkSpy()
-        let financeService = FinanceService(networkClient: networkSpy)
 
         //when
-        financeService.fetchUserProfile { _ in
+        sut.fetchUserProfile { _ in
 
             //then
-            XCTAssertEqual(networkSpy.performRequestCount, 1)
+            XCTAssertEqual(self.networkSpy.performRequestCount, 1)
         }
     }
 
-    func testFetchUserProfileReturning() {
+    func test_fetchUserProfile_whenDataIsNil_shouldCallCompletionNil() {
+
         //given
-        let networkMock = NetworkMock()
-        let financeService = FinanceService(networkClient: networkMock)
-        let userModel = NetworkMock.getUser()
+        networkSpy.data = nil
 
         //when
-        financeService.fetchUserProfile { data in
+        sut.fetchUserProfile { data in
 
             //then
-            XCTAssertEqual(userModel, data)
+            XCTAssertEqual(nil, data)
+        }
+    }
+
+    func test_fetchUserProfile_whenDataIsInvalid_shouldCallCompletionNil() {
+
+        //given
+        let invalidData = Data("invalid string".utf8)
+        networkSpy.data = invalidData
+
+        //when
+        sut.fetchUserProfile { data in
+
+            //then
+            XCTAssertEqual(nil, data)
+        }
+
+    }
+
+    func test_fetchUserProfile_whenDataIsValid_shouldCallCompletionWithModel() {
+        //given
+        let validData = Data(Constants.json.utf8)
+        networkSpy.data = validData
+
+        //when
+        sut.fetchUserProfile { data in
+
+            //then
+            XCTAssertEqual(Constants.user, data)
         }
     }
 
 }
 
-class NetworkSpy: NetworkClientProtocol {
-    var performRequestCount = 0
-
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        performRequestCount += 1
-        completion(nil)
+extension FinanceServiceTests {
+    enum Constants {
+        static let json = """
+{
+    "name": "Emanuel",
+    "phone": "2352352",
+    "email": "2352352",
+    "address": "rua 1233",
+    "account": {
+        "agency": "agencia 123",
+        "account": "gaifea"
     }
 }
-
-class NetworkMock: NetworkClientProtocol {
-
-
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        let model = NetworkMock.getUser()
-        let endodedModel = try? JSONEncoder().encode(model)
-        completion(endodedModel)
-    }
-
-    static func getUser() -> UserProfile {
-        let account = Account(agency: "agencia 01", account: "conta 03")
-        let user = UserProfile(name: "Pedro",
-                               phone: "555555",
-                               email: "a@a.com",
-                               address: "av 123 baurro 5",
-                               account: account)
-        return user
+"""
+        static let user = UserProfile(name: "Emanuel", phone: "2352352", email: "2352352", address: "rua 1233", account: Account(agency: "agencia 123", account: "gaifea"))
     }
 }

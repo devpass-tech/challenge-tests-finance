@@ -46,6 +46,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		A4717E062865184400963D52 /* FinanceServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4717E052865184400963D52 /* FinanceServiceSpy.swift */; };
 		A49049D32862902C0087B07F /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49049D22862902C0087B07F /* FinanceServiceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		A4717E052865184400963D52 /* FinanceServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceSpy.swift; sourceTree = "<group>"; };
 		A49049D22862902C0087B07F /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -332,9 +334,18 @@
 			path = RepositoryList;
 			sourceTree = "<group>";
 		};
+		A4717E042865182C00963D52 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				A4717E052865184400963D52 /* FinanceServiceSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
 		A49049D1286290100087B07F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A4717E042865182C00963D52 /* Spies */,
 				A49049D22862902C0087B07F /* FinanceServiceTests.swift */,
 			);
 			path = Service;
@@ -513,6 +524,7 @@
 			files = (
 				A49049D32862902C0087B07F /* FinanceServiceTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				A4717E062865184400963D52 /* FinanceServiceSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
