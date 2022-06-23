@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0791551528650E9A00C9AAAB /* StringExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTest.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
+				0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0791551528650E9A00C9AAAB /* StringExtensionsTest.swift in Sources */,
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
