@@ -14,6 +14,10 @@
 		0BA7D883286D032100906C8C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D881286D032100906C8C /* MockURLSession.swift */; };
 		0BA7D884286D032100906C8C /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D882286D032100906C8C /* NetworkClientTests.swift */; };
 		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
+		0B6E1DF0286527AD00A2098F /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DEF286527AD00A2098F /* ActivityDetailsViewModelTests.swift */; };
+		0B6E1DF2286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DF1286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift */; };
+		0B6E1DF4286527FE00A2098F /* NetworkingClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DF3286527FE00A2098F /* NetworkingClientMock.swift */; };
+		0B6E1DF72865282B00A2098F /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DF62865282B00A2098F /* Fixtures.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -106,6 +110,10 @@
 		0BA7D881286D032100906C8C /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		0BA7D882286D032100906C8C /* NetworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
+		0B6E1DEF286527AD00A2098F /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		0B6E1DF1286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		0B6E1DF3286527FE00A2098F /* NetworkingClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientMock.swift; sourceTree = "<group>"; };
+		0B6E1DF62865282B00A2098F /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -218,6 +226,30 @@
 				0BA7D87D286D01FC00906C8C /* DemoUseCaseFactoryTests.swift */,
 			);
 			path = Factories;
+		0B6E1DED2865276100A2098F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0B6E1DEE2865276F00A2098F /* ActivityDetails */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0B6E1DEE2865276F00A2098F /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0B6E1DEF286527AD00A2098F /* ActivityDetailsViewModelTests.swift */,
+				0B6E1DF1286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift */,
+				0B6E1DF3286527FE00A2098F /* NetworkingClientMock.swift */,
+			);
+			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
+		0B6E1DF52865281900A2098F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0B6E1DF62865282B00A2098F /* Fixtures.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -267,6 +299,8 @@
 				0BA7D879286D01FC00906C8C /* Helpers */,
 				FC2FF7902862033000593D93 /* Service */,
 				FD6D81DF286797C800503489 /* ServiceTests */,
+				0B6E1DF52865281900A2098F /* Helpers */,
+				0B6E1DED2865276100A2098F /* Modules */,
 				FC2FF79528637C4C00593D93 /* Extensions */,
 				27BC699A2861EB0900CFA1EC /* AccountTest.swift */,
 				FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */,
@@ -789,6 +823,12 @@
 				FCB37861286D14F10044B4A3 /* HomeViewModelDelegateSpy.swift in Sources */,
 				FCB3785E286D14E10044B4A3 /* FinanceServiceActivityDetailsSpy.swift in Sources */,
 				FCB3785F286D14E10044B4A3 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
+				0B6E1DF0286527AD00A2098F /* ActivityDetailsViewModelTests.swift in Sources */,
+				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
+				0B6E1DF2286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
+				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				0B6E1DF4286527FE00A2098F /* NetworkingClientMock.swift in Sources */,
+				0B6E1DF72865282B00A2098F /* Fixtures.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
 				FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */,
 				FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */,
