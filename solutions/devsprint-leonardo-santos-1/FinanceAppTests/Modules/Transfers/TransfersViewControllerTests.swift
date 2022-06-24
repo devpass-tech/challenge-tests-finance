@@ -28,7 +28,7 @@ class TransfersViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.presentCalled)
     }
     
-    func test_didPressChooseContadtButton_showPresent() {
+    func test_didPressChooseContactButton_showPresent() {
         let sut = TransfersViewControllerSpy()
         sut.didPressChooseContactButton()
         XCTAssertTrue(sut.presentCalled)
