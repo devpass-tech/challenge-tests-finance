@@ -10,7 +10,7 @@ import XCTest
 
 extension Contact {
     static func fixture(name: String = "",
-                        phone: String = "") -> Contact {
+                        phone: String = "") -> Self {
         Contact(name: name,
                 phone: phone)
     }
