@@ -16,9 +16,9 @@ struct HomeViewModel {
 
     weak var delegate: HomeViewModelDelegate?
 
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FinanceServiceHomeDataProtocol
 
-    init(financeService: FinanceServiceProtocol) {
+    init(financeService: FinanceServiceHomeDataProtocol) {
         self.financeService = financeService
     }
 

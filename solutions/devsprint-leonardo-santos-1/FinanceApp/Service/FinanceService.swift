@@ -7,9 +7,11 @@
 
 import Foundation
 
-protocol FinanceServiceProtocol {
-
+protocol FinanceServiceHomeDataProtocol {
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
+}
+
+protocol FinanceServiceProtocol {
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
     func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
     func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
@@ -23,27 +25,6 @@ class FinanceService: FinanceServiceProtocol {
     init(networkClient: NetworkClientProtocol) {
 
         self.networkClient = networkClient
-    }
-
-    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
-
-        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
-
-        networkClient.performRequest(with: url) { data in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let homeData = try decoder.decode(HomeData.self, from: data)
-                completion(homeData)
-            } catch {
-                completion(nil)
-            }
-        }
     }
 
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) {
@@ -124,6 +105,30 @@ class FinanceService: FinanceServiceProtocol {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let userProfile = try decoder.decode(UserProfile.self, from: data)
                 completion(userProfile)
+            } catch {
+                completion(nil)
+            }
+        }
+    }
+}
+
+extension FinanceService: FinanceServiceHomeDataProtocol {
+    
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
+
+        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
+
+        networkClient.performRequest(with: url) { data in
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let homeData = try decoder.decode(HomeData.self, from: data)
+                completion(homeData)
             } catch {
                 completion(nil)
             }
