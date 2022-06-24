@@ -14,7 +14,7 @@ extension HomeData {
         savings: Float = 0,
         spending: Float = 0,
         activity: [Activity] = []
-    ) -> HomeData {
+    ) -> Self {
         .init(balance: balance,
               savings: savings,
               spending: spending,
