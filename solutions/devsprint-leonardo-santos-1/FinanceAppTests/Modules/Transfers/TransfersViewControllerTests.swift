@@ -16,17 +16,25 @@ class TransfersViewControllerTests: XCTestCase {
         sut.didPressChooseContactButton()
         XCTAssertTrue(sut.chooseContactButtonPressed)
     }
+    
+    func test_didPressChooseContactButton_isCalled() {
+        sut.didPressTransferButton()
+        XCTAssertTrue(sut.transferButtonPressed)
+    }
 }
 
 class TransferViewControllerSpy: TransferViewDelegate {
     
     var chooseContactButtonPressed: Bool = false
+    var transferButtonPressed: Bool = false
     
     func didPressChooseContactButton() {
         chooseContactButtonPressed = true
     }
     
-    func didPressTransferButton() {}
+    func didPressTransferButton() {
+        transferButtonPressed = true
+    }
     
     
 }
