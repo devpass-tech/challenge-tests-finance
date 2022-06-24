@@ -50,6 +50,7 @@
 		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
 		FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
 		FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */; };
+		FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +182,8 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC2FF79528637C4C00593D93 /* Extensions */,
+				FC3DF5532866610C00B15B9F /* Modules */,
+				FC3DF54F28665DFF00B15B9F /* Commons */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 				27BC699A2861EB0900CFA1EC /* AccountTest.swift */,
 			);
@@ -365,6 +368,30 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		FC3DF54F28665DFF00B15B9F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				FC2FF79528637C4C00593D93 /* Extensions */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		FC3DF5532866610C00B15B9F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FC3DF5542866611700B15B9F /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FC3DF5542866611700B15B9F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -541,6 +568,7 @@
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
+				FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

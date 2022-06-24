@@ -9,13 +9,9 @@ import XCTest
 @testable import FinanceApp
 
 class AccountTest: XCTestCase {
-    private let sut = Account(agency: "123", account: "456-7")
+    private let sut = Account(agency: "123", account: "4567")
 
     func test_formattedAgency_shouldFormatAgency() {
         XCTAssertEqual(sut.formattedAgency(), "Agency: 123")
-    }
-    
-    func testFormattedAcount_WhenDidCall_ShouldReturnAccountString() {
-        XCTAssertEqual(sut.formattedAccount(), "Account: 456-7")
     }
 }
