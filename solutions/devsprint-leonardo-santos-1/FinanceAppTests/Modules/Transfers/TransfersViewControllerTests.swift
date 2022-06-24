@@ -10,7 +10,7 @@ import XCTest
 
 class TransfersViewControllerTests: XCTestCase {
 
-    let sut = TransferViewControllerSpy()
+    let sut = TransfersViewControllerSpy()
     
     func test_didPressTransferButton_isCalled() {
         sut.didPressChooseContactButton()
@@ -21,12 +21,19 @@ class TransfersViewControllerTests: XCTestCase {
         sut.didPressTransferButton()
         XCTAssertTrue(sut.transferButtonPressed)
     }
+    
+    func test_didPressTransferButton_showPresent() {
+        let sut = TransfersViewControllerSpy()
+        sut.didPressTransferButton()
+        XCTAssertTrue(sut.presentCalled)
+    }
 }
 
-class TransferViewControllerSpy: TransferViewDelegate {
+class TransfersViewControllerSpy: UIViewController, TransferViewDelegate  {
     
     var chooseContactButtonPressed: Bool = false
     var transferButtonPressed: Bool = false
+    var presentCalled: Bool = false
     
     func didPressChooseContactButton() {
         chooseContactButtonPressed = true
@@ -34,6 +41,13 @@ class TransferViewControllerSpy: TransferViewDelegate {
     
     func didPressTransferButton() {
         transferButtonPressed = true
+        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
+        self.present(navigationController, animated: true)
+
+    }
+    
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        presentCalled = true
     }
     
     
