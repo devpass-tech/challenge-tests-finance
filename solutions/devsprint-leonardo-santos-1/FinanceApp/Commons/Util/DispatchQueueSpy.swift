@@ -12,7 +12,12 @@ protocol DispatchQueueProtocol {
 }
 
 final class DispatchQueueSpy: DispatchQueueProtocol {
+    private(set) var asyncCalled: Bool = false
+    private(set) var asyncCalledCount: Int = 0
+    
     func async(execute work: @escaping @convention(block) ()->Void) {
+        asyncCalledCount += 1
+        asyncCalled = true
         work()
     }
 }
