@@ -189,19 +189,10 @@
 		0B6E1DF928652AC700A2098F /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0B6E1DFA28652AC700A2098F /* Entities */,
 				0B6E1DFD28652AE700A2098F /* NetworkClientTests.swift */,
 				0B6E1E0128652B9500A2098F /* URLProtocolStub.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		0B6E1DFA28652AC700A2098F /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				0B6E1DFB28652AC700A2098F /* UserProfileTest.swift */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		0BFBB37D2865DACD001095E6 /* Helpers */ = {
@@ -677,7 +668,6 @@
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
 				0B6E1DFE28652AE700A2098F /* NetworkClientTests.swift in Sources */,
 				0B6E1E0228652B9500A2098F /* URLProtocolStub.swift in Sources */,
-				0B6E1DFC28652AC700A2098F /* UserProfileTest.swift in Sources */,
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
