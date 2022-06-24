@@ -30,10 +30,10 @@ struct HomeViewModel {
                 return
             }
 
-            DispatchQueue.main.async {
+          //  DispatchQueue.main.async {
 
                 delegate?.didFetchHomeData(homeData)
-            }
+           // }
         }
     }
 }

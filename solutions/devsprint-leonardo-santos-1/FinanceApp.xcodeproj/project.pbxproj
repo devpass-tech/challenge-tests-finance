@@ -15,7 +15,6 @@
 		98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98584A77277E32C50028DBEA /* LaunchScreen.storyboard */; };
 		98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A83277E32C60028DBEA /* FinanceAppTests.swift */; };
 		98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */; };
-		98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */; };
 		98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA4277E35E90028DBEA /* HomeViewController.swift */; };
 		98584AA7277E35F10028DBEA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA6277E35F10028DBEA /* HomeView.swift */; };
 		98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC2277E42E80028DBEA /* FinanceService.swift */; };
@@ -46,6 +45,10 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		F4B1BC12286601ED007D3EB1 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BC11286601ED007D3EB1 /* HomeViewModelTests.swift */; };
+		F4B1BC1428660290007D3EB1 /* FinanceServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BC1328660290007D3EB1 /* FinanceServiceSpy.swift */; };
+		F4B1BC162866034E007D3EB1 /* HomeViewDataDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BC152866034E007D3EB1 /* HomeViewDataDelegateSpy.swift */; };
+		F4B1BC1928660629007D3EB1 /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BC1828660629007D3EB1 /* HomeData+Fixture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,6 @@
 		98584A83277E32C60028DBEA /* FinanceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppTests.swift; sourceTree = "<group>"; };
 		98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITests.swift; sourceTree = "<group>"; };
-		98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		98584AA4277E35E90028DBEA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98584AA6277E35F10028DBEA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		98584AC2277E42E80028DBEA /* FinanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceService.swift; sourceTree = "<group>"; };
@@ -109,6 +111,10 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		F4B1BC11286601ED007D3EB1 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		F4B1BC1328660290007D3EB1 /* FinanceServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceSpy.swift; sourceTree = "<group>"; };
+		F4B1BC152866034E007D3EB1 /* HomeViewDataDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataDelegateSpy.swift; sourceTree = "<group>"; };
+		F4B1BC1828660629007D3EB1 /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1BC0E286601A6007D3EB1 /* Modules */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -181,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */,
-				98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */,
 			);
 			path = FinanceAppUITests;
 			sourceTree = "<group>";
@@ -327,6 +333,41 @@
 				98E0E87A28299EB400560502 /* RepositoryListViewController.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		F4B1BC0E286601A6007D3EB1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1BC0F286601B2007D3EB1 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F4B1BC0F286601B2007D3EB1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1BC1728660610007D3EB1 /* Entities */,
+				F4B1BC10286601C7007D3EB1 /* Doubles */,
+				F4B1BC11286601ED007D3EB1 /* HomeViewModelTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F4B1BC10286601C7007D3EB1 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1BC1328660290007D3EB1 /* FinanceServiceSpy.swift */,
+				F4B1BC152866034E007D3EB1 /* HomeViewDataDelegateSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		F4B1BC1728660610007D3EB1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1BC1828660629007D3EB1 /* HomeData+Fixture.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +542,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				F4B1BC162866034E007D3EB1 /* HomeViewDataDelegateSpy.swift in Sources */,
+				F4B1BC12286601ED007D3EB1 /* HomeViewModelTests.swift in Sources */,
+				F4B1BC1928660629007D3EB1 /* HomeData+Fixture.swift in Sources */,
+				F4B1BC1428660290007D3EB1 /* FinanceServiceSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */,
-				98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,9 +705,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -678,6 +723,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,9 +735,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -706,6 +753,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,14 +765,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -737,9 +789,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -758,7 +811,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
@@ -776,7 +829,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = U5HYR665M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
