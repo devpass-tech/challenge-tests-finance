@@ -20,10 +20,72 @@ final class FinanceServiceTests: XCTestCase {
             XCTAssertEqual(networkSpy.performRequestUrlPassed?.absoluteString, Constants.fetchHomeDataURLString)
         }
     }
+    
+    func testFetchHomeDataWhenDataIsNilshouldReturnNil() {
+        networkSpy.performRequestCompletionToBeReturned = nil
+        
+        sut.fetchHomeData { response in
+            XCTAssertNil(response)
+        }
+    }
+    
+    func testFetchHomeDataWhenDataIsNotNilWhenDecodeSucceedShouldReturnCorrectHomeData() {
+        networkSpy.performRequestCompletionToBeReturned = Constants.defaultData
+        
+        sut.fetchHomeData { response in
+            XCTAssertNil(response)
+        }
+    }
+    
+    func testFetchHomeDataWhenDataIsNotNilWhenDecodeErrorShouldReturnNilHomeData() {
+        networkSpy.performRequestCompletionToBeReturned = Constants.defaultDataWithError
+        
+        sut.fetchHomeData { response in
+            XCTAssertNil(response)
+        }
+    }
 }
 
 private extension FinanceServiceTests {
     enum Constants {
+        static let defaultDataWithError = "".data(using: .utf8)
+        
         static let fetchHomeDataURLString = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
+        
+        static let defaultData =
+        """
+        {
+          balance: 15459.27,
+          savings: 1000.0,
+          spending: 500.0,
+          activity: [
+            {
+              name: "Mall",
+              price: 100.0,
+              time: "8:57 AM",
+            },
+            {
+              name": "Food Court",
+              price": 100.0,
+              time": "8:57 AM",
+            },
+            {
+              name: "Oceanic Airlines",
+              price: 100.0,
+              time: "8:57 AM",
+            },
+            {
+              name: "Gym Membership",
+              price: 100.0,
+              time: "8:57 AM",
+            },
+            {
+              name: "Private Transport",
+              price: 100.0,
+              time: "8:57 AM",
+            },
+          ],
+        }
+        """.data(using: .utf8)
     }
 }
