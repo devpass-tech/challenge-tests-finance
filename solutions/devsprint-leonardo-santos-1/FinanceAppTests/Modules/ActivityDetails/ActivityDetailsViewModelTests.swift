@@ -15,14 +15,14 @@ final class ActivityDetailsViewModelTests: XCTestCase {
                                                mainDispatchQueue: dispatchQueueSpy)
     
     func test_whenFetchDataIsCalled_whenDataIsNotNil_shouldCallDispatchQueue() {
-        activityDetailsServiceSpy.activityDetailsDataToBeReturned = ActivityDetails.fixture()
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = .fixture()
         sut.fetchData()
         
         XCTAssertTrue(dispatchQueueSpy.asyncCalled)
     }
     
     func test_whenFetchDataIsCalled_whenDataIsNotNil_shouldCallDispatchQueueOnce() {
-        activityDetailsServiceSpy.activityDetailsDataToBeReturned = ActivityDetails.fixture()
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = .fixture()
         sut.fetchData()
         
         XCTAssertEqual(dispatchQueueSpy.asyncCalledCount, 1)

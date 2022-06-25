@@ -10,21 +10,19 @@ import XCTest
 
 final class HomeViewModelTests: XCTestCase {
     private let dispatchQueueSpy = DispatchQueueSpy()
-    private lazy var homeServiceSpy = FinanceServiceHomeSpy()
-    
+    private let homeServiceSpy = FinanceServiceHomeSpy()
     private lazy var sut = HomeViewModel(financeService: homeServiceSpy,
                                     mainDispatchQueue: dispatchQueueSpy)
     
-    
     func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalled() {
-        homeServiceSpy.homeDataToBeReturned = HomeData.fixture()
+        homeServiceSpy.homeDataToBeReturned = .fixture()
         sut.fetchData()
         
         XCTAssertTrue(dispatchQueueSpy.asyncCalled)
     }
     
     func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalledOnce() {
-        homeServiceSpy.homeDataToBeReturned = HomeData.fixture()
+        homeServiceSpy.homeDataToBeReturned = .fixture()
         sut.fetchData()
         
         XCTAssertEqual(dispatchQueueSpy.asyncCalledCount, 1)
