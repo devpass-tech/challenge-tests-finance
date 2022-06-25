@@ -5,12 +5,13 @@
 //  Created by Junior Margalho on 22/06/22.
 //
 
-@testable import FinanceApp
 import XCTest
 
+@testable import FinanceApp
+
 final class FinanceServiceTests: XCTestCase {
-    let networkClientFake = NetworkClientFake()
-    lazy var sut = FinanceService(networkClient: networkClientFake)
+    private let networkSpy = NetworkClientSpy()
+    private lazy var sut = FinanceService(networkClient: networkSpy)
 
     func testFetchHomeDataShouldEqualsMockData() {
         let homeDataFake = HomeData.fixture(balance: 15459.27,
