@@ -63,13 +63,6 @@ private extension TransferAmountTests {
     }
 }
 
-
-private extension TransferResult {
-    static func fixture(success: Bool = true) -> TransferResult {
-        return TransferResult(success: success)
-    }
-}
-
 class NetworkClientSpy: NetworkClientProtocol {
     private(set) var performRequestPassed: String?
     private(set) var performRequestCount: Int = 0
