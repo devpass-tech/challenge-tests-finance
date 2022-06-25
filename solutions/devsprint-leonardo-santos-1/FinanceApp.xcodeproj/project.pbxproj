@@ -47,6 +47,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */; };
 		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,6 +340,7 @@
 		FC2FF79528637C4C00593D93 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */,
 				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
 			);
 			path = Extensions;
@@ -516,6 +519,7 @@
 			files = (
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
