@@ -11,6 +11,7 @@ import XCTest
 final class ActivityDetailsViewModelTests: XCTestCase {
     private let activityDetailsServiceSpy = FinanceServiceActivityDetailsSpy()
     private let dispatchQueueSpy = DispatchQueueSpy()
+    private let delegateSpy = ActivityDetailsViewModelDelegateSpy()
     private lazy var sut = ActivityDetailsViewModel(financeService: activityDetailsServiceSpy,
                                                mainDispatchQueue: dispatchQueueSpy)
     
@@ -33,5 +34,50 @@ final class ActivityDetailsViewModelTests: XCTestCase {
         sut.fetchData()
         
         XCTAssertFalse(dispatchQueueSpy.asyncCalled)
+    }
+    
+    func test_whenFetchDataIsCalled_shouldCallFetchActivityDetails() {
+        sut.fetchData()
+        
+        XCTAssertTrue(activityDetailsServiceSpy.fetchActivityDetailsCalled)
+    }
+    
+    func test_whenFetchDataIsCalled_shouldCallFetchActivityDetailsOnce() {
+        sut.fetchData()
+        
+        XCTAssertEqual(activityDetailsServiceSpy.fetchActivityDetailsCalledCount, 1)
+    }
+    
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetails() {
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = .fixture()
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertTrue(delegateSpy.didFetchActivityDetailsCalled)
+    }
+    
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetailsOnce() {
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = .fixture()
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertEqual(delegateSpy.didFetchActivityDetailsCallCount, 1)
+    }
+    
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNil_shouldNotCallDidFetchActivityDetails() {
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = nil
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertFalse(delegateSpy.didFetchActivityDetailsCalled)
+    }
+    
+    func test_fetchData_whenReturnedDataIsNotNil_shouldPassSameDataToDelegateMethod() {
+        let returnedData: ActivityDetails = .fixture(name: "Cunha")
+        activityDetailsServiceSpy.activityDetailsDataToBeReturned = returnedData
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertEqual(returnedData, delegateSpy.dataPassed)
     }
 }

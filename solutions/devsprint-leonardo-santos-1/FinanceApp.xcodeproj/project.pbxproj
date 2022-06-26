@@ -53,6 +53,8 @@
 		FC08DB6F2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */; };
 		FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */; };
 		FC08DB742867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB732867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift */; };
+		FC08DB782867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */; };
+		FC08DB7A2867DBC500E7E235 /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */; };
 		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
 		FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
 		FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */; };
@@ -127,6 +129,8 @@
 		FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceActivityDetailsSpy.swift; sourceTree = "<group>"; };
 		FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
 		FC08DB732867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
@@ -381,6 +385,24 @@
 			path = ActivityDetails;
 			sourceTree = "<group>";
 		};
+		FC08DB752867DB6F00E7E235 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */,
+				FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC08DB762867DB7A00E7E235 /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */,
+				FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */,
+			);
+			path = ActivityDetails;
+			sourceTree = "<group>";
+		};
 		FC2FF79528637C4C00593D93 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,22 +411,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FC2FF7AA2864B73500593D93 /* Util */ = {
+		FC2FF7AA2864B73500593D93 /* Spies */ = {
 			isa = PBXGroup;
 			children = (
 				FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */,
 				FC08DB662867B4BE00E7E235 /* NetworkClientSpy.swift */,
-				FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */,
-				FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */,
+				FC08DB762867DB7A00E7E235 /* ActivityDetails */,
+				FC08DB752867DB6F00E7E235 /* Home */,
 			);
-			path = Util;
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		FC2FF7AB2864B74900593D93 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
 				9882465227D011FC001DD0C5 /* Extensions */,
-				FC2FF7AA2864B73500593D93 /* Util */,
+				FC2FF7AA2864B73500593D93 /* Spies */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -566,6 +588,7 @@
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
+				FC08DB782867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				FC2FF7A22863B9EB00593D93 /* DispatchQueueSpy.swift in Sources */,
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
@@ -602,6 +625,7 @@
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
 				9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */,
 				98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */,
+				FC08DB7A2867DBC500E7E235 /* HomeViewModelDelegateSpy.swift in Sources */,
 				9882466227D016F8001DD0C5 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,4 +34,16 @@ final class HomeViewModelTests: XCTestCase {
 
         XCTAssertFalse(dispatchQueueSpy.asyncCalled)
     }
+    
+    func test_whenFetchDataIsCalled_shouldCallFetchHomeData() {
+        sut.fetchData()
+        
+        XCTAssertTrue(homeServiceSpy.fetchHomeDataCalled)
+    }
+    
+    func test_whenFetchDataIsCalled_shouldCallshouldCallFetchHomeDataOnce() {
+        sut.fetchData()
+        
+        XCTAssertEqual(homeServiceSpy.fetchHomeDataCalledCount, 1)
+    }
 }
