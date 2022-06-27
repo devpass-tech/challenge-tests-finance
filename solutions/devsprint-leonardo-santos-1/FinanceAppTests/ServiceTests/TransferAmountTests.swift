@@ -16,7 +16,7 @@ final class TransferAmountTests: XCTestCase {
         sut.transferAmount { _ in }
         XCTAssertEqual(networkClientSpy.performRequestCount, 1)
         XCTAssertTrue(networkClientSpy.performRequestCalled)
-        XCTAssertEqual(networkClientSpy.performRequestPassed, self.url)
+        XCTAssertEqual(networkClientSpy.performRequestPassed, url)
     }
     
     func testTransferAmount_ShouldReturnNil_IfNoDataIsPassed() {
