@@ -10,53 +10,17 @@ import XCTest
 
 class TransfersViewControllerTests: XCTestCase {
 
-    let sut = TransfersViewControllerSpy()
-    
-    func test_didPressTransferButton_isCalled() {
-        sut.didPressChooseContactButton()
-        XCTAssertTrue(sut.chooseContactButtonPressed)
-    }
-    
-    func test_didPressChooseContactButton_isCalled() {
-        sut.didPressTransferButton()
-        XCTAssertTrue(sut.transferButtonPressed)
-    }
+    let sut = TransfersViewController()
     
     func test_didPressTransferButton_showPresent() {
-        let sut = TransfersViewControllerSpy()
         sut.didPressTransferButton()
-        XCTAssertTrue(sut.presentCalled)
+        let topMostViewController = sut.nextNavigationController?.viewControllers.last
+        XCTAssertTrue(topMostViewController is ConfirmationViewController)
     }
     
     func test_didPressChooseContactButton_showPresent() {
-        let sut = TransfersViewControllerSpy()
         sut.didPressChooseContactButton()
-        XCTAssertTrue(sut.presentCalled)
+        let topMostViewController = sut.nextNavigationController?.viewControllers.last
+        XCTAssertTrue(topMostViewController is ContactListViewController)
     }
-}
-
-class TransfersViewControllerSpy: UIViewController, TransferViewDelegate  {
-    
-    var chooseContactButtonPressed: Bool = false
-    var transferButtonPressed: Bool = false
-    var presentCalled: Bool = false
-    
-    func didPressChooseContactButton() {
-        chooseContactButtonPressed = true
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
-        self.present(navigationController, animated: true)
-    }
-    
-    func didPressTransferButton() {
-        transferButtonPressed = true
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
-
-    }
-    
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        presentCalled = true
-    }
-    
-    
 }
