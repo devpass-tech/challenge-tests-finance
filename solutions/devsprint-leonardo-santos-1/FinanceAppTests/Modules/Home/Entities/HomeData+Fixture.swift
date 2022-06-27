@@ -11,6 +11,7 @@ extension HomeData {
             balance: balance,
             savings: savings,
             spending: spending,
-            activity: activity)
+            activity: activity
+        )
     }
 }
