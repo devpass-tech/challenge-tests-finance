@@ -4,7 +4,7 @@ final class HomeViewDataDelegateSpy: HomeViewModelDelegate {
     
     private(set) var didFetchHomeDataTriggered: Bool = false
     private(set) var didFetchHomeDataCount: Int = 0
-    private(set) var didFetchHomeDataReturn: HomeData? = .fixture()
+    var didFetchHomeDataReturn: HomeData? = .fixture()
     
     func didFetchHomeData(_ data: HomeData) {
         didFetchHomeDataCount += 1
