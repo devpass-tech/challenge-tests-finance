@@ -29,11 +29,7 @@ struct HomeViewModel {
             guard let homeData = homeData else {
                 return
             }
-
-          //  DispatchQueue.main.async {
-
                 delegate?.didFetchHomeData(homeData)
-           // }
         }
     }
 }
