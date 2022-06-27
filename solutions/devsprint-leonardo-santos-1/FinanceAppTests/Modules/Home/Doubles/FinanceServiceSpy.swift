@@ -1,6 +1,6 @@
 @testable import FinanceApp
 
-final class FinanceServiceSpy: FinanceServiceHomeDataProtocol {
+final class FinanceServiceHomeDataSpy: FinanceServiceHomeDataProtocol {
     
     private(set) var fetchHomeDataTriggered: Bool = false
     private(set) var fecthHomeDataCount = 0
