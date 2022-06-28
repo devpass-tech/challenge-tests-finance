@@ -13,8 +13,12 @@ final class DemoUseCaseFactoryTests: XCTestCase {
     
     private let sut = DemoUseCaseFactory()
     
-    func test_() {
-        
+    func test_whenCallMake_mustReturnDemoUseCaseWithNotNilDependencies() {
+        let mirrored = Mirror(reflecting: sut.make())
+        let dependencyA = mirrored.reflect(type: DemoUseCaseDependencyA.self, label: "dependencyA")
+        let dependencyB = mirrored.reflect(type: DemoUseCaseDependencyB.self, label: "dependencyB")
+        XCTAssertNotNil(dependencyA)
+        XCTAssertNotNil(dependencyB)
     }
     
 }
