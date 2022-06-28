@@ -14,11 +14,14 @@ protocol FinanceServiceHomeDataProtocol {
 protocol FinanceServiceProtocol {
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
     func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
-    func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
     func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
 }
 
-class FinanceService: FinanceServiceProtocol {
+protocol TransferAmountProtocol {
+    func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
+}
+
+class FinanceService: FinanceServiceProtocol, TransferAmountProtocol {
 
     let networkClient: NetworkClientProtocol
 
