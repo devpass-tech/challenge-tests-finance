@@ -14,7 +14,7 @@ final class FinanceServiceTests: XCTestCase {
     
     // MARK: fetchContactList
     func test_fetchContactList_whenDecondeIsSuccessful_objectShouldMatchMockedContactList() {
-        networkSpy.performRequestCompletionDataToBeReturned = contactListData
+        networkSpy.dataToBeReturned = contactListData
         let mockedContactList = [Contact.fixture(name: "Ronald Robertson",
                                                  phone: "+55 (11) 99999-9999"),
                                  Contact.fixture(name: "Johnny Watson",
@@ -27,7 +27,7 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     func test_fetchContactList_whenIncomingDataIsNil_shouldReturnNilOnCompletion() {
-        networkSpy.performRequestCompletionDataToBeReturned = nil
+        networkSpy.dataToBeReturned = nil
         sut.fetchContactList { contactList in
             
             XCTAssertNil(contactList)
@@ -36,13 +36,13 @@ final class FinanceServiceTests: XCTestCase {
     
     func test_fetchContactList_givenUrl_shouldPassCorrectURLToPerformRequest() {
         sut.fetchContactList { _ in }
-        let passedUrlString = networkSpy.performRequestURLPassed?.absoluteString
+        let passedUrlString = networkSpy.performRequestPassed
         
         XCTAssertEqual(passedUrlString, fetchContactListUrlString)
     }
     
     func test_fetchContactList_whenIncomingDataIsNotNil_whenDecodeFails_shouldReturnNilOnCompletion() {
-        networkSpy.performRequestCompletionDataToBeReturned = dataWithError
+        networkSpy.dataToBeReturned = dataWithError
         sut.fetchContactList { contactList in
             
             XCTAssertNil(contactList)
