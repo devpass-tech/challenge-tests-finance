@@ -13,7 +13,7 @@ final class NetworClientSpy: NetworkClientProtocol {
     
     private(set) var passedURL: URL?
     private(set) var performRequestCallCount: Int = 0
-    let dataToBeReturned: Data?
+    var dataToBeReturned: Data?
     
     init(dataToBeReturned: Data?) {
         self.dataToBeReturned = dataToBeReturned
