@@ -16,13 +16,13 @@ final class FinanceServiceTests: XCTestCase {
     func testFetchHomeDataGivenURLShoulCallNetworkClientWithCorrectURL() {
         sut.fetchHomeData { [networkSpy] _ in
             XCTAssertTrue(networkSpy.performRequestCalled)
-            XCTAssertEqual(networkSpy.performRequestCallCount, 1)
-            XCTAssertEqual(networkSpy.performRequestUrlPassed?.absoluteString, Constants.fetchHomeDataURLString)
+            XCTAssertEqual(networkSpy.performRequestCount, 1)
+            XCTAssertEqual(networkSpy.performRequestPassed, Constants.fetchHomeDataURLString)
         }
     }
     
     func testFetchHomeDataWhenDataIsNilshouldReturnNil() {
-        networkSpy.performRequestCompletionToBeReturned = nil
+        networkSpy.dataToBeReturned = nil
         
         sut.fetchHomeData { response in
             XCTAssertNil(response)
@@ -30,7 +30,7 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     func testFetchHomeDataWhenDataIsNotNilWhenDecodeSucceedShouldReturnCorrectHomeData() {
-        networkSpy.performRequestCompletionToBeReturned = Constants.defaultData
+        networkSpy.dataToBeReturned = Constants.defaultData
         
         sut.fetchHomeData { response in
             XCTAssertNil(response)
@@ -38,7 +38,7 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     func testFetchHomeDataWhenDataIsNotNilWhenDecodeErrorShouldReturnNilHomeData() {
-        networkSpy.performRequestCompletionToBeReturned = Constants.defaultDataWithError
+        networkSpy.dataToBeReturned = Constants.defaultDataWithError
         
         sut.fetchHomeData { response in
             XCTAssertNil(response)
