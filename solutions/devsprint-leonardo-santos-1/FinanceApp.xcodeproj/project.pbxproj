@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
 		42AA18462863A6E6007E7B5A /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
@@ -47,6 +48,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */; };
 		D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */; };
 		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
 		FD6D81D728678E8C00503489 /* GetDefaultProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */; };
@@ -79,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferAmountTests.swift; sourceTree = "<group>"; };
 		D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				FD6D81DF286797C800503489 /* ServiceTests */,
 				FC2FF79528637C4C00593D93 /* Extensions */,
 				27BC699A2861EB0900CFA1EC /* AccountTest.swift */,
+				0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 		FD6D81DF286797C800503489 /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */,
 				FD6D81E0286797D700503489 /* RemoteConfigProviderSpy.swift */,
 			);
 			path = ServiceTests;
@@ -605,9 +611,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				42AA18462863A6E6007E7B5A /* FinanceServiceTests.swift in Sources */,
+				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
+				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
