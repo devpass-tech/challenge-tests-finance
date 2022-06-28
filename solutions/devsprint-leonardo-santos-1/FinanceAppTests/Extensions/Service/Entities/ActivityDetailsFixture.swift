@@ -1,5 +1,5 @@
 //
-//  FixtureActivityDetails.swift
+//  ActivityDetailsFixture.swift
 //  FinanceAppTests
 //
 //  Created by Filipe Simoes Teodoro on 24/06/22.
