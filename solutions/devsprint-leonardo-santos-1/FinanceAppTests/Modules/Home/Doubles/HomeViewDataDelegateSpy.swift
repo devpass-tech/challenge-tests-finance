@@ -11,6 +11,4 @@ final class HomeViewDataDelegateSpy: HomeViewModelDelegate {
         didFetchHomeDataTriggered = true
         didFetchHomeDataReturn = data
     }
-    
-    
 }
