@@ -8,7 +8,7 @@
 import Foundation
 
 extension URL {
-    init(with string: String = "https://") {
+    init(with string: String) {
        self.init(string: string)!
     }
 }
