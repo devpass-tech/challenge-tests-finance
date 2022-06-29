@@ -11,11 +11,15 @@ protocol NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ())
 }
 
+protocol URLSessionProtocol {
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
 final class NetworkClient: NetworkClientProtocol {
     
-    private let urlSession: URLSession
+    private let urlSession: URLSessionProtocol
     
-    init(urlSession: URLSession = .shared) {
+    init(urlSession: URLSessionProtocol) {
         self.urlSession = urlSession
     }
     
@@ -23,7 +27,7 @@ final class NetworkClient: NetworkClientProtocol {
         
         let request = URLRequest(url: url)
         
-        self.urlSession.dataTask(with: request) { data, response, error in
+        let task = self.urlSession.dataTask(with: request) { data, response, error in
             
             if let _ = error {
                 completion(nil)
@@ -48,6 +52,10 @@ final class NetworkClient: NetworkClientProtocol {
                 completion(nil)
             }
             
-        }.resume()
+        }
+        
+        task.resume()
     }
 }
+
+extension URLSession: URLSessionProtocol {}
