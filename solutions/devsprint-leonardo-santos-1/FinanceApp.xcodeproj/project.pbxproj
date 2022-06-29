@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B380A80286BBCEB00463422 /* DemoUseCaseFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B380A7F286BBCEB00463422 /* DemoUseCaseFactoryTests.swift */; };
 		0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B380A81286BC62D00463422 /* Mirror+Extension.swift */; };
+		0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87A286D01FC00906C8C /* URL+Extension.swift */; };
+		0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87B286D01FC00906C8C /* Fixtures.swift */; };
+		0BA7D880286D01FC00906C8C /* DemoUseCaseFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87D286D01FC00906C8C /* DemoUseCaseFactoryTests.swift */; };
+		0BA7D883286D032100906C8C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D881286D032100906C8C /* MockURLSession.swift */; };
+		0BA7D884286D032100906C8C /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D882286D032100906C8C /* NetworkClientTests.swift */; };
 		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
@@ -84,8 +88,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B380A7F286BBCEB00463422 /* DemoUseCaseFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUseCaseFactoryTests.swift; sourceTree = "<group>"; };
 		0B380A81286BC62D00463422 /* Mirror+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mirror+Extension.swift"; sourceTree = "<group>"; };
+		0BA7D87A286D01FC00906C8C /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		0BA7D87B286D01FC00906C8C /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		0BA7D87D286D01FC00906C8C /* DemoUseCaseFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoUseCaseFactoryTests.swift; sourceTree = "<group>"; };
+		0BA7D881286D032100906C8C /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		0BA7D882286D032100906C8C /* NetworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -172,10 +180,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B380A7E286BBCD900463422 /* Factories */ = {
+		0BA7D879286D01FC00906C8C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0B380A7F286BBCEB00463422 /* DemoUseCaseFactoryTests.swift */,
+				0BA7D87A286D01FC00906C8C /* URL+Extension.swift */,
+				0BA7D87B286D01FC00906C8C /* Fixtures.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0BA7D87C286D01FC00906C8C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0BA7D87D286D01FC00906C8C /* DemoUseCaseFactoryTests.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -219,7 +236,8 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B380A7E286BBCD900463422 /* Factories */,
+				0BA7D87C286D01FC00906C8C /* Factories */,
+				0BA7D879286D01FC00906C8C /* Helpers */,
 				FC2FF7902862033000593D93 /* Service */,
 				FD6D81DF286797C800503489 /* ServiceTests */,
 				FC2FF79528637C4C00593D93 /* Extensions */,
@@ -386,6 +404,8 @@
 		FC2FF7902862033000593D93 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0BA7D881286D032100906C8C /* MockURLSession.swift */,
+				0BA7D882286D032100906C8C /* NetworkClientTests.swift */,
 				FC2FF7A52864A3FE00593D93 /* Entities */,
 				FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */,
 			);
@@ -638,13 +658,17 @@
 				0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */,
 				FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */,
 				FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */,
+				0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */,
 				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
-				0B380A80286BBCEB00463422 /* DemoUseCaseFactoryTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
+				0BA7D880286D01FC00906C8C /* DemoUseCaseFactoryTests.swift in Sources */,
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
+				0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */,
+				0BA7D883286D032100906C8C /* MockURLSession.swift in Sources */,
+				0BA7D884286D032100906C8C /* NetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
