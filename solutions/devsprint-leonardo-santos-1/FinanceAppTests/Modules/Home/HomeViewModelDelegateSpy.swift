@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import FinanceApp
 
 final class HomeViewModelDelegateSpy: HomeViewModelDelegate {
     private(set) var dataPassed: HomeData?

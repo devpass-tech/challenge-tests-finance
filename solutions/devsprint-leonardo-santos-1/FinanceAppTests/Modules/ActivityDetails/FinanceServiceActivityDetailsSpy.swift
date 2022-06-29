@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import FinanceApp
 
 final class FinanceServiceActivityDetailsSpy: FinanceServiceActivityDetailsProtocol {
     private(set) var fetchActivityDetailsCalled: Bool = false

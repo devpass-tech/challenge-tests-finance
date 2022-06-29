@@ -6,10 +6,7 @@
 //
 
 import Foundation
-
-protocol DispatchQueueProtocol {
-    func async(execute work: @escaping @convention(block) ()->Void)
-}
+@testable import FinanceApp
 
 final class DispatchQueueSpy: DispatchQueueProtocol {
     private(set) var asyncCalled: Bool = false

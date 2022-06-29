@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import FinanceApp
 
 final class FinanceServiceHomeSpy: FinanceServiceHomeProtocol {
     private(set) var fetchHomeDataCalled: Bool = false

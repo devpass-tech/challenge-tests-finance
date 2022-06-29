@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import FinanceApp
 
 final class ActivityDetailsViewModelDelegateSpy: ActivityDetailsViewModelDelegate {
     private(set) var dataPassed: ActivityDetails?
