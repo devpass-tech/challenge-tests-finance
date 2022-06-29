@@ -12,8 +12,8 @@
 		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
 		0B6E1DFC28652AC700A2098F /* UserProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DFB28652AC700A2098F /* UserProfileTest.swift */; };
 		0B6E1DFE28652AE700A2098F /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1DFD28652AE700A2098F /* NetworkClientTests.swift */; };
-		0B6E1E0228652B9500A2098F /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E1E0128652B9500A2098F /* URLProtocolStub.swift */; };
 		0B9AB087286C63C7008E4AE3 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9AB086286C63C7008E4AE3 /* URL+Extension.swift */; };
+		0B9AB089286C64F3008E4AE3 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9AB088286C64F3008E4AE3 /* MockURLSession.swift */; };
 		0BFBB37F2865DAEE001095E6 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB37E2865DAEE001095E6 /* Fixtures.swift */; };
 		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
@@ -95,8 +95,8 @@
 		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		0B6E1DFB28652AC700A2098F /* UserProfileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTest.swift; sourceTree = "<group>"; };
 		0B6E1DFD28652AE700A2098F /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
-		0B6E1E0128652B9500A2098F /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		0B9AB086286C63C7008E4AE3 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		0B9AB088286C64F3008E4AE3 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		0BFBB37E2865DAEE001095E6 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				0B6E1DFD28652AE700A2098F /* NetworkClientTests.swift */,
-				0B6E1E0128652B9500A2098F /* URLProtocolStub.swift */,
+				0B9AB088286C64F3008E4AE3 /* MockURLSession.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -667,13 +667,13 @@
 			files = (
 				0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */,
 				FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */,
+				0B9AB089286C64F3008E4AE3 /* MockURLSession.swift in Sources */,
 				FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */,
 				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
 				0B380A80286BBCEB00463422 /* DemoUseCaseFactoryTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
 				0B6E1DFE28652AE700A2098F /* NetworkClientTests.swift in Sources */,
 				0B9AB087286C63C7008E4AE3 /* URL+Extension.swift in Sources */,
-				0B6E1E0228652B9500A2098F /* URLProtocolStub.swift in Sources */,
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
