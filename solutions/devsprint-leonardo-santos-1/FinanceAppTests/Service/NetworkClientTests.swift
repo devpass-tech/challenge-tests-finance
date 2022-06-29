@@ -11,13 +11,14 @@ import XCTest
 
 final class NetworkClientTests: XCTestCase {
     
-    private let sut: NetworkClient = { NetworkClient() }()
+    private var mockURLSession: MockURLSession?
+    private var sut: NetworkClientProtocol?
        
        func test_performRequest_whenCompletesWithError_shouldReturnNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: nil, response: nil, and: NSError.fixture())
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesWithError_shouldReturnNil")
+           mockURLSession = MockURLSession()
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNil(data)
                expec.fulfill()
            })
@@ -25,10 +26,10 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenCompletesWithResponse_shouldReturnNotNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: nil, response: HTTPURLResponse.succesFixture(), and: nil)
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesWithResponse_shouldReturnNotNil")
+           mockURLSession = MockURLSession(receivedData: Data(), receivedResponse: HTTPURLResponse.succesFixture())
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNotNil(data)
                expec.fulfill()
            })
@@ -36,10 +37,10 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenCompletesOnlyWithData_shouldReturnNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: Data.fixture(), response: nil, and: nil)
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesOnlyWithData_shouldReturnNil")
+           mockURLSession = MockURLSession(receivedData: Data())
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNil(data)
                expec.fulfill()
            })
@@ -47,10 +48,10 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenCompletesWithHTTPStatusCode2XX_shouldReturnNotNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: Data.fixture(), response: HTTPURLResponse.succesFixture(), and: nil)
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesWithHTTPStatusCode2XX_shouldReturnNotNil")
+           mockURLSession = MockURLSession(receivedData: Data(), receivedResponse: HTTPURLResponse.succesFixture())
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNotNil(data)
                expec.fulfill()
            })
@@ -58,10 +59,10 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenCompletesWithHTTPStatusCode4XX_shouldReturnNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: nil, response: HTTPURLResponse.clientErrorFixture(), and: nil)
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesWithHTTPStatusCode4XX_shouldReturnNil")
+           mockURLSession = MockURLSession(receivedData: Data(), receivedResponse: HTTPURLResponse.clientErrorFixture())
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNil(data)
                expec.fulfill()
            })
@@ -69,10 +70,10 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenCompletesWithHTTPStatusCode5XX_shouldReturnNil() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.configureRequest(data: nil, response: HTTPURLResponse.serverErrorFixture(), and: nil)
-           let expec = expectation(description: "")
-           sut.performRequest(with: URL.fixture() , completion: { data in
+           let expec = expectation(description: "performRequest_whenCompletesWithHTTPStatusCode5XX_shouldReturnNil")
+           mockURLSession = MockURLSession(receivedData: Data(), receivedResponse: HTTPURLResponse.serverErrorFixture())
+           sut = NetworkClient(urlSession: mockURLSession!)
+           sut?.performRequest(with: URL(with: "https://") , completion: { data in
                XCTAssertNil(data)
                expec.fulfill()
            })
@@ -80,11 +81,26 @@ final class NetworkClientTests: XCTestCase {
        }
        
        func test_performRequest_whenURLIsPassed_requestShouldReceiveTheSameURL() {
-           URLProtocol.registerClass(URLProtocolStub.self)
-           URLProtocolStub.subscribe { request in
-               XCTAssertEqual(URL.fixture(), request.url)
-           }
-           sut.performRequest(with: URL.fixture() , completion: { _ in })
+           mockURLSession = MockURLSession()
+           sut = NetworkClient(urlSession: mockURLSession!)
+           let expectedURL = URL(with: "https://")
+           sut?.performRequest(with: expectedURL, completion: { _ in })
+           XCTAssertEqual(expectedURL.relativeString, mockURLSession?.urlToBeReturned?.relativeString)
        }
     
+}
+
+
+extension HTTPURLResponse {
+    static func succesFixture() -> Self {
+        HTTPURLResponse(url: URL(with: "https://"), statusCode: Int.random(in: 200...299), httpVersion: nil, headerFields: nil) as! Self
+    }
+    
+    static func clientErrorFixture() -> Self {
+        HTTPURLResponse(url: URL(with: "https://"), statusCode: Int.random(in: 400...451), httpVersion: nil, headerFields: nil) as! Self
+    }
+    
+    static func serverErrorFixture() -> Self {
+        HTTPURLResponse(url: URL(with: "https://"), statusCode: Int.random(in: 500...511), httpVersion: nil, headerFields: nil) as! Self
+    }
 }
