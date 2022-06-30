@@ -8,6 +8,8 @@
 import UIKit
 
 class TransfersViewController: UIViewController {
+    
+    var nextNavigationController: UINavigationController?
 
     lazy var transferView: TransfersView = {
 
@@ -22,16 +24,14 @@ class TransfersViewController: UIViewController {
 }
 
 extension TransfersViewController: TransferViewDelegate {
-
+    
     func didPressChooseContactButton() {
-
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
-        self.present(navigationController, animated: true)
+        nextNavigationController = UINavigationController(rootViewController: ContactListViewController())
+        self.present(nextNavigationController!, animated: true)
     }
 
     func didPressTransferButton() {
-
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
+        nextNavigationController = UINavigationController(rootViewController: ConfirmationViewController())
+        self.present(nextNavigationController!, animated: true)
     }
 }

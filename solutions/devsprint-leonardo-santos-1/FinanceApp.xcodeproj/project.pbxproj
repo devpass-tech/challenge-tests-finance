@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276CD02428663F4900FBB229 /* TransfersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CD02328663F4900FBB229 /* TransfersViewControllerTests.swift */; };
 		0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B380A81286BC62D00463422 /* Mirror+Extension.swift */; };
 		0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87A286D01FC00906C8C /* URL+Extension.swift */; };
 		0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87B286D01FC00906C8C /* Fixtures.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		276CD02328663F4900FBB229 /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
 		0B380A81286BC62D00463422 /* Mirror+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mirror+Extension.swift"; sourceTree = "<group>"; };
 		0BA7D87A286D01FC00906C8C /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		0BA7D87B286D01FC00906C8C /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
@@ -201,6 +203,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		276CD02128663F2600FBB229 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				276CD02228663F2D00FBB229 /* Transfers */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		276CD02228663F2D00FBB229 /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				276CD02328663F4900FBB229 /* TransfersViewControllerTests.swift */,
+			);
+			path = Transfers;
 		0BA7D879286D01FC00906C8C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +274,9 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				276CD02128663F2600FBB229 /* Modules */,
+				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
+				27BC699A2861EB0900CFA1EC /* AccountTest.swift */,
 				FC08DB652867B4AC00E7E235 /* Services */,
 				FC3DF5532866610C00B15B9F /* Modules */,
 				FC3DF54F28665DFF00B15B9F /* Commons */,
@@ -760,6 +779,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				276CD02428663F4900FBB229 /* TransfersViewControllerTests.swift in Sources */,
+				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
 				0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */,
 				FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */,
 				FCB37865286D18530044B4A3 /* DispatchQueueSpy.swift in Sources */,
