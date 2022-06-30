@@ -68,6 +68,7 @@
 		FCB37861286D14F10044B4A3 /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */; };
 		FCB37864286D17F20044B4A3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		FCB37865286D18530044B4A3 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
+		FD2FA767286E3CDA00A0DCED /* TransfersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2FA766286E3CDA00A0DCED /* TransfersViewControllerTests.swift */; };
 		FD6D81D728678E8C00503489 /* GetDefaultProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */; };
 		FD6D81DA28678EF700503489 /* RemoteConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81D928678EF700503489 /* RemoteConfigProvider.swift */; };
 		FD6D81DC2867936800503489 /* GetRandomNumberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81DB2867936800503489 /* GetRandomNumberUseCase.swift */; };
@@ -164,6 +165,7 @@
 		FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixtures.swift"; sourceTree = "<group>"; };
 		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		FD2FA766286E3CDA00A0DCED /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
 		FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
 		FD6D81D928678EF700503489 /* RemoteConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProvider.swift; sourceTree = "<group>"; };
 		FD6D81DB2867936800503489 /* GetRandomNumberUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCase.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 		FC3DF5532866610C00B15B9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD2FA765286E3CCE00A0DCED /* Transfers */,
 				FC08DB722867CA5A00E7E235 /* ActivityDetails */,
 				FC3DF5542866611700B15B9F /* Home */,
 			);
@@ -531,6 +534,14 @@
 				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		FD2FA765286E3CCE00A0DCED /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				FD2FA766286E3CDA00A0DCED /* TransfersViewControllerTests.swift */,
+			);
+			path = Transfers;
 			sourceTree = "<group>";
 		};
 		FD6D81D328678D6B00503489 /* UseCases */ = {
@@ -771,6 +782,7 @@
 				FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */,
 				FC08DB742867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift in Sources */,
 				0BA7D880286D01FC00906C8C /* DemoUseCaseFactoryTests.swift in Sources */,
+				FD2FA767286E3CDA00A0DCED /* TransfersViewControllerTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
 				FC2D46CE286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift in Sources */,
