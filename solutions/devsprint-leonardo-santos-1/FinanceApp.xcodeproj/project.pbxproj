@@ -48,16 +48,26 @@
 		9882465E27D013D2001DD0C5 /* TransferResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465D27D013D2001DD0C5 /* TransferResult.swift */; };
 		9882466027D013E1001DD0C5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882465F27D013E1001DD0C5 /* UserProfile.swift */; };
 		9882466227D016F8001DD0C5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466127D016F8001DD0C5 /* NetworkClient.swift */; };
-		9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
 		9882466627D13AC0001DD0C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466527D13AC0001DD0C5 /* HomeViewModel.swift */; };
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */; };
 		D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */; };
+		FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */; };
+		FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */; };
+		FC08DB742867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB732867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift */; };
+		FC2D46CE286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D46CD286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift */; };
 		FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */; };
-		FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */; };
 		FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */; };
+		FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */; };
+		FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */; };
+		FCB3785E286D14E10044B4A3 /* FinanceServiceActivityDetailsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */; };
+		FCB3785F286D14E10044B4A3 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */; };
+		FCB37860286D14F10044B4A3 /* FinanceServiceHomeSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */; };
+		FCB37861286D14F10044B4A3 /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */; };
+		FCB37864286D17F20044B4A3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */; };
+		FCB37865286D18530044B4A3 /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */; };
 		FD6D81D728678E8C00503489 /* GetDefaultProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */; };
 		FD6D81DA28678EF700503489 /* RemoteConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81D928678EF700503489 /* RemoteConfigProvider.swift */; };
 		FD6D81DC2867936800503489 /* GetRandomNumberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D81DB2867936800503489 /* GetRandomNumberUseCase.swift */; };
@@ -140,9 +150,20 @@
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferAmountTests.swift; sourceTree = "<group>"; };
 		D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
+		FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceHomeSpy.swift; sourceTree = "<group>"; };
+		FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceActivityDetailsSpy.swift; sourceTree = "<group>"; };
+		FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
+		FC08DB732867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		FC2D46CD286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		FC2FF7912862035A00593D93 /* FinanceServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTest.swift; sourceTree = "<group>"; };
 		FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 		FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixtures.swift"; sourceTree = "<group>"; };
+		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
 		FD6D81D928678EF700503489 /* RemoteConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProvider.swift; sourceTree = "<group>"; };
 		FD6D81DB2867936800503489 /* GetRandomNumberUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCase.swift; sourceTree = "<group>"; };
@@ -204,6 +225,7 @@
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
 				98584A8C277E32C60028DBEA /* FinanceAppUITests */,
 				98584A6A277E32C30028DBEA /* Products */,
+				FCB3785D286D14D70044B4A3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,6 +242,7 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC2FF7AB2864B74900593D93 /* Commons */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				FD6D81E32867987800503489 /* ThirdyPartySDK */,
@@ -228,7 +251,6 @@
 				FD6D81D328678D6B00503489 /* UseCases */,
 				98584AF8277E511C0028DBEA /* Components */,
 				98584AB8277E374A0028DBEA /* Service */,
-				9882465227D011FC001DD0C5 /* Extensions */,
 			);
 			path = FinanceApp;
 			sourceTree = "<group>";
@@ -236,12 +258,16 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC08DB652867B4AC00E7E235 /* Services */,
+				FC3DF5532866610C00B15B9F /* Modules */,
+				FC3DF54F28665DFF00B15B9F /* Commons */,
 				0BA7D87C286D01FC00906C8C /* Factories */,
 				0BA7D879286D01FC00906C8C /* Helpers */,
 				FC2FF7902862033000593D93 /* Service */,
 				FD6D81DF286797C800503489 /* ServiceTests */,
 				FC2FF79528637C4C00593D93 /* Extensions */,
 				27BC699A2861EB0900CFA1EC /* AccountTest.swift */,
+				FC2FF7A12863B9EB00593D93 /* DispatchQueueSpy.swift */,
 				0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */,
 				0B380A81286BC62D00463422 /* Mirror+Extension.swift */,
 			);
@@ -389,6 +415,7 @@
 				9882465327D01210001DD0C5 /* String+Extensions.swift */,
 				9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */,
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
+				FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,6 +426,33 @@
 				98E0E87A28299EB400560502 /* RepositoryListViewController.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		FC08DB652867B4AC00E7E235 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB692867B95C00E7E235 /* Entities */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FC08DB692867B95C00E7E235 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */,
+				FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FC08DB722867CA5A00E7E235 /* ActivityDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */,
+				FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */,
+				FC08DB732867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift */,
+			);
+			path = ActivityDetails;
 			sourceTree = "<group>";
 		};
 		FC2FF7902862033000593D93 /* Service */ = {
@@ -416,7 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */,
-				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
+				FC2D46CD286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +481,56 @@
 				FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		FC2FF7AA2864B73500593D93 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		FC2FF7AB2864B74900593D93 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				9882465227D011FC001DD0C5 /* Extensions */,
+				FC2FF7AA2864B73500593D93 /* Spies */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		FC3DF54F28665DFF00B15B9F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		FC3DF5532866610C00B15B9F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB722867CA5A00E7E235 /* ActivityDetails */,
+				FC3DF5542866611700B15B9F /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FC3DF5542866611700B15B9F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */,
+				FC08DB792867DBC500E7E235 /* HomeViewModelDelegateSpy.swift */,
+				FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FCB3785D286D14D70044B4A3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FD6D81D328678D6B00503489 /* UseCases */ = {
@@ -605,11 +709,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB37864286D17F20044B4A3 /* UIViewController+Extensions.swift in Sources */,
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
-				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				9882466027D013E1001DD0C5 /* UserProfile.swift in Sources */,
@@ -630,6 +734,7 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
+				FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */,
 				FD6D81F22867ED5E00503489 /* DemoUseCaseFactory.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				FD6D81E92867EB7900503489 /* AnySDKSecondImpl.swift in Sources */,
@@ -657,15 +762,24 @@
 			files = (
 				0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */,
 				FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */,
+				FCB37865286D18530044B4A3 /* DispatchQueueSpy.swift in Sources */,
+				FCB37860286D14F10044B4A3 /* FinanceServiceHomeSpy.swift in Sources */,
 				FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */,
 				0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */,
 				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
+				FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */,
+				FC08DB742867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift in Sources */,
 				0BA7D880286D01FC00906C8C /* DemoUseCaseFactoryTests.swift in Sources */,
-				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */,
 				0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */,
+				FC2D46CE286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift in Sources */,
+				FCB37861286D14F10044B4A3 /* HomeViewModelDelegateSpy.swift in Sources */,
+				FCB3785E286D14E10044B4A3 /* FinanceServiceActivityDetailsSpy.swift in Sources */,
+				FCB3785F286D14E10044B4A3 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
+				FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */,
+				FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */,
 				0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */,
 				0BA7D883286D032100906C8C /* MockURLSession.swift in Sources */,
 				0BA7D884286D032100906C8C /* NetworkClientTests.swift in Sources */,

@@ -12,14 +12,22 @@ protocol ActivityDetailsViewModelDelegate: AnyObject {
     func didFetchActivityDetails(_ data: ActivityDetails)
 }
 
+protocol FinanceServiceActivityDetailsProtocol: AnyObject {
+    
+    func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
+}
+
 struct ActivityDetailsViewModel {
 
     weak var delegate: ActivityDetailsViewModelDelegate?
 
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FinanceServiceActivityDetailsProtocol
+    private let mainDispatchQueue: DispatchQueueProtocol
 
-    init(financeService: FinanceServiceProtocol) {
+    init(financeService: FinanceServiceActivityDetailsProtocol,
+         mainDispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
         self.financeService = financeService
+        self.mainDispatchQueue = mainDispatchQueue
     }
 
     func fetchData() {
@@ -30,7 +38,7 @@ struct ActivityDetailsViewModel {
                 return
             }
 
-            DispatchQueue.main.async {
+            mainDispatchQueue.async {
 
                 delegate?.didFetchActivityDetails(activityDetails)
             }
