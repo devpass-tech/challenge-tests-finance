@@ -22,7 +22,6 @@ final class AnySDKSecondImplTests: XCTestCase {
         sut.initSdk()
         XCTAssertEqual(anySDKSpy.initSdkCount, 0)
         XCTAssertFalse(anySDKSpy.initSdkWasCalled)
-        
     }
     
     func test_initSDK_shouldCallInitSdk() {
@@ -30,7 +29,6 @@ final class AnySDKSecondImplTests: XCTestCase {
         sut.initSdk()
         XCTAssertEqual(anySDKSpy.initSdkCount, 1)
         XCTAssertTrue(anySDKSpy.initSdkWasCalled)
-        
     }
     
     func test_initSDK_shouldNotCallTrackEvent_whenIsEnabledIsFalse() {
@@ -45,7 +43,6 @@ final class AnySDKSecondImplTests: XCTestCase {
         sut.trackEvent("any_event")
         XCTAssertEqual(anySDKSpy.trackEventCount, 1)
         XCTAssertTrue(anySDKSpy.trackEventWasCalled)
-        
     }
     
     func test_initSDK_shouldCallTrackEvent_WithCorrectEventName() {
