@@ -1,25 +1,31 @@
 /// Essa classe é apenas um `facade` (fachada) de implementação do SDK. Caso o app vá utilizar  o SDK, deve depender dessa classe e não diretamente do SDK.
+
+protocol AnySdkProtocol {
+    static func initSdk()
+    static func trackEvent(_ eventName: String)
+}
+
+
 final class AnySDKThirdImpl {
-    
-    // MARK: - Private Properties
-    
+        
     private let isEnabled: Bool
+    private let sdk: AnySdkProtocol.Type
     
-    init(isEnabled: Bool) {
+    init(isEnabled: Bool, anySDK: AnySdkProtocol.Type) {
         self.isEnabled = isEnabled
+        self.sdk = anySDK
     }
-    
-    // MARK: - Public Methods
     
     func initSDK() {
         if isEnabled {
-            AnySdk.initSdk()
+            sdk.initSdk()
         }
     }
     
     func trackEvent(_ eventName: String) {
         if isEnabled {
-            AnySdk.trackEvent(eventName)
+            sdk.trackEvent(eventName)
         }
     }
 }
+
