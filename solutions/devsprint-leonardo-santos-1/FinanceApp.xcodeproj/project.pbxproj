@@ -52,6 +52,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		A451D0C2286E4B8F0072DF02 /* RemoteConfigProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D0C1286E4B8F0072DF02 /* RemoteConfigProviderTests.swift */; };
 		C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */; };
 		D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */; };
 		FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */; };
@@ -149,6 +150,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		A451D0C1286E4B8F0072DF02 /* RemoteConfigProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigProviderTests.swift; sourceTree = "<group>"; };
 		C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferAmountTests.swift; sourceTree = "<group>"; };
 		D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 		FD6D81DF286797C800503489 /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				A451D0C1286E4B8F0072DF02 /* RemoteConfigProviderTests.swift */,
 				C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */,
 				FD6D81E0286797D700503489 /* RemoteConfigProviderSpy.swift */,
 			);
@@ -780,6 +783,7 @@
 				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
 				FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */,
+				A451D0C2286E4B8F0072DF02 /* RemoteConfigProviderTests.swift in Sources */,
 				FC08DB742867CB4C00E7E235 /* ActivityDetailsViewModelTests.swift in Sources */,
 				0BA7D880286D01FC00906C8C /* DemoUseCaseFactoryTests.swift in Sources */,
 				FD2FA767286E3CDA00A0DCED /* TransfersViewControllerTests.swift in Sources */,
@@ -957,7 +961,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PKZ6K58H58;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -985,7 +989,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1013,7 +1017,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PKZ6K58H58;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -1033,7 +1037,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
