@@ -80,26 +80,4 @@ final class ActivityDetailsViewModelTests: XCTestCase {
         
         XCTAssertEqual(returnedData, delegateSpy.dataPassed)
     }
-
-    func test_whenCallFetchData_itShouldReturnADelegateCall() {
-        sut.delegate = activityDetailsViewModelDelegateSpy
-        sut.fetchData()
-        let expec = expectation(description: "")
-        DispatchQueue.main.async {
-            expec.fulfill()
-        }
-        wait(for: [expec], timeout: 1)
-        XCTAssertTrue(self.activityDetailsViewModelDelegateSpy.isActivityDetailsViewModeldelegateCalled)
-    }
-    
-    func test_whenCallFetchData_itShouldReturnADelegateCallWithActivityDetails() {
-        sut.delegate = activityDetailsViewModelDelegateSpy
-        sut.fetchData()
-        let expec = expectation(description: "")
-        DispatchQueue.main.async {
-            expec.fulfill()
-        }
-        wait(for: [expec], timeout: 1)
-        XCTAssertNotNil(self.activityDetailsViewModelDelegateSpy.dataPassed)
-    }
 }
