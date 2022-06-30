@@ -15,7 +15,7 @@ final class NetworClientSpy: NetworkClientProtocol {
     private(set) var performRequestCallCount: Int = 0
     var dataToBeReturned: Data?
     
-    init(dataToBeReturned: Data?) {
+    init(dataToBeReturned: Data? = nil) {
         self.dataToBeReturned = dataToBeReturned
     }
     

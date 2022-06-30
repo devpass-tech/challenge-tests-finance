@@ -12,14 +12,22 @@ protocol HomeViewModelDelegate: AnyObject {
     func didFetchHomeData(_ data: HomeData)
 }
 
+protocol FinanceServiceHomeProtocol: AnyObject {
+    
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
+}
+
 struct HomeViewModel {
 
     weak var delegate: HomeViewModelDelegate?
 
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FinanceServiceHomeProtocol
+    private let mainDispatchQueue: DispatchQueueProtocol
 
-    init(financeService: FinanceServiceProtocol) {
+    init(financeService: FinanceServiceHomeProtocol,
+         mainDispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
         self.financeService = financeService
+        self.mainDispatchQueue = mainDispatchQueue
     }
 
     func fetchData() {
@@ -30,7 +38,7 @@ struct HomeViewModel {
                 return
             }
 
-            DispatchQueue.main.async {
+            mainDispatchQueue.async {
 
                 delegate?.didFetchHomeData(homeData)
             }
