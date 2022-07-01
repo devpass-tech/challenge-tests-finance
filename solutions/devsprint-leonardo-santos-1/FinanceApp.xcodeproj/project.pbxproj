@@ -58,6 +58,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		A4717E0A2865E77D00963D52 /* FinanceServiceFetchUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4717E092865E77D00963D52 /* FinanceServiceFetchUserTests.swift */; };
 		C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */; };
 		C5F76C7B286E59190002BE0F /* AnySdkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76C79286E59190002BE0F /* AnySdkSpy.swift */; };
 		C5F76C7C286E59190002BE0F /* AnySDKSecondImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76C7A286E59190002BE0F /* AnySDKSecondImplTests.swift */; };
@@ -163,6 +164,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		A4717E092865E77D00963D52 /* FinanceServiceFetchUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceServiceFetchUserTests.swift; path = Service/FinanceServiceFetchUserTests.swift; sourceTree = "<group>"; };
 		C51D6C74286CFAE400FAA0CF /* AnySDKSecondImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySDKSecondImplTests.swift; sourceTree = "<group>"; };
 		C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferAmountTests.swift; sourceTree = "<group>"; };
 		C5F76C79286E59190002BE0F /* AnySdkSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnySdkSpy.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4717E092865E77D00963D52 /* FinanceServiceFetchUserTests.swift */,
 				C5F76C77286E59190002BE0F /* ThirdyPartySDK */,
 				FC08DB652867B4AC00E7E235 /* Services */,
 				FC3DF5532866610C00B15B9F /* Modules */,
@@ -869,6 +872,7 @@
 				FC2FF79728637C7C00593D93 /* UIViewController+ExtensionsTests.swift in Sources */,
 				0B6E1DF2286527D300A2098F /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				A4717E0A2865E77D00963D52 /* FinanceServiceFetchUserTests.swift in Sources */,
 				0B6E1DF4286527FE00A2098F /* NetworkingClientMock.swift in Sources */,
 				0B6E1DF72865282B00A2098F /* Fixtures.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
@@ -1135,7 +1139,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PKZ6K58H58;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
@@ -1153,7 +1157,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 2MTTB3R7M7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
