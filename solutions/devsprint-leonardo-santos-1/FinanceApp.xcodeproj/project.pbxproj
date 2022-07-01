@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0791551528650E9A00C9AAAB /* StringExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */; };
 		0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B380A81286BC62D00463422 /* Mirror+Extension.swift */; };
 		0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87A286D01FC00906C8C /* URL+Extension.swift */; };
 		0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7D87B286D01FC00906C8C /* Fixtures.swift */; };
@@ -106,6 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTest.swift; sourceTree = "<group>"; };
 		0B380A81286BC62D00463422 /* Mirror+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mirror+Extension.swift"; sourceTree = "<group>"; };
 		0BA7D87A286D01FC00906C8C /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		0BA7D87B286D01FC00906C8C /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		FC2FF79528637C4C00593D93 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0791551428650E9A00C9AAAB /* StringExtensionsTest.swift */,
 				D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */,
 				FC2D46CD286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift */,
 			);
@@ -835,6 +838,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0791551528650E9A00C9AAAB /* StringExtensionsTest.swift in Sources */,
 				0BC837F5286D04EE00CB173D /* NetworkingClientMock.swift in Sources */,
 				0B380A82286BC62D00463422 /* Mirror+Extension.swift in Sources */,
 				FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */,
