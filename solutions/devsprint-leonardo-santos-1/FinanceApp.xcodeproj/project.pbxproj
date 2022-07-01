@@ -53,6 +53,8 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */; };
+		C5F76C7B286E59190002BE0F /* AnySdkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76C79286E59190002BE0F /* AnySdkSpy.swift */; };
+		C5F76C7C286E59190002BE0F /* AnySDKSecondImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76C7A286E59190002BE0F /* AnySDKSecondImplTests.swift */; };
 		D49048F82864077F0054BF5D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */; };
 		FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */; };
 		FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB702867C9C500E7E235 /* ActivityDetails+Fixture.swift */; };
@@ -149,7 +151,10 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		C51D6C74286CFAE400FAA0CF /* AnySDKSecondImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySDKSecondImplTests.swift; sourceTree = "<group>"; };
 		C54A20D2286A5B8D00C49179 /* TransferAmountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferAmountTests.swift; sourceTree = "<group>"; };
+		C5F76C79286E59190002BE0F /* AnySdkSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnySdkSpy.swift; sourceTree = "<group>"; };
+		C5F76C7A286E59190002BE0F /* AnySDKSecondImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnySDKSecondImplTests.swift; sourceTree = "<group>"; };
 		D49048F72864077F0054BF5D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		FC08DB6A2867B97600E7E235 /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
 		FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceHomeSpy.swift; sourceTree = "<group>"; };
@@ -260,6 +265,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C5F76C77286E59190002BE0F /* ThirdyPartySDK */,
 				FC08DB652867B4AC00E7E235 /* Services */,
 				FC3DF5532866610C00B15B9F /* Modules */,
 				FC3DF54F28665DFF00B15B9F /* Commons */,
@@ -430,6 +436,23 @@
 			path = RepositoryList;
 			sourceTree = "<group>";
 		};
+		C5F76C77286E59190002BE0F /* ThirdyPartySDK */ = {
+			isa = PBXGroup;
+			children = (
+				C5F76C78286E59190002BE0F /* Doubles */,
+				C5F76C7A286E59190002BE0F /* AnySDKSecondImplTests.swift */,
+			);
+			path = ThirdyPartySDK;
+			sourceTree = "<group>";
+		};
+		C5F76C78286E59190002BE0F /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				C5F76C79286E59190002BE0F /* AnySdkSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		FC08DB652867B4AC00E7E235 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				FC2FF79628637C7C00593D93 /* UIViewController+ExtensionsTests.swift */,
+				C51D6C74286CFAE400FAA0CF /* AnySDKSecondImplTests.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -777,6 +801,7 @@
 				FCB37860286D14F10044B4A3 /* FinanceServiceHomeSpy.swift in Sources */,
 				FC2FF7922862035A00593D93 /* FinanceServiceTest.swift in Sources */,
 				0BA7D87E286D01FC00906C8C /* URL+Extension.swift in Sources */,
+				C5F76C7C286E59190002BE0F /* AnySDKSecondImplTests.swift in Sources */,
 				C54A20D3286A5B8D00C49179 /* TransferAmountTests.swift in Sources */,
 				FD6D81E1286797D700503489 /* RemoteConfigProviderSpy.swift in Sources */,
 				FC08DB712867C9C500E7E235 /* ActivityDetails+Fixture.swift in Sources */,
@@ -794,6 +819,7 @@
 				FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */,
 				0BA7D87F286D01FC00906C8C /* Fixtures.swift in Sources */,
 				0BA7D883286D032100906C8C /* MockURLSession.swift in Sources */,
+				C5F76C7B286E59190002BE0F /* AnySdkSpy.swift in Sources */,
 				0BA7D884286D032100906C8C /* NetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,7 +983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PKZ6K58H58;
+				DEVELOPMENT_TEAM = WKN62NB674;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -985,7 +1011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = WKN62NB674;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1013,7 +1039,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PKZ6K58H58;
+				DEVELOPMENT_TEAM = WKN62NB674;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -1033,7 +1059,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = WKN62NB674;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
