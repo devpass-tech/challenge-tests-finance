@@ -11,7 +11,7 @@ import XCTest
 class AccountTest: XCTestCase {
     private let sut = Account(agency: "123", account: "4567")
 
-//    func test_formattedAgency_shouldFormatAgency() {
-//        XCTAssertEqual(account.formattedAgency(), "Agency: 123")
-//    }
+    func test_formattedAgency_shouldFormatAgency() {
+        XCTAssertEqual(sut.formattedAgency(), "Agency: 123")
+    }
 }
