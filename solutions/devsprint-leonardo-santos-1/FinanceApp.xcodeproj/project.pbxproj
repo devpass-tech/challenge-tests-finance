@@ -20,6 +20,7 @@
 		0BC837FE286D052100CB173D /* FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC837FD286D052100CB173D /* FinanceAppTests.swift */; };
 		0BFBB3822865E371001095E6 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */; };
 		27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC699A2861EB0900CFA1EC /* AccountTest.swift */; };
+		42AA18462863A6E6007E7B5A /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -119,6 +120,7 @@
 		0BC837FD286D052100CB173D /* FinanceAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceAppTests.swift; sourceTree = "<group>"; };
 		0BFBB3812865E371001095E6 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		27BC699A2861EB0900CFA1EC /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
+		42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42AA18412863A4AA007E7B5A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42AA18452863A6E6007E7B5A /* FinanceServiceTests.swift */,
+			);
+			path = Service;
 		0BA7D879286D01FC00906C8C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
