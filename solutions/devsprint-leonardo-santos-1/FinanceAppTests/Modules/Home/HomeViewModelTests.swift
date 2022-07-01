@@ -10,27 +10,27 @@ import XCTest
 
 final class HomeViewModelTests: XCTestCase {
     private let dispatchQueueSpy = DispatchQueueSpy()
-    private let homeServiceSpy = FinanceServiceHomeSpy()
+    private let homeServiceSpy = FinanceServiceHomeDataSpy()
     private let delegateSpy = HomeViewModelDelegateSpy()
     private lazy var sut = HomeViewModel(financeService: homeServiceSpy,
                                     mainDispatchQueue: dispatchQueueSpy)
     
     func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalled() {
-        homeServiceSpy.homeDataToBeReturned = .fixture()
+        homeServiceSpy.fetchHomeDataReturned = .fixture()
         sut.fetchData()
         
         XCTAssertTrue(dispatchQueueSpy.asyncCalled)
     }
     
     func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalledOnce() {
-        homeServiceSpy.homeDataToBeReturned = .fixture()
+        homeServiceSpy.fetchHomeDataReturned = .fixture()
         sut.fetchData()
         
         XCTAssertEqual(dispatchQueueSpy.asyncCalledCount, 1)
     }
     
     func test_whenFetchDataIsCalled_whenDataIsNil_dispatchQueueShouldNotBeCalled() {
-        homeServiceSpy.homeDataToBeReturned = nil
+        homeServiceSpy.fetchHomeDataReturned = nil
         sut.fetchData()
 
         XCTAssertFalse(dispatchQueueSpy.asyncCalled)
@@ -39,17 +39,17 @@ final class HomeViewModelTests: XCTestCase {
     func test_whenFetchDataIsCalled_shouldCallFetchHomeData() {
         sut.fetchData()
         
-        XCTAssertTrue(homeServiceSpy.fetchHomeDataCalled)
+        XCTAssertTrue(homeServiceSpy.fetchHomeDataTriggered)
     }
     
     func test_whenFetchDataIsCalled_shouldCallshouldCallFetchHomeDataOnce() {
         sut.fetchData()
         
-        XCTAssertEqual(homeServiceSpy.fetchHomeDataCalledCount, 1)
+        XCTAssertEqual(homeServiceSpy.fecthHomeDataCount, 1)
     }
     
     func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetails() {
-        homeServiceSpy.homeDataToBeReturned = .fixture()
+        homeServiceSpy.fetchHomeDataReturned = .fixture()
         sut.delegate = delegateSpy
         sut.fetchData()
         
@@ -57,7 +57,7 @@ final class HomeViewModelTests: XCTestCase {
     }
     
     func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetailsOnce() {
-        homeServiceSpy.homeDataToBeReturned = .fixture()
+        homeServiceSpy.fetchHomeDataReturned = .fixture()
         sut.delegate = delegateSpy
         sut.fetchData()
         
@@ -65,7 +65,7 @@ final class HomeViewModelTests: XCTestCase {
     }
     
     func test_whenFetchDataIsCalled_whenReturnedDataIsNil_shouldNotCallDidFetchActivityDetails() {
-        homeServiceSpy.homeDataToBeReturned = nil
+        homeServiceSpy.fetchHomeDataReturned = nil
         sut.delegate = delegateSpy
         sut.fetchData()
         
@@ -74,7 +74,7 @@ final class HomeViewModelTests: XCTestCase {
     
     func test_fetchData_whenReturnedDataIsNotNil_shouldPassSameDataToDelegateMethod() {
         let returnedData: HomeData = .fixture(balance: 10.0)
-        homeServiceSpy.homeDataToBeReturned = returnedData
+        homeServiceSpy.fetchHomeDataReturned = returnedData
         sut.delegate = delegateSpy
         sut.fetchData()
         

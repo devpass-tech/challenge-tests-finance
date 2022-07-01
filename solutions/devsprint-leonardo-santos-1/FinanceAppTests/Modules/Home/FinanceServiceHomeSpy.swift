@@ -1,21 +1,14 @@
-//
-//  FinanceServiceHomeSpy.swift
-//  FinanceApp
-//
-//  Created by Leonardo Cunha on 25/06/22.
-//
-
-import Foundation
 @testable import FinanceApp
 
-final class FinanceServiceHomeSpy: FinanceServiceHomeProtocol {
-    private(set) var fetchHomeDataCalled: Bool = false
-    private(set) var fetchHomeDataCalledCount: Int = 0
-    var homeDataToBeReturned: HomeData?
-    
+final class FinanceServiceHomeDataSpy: FinanceServiceHomeDataProtocol {
+
+    private(set) var fetchHomeDataTriggered: Bool = false
+    private(set) var fecthHomeDataCount = 0
+    var fetchHomeDataReturned: HomeData?
+
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
-        fetchHomeDataCalled = true
-        fetchHomeDataCalledCount += 1
-        completion(homeDataToBeReturned)
+        fetchHomeDataTriggered = true
+        fecthHomeDataCount += 1
+        completion(fetchHomeDataReturned)
     }
 }
