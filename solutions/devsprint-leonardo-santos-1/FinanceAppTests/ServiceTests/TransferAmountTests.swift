@@ -14,9 +14,9 @@ final class TransferAmountTests: XCTestCase {
     
     func testTransferAmount_ShouldCallPerformRequestOnceWithCorrectUrl() {
         sut.transferAmount { _ in }
-        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+        XCTAssertEqual(networkClientSpy.performRequestCallCount, 1)
         XCTAssertTrue(networkClientSpy.performRequestCalled)
-        XCTAssertEqual(networkClientSpy.performRequestPassed, url)
+        XCTAssertEqual(networkClientSpy.performRequestPassed?.description, url)
     }
     
     func testTransferAmount_ShouldReturnNil_IfNoDataIsPassed() {
@@ -60,20 +60,5 @@ private extension TransferAmountTests {
     
     var url: String {
         return "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/transfer_successful_endpoint.json"
-    }
-}
-
-class NetworkClientSpy: NetworkClientProtocol {
-    private(set) var performRequestPassed: String?
-    private(set) var performRequestCount: Int = 0
-    private(set) var performRequestCalled: Bool = false
-    
-    var dataToBeReturned: Data?
-    
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        performRequestPassed = url.absoluteString
-        performRequestCount += 1
-        performRequestCalled = true
-        completion(dataToBeReturned)
     }
 }

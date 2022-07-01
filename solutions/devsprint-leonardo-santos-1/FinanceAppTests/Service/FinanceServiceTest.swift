@@ -36,7 +36,7 @@ final class FinanceServiceTests: XCTestCase {
     
     func test_fetchContactList_givenUrl_shouldPassCorrectURLToPerformRequest() {
         sut.fetchContactList { _ in }
-        let passedUrlString = networkSpy.performRequestPassed
+        let passedUrlString = networkSpy.performRequestPassed?.description
         
         XCTAssertEqual(passedUrlString, fetchContactListUrlString)
     }
@@ -54,8 +54,8 @@ final class FinanceServiceTests: XCTestCase {
     func testFetchHomeDataGivenURLShoulCallNetworkClientWithCorrectURL() {
         sut.fetchHomeData { [networkSpy] _ in
             XCTAssertTrue(networkSpy.performRequestCalled)
-            XCTAssertEqual(networkSpy.performRequestCount, 1)
-            XCTAssertEqual(networkSpy.performRequestPassed, self.fetchHomeDataURLString)
+            XCTAssertEqual(networkSpy.performRequestCallCount, 1)
+            XCTAssertEqual(networkSpy.performRequestPassed?.description, self.fetchHomeDataURLString)
         }
     }
     
@@ -83,11 +83,98 @@ final class FinanceServiceTests: XCTestCase {
         }
     }
     
+    // MARK: - fetchUserProfile
+    
+    func test_fetchUserProfile_givenUrl_shouldCallNetworkClientToPerformRequest() {
+        //given
+
+        //when
+        sut.fetchUserProfile { _ in
+
+            //then
+            XCTAssertEqual(self.networkSpy.performRequestCallCount, 1)
+        }
+    }
+
+    func test_fetchUserProfile_whenDataIsNil_shouldCallCompletionNil() {
+
+        //given
+        networkSpy.dataToBeReturned = nil
+
+        //when
+        sut.fetchUserProfile { data in
+
+            //then
+            XCTAssertEqual(nil, data)
+        }
+    }
+
+    func test_fetchUserProfile_whenDataIsInvalid_shouldCallCompletionNil() {
+
+        //given
+        let invalidData = Data("invalid string".utf8)
+        networkSpy.dataToBeReturned = invalidData
+
+        //when
+        sut.fetchUserProfile { data in
+
+            //then
+            XCTAssertEqual(nil, data)
+        }
+
+    }
+
+    func test_fetchUserProfile_whenDataIsValid_shouldCallCompletionWithModel() {
+        //given
+        networkSpy.dataToBeReturned = fetchUserProfileData
+        
+        let userProfile = UserProfile(
+            name: "Emanuel",
+            phone: "2352352",
+            email: "2352352",
+            address: "rua 1233",
+            account: Account(agency: "agencia 123", account: "gaifea")
+        )
+
+        //when
+        sut.fetchUserProfile { data in
+
+            //then
+            XCTAssertEqual(userProfile, data)
+        }
+    }
+
+    func test_fetchUserProfile_givenURL_shouldPassCorrectURL() {
+        //given
+        let url = URL(string: fetchUserProfileUrlString)
+
+        //when
+        sut.fetchUserProfile { _ in
+
+            //then
+            XCTAssertEqual(self.networkSpy.performRequestPassed, url)
+        }
+    }
+    
     // MARK: Private properties
     
     private let dataWithError = "".data(using: .utf8)
     private let fetchContactListUrlString = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json"
     private let fetchHomeDataURLString = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
+    private let fetchUserProfileUrlString = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json"
+    
+    private let fetchUserProfileData = """
+        {
+            "name": "Emanuel",
+            "phone": "2352352",
+            "email": "2352352",
+            "address": "rua 1233",
+            "account": {
+                "agency": "agencia 123",
+                "account": "gaifea"
+            }
+        }
+    """.data(using: .utf8)
     
     private let contactListData =
         """
