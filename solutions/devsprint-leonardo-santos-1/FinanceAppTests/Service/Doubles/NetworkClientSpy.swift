@@ -9,21 +9,17 @@ import Foundation
 
 @testable import FinanceApp
 
-final class NetworClientSpy: NetworkClientProtocol {
+final class NetworkClientSpy: NetworkClientProtocol {
     
-    private(set) var passedURL: URL?
+    private(set) var performRequestCalled: Bool = false
     private(set) var performRequestCallCount: Int = 0
+    private(set) var performRequestPassed: URL?
     var dataToBeReturned: Data?
     
-    init(dataToBeReturned: Data?) {
-        self.dataToBeReturned = dataToBeReturned
-    }
-    
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        passedURL = url
+        performRequestCalled = true
+        performRequestPassed = url
         performRequestCallCount += 1
         completion(dataToBeReturned)
     }
-    
 }
-

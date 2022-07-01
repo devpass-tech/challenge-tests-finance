@@ -1,41 +1,83 @@
+//
+//  HomeViewModelTests.swift
+//  FinanceAppTests
+//
+//  Created by Leonardo Cunha on 24/06/22.
+//
+
 import XCTest
 @testable import FinanceApp
 
-class HomeViewModelTests: XCTestCase {
+final class HomeViewModelTests: XCTestCase {
+    private let dispatchQueueSpy = DispatchQueueSpy()
+    private let homeServiceSpy = FinanceServiceHomeSpy()
+    private let delegateSpy = HomeViewModelDelegateSpy()
+    private lazy var sut = HomeViewModel(financeService: homeServiceSpy,
+                                    mainDispatchQueue: dispatchQueueSpy)
+    
+    func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalled() {
+        homeServiceSpy.homeDataToBeReturned = .fixture()
+        sut.fetchData()
+        
+        XCTAssertTrue(dispatchQueueSpy.asyncCalled)
+    }
+    
+    func test_whenFetchDataIsCalled_whenDataIsNotNil_dispatchQueueShouldBeCalledOnce() {
+        homeServiceSpy.homeDataToBeReturned = .fixture()
+        sut.fetchData()
+        
+        XCTAssertEqual(dispatchQueueSpy.asyncCalledCount, 1)
+    }
+    
+    func test_whenFetchDataIsCalled_whenDataIsNil_dispatchQueueShouldNotBeCalled() {
+        homeServiceSpy.homeDataToBeReturned = nil
+        sut.fetchData()
 
-    private let financeServiceSpy = FinanceServiceSpy()
-    private let delegateSpy = HomeViewDataDelegateSpy()
-    private lazy var sut : HomeViewModel = {
-        var homeViewModel = HomeViewModel(financeService: financeServiceSpy)
-        homeViewModel.delegate = delegateSpy
-        return homeViewModel
-    }()
-    
-    func test_fecthData_shouldTriggerFetchHomeData() {
-        sut.fetchData()
-        XCTAssertTrue(financeServiceSpy.fetchHomeDataTriggered)
+        XCTAssertFalse(dispatchQueueSpy.asyncCalled)
     }
     
-    func test_fetchData_shouldTriggerFetchHomeDataOnce() {
+    func test_whenFetchDataIsCalled_shouldCallFetchHomeData() {
         sut.fetchData()
-        XCTAssertEqual(financeServiceSpy.fecthHomeDataCount, 1)
+        
+        XCTAssertTrue(homeServiceSpy.fetchHomeDataCalled)
     }
     
-    func test_fetchData_ifHomeDataIsNil_shouldNotTriggerDelegate() {
-        financeServiceSpy.fetchHomeDataReturned = nil
+    func test_whenFetchDataIsCalled_shouldCallshouldCallFetchHomeDataOnce() {
         sut.fetchData()
-        XCTAssertEqual(delegateSpy.didFetchHomeDataCount, 0)
+        
+        XCTAssertEqual(homeServiceSpy.fetchHomeDataCalledCount, 1)
     }
     
-    func test_fecthData_ifHomeDataIsNotNil_shouldTriggerDelegate() {
-        financeServiceSpy.fetchHomeDataReturned = .fixture()
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetails() {
+        homeServiceSpy.homeDataToBeReturned = .fixture()
+        sut.delegate = delegateSpy
         sut.fetchData()
-        XCTAssertTrue(delegateSpy.didFetchHomeDataTriggered)
+        
+        XCTAssertTrue(delegateSpy.didFetchHomeDataCalled)
     }
     
-    func test_fecthData_ifHomeDataIsNotNil_shouldTriggerDelegateOnce() {
-        financeServiceSpy.fetchHomeDataReturned = .fixture()
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNotNil_shouldCallDidFetchActivityDetailsOnce() {
+        homeServiceSpy.homeDataToBeReturned = .fixture()
+        sut.delegate = delegateSpy
         sut.fetchData()
-        XCTAssertEqual(delegateSpy.didFetchHomeDataCount, 1)
+        
+        XCTAssertEqual(delegateSpy.didFetchHomeDataCallCount, 1)
+    }
+    
+    func test_whenFetchDataIsCalled_whenReturnedDataIsNil_shouldNotCallDidFetchActivityDetails() {
+        homeServiceSpy.homeDataToBeReturned = nil
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertFalse(delegateSpy.didFetchHomeDataCalled)
+    }
+    
+    func test_fetchData_whenReturnedDataIsNotNil_shouldPassSameDataToDelegateMethod() {
+        let returnedData: HomeData = .fixture(balance: 10.0)
+        homeServiceSpy.homeDataToBeReturned = returnedData
+        sut.delegate = delegateSpy
+        sut.fetchData()
+        
+        XCTAssertEqual(returnedData, delegateSpy.dataPassed)
     }
 }
