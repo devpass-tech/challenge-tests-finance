@@ -20,3 +20,5 @@ final class AnySdk {
         eventTracked = eventName
     }
 }
+
+extension AnySdk: AnySdkProtocol {}
