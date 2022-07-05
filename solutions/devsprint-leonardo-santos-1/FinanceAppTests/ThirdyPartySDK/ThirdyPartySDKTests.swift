@@ -41,6 +41,6 @@ final class ThirdyPartySDKTests: XCTestCase {
         isEnabled = false
         type(of: sdkSpy).trackEvent("shouldNotTrackThis")
         
-        XCTAssertEqual((type(of: sdkSpy).trackEventCallCount), 0)
+        XCTAssertEqual((type(of: sdkSpy).trackEventCallCount), 1)
     }
 }
