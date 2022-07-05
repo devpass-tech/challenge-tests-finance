@@ -4,22 +4,24 @@ final class AnySDKFirstImpl {
     // MARK: - Private Properties
     
     private let isEnabled: Bool
-    
-    init(isEnabled: Bool) {
+    private let sdk: AnySdkProtocol
+    init(isEnabled: Bool,
+         sdk: AnySdkProtocol = AnySdk()) {
         self.isEnabled = isEnabled
+        self.sdk = sdk
     }
     
     // MARK: - Public Methods
     
     func initSDK() {
         if isEnabled {
-            AnySdk.initSdk()
+            type(of: sdk).initSdk()
         }
     }
     
     func trackEvent(_ eventName: String) {
         if isEnabled {
-            AnySdk.trackEvent(eventName)
+            type(of: sdk).trackEvent(eventName)
         }
     }
 }
