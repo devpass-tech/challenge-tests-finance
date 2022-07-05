@@ -4,22 +4,31 @@ final class AnySDKSecondImpl {
     // MARK: - Private Properties
     
     private let isEnabled: Bool
+    private let anySdk: AnySdkProtocol.Type
     
-    init(isEnabled: Bool) {
+    init(isEnabled: Bool, anySdk: AnySdkProtocol.Type) {
         self.isEnabled = isEnabled
+        self.anySdk = anySdk
     }
     
     // MARK: - Public Methods
     
-    func initSDK() {
+    func initSdk() {
         if isEnabled {
-            AnySdk.initSdk()
+            anySdk.initSdk()
         }
     }
     
     func trackEvent(_ eventName: String) {
         if isEnabled {
-            AnySdk.trackEvent(eventName)
+            anySdk.trackEvent(eventName)
         }
     }
 }
+
+protocol AnySdkProtocol {
+    static func initSdk()
+    static func trackEvent(_ eventName: String)
+}
+
+extension AnySdk: AnySdkProtocol {}

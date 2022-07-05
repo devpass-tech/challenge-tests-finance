@@ -1,11 +1,5 @@
 /// Essa classe é apenas um `facade` (fachada) de implementação do SDK. Caso o app vá utilizar  o SDK, deve depender dessa classe e não diretamente do SDK.
 
-protocol AnySdkProtocol {
-    static func initSdk()
-    static func trackEvent(_ eventName: String)
-}
-
-
 final class AnySDKFirstImpl {
     
     // MARK: - Private Properties

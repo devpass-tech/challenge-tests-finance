@@ -7,10 +7,8 @@
 
 import Foundation
 
-extension Error {
-    static func fixture() -> Self {
-        NSError(domain: "", code: 0) as! Self
-    }
+extension URL {
+    static var testURL = URL(string: "https://")!
 }
 
 extension Data {
