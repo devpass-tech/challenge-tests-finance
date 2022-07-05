@@ -8,8 +8,8 @@
 import XCTest
 @testable import FinanceApp
 
-final class ThirdyPartySDKTests: XCTestCase {
-    private let sdkSpy = AnySdkSpy()
+final class ThirdyPartySDKTestsFirstImp: XCTestCase {
+    private let sdkSpy = AnySdkSpyFirstImp()
     private var isEnabled = false
     private lazy var sut = AnySDKFirstImpl(isEnabled: isEnabled, sdk: sdkSpy)
     

@@ -8,7 +8,7 @@
 import Foundation
 @testable import FinanceApp
 
-final class AnySdkSpy: AnySdkProtocol {
+final class AnySdkSpyFirstImp: AnySdkProtocol {
     private(set) static var initSdkCallCount: Int = 0
     private(set) static var trackEventCallCount: Int = 0
     private(set) static var eventNamePassed: String?
