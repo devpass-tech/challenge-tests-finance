@@ -63,6 +63,8 @@
 		FC2FF7A72864A41900593D93 /* Contact+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */; };
 		FC2FF7A92864B1D200593D93 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */; };
 		FC3DF5562866612B00B15B9F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */; };
+		FCA5A7C3287472890029FD2A /* AnySdkSpyFirstImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA5A7C2287472890029FD2A /* AnySdkSpyFirstImp.swift */; };
+		FCA5A7C5287472930029FD2A /* ThirdyPartySDKTestsFirstImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA5A7C4287472920029FD2A /* ThirdyPartySDKTestsFirstImp.swift */; };
 		FCB3785E286D14E10044B4A3 /* FinanceServiceActivityDetailsSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6E2867C79D00E7E235 /* FinanceServiceActivityDetailsSpy.swift */; };
 		FCB3785F286D14E10044B4A3 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB772867DBB000E7E235 /* ActivityDetailsViewModelDelegateSpy.swift */; };
 		FCB37860286D14F10044B4A3 /* FinanceServiceHomeSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08DB6C2867BCF500E7E235 /* FinanceServiceHomeSpy.swift */; };
@@ -174,6 +176,8 @@
 		FC2FF7A62864A41900593D93 /* Contact+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixtures.swift"; sourceTree = "<group>"; };
 		FC2FF7A82864B1D200593D93 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		FCA5A7C2287472890029FD2A /* AnySdkSpyFirstImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnySdkSpyFirstImp.swift; sourceTree = "<group>"; };
+		FCA5A7C4287472920029FD2A /* ThirdyPartySDKTestsFirstImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdyPartySDKTestsFirstImp.swift; sourceTree = "<group>"; };
 		FD2FA766286E3CDA00A0DCED /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
 		FD63EE1C286F993900154734 /* HomeViewDataDelegateSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewDataDelegateSpy.swift; sourceTree = "<group>"; };
 		FD6D81D628678E8C00503489 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
@@ -270,6 +274,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FCA5A7C12874726A0029FD2A /* ThirdSDKFIrstImp */,
 				C5F76C77286E59190002BE0F /* ThirdyPartySDK */,
 				FC3DF5532866610C00B15B9F /* Modules */,
 				0BA7D87C286D01FC00906C8C /* Factories */,
@@ -526,6 +531,15 @@
 				FC3DF5552866612B00B15B9F /* HomeViewModelTests.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FCA5A7C12874726A0029FD2A /* ThirdSDKFIrstImp */ = {
+			isa = PBXGroup;
+			children = (
+				FCA5A7C2287472890029FD2A /* AnySdkSpyFirstImp.swift */,
+				FCA5A7C4287472920029FD2A /* ThirdyPartySDKTestsFirstImp.swift */,
+			);
+			path = ThirdSDKFIrstImp;
 			sourceTree = "<group>";
 		};
 		FCB3785D286D14D70044B4A3 /* Recovered References */ = {
@@ -815,7 +829,9 @@
 				FC2D46CE286BA8AE00B424F0 /* UIViewController+ExtensionsTests.swift in Sources */,
 				FCB37861286D14F10044B4A3 /* HomeViewModelDelegateSpy.swift in Sources */,
 				FCB3785E286D14E10044B4A3 /* FinanceServiceActivityDetailsSpy.swift in Sources */,
+				FCA5A7C3287472890029FD2A /* AnySdkSpyFirstImp.swift in Sources */,
 				FD63EE20286F993900154734 /* HomeViewDataDelegateSpy.swift in Sources */,
+				FCA5A7C5287472930029FD2A /* ThirdyPartySDKTestsFirstImp.swift in Sources */,
 				FCB3785F286D14E10044B4A3 /* ActivityDetailsViewModelDelegateSpy.swift in Sources */,
 				27BC699B2861EB0900CFA1EC /* AccountTest.swift in Sources */,
 				FC08DB6B2867B97600E7E235 /* HomeData+Fixture.swift in Sources */,

@@ -30,5 +30,3 @@ protocol AnySdkProtocol {
     static func initSdk()
     static func trackEvent(_ eventName: String)
 }
-
-extension AnySdk: AnySdkProtocol {}
