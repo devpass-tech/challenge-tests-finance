@@ -31,7 +31,7 @@ final class ThirdyPartySDKTestsFirstImp: XCTestCase {
     
     func test_trackEvent_whenIsEnabled_shouldTrackEventPassedOnParameter() {
         isEnabled = true
-        type(of: sdkSpy).trackEvent("shouldTrackThis")
+        sut.trackEvent("shouldTrackThis")
         
         XCTAssertEqual((type(of: sdkSpy).trackEventCallCount), 1)
         XCTAssertEqual((type(of: sdkSpy).eventNamePassed), "shouldTrackThis")
@@ -39,8 +39,7 @@ final class ThirdyPartySDKTestsFirstImp: XCTestCase {
     
     func test_trackEvent_whenIsNotEnabled_shouldNotCallTrackEvents() {
         isEnabled = false
-        type(of: sdkSpy).trackEvent("shouldNotTrackThis")
-        
-        XCTAssertEqual((type(of: sdkSpy).trackEventCallCount), 1)
+        sut.trackEvent("shouldNotTrackThis")
+        XCTAssertEqual((type(of: sdkSpy).trackEventCallCount), 0)
     }
 }
