@@ -264,6 +264,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC624EA828746D4800E2B5BF /* ThirdPartySDKFIrstImp */,
 				FCB3786F286E3E760044B4A3 /* ThirdyPartySDK */,
 				FC08DB652867B4AC00E7E235 /* Services */,
 				FC3DF5532866610C00B15B9F /* Modules */,
@@ -533,6 +534,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		FC624EA828746D4800E2B5BF /* ThirdPartySDKFIrstImp */ = {
+			isa = PBXGroup;
+			children = (
+				FCB37870286E3EC00044B4A3 /* ThirdyPartySDKTestsFirstImp.swift */,
+				FCB37872286E4B1F0044B4A3 /* AnySdkSpyFirstImp.swift */,
+			);
+			path = ThirdPartySDKFIrstImp;
+			sourceTree = "<group>";
+		};
 		FCB3785D286D14D70044B4A3 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,8 +554,6 @@
 		FCB3786F286E3E760044B4A3 /* ThirdyPartySDK */ = {
 			isa = PBXGroup;
 			children = (
-				FCB37870286E3EC00044B4A3 /* ThirdyPartySDKTestsFirstImp.swift */,
-				FCB37872286E4B1F0044B4A3 /* AnySdkSpyFirstImp.swift */,
 			);
 			path = ThirdyPartySDK;
 			sourceTree = "<group>";
