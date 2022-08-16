@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct HomeDataMock: Codable {
+struct HomeDataCodable: Codable {
     let balance: Float
     let savings: Float
     let spending: Float
-    let activity: [ActivityMock]
+    let activity: [ActivityCodable]
 }
 
-struct ActivityMock: Codable {
+struct ActivityCodable: Codable {
     let name: String
     let price: Float
     let time: String

@@ -51,10 +51,10 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     func test_fetchHomeData_shouldReturnHomeDataWhenRequestReturnCorrectData() throws {
-        let activity = ActivityMock(name: "Market", price: 10.0, time: "12:00:00")
-        let homeData = HomeDataMock(balance: 100.0, savings: 200.0, spending: 150, activity: [activity])
-        let encode = try XCTUnwrap(JSONEncoder().encode(homeData))
-        let (sut, networkClient) = makeSut(data: Data(encode))
+        let activity = ActivityCodable(name: "Market", price: 10.0, time: "12:00:00")
+        let homeData = HomeDataCodable(balance: 100.0, savings: 200.0, spending: 150, activity: [activity])
+        let encodedHomeData = try XCTUnwrap(JSONEncoder().encode(homeData))
+        let (sut, networkClient) = makeSut(data: Data(encodedHomeData))
 
         let expectation = XCTestExpectation(description: "Wait request")
         
