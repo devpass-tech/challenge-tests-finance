@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-final class UserProfileTests: XCTestCase {
+final class AccountProfileTests: XCTestCase {
     func test_ShouldReturnAccountFormatted_WhenCallMethod() {
         let firstAccount = Account(agency: "11111", account: "11111")
         let secondAccount = Account(agency: "22222", account: "22222")
