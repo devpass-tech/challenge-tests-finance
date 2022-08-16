@@ -9,7 +9,7 @@ import Foundation
 
 @testable import FinanceApp
 
-struct FinanceServiceMock: FinanceServiceProtocol {
+struct FinanceServiceStub: FinanceServiceProtocol {
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
         
     }

@@ -11,10 +11,9 @@ import XCTest
 @testable import FinanceApp
 
 final class FinanceServiceTests: XCTestCase {
-    
     func test_ShouldReturnUserProfileData() throws {
         var spy: UserProfile?
-        let sut = FinanceServiceMock()
+        let sut = FinanceServiceStub()
         
         sut.fetchUserProfile { userProfile in
             spy = userProfile
