@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class Strings_ExtensionsTests: XCTestCase {
+final class Strings_ExtensionsTests: XCTestCase {
 
     func testRemovingSpaces() {
         let stringWithSpace = "tes te"
