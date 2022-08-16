@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct UserProfile: Decodable {
-
+struct UserProfile: Codable {
     let name: String
     let phone: String
     let email: String

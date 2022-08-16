@@ -1,0 +1,19 @@
+//
+//  JSONHelper.swift
+//  FinanceAppTests
+//
+//  Created by Henrique Augusto on 16/08/22.
+//
+
+import Foundation
+
+struct JSONHelper {
+    func loadJsonFrom<T: Codable>(fileName: String, type: T.Type) -> T? {
+        let path = Bundle.main.path(forResource: fileName, ofType: "json")
+        let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
+        if let objDecoded = try? JSONDecoder().decode(T.self, from: jsonData) {
+            return objDecoded
+        }
+        return nil
+    }
+}

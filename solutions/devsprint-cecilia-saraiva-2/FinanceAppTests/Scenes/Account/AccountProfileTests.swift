@@ -1,5 +1,5 @@
 //
-//  UserProfileTests.swift
+//  AccountProfileTests.swift
 //  FinanceAppTests
 //
 //  Created by Henrique Augusto on 15/08/22.
