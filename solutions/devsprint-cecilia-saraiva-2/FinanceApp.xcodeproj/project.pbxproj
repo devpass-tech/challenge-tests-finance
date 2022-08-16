@@ -138,6 +138,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B6DAD2828AC571100C8961B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B12FBCF28ABB883006175FE /* Strings+ExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +182,8 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				8B6DAD2828AC571100C8961B /* Extensions */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
-				8B12FBCF28ABB883006175FE /* Strings+ExtensionsTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
