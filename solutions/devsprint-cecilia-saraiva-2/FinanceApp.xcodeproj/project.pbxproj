@@ -50,8 +50,12 @@
 		BEBEC9C828AC4C1500C602EF /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBEC9C728AC4C1500C602EF /* FinanceServiceTests.swift */; };
 		BEBEC9CC28AC4F6A00C602EF /* user-profile.json in Resources */ = {isa = PBXBuildFile; fileRef = BEBEC9CB28AC4F6A00C602EF /* user-profile.json */; };
 		BEBEC9CE28AC50A500C602EF /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBEC9CD28AC50A500C602EF /* JSONHelper.swift */; };
-		BEBEC9D028AC514F00C602EF /* FinanceServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBEC9CF28AC514F00C602EF /* FinanceServiceStub.swift */; };
+		BEBEC9D028AC514F00C602EF /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBEC9CF28AC514F00C602EF /* NetworkClientStub.swift */; };
 		BEBEC9D428AC583E00C602EF /* user-profile.json in Resources */ = {isa = PBXBuildFile; fileRef = BEBEC9CB28AC4F6A00C602EF /* user-profile.json */; };
+		BED4F7A928AD9952008C9752 /* user-profile-invalid-json.json in Resources */ = {isa = PBXBuildFile; fileRef = BED4F7A828AD9952008C9752 /* user-profile-invalid-json.json */; };
+		BED4F7AB28AD9983008C9752 /* user-profile-invalid-data.json in Resources */ = {isa = PBXBuildFile; fileRef = BED4F7AA28AD9983008C9752 /* user-profile-invalid-data.json */; };
+		BED4F7AC28AD9A33008C9752 /* user-profile-invalid-data.json in Resources */ = {isa = PBXBuildFile; fileRef = BED4F7AA28AD9983008C9752 /* user-profile-invalid-data.json */; };
+		BED4F7AD28AD9A37008C9752 /* user-profile-invalid-json.json in Resources */ = {isa = PBXBuildFile; fileRef = BED4F7A828AD9952008C9752 /* user-profile-invalid-json.json */; };
 		BEF39F3C28AC4A7400BC3BCD /* AccountProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF39F3B28AC4A7400BC3BCD /* AccountProfile.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +124,9 @@
 		BEBEC9C728AC4C1500C602EF /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		BEBEC9CB28AC4F6A00C602EF /* user-profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-profile.json"; sourceTree = "<group>"; };
 		BEBEC9CD28AC50A500C602EF /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
-		BEBEC9CF28AC514F00C602EF /* FinanceServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceStub.swift; sourceTree = "<group>"; };
+		BEBEC9CF28AC514F00C602EF /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
+		BED4F7A828AD9952008C9752 /* user-profile-invalid-json.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-profile-invalid-json.json"; sourceTree = "<group>"; };
+		BED4F7AA28AD9983008C9752 /* user-profile-invalid-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-profile-invalid-data.json"; sourceTree = "<group>"; };
 		BEF39F3B28AC4A7400BC3BCD /* AccountProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -366,7 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				BEBEC9C728AC4C1500C602EF /* FinanceServiceTests.swift */,
-				BEBEC9CF28AC514F00C602EF /* FinanceServiceStub.swift */,
+				BEBEC9CF28AC514F00C602EF /* NetworkClientStub.swift */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
@@ -384,6 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				BEBEC9CB28AC4F6A00C602EF /* user-profile.json */,
+				BED4F7AA28AD9983008C9752 /* user-profile-invalid-data.json */,
+				BED4F7A828AD9952008C9752 /* user-profile-invalid-json.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -494,7 +502,9 @@
 			files = (
 				BEBEC9D428AC583E00C602EF /* user-profile.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				BED4F7AC28AD9A33008C9752 /* user-profile-invalid-data.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
+				BED4F7AD28AD9A37008C9752 /* user-profile-invalid-json.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +512,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED4F7AB28AD9983008C9752 /* user-profile-invalid-data.json in Resources */,
+				BED4F7A928AD9952008C9752 /* user-profile-invalid-json.json in Resources */,
 				BEBEC9CC28AC4F6A00C602EF /* user-profile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,7 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBEC9C828AC4C1500C602EF /* FinanceServiceTests.swift in Sources */,
-				BEBEC9D028AC514F00C602EF /* FinanceServiceStub.swift in Sources */,
+				BEBEC9D028AC514F00C602EF /* NetworkClientStub.swift in Sources */,
 				BEBEC9CE28AC50A500C602EF /* JSONHelper.swift in Sources */,
 				BE116F3128AAF3CB00CB3F1A /* AccountProfileTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,

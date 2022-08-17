@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Account: Codable {
+struct Account: Codable, Equatable {
 
     let agency: String
     let account: String

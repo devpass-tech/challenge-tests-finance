@@ -13,7 +13,7 @@ protocol FinanceServiceProtocol {
     func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
     func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
     func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
-    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
+    func fetchUserProfile(_ completion: @escaping (UserProfile?, ApiError?) -> Void)
 }
 
 class FinanceService: FinanceServiceProtocol {
@@ -109,13 +109,13 @@ class FinanceService: FinanceServiceProtocol {
         }
     }
 
-    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void) {
+    func fetchUserProfile(_ completion: @escaping (UserProfile?, ApiError?) -> Void) {
 
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")!
 
         networkClient.performRequest(with: url) { data in
             guard let data = data else {
-                completion(nil)
+                completion(nil, .invalidData)
                 return
             }
 
@@ -123,10 +123,17 @@ class FinanceService: FinanceServiceProtocol {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let userProfile = try decoder.decode(UserProfile.self, from: data)
-                completion(userProfile)
+                completion(userProfile, nil)
             } catch {
-                completion(nil)
+                completion(nil, .parseJson)
             }
         }
     }
+}
+
+enum ApiError: Error {
+    case unknow
+    case authorization
+    case invalidData
+    case parseJson
 }

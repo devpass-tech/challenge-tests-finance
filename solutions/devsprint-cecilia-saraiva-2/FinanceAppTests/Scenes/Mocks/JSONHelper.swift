@@ -16,4 +16,12 @@ struct JSONHelper {
         }
         return nil
     }
+    
+    func loadDataFrom(fileName: String) -> Data? {
+        let path = Bundle.main.path(forResource: fileName, ofType: "json")
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: path!)) {
+            return data
+        }
+        return nil
+    }
 }
