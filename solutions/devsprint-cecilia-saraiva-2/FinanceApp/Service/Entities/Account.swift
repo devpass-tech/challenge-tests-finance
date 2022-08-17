@@ -1,5 +1,5 @@
 //
-//  AccountProfile.swift
+//  Account.swift
 //  FinanceApp
 //
 //  Created by Henrique Augusto on 16/08/22.

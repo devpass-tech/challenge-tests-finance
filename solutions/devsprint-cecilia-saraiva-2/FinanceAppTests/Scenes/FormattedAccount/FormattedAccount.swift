@@ -1,5 +1,5 @@
 //
-//  UserProfileTests.swift
+//  FormattedAccountTests.swift
 //  FinanceAppTests
 //
 //  Created by Henrique Augusto on 15/08/22.
@@ -8,8 +8,9 @@
 import XCTest
 @testable import FinanceApp
 
-final class AccountProfileTests: XCTestCase {
-    func test_ShouldReturnAccountFormatted_WhenCallMethod() {
+final class FormattedAccountTest: XCTestCase {
+    
+    func test_formattedAccount() {
         let firstAccount = Account(agency: "11111", account: "11111")
         let secondAccount = Account(agency: "22222", account: "22222")
         
