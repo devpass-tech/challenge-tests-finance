@@ -47,6 +47,14 @@
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
 		BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE116F3028AAF3CB00CB3F1A /* FormattedAccount.swift */; };
+		BE12099428AEE90900B0EC30 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12099328AEE90900B0EC30 /* FinanceServiceTests.swift */; };
+		BE12099628AEE91900B0EC30 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12099528AEE91900B0EC30 /* NetworkClientStub.swift */; };
+		BE12099A28AEE93500B0EC30 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12099928AEE93500B0EC30 /* JSONHelper.swift */; };
+		BE12099C28AEE95500B0EC30 /* user-profile-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = BE12099B28AEE95500B0EC30 /* user-profile-invalid.json */; };
+		BE12099E28AEE96500B0EC30 /* user-profile.json in Resources */ = {isa = PBXBuildFile; fileRef = BE12099D28AEE96500B0EC30 /* user-profile.json */; };
+		BE12099F28AEE9BC00B0EC30 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12099928AEE93500B0EC30 /* JSONHelper.swift */; };
+		BE1209A028AEEDA600B0EC30 /* user-profile-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = BE12099B28AEE95500B0EC30 /* user-profile-invalid.json */; };
+		BE1209A128AEEDAA00B0EC30 /* user-profile.json in Resources */ = {isa = PBXBuildFile; fileRef = BE12099D28AEE96500B0EC30 /* user-profile.json */; };
 		BEF39F3C28AC4A7400BC3BCD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF39F3B28AC4A7400BC3BCD /* Account.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +120,11 @@
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		BE116F3028AAF3CB00CB3F1A /* FormattedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedAccount.swift; sourceTree = "<group>"; };
+		BE12099328AEE90900B0EC30 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
+		BE12099528AEE91900B0EC30 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
+		BE12099928AEE93500B0EC30 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		BE12099B28AEE95500B0EC30 /* user-profile-invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-profile-invalid.json"; sourceTree = "<group>"; };
+		BE12099D28AEE96500B0EC30 /* user-profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-profile.json"; sourceTree = "<group>"; };
 		BEF39F3B28AC4A7400BC3BCD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +189,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE12099728AEE92400B0EC30 /* Mock */,
 				BE116F2F28AAF3BA00CB3F1A /* Scenes */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
@@ -338,9 +352,37 @@
 		BE116F2F28AAF3BA00CB3F1A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BE12099228AEE8D300B0EC30 /* FinanceService */,
 				BED4F7A528AD902E008C9752 /* FormattedAccount */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BE12099228AEE8D300B0EC30 /* FinanceService */ = {
+			isa = PBXGroup;
+			children = (
+				BE12099328AEE90900B0EC30 /* FinanceServiceTests.swift */,
+				BE12099528AEE91900B0EC30 /* NetworkClientStub.swift */,
+			);
+			path = FinanceService;
+			sourceTree = "<group>";
+		};
+		BE12099728AEE92400B0EC30 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BE12099828AEE92C00B0EC30 /* JSON */,
+				BE12099928AEE93500B0EC30 /* JSONHelper.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		BE12099828AEE92C00B0EC30 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				BE12099B28AEE95500B0EC30 /* user-profile-invalid.json */,
+				BE12099D28AEE96500B0EC30 /* user-profile.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		BED4F7A528AD902E008C9752 /* FormattedAccount */ = {
@@ -455,7 +497,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1209A028AEEDA600B0EC30 /* user-profile-invalid.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				BE1209A128AEEDAA00B0EC30 /* user-profile.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +508,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE12099E28AEE96500B0EC30 /* user-profile.json in Resources */,
+				BE12099C28AEE95500B0EC30 /* user-profile-invalid.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +548,7 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
+				BE12099F28AEE9BC00B0EC30 /* JSONHelper.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */,
@@ -524,7 +571,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
+				BE12099628AEE91900B0EC30 /* NetworkClientStub.swift in Sources */,
+				BE12099428AEE90900B0EC30 /* FinanceServiceTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				BE12099A28AEE93500B0EC30 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
