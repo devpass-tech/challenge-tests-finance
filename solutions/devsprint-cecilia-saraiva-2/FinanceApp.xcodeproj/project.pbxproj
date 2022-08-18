@@ -47,6 +47,8 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE116F3028AAF3CB00CB3F1A /* FormattedAccount.swift */; };
+		BEF39F3C28AC4A7400BC3BCD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF39F3B28AC4A7400BC3BCD /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		BE116F3028AAF3CB00CB3F1A /* FormattedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedAccount.swift; sourceTree = "<group>"; };
+		BEF39F3B28AC4A7400BC3BCD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				8B6DAD2828AC571100C8961B /* Extensions */,
+				BE116F2F28AAF3BA00CB3F1A /* Scenes */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -259,6 +264,7 @@
 				9882465B27D013C1001DD0C5 /* Contact.swift */,
 				9882465D27D013D2001DD0C5 /* TransferResult.swift */,
 				9882465F27D013E1001DD0C5 /* UserProfile.swift */,
+				BEF39F3B28AC4A7400BC3BCD /* Account.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -338,6 +344,22 @@
 				98E0E87A28299EB400560502 /* RepositoryListViewController.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		BE116F2F28AAF3BA00CB3F1A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BED4F7A528AD902E008C9752 /* FormattedAccount */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BED4F7A528AD902E008C9752 /* FormattedAccount */ = {
+			isa = PBXGroup;
+			children = (
+				BE116F3028AAF3CB00CB3F1A /* FormattedAccount.swift */,
+			);
+			path = FormattedAccount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,6 +494,7 @@
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
+				BEF39F3C28AC4A7400BC3BCD /* Account.swift in Sources */,
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
@@ -512,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B12FBD028ABB883006175FE /* Strings+ExtensionsTests.swift in Sources */,
+				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
