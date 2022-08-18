@@ -199,7 +199,11 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				BE12099728AEE92400B0EC30 /* Mock */,
+=======
+				8B6B345528AEE93200A901D4 /* Extensions */,
+>>>>>>> main
 				BE116F2F28AAF3BA00CB3F1A /* Scenes */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
@@ -581,8 +585,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
+<<<<<<< HEAD
 				BE12099628AEE91900B0EC30 /* NetworkClientStub.swift in Sources */,
 				BE12099428AEE90900B0EC30 /* FinanceServiceTests.swift in Sources */,
+=======
+				8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */,
+>>>>>>> main
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				BE12099A28AEE93500B0EC30 /* JSONHelper.swift in Sources */,
 			);
