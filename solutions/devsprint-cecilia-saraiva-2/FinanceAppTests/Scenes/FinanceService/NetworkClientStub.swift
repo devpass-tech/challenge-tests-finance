@@ -27,8 +27,17 @@ final class NetworkClientSuccessStub: NetworkClientProtocol {
     }
 }
 
-struct NetworkClientFailureStub: NetworkClientProtocol {
+final class NetworkClientFailureStub: NetworkClientProtocol {
+    var url: URL
+    var callCount: Int?
+    
+    init(url: URL) {
+        self.url = url
+    }
+
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
+        self.url = url
+        self.callCount = 1
         completion(nil)
     }
 }

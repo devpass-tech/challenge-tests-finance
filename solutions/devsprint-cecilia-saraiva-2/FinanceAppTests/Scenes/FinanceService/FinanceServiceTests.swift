@@ -41,7 +41,8 @@ final class FinanceServiceTests: XCTestCase {
     }
 
     func test_ShouldReturnNil_WhenDataIsInvalid() throws {
-        let networkStub = NetworkClientFailureStub()
+        let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")!
+        let networkStub = NetworkClientFailureStub(url: url)
         let sut = FinanceService(networkClient: networkStub)
 
         sut.fetchUserProfile { userProfile in
@@ -49,6 +50,8 @@ final class FinanceServiceTests: XCTestCase {
         }
 
         XCTAssertNil(spy)
+        XCTAssertEqual(networkStub.callCount, 1)
+        XCTAssertEqual(networkStub.url, url)
     }
 
     func test_ShouldReturnError_WhenJsonIsInvalid() throws {
@@ -62,5 +65,7 @@ final class FinanceServiceTests: XCTestCase {
         }
 
         XCTAssertNil(spy)
+        XCTAssertEqual(networkStub.callCount, 1)
+        XCTAssertEqual(networkStub.url, url)
     }
 }
