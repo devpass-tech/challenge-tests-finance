@@ -142,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65D6392028AEE3D700B55E7D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6518E5A428AE784500112985 /* UIViewController+ExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +188,6 @@
 			children = (
 				BE116F2F28AAF3BA00CB3F1A /* Scenes */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
-				6518E5A428AE784500112985 /* UIViewController+ExtensionsTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 		BE116F2F28AAF3BA00CB3F1A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				65D6392028AEE3D700B55E7D /* Extensions */,
 				BED4F7A528AD902E008C9752 /* FormattedAccount */,
 			);
 			path = Scenes;
