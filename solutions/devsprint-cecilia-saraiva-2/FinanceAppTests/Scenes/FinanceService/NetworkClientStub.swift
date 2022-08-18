@@ -11,7 +11,7 @@ import Foundation
 final class NetworkClientSuccessStub: NetworkClientProtocol {
     let fileName: String
     var url: URL
-    var callCount: Int?
+    var callCount: Int = 0
     
     init(fileName: String, url: URL) {
         self.fileName = fileName
@@ -20,7 +20,7 @@ final class NetworkClientSuccessStub: NetworkClientProtocol {
 
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
         self.url = url
-        self.callCount = 1
+        self.callCount += 1
         
         let data = JSONHelper().loadDataFrom(fileName: fileName)
         completion(data)

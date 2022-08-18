@@ -23,6 +23,12 @@ final class FinanceServiceTests: XCTestCase {
                                         address: "Rua Bela Cintra, 495",
                                         account: Account(agency: "0001", account: "123456-7"))
     }
+    
+    override func tearDown() {
+        self.spy = nil
+        self.callCount = 0
+        self.url = nil
+    }
 
     func test_ShouldReturnUserProfileData() throws {
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")!
