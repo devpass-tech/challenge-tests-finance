@@ -8,14 +8,14 @@ import UIKit
 import XCTest
 @testable import FinanceApp
 
-class DummyViewController: UIViewController {
+final class DummyViewController: UIViewController {
     
 }
 
-class UIViewController_ExtensionsTests: XCTestCase {
+final class UIViewController_ExtensionsTests: XCTestCase {
     
     
-    func testShouldReturnAnavigationController() {
+    func testShouldReturnInsideNavigationController() {
         //GIVEN
         let sut = DummyViewController()
         
