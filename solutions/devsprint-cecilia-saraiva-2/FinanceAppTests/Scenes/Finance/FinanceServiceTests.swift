@@ -12,9 +12,8 @@ import XCTest
 
 final class FinanceServiceTests: XCTestCase {
     
+    var spy: UserProfile?
     var userProfileObject: UserProfile?
-    var userProfileSpy: UserProfile?
-    var userProfileErrorSpy: ApiError?
     
     override func setUp() {
         userProfileObject = UserProfile(name: "Irma Flores",
@@ -28,44 +27,34 @@ final class FinanceServiceTests: XCTestCase {
         let networkStub = NetworkClientSuccessStub(fileName: "user-profile")
         let sut = FinanceService(networkClient: networkStub)
         
-        sut.fetchUserProfile { response, error in
-            self.userProfileSpy = response
-            self.userProfileErrorSpy = error
+        sut.fetchUserProfile { userProfile in
+            self.spy = userProfile
         }
         
-        let unwrappedSpy = try XCTUnwrap(userProfileSpy)
+        let unwrappedSpy = try XCTUnwrap(spy)
         
         XCTAssertEqual(unwrappedSpy, userProfileObject)
-        XCTAssertNil(userProfileErrorSpy)
     }
     
     func test_ShouldReturnNil_WhenDataIsInvalid() throws {
         let networkStub = NetworkClientFailureStub()
         let sut = FinanceService(networkClient: networkStub)
         
-        sut.fetchUserProfile { response, error in
-            self.userProfileSpy = response
-            self.userProfileErrorSpy = error
+        sut.fetchUserProfile { userProfile in
+            self.spy = userProfile
         }
         
-        let unwrappedError = try XCTUnwrap(userProfileErrorSpy)
-        
-        XCTAssertNil(self.userProfileSpy)
-        XCTAssertEqual(unwrappedError, .invalidData)
+        XCTAssertNil(spy)
     }
     
     func test_ShouldReturnError_WhenJsonIsInvalid() throws {
         let networkStub = NetworkClientSuccessStub(fileName: "user-profile-invalid-json")
         let sut = FinanceService(networkClient: networkStub)
         
-        sut.fetchUserProfile { response, error in
-            self.userProfileSpy = response
-            self.userProfileErrorSpy = error
+        sut.fetchUserProfile { userProfile in
+            self.spy = userProfile
         }
         
-        let unwrappedError = try XCTUnwrap(userProfileErrorSpy)
-        
-        XCTAssertNil(self.userProfileSpy)
-        XCTAssertEqual(unwrappedError, .parseJson)
+        XCTAssertNil(spy)
     }
 }
