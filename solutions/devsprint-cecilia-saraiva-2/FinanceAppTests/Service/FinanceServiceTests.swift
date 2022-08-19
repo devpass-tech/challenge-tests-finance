@@ -14,57 +14,40 @@ final class FinanceServiceTests: XCTestCase {
         let (sut, networkClient) = makeSut()
         let stringURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
         
-        let expectation = XCTestExpectation(description: "Wait request")
-        
         sut.fetchHomeData { _ in
-            XCTAssertTrue(networkClient.performRequestCalled)
             XCTAssertEqual(networkClient.calledMethods, [.performRequest(url: stringURL)])
-            expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
     }
 
     func test_fetchHomeData_shouldReturnNilWhenRequestReturnNil() {
         let (sut, networkClient) = makeSut()
-
-        let expectation = XCTestExpectation(description: "Wait request")
         
         sut.fetchHomeData { response in
-            XCTAssertTrue(networkClient.performRequestCalled)
+            XCTAssertTrue(networkClient.wasPerformRequestCalled)
             XCTAssertNil(response)
-            expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
     }
     
     func test_fetchHomeData_shouldReturnNilWhenRequestReturnEmptyData() {
         let (sut, networkClient) = makeSut(data: Data())
-
-        let expectation = XCTestExpectation(description: "Wait request")
         
         sut.fetchHomeData { response in
-            XCTAssertTrue(networkClient.performRequestCalled)
+            XCTAssertTrue(networkClient.wasPerformRequestCalled)
             XCTAssertNil(response)
-            expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
     }
     
     func test_fetchHomeData_shouldReturnHomeDataWhenRequestReturnCorrectData() throws {
-        let activity = ActivityCodable(name: "Market", price: 10.0, time: "12:00:00")
-        let homeData = HomeDataCodable(balance: 100.0, savings: 200.0, spending: 150, activity: [activity])
+        let activity = Activity(name: "Market", price: 10.0, time: "12:00:00")
+        let homeData = HomeData(balance: 100.0, savings: 200.0, spending: 150, activity: [activity])
         let encodedHomeData = try XCTUnwrap(JSONEncoder().encode(homeData))
         let (sut, networkClient) = makeSut(data: Data(encodedHomeData))
-
-        let expectation = XCTestExpectation(description: "Wait request")
         
         sut.fetchHomeData { response in
-            XCTAssertTrue(networkClient.performRequestCalled)
+            XCTAssertTrue(networkClient.wasPerformRequestCalled)
             XCTAssertEqual(response?.balance, 100.0)
             XCTAssertEqual(response?.activity.first?.name, "Market")
-            expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
     }
     
     private func makeSut(data: Data? = nil) -> (FinanceService, NetworkClientSpy) {
