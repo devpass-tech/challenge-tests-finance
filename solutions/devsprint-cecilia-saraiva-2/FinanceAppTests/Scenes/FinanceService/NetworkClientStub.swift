@@ -8,36 +8,28 @@ import Foundation
 
 @testable import FinanceApp
 
-final class NetworkClientSuccessStub: NetworkClientProtocol {
+final class NetworkClientStub: NetworkClientProtocol {
     let fileName: String
-    var url: URL
-    var callCount: Int = 0
+    var url: URL?
+    private(set) var performRequestCount: Int = 0
+    var isRequestSuccess: Bool
     
-    init(fileName: String, url: URL) {
+    init(fileName: String, url: URL?, isRequestSuccess: Bool) {
         self.fileName = fileName
         self.url = url
+        self.isRequestSuccess = isRequestSuccess
     }
 
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
         self.url = url
-        self.callCount += 1
+        self.performRequestCount += 1
         
         let data = JSONHelper().loadDataFrom(fileName: fileName)
-        completion(data)
-    }
-}
-
-final class NetworkClientFailureStub: NetworkClientProtocol {
-    var url: URL
-    var callCount: Int?
-    
-    init(url: URL) {
-        self.url = url
-    }
-
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        self.url = url
-        self.callCount = 1
-        completion(nil)
+        
+        if isRequestSuccess {
+            completion(data)
+        } else {
+            completion(nil)
+        }
     }
 }

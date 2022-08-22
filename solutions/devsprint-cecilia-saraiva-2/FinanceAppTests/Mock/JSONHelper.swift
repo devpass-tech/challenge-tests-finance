@@ -9,7 +9,7 @@ import Foundation
 struct JSONHelper {
     func loadJsonFrom<T: Codable>(fileName: String, type: T.Type) -> T? {
         let path = Bundle.main.path(forResource: fileName, ofType: "json")
-        let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
+        guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path!)) else { return nil }
         if let objDecoded = try? JSONDecoder().decode(T.self, from: jsonData) {
             return objDecoded
         }
