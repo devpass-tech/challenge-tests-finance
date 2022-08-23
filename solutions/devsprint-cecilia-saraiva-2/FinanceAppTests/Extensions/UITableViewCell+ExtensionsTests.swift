@@ -8,9 +8,9 @@
 import XCTest
 @testable import FinanceApp
 
-class DummyTableViewCell: UITableViewCell {}
+final class DummyTableViewCell: UITableViewCell {}
 
-class UITableViewCell_ExtensionsTests: XCTestCase {
+final class UITableViewCell_ExtensionsTests: XCTestCase {
     
     func testClassIdentifier() {
         

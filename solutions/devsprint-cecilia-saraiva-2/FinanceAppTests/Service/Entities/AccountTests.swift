@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class AccountTests: XCTestCase {
+final class AccountTests: XCTestCase {
 
     func testFormattedAgency() {
         
