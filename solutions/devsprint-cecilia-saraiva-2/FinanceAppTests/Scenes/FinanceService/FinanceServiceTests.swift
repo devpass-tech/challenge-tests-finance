@@ -33,7 +33,7 @@ final class FinanceServiceTests: XCTestCase {
         self.url = nil
     }
 
-    func test_ShouldReturnUserProfileData_WhenFetchUserProfileIsCalled() throws {
+    func test_FetchUserProfile_WhenIsCalledWithSuccess_ShouldReturnUserProfileData() throws {
         let (sut, networkStub) = makeSUT(fileName: "user-profile", url: url, isRequestSuccess: true)
 
         sut.fetchUserProfile { userProfile in
@@ -47,7 +47,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(networkStub.url, url)
     }
 
-    func test_ShouldReturnNil_WhenFetchUserProfileIsCalledWithInvalidData() throws {
+    func test_FetchUserProfile_WhenIsCalledWithInvalidData_ShouldReturnNil() throws {
         let (sut, networkStub) = makeSUT(fileName: "", url: url, isRequestSuccess: false)
 
         sut.fetchUserProfile { userProfile in
@@ -59,7 +59,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(networkStub.url, url)
     }
 
-    func test_ShouldReturnNil_WhenFetchUserProfileIsCalledAndJsonIsInvalid() throws {
+    func test_FetchUserProfile_WhenIsCalledWithInvalidJSON_ShouldReturnNil() throws {
         let (sut, networkStub) = makeSUT(fileName: "user-profile-invalid", url: url, isRequestSuccess: true)
 
         sut.fetchUserProfile { userProfile in
