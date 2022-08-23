@@ -9,10 +9,10 @@ import XCTest
 @testable import FinanceApp
 
 final class FinanceServiceTests: XCTestCase {
+    let stringURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
     
     func test_fetchHomeData_shouldnCallWithCorrectURLWhenCalled() {
         let (sut, networkClient) = makeSUT()
-        let stringURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
         
         sut.fetchHomeData { _ in }
         
@@ -27,7 +27,7 @@ final class FinanceServiceTests: XCTestCase {
             out = response
         }
         
-        XCTAssertTrue(networkClient.wasPerformRequestCalled)
+        XCTAssertEqual(networkClient.calledMethods, [.performRequest(url: stringURL)])
         XCTAssertNil(out)
     }
     
@@ -39,7 +39,7 @@ final class FinanceServiceTests: XCTestCase {
             out = response
         }
         
-        XCTAssertTrue(networkClient.wasPerformRequestCalled)
+        XCTAssertEqual(networkClient.calledMethods, [.performRequest(url: stringURL)])
         XCTAssertNil(out)
     }
     
@@ -54,9 +54,8 @@ final class FinanceServiceTests: XCTestCase {
             out = response
         }
         
-        XCTAssertTrue(networkClient.wasPerformRequestCalled)
-        XCTAssertEqual(out?.balance, 100.0)
-        XCTAssertEqual(out?.activity.first?.name, "Market")
+        XCTAssertEqual(networkClient.calledMethods, [.performRequest(url: stringURL)])
+        XCTAssertEqual(out, homeData)
     }
 }
 
@@ -66,5 +65,17 @@ private extension FinanceServiceTests {
         let sut = FinanceService(networkClient: networkClient)
         
         return (sut, networkClient)
+    }
+}
+
+extension HomeData: Equatable {
+    public static func == (lhs: HomeData, rhs: HomeData) -> Bool {
+        lhs.balance == rhs.balance && lhs.spending == rhs.spending && lhs.activity == rhs.activity && lhs.savings == rhs.savings
+    }
+}
+
+extension Activity: Equatable {
+    public static func == (lhs: Activity, rhs: Activity) -> Bool {
+        lhs.name == rhs.name && lhs.price == rhs.price && lhs.time == rhs.time
     }
 }

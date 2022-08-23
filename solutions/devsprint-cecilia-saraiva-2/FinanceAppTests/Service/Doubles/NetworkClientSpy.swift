@@ -19,10 +19,8 @@ final class NetworkClientSpy: NetworkClientProtocol {
     init(data: Data?) {
         self.dataToBeReturned = data
     }
-    
-    private(set) var wasPerformRequestCalled = false
+
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        wasPerformRequestCalled = true
         calledMethods.append(.performRequest(url: url.absoluteString))
         completion(dataToBeReturned)
     }
