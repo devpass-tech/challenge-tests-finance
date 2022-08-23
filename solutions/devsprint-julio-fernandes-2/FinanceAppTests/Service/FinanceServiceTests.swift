@@ -19,7 +19,7 @@ final class FinanceServiceTests: XCTestCase {
         url = nil
     }
     
-    func test_FetchActivityDetails_succeeds_whenDataIsValid() {
+    func test_FetchActivityDetails_succeeds_whenJSONIsValid() {
         let expectedActivityDetails = ActivityDetails(name: "Marvel", price: 10.00, category: "Movie", time: "21:00")
         let networkClient = NetworkClientSuccessStub(fileName: "ActivityDetails")
         let sut = FinanceService(networkClient: networkClient)
@@ -35,7 +35,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(networkClient.url, self.url)
     }
     
-    func test_FetchActivityDetails_fails_whenDataIsEmpty() {
+    func test_fetchActivityDetails_whenNetworkingReturnsNilData_returnsNil() {
         let networkClient = NetworkClientFailureStub()
         let sut = FinanceService(networkClient: networkClient)
         
@@ -50,7 +50,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(networkClient.url, self.url)
     }
     
-    func test_fetchActivityDetails_fails_whenDataIsInvalid() {
+    func test_fetchActivityDetails_whenJsonDecoderFails_returnsNil() {
         let networkClient = NetworkClientSuccessStub(fileName: "ActivityDetailsInvalid")
         let sut = FinanceService(networkClient: networkClient)
         var actualActivityDetails: ActivityDetails?
