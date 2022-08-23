@@ -8,18 +8,10 @@
 import XCTest
 @testable import FinanceApp
 
-final class FinanceServiceTests: XCTestCase {
+final class FinanceServiceTestsWithSpy: XCTestCase {
     let stringURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json"
-    
-    func test_fetchHomeData_shouldnCallWithCorrectURLWhenCalled() {
-        let (sut, networkClient) = makeSUT()
-        
-        sut.fetchHomeData { _ in }
-        
-        XCTAssertEqual(networkClient.calledMethods, [.performRequest(url: stringURL)])
-    }
 
-    func test_fetchHomeData_shouldReturnNilWhenRequestReturnNil() {
+    func test_fetchHomeData_WhenRequestReturnNilShouldReturnNil() {
         let (sut, networkClient) = makeSUT()
         var out: HomeData?
         
@@ -31,7 +23,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertNil(out)
     }
     
-    func test_fetchHomeData_shouldReturnNilWhenRequestReturnEmptyData() {
+    func test_fetchHomeData_WhenDecodedFailShouldReturnNil() {
         let (sut, networkClient) = makeSUT(data: Data())
         var out: HomeData?
         
@@ -59,7 +51,7 @@ final class FinanceServiceTests: XCTestCase {
     }
 }
 
-private extension FinanceServiceTests {
+private extension FinanceServiceTestsWithSpy {
     func makeSUT(data: Data? = nil) -> (FinanceService, NetworkClientSpy) {
         let networkClient = NetworkClientSpy(data: data)
         let sut = FinanceService(networkClient: networkClient)
