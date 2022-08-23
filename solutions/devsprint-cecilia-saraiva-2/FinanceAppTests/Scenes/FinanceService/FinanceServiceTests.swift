@@ -11,7 +11,7 @@ import XCTest
 
 final class FinanceServiceTests: XCTestCase {
 
-    var spy: UserProfile?
+    var out: UserProfile?
     var userProfileObject: UserProfile?
     var url: URL?
     var callCount = 0
@@ -27,53 +27,53 @@ final class FinanceServiceTests: XCTestCase {
     }
     
     override func tearDown() {
-        self.spy = nil
+        self.out = nil
         self.callCount = 0
         self.userProfileObject = nil
         self.url = nil
     }
 
-    func test_ShouldReturnUserProfileData() throws {
-        let (sut, networkStub) = makeSut(fileName: "user-profile", url: url, isRequestSuccess: true)
+    func test_ShouldReturnUserProfileData_WhenFetchUserProfileIsCalled() throws {
+        let (sut, networkStub) = makeSUT(fileName: "user-profile", url: url, isRequestSuccess: true)
 
         sut.fetchUserProfile { userProfile in
-            self.spy = userProfile
+            self.out = userProfile
         }
 
-        let unwrappedSpy = try XCTUnwrap(spy)
+        let unwrappedOut = try XCTUnwrap(out)
 
-        XCTAssertEqual(unwrappedSpy, userProfileObject)
+        XCTAssertEqual(unwrappedOut, userProfileObject)
         XCTAssertEqual(networkStub.performRequestCount, 1)
         XCTAssertEqual(networkStub.url, url)
     }
 
-    func test_ShouldReturnNil_WhenDataIsInvalid() throws {
-        let (sut, networkStub) = makeSut(fileName: "", url: url, isRequestSuccess: false)
+    func test_ShouldReturnNil_WhenFetchUserProfileIsCalledWithInvalidData() throws {
+        let (sut, networkStub) = makeSUT(fileName: "", url: url, isRequestSuccess: false)
 
         sut.fetchUserProfile { userProfile in
-            self.spy = userProfile
+            self.out = userProfile
         }
 
-        XCTAssertNil(spy)
+        XCTAssertNil(out)
         XCTAssertEqual(networkStub.performRequestCount, 1)
         XCTAssertEqual(networkStub.url, url)
     }
 
-    func test_ShouldReturnError_WhenJsonIsInvalid() throws {
-        let (sut, networkStub) = makeSut(fileName: "user-profile-invalid", url: url, isRequestSuccess: true)
+    func test_ShouldReturnNil_WhenFetchUserProfileIsCalledAndJsonIsInvalid() throws {
+        let (sut, networkStub) = makeSUT(fileName: "user-profile-invalid", url: url, isRequestSuccess: true)
 
         sut.fetchUserProfile { userProfile in
-            self.spy = userProfile
+            self.out = userProfile
         }
 
-        XCTAssertNil(spy)
+        XCTAssertNil(out)
         XCTAssertEqual(networkStub.performRequestCount, 1)
         XCTAssertEqual(networkStub.url, url)
     }
 }
 
 extension FinanceServiceTests {
-    private func makeSut(fileName: String, url: URL?, isRequestSuccess: Bool) -> (FinanceService, NetworkClientStub) {
+    private func makeSUT(fileName: String, url: URL?, isRequestSuccess: Bool) -> (FinanceService, NetworkClientStub) {
         let networkStub = NetworkClientStub(fileName: fileName, url: url, isRequestSuccess: isRequestSuccess)
         let sut = FinanceService(networkClient: networkStub)
         return (sut, networkStub)
