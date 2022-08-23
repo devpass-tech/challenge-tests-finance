@@ -31,7 +31,7 @@ final class FinanceServiceTests: XCTestCase {
         }
         
         XCTAssertEqual(actualActivityDetails, expectedActivityDetails)
-        XCTAssert(networkClient.callCount == 1)
+        XCTAssertEqual(networkClient.callCount, 1)
         XCTAssertEqual(networkClient.url, self.url)
     }
     
@@ -46,7 +46,7 @@ final class FinanceServiceTests: XCTestCase {
         }
         
         XCTAssertNil(actualActivityDetails)
-        XCTAssert(networkClient.callCount == 1)
+        XCTAssertEqual(networkClient.callCount, 1)
         XCTAssertEqual(networkClient.url, self.url)
     }
     
@@ -60,7 +60,7 @@ final class FinanceServiceTests: XCTestCase {
         }
         
         XCTAssertNil(actualActivityDetails)
-        XCTAssert(networkClient.callCount == 1)
+        XCTAssertEqual(networkClient.callCount, 1)
         XCTAssertEqual(networkClient.url, self.url)
     }
 }

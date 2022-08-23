@@ -5,12 +5,11 @@
 //  Created by Henrique Augusto on 16/08/22.
 //
 import Foundation
-
 @testable import FinanceApp
 
 final class NetworkClientSuccessStub: NetworkClientProtocol {
     var fileName: String
-    var url: URL!
+    var url: URL?
     var callCount = 0
 
     init(fileName: String) {
@@ -23,17 +22,5 @@ final class NetworkClientSuccessStub: NetworkClientProtocol {
         
         let data = JSONHelper().loadDataFrom(fileName: fileName)
         completion(data)
-    }
-}
-
-final class NetworkClientFailureStub: NetworkClientProtocol {
-    var url: URL!
-    var callCount = 0
-    
-    func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
-        self.url = url
-        self.callCount += 1
-        
-        completion(nil)
     }
 }
