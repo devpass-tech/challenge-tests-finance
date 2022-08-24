@@ -618,13 +618,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				9F3FE55128B6CD7500D21CE6 /* ActivityDetailsInvalid.json in Resources */,
 				9F3FE54F28B6CD5E00D21CE6 /* ActivityDetails.json in Resources */,
-=======
 				BE12099E28AEE96500B0EC30 /* user-profile.json in Resources */,
 				BE12099C28AEE95500B0EC30 /* user-profile-invalid.json in Resources */,
->>>>>>> 1ab5ba0b7b6976dff4247800fa468018e7adc063
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,22 +768,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				9F3FE55328B6CD9100D21CE6 /* JSONHelper.swift in Sources */,
 				9F3FE54628B6CCA000D21CE6 /* FinanceServiceTests.swift in Sources */,
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
 				8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 				9F3FE54D28B6CD3D00D21CE6 /* NetworkClientFailureStub.swift in Sources */,
 				9F3FE54B28B6CD2800D21CE6 /* NetworkClientSuccessStub.swift in Sources */,
-=======
 				1E8E8F9528AC479C002D3AF5 /* FinanceServiceTestsWithSpy.swift in Sources */,
 				1E8E8F9A28AC595B002D3AF5 /* NetworkClientSpy.swift in Sources */,
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
 				BE12099628AEE91900B0EC30 /* NetworkClientStub.swift in Sources */,
 				BE12099428AEE90900B0EC30 /* FinanceServiceTests.swift in Sources */,
 				BE12099A28AEE93500B0EC30 /* JSONHelper.swift in Sources */,
->>>>>>> 1ab5ba0b7b6976dff4247800fa468018e7adc063
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
