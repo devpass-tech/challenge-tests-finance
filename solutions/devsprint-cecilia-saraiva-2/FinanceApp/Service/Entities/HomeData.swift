@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct HomeData: Decodable {
+struct HomeData: Codable {
 
     let balance: Float
     let savings: Float
     let spending: Float
     let activity: [Activity]
 }
+

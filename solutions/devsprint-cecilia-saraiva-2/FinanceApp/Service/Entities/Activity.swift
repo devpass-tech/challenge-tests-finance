@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity: Decodable {
+struct Activity: Codable {
     let name: String
     let price: Float
     let time: String
