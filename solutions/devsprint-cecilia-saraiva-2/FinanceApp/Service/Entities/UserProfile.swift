@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserProfile: Decodable {
+struct UserProfile: Codable, Equatable {
 
     let name: String
     let phone: String
