@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeData: Decodable {
+struct HomeData: Codable {
 
     let balance: Float
     let savings: Float
@@ -15,16 +15,3 @@ struct HomeData: Decodable {
     let activity: [Activity]
 }
 
-struct Activity: Decodable {
-    let name: String
-    let price: Float
-    let time: String
-}
-
-extension Activity {
-
-    func formattedInfo() -> String {
-
-        return "$\(price) • \(time)"
-    }
-}

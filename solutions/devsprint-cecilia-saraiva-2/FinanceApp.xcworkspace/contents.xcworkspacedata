@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+<<<<<<< HEAD
+=======
+   <FileRef
+      location = "group:FinanceApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+>>>>>>> ee82c4e5be3f56267c0f65d7df7d9d1c22c3a0a0
 </Workspace>
