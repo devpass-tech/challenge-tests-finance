@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-final class FinanceServiceTests: XCTestCase {
+final class FetchContactListTests: XCTestCase {
     
     private let networkClient = NetworkClientMock()
     private lazy var mock = FinanceService(networkClient: networkClient)
