@@ -11,6 +11,8 @@
 		2FAB0F199D0FEC3EAA7D4C55 /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3490540DA6955CCB91F4A7F /* Pods_FinanceAppTests.framework */; };
 		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
 		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
+/* Begin PBXBuildFile section */
+		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
 		8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */; };
 		8B6B345D28AFA85F00A901D4 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345C28AFA85F00A901D4 /* FinanceServiceTests.swift */; };
 		8B6B345F28AFB80900A901D4 /* Contact+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345E28AFB80900A901D4 /* Contact+Extensions.swift */; };
@@ -214,6 +216,7 @@
 			);
 			path = Service;
 		sourceTree = "<group>";
+sourceTree = "<group>";
 		};
 		1E8E8F9328AC477D002D3AF5 /* Service */ = {
 			isa = PBXGroup;
