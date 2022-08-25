@@ -15,9 +15,7 @@ final class DummyViewController: UIViewController {
 final class UIViewController_ExtensionsTests: XCTestCase {
 
     func testInsideNavigationController() {
-        
-        let test = ""
-        
+                
         let sut = DummyViewController()
         
         let navigationController = sut.insideNavigationController()
