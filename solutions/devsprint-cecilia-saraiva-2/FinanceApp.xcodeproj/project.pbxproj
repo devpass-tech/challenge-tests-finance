@@ -15,6 +15,9 @@
 		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
 		8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */; };
 		8B6B345D28AFA85F00A901D4 /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345C28AFA85F00A901D4 /* FinanceServiceTests.swift */; };
+		720EA53128B0372000BB9D68 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EA53028B0372000BB9D68 /* Activity.swift */; };
+		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
+		8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */; };
 		8B6B345F28AFB80900A901D4 /* Contact+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345E28AFB80900A901D4 /* Contact+Extensions.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -22,6 +25,7 @@
 		98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6E277E32C30028DBEA /* SceneDelegate.swift */; };
 		98584A76277E32C50028DBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98584A75277E32C50028DBEA /* Assets.xcassets */; };
 		98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98584A77277E32C50028DBEA /* LaunchScreen.storyboard */; };
+		98584A84277E32C60028DBEA /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A83277E32C60028DBEA /* ActivityTests.swift */; };
 		98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */; };
 		98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */; };
 		98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA4277E35E90028DBEA /* HomeViewController.swift */; };
@@ -93,6 +97,7 @@
 		656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		656944AA28B506E50056C8CC /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		698C4E6C63384A457C4043AA /* Pods_FinanceApp_FinanceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp_FinanceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		720EA53028B0372000BB9D68 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		82264BA78141C17FA0C3E246 /* Pods_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DAA04234798D5966E0C7BB /* Pods-FinanceApp-FinanceAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FinanceApp-FinanceAppUITests/Pods-FinanceApp-FinanceAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ExtensionsTests.swift"; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		98584A78277E32C50028DBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98584A7A277E32C50028DBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98584A83277E32C60028DBEA /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
 		98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITests.swift; sourceTree = "<group>"; };
 		98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -188,6 +194,10 @@
 				656944F828B818470056C8CC /* Entities */,
 				1E8E8F9628AC5926002D3AF5 /* Doubles */,
 				1E8E8F9428AC479C002D3AF5 /* FinanceServiceTestsWithSpy.swift */,
+				720EA53328B0374A00BB9D68 /* Entities */,
+				1E8E8F9628AC5926002D3AF5 /* Doubles */,
+				1E8E8F9428AC479C002D3AF5 /* FinanceServiceTestsWithSpy.swift */,
+				8B6B345E28AFB80900A901D4 /* Contact+Extensions.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -198,6 +208,22 @@
 				1E8E8F9928AC595B002D3AF5 /* NetworkClientSpy.swift */,
 			);
 			path = Doubles;
+			sourceTree = "<group>";
+		};
+		656944F028B654AD0056C8CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		720EA53328B0374A00BB9D68 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				98584A83277E32C60028DBEA /* ActivityTests.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		656944F828B818470056C8CC /* Entities */ = {
@@ -243,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */,
+				BE12099828AEE92C00B0EC30 /* JSON */,
+				BE12099928AEE93500B0EC30 /* JSONHelper.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -296,9 +324,9 @@
 			children = (
 				656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */,
 				8B6B345B28AFA83B00A901D4 /* Service */,
+				656944F028B654AD0056C8CC /* Extensions */,
 				8B6B345828AFA72E00A901D4 /* Mock */,
 				8B6B345528AEE93200A901D4 /* Extensions */,
-				BE12099728AEE92400B0EC30 /* Mock */,
 				BE116F2F28AAF3BA00CB3F1A /* Scenes */,
 				1E8E8F9328AC477D002D3AF5 /* Service */,
 			);
@@ -371,6 +399,7 @@
 		98584AC1277E42CB0028DBEA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				720EA53028B0372000BB9D68 /* Activity.swift */,
 				9882465727D013A3001DD0C5 /* HomeData.swift */,
 				9882465927D013B4001DD0C5 /* ActivityDetails.swift */,
 				9882465B27D013C1001DD0C5 /* Contact.swift */,
@@ -474,15 +503,6 @@
 				BE12099528AEE91900B0EC30 /* NetworkClientStub.swift */,
 			);
 			path = FinanceService;
-			sourceTree = "<group>";
-		};
-		BE12099728AEE92400B0EC30 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				BE12099828AEE92C00B0EC30 /* JSON */,
-				BE12099928AEE93500B0EC30 /* JSONHelper.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		BE12099828AEE92C00B0EC30 /* JSON */ = {
@@ -732,6 +752,7 @@
 				9882465C27D013C1001DD0C5 /* Contact.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
+				720EA53128B0372000BB9D68 /* Activity.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				9882466027D013E1001DD0C5 /* UserProfile.swift in Sources */,
@@ -774,13 +795,16 @@
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
 				656944AB28B506E50056C8CC /* AccountTests.swift in Sources */,
 				656944A928B5015B0056C8CC /* UIViewController+ExtensionsTests.swift in Sources */,
+				656944A928B5015B0056C8CC /* UIViewController+ExtensionsTests.swift in Sources */,
+				8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */,
 				8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */,
 				8B6B345F28AFB80900A901D4 /* Contact+Extensions.swift in Sources */,
-				8B6B345D28AFA85F00A901D4 /* FinanceServiceTests.swift in Sources */,
 				8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */,
+				98584A84277E32C60028DBEA /* ActivityTests.swift in Sources */,
 				BE12099628AEE91900B0EC30 /* NetworkClientStub.swift in Sources */,
 				BE12099428AEE90900B0EC30 /* FinanceServiceTests.swift in Sources */,
 				BE12099A28AEE93500B0EC30 /* JSONHelper.swift in Sources */,
+				98584A84277E32C60028DBEA /* ActivityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
