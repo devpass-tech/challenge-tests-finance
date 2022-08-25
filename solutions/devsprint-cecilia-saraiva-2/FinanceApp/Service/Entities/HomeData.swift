@@ -15,16 +15,3 @@ struct HomeData: Codable {
     let activity: [Activity]
 }
 
-struct Activity: Codable {
-    let name: String
-    let price: Float
-    let time: String
-}
-
-extension Activity {
-
-    func formattedInfo() -> String {
-
-        return "$\(price) • \(time)"
-    }
-}
