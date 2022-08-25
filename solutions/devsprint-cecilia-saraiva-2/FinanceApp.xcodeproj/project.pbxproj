@@ -6,6 +6,11 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXBuildFile section */		656944A928B5015B0056C8CC /* UIViewController+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */; };
+
+		2FAB0F199D0FEC3EAA7D4C55 /* Pods_FinanceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3490540DA6955CCB91F4A7F /* Pods_FinanceAppTests.framework */; };
+		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
+		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
 /* Begin PBXBuildFile section */
 		8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */; };
 		8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */; };
@@ -84,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		8B6B345628AEE96000A901D4 /* Strings+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		8B6B345928AFA74A00A901D4 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
 		8B6B345C28AFA85F00A901D4 /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
@@ -178,6 +184,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		656944F028B654AD0056C8CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				656944A828B5015B0056C8CC /* UIViewController+ExtensionsTests.swift */,
+		);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8B6B345528AEE93200A901D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +215,7 @@
 				8B6B345E28AFB80900A901D4 /* Contact+Extensions.swift */,
 			);
 			path = Service;
+		sourceTree = "<group>";
 sourceTree = "<group>";
 		};
 		1E8E8F9328AC477D002D3AF5 /* Service */ = {
@@ -281,6 +296,7 @@ sourceTree = "<group>";
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				656944F028B654AD0056C8CC /* Extensions */,
 				8B6B345B28AFA83B00A901D4 /* Service */,
 				8B6B345828AFA72E00A901D4 /* Mock */,
 				8B6B345528AEE93200A901D4 /* Extensions */,
@@ -758,6 +774,8 @@ sourceTree = "<group>";
 				1E8E8F9528AC479C002D3AF5 /* FinanceServiceTestsWithSpy.swift in Sources */,
 				1E8E8F9A28AC595B002D3AF5 /* NetworkClientSpy.swift in Sources */,
 				BE116F3128AAF3CB00CB3F1A /* FormattedAccount.swift in Sources */,
+				656944A928B5015B0056C8CC /* UIViewController+ExtensionsTests.swift in Sources */,
+				8B6B345728AEE96000A901D4 /* Strings+ExtensionsTests.swift in Sources */,
 				8B6B345A28AFA74A00A901D4 /* NetworkClientMock.swift in Sources */,
 				8B6B345F28AFB80900A901D4 /* Contact+Extensions.swift in Sources */,
 				8B6B345D28AFA85F00A901D4 /* FinanceServiceTests.swift in Sources */,
