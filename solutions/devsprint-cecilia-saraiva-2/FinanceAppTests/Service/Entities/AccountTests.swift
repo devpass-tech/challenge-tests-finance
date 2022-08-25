@@ -16,7 +16,7 @@ final class AccountTests: XCTestCase {
         
         let formattedAgency = account.formattedAgency()
         
-        let test = "Agency: 1"
+        let expectedResult = "Agency: 1"
         
         XCTAssertEqual(formattedAgency, test)
     }
