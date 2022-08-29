@@ -44,6 +44,7 @@ class HomeView: UIView {
     init() {
         super.init(frame: .zero)
 
+        self.accessibilityIdentifier = "HomeView"
         backgroundColor = .white
 
         stackView.addArrangedSubview(homeHeaderView)

@@ -78,13 +78,15 @@ class ActivityDetailsView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
+        button.accessibilityIdentifier = "ReportAnIssueButton"
         return button
     }()
 
 
     init() {
         super.init(frame: .zero)
-
+        
+        self.accessibilityIdentifier = "ActivityDetailsView"
         backgroundColor = .white
 
         priceContainerView.addSubview(priceLabel)
