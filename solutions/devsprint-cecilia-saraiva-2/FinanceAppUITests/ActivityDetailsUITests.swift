@@ -21,13 +21,13 @@ final class ActivityDetailsUITests: XCTestCase {
         cell.tap()
     }
     
-    func testNavigateToActivityDetails() throws {
+    func testNavigateToActivityDetails() {
         tapOnActivityCell()
         XCTAssert(app.otherElements["ActivityDetailsView"].exists)
         XCTAssert(app.buttons["ReportAnIssueButton"].exists)
     }
     
-    func testNavigationBackFromActivityDetails() throws {
+    func testNavigationBackFromActivityDetails() {
         tapOnActivityCell()
         let backButton = app.navigationBars["FinanceApp.ActivityDetailsView"].buttons["Back"]
         backButton.tap()
