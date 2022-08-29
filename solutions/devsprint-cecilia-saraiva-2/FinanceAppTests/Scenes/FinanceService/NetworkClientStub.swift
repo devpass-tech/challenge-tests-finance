@@ -14,7 +14,7 @@ final class NetworkClientStub: NetworkClientProtocol {
     private(set) var performRequestCount: Int = 0
     var isRequestSuccess: Bool
     
-    init(fileName: String, url: URL?, isRequestSuccess: Bool) {
+    init(fileName: String = "", url: URL? = nil, isRequestSuccess: Bool) {
         self.fileName = fileName
         self.url = url
         self.isRequestSuccess = isRequestSuccess
