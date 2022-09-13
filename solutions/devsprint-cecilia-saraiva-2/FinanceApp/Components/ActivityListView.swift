@@ -27,6 +27,7 @@ class ActivityListView: UIView {
         tableView.register(ActivityCellView.self, forCellReuseIdentifier: self.cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.accessibilityIdentifier = "ActivityTableView"
         return tableView
     }()
 
@@ -38,6 +39,7 @@ class ActivityListView: UIView {
         configureConstraints()
 
         tableView.reloadData()
+        self.accessibilityIdentifier = "ActivityListView"
     }
 
     required init?(coder: NSCoder) {
@@ -74,7 +76,8 @@ extension ActivityListView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-
+        cell.accessibilityIdentifier = "\(ActivityCellView.classIdentifier())\(indexPath.row)"
+        
         return cell
     }
 }

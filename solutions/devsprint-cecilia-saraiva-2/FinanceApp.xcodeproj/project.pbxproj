@@ -54,6 +54,7 @@
 		9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */; };
 		98E0E87828299D7E00560502 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87728299D7E00560502 /* GitHubAPI.swift */; };
 		98E0E87B28299EB400560502 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E87A28299EB400560502 /* RepositoryListViewController.swift */; };
+		9F3FE55D28B81C3100D21CE6 /* ActivityDetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FE55C28B81C3100D21CE6 /* ActivityDetailsUITests.swift */; };
 		9F137C3E28BD4F50006B3CBD /* FetchContactListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F137C3D28BD4F50006B3CBD /* FetchContactListTests.swift */; };
 		9F3FE55828B800E500D21CE6 /* ActivityDetailsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F3FE55628B800E500D21CE6 /* ActivityDetailsInvalid.json */; };
 		9F3FE55928B800E500D21CE6 /* ActivityDetailsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F3FE55628B800E500D21CE6 /* ActivityDetailsInvalid.json */; };
@@ -146,6 +147,7 @@
 		9882466827D13DE2001DD0C5 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		98E0E87728299D7E00560502 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		98E0E87A28299EB400560502 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		9F3FE55C28B81C3100D21CE6 /* ActivityDetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsUITests.swift; sourceTree = "<group>"; };
 		9F137C3D28BD4F50006B3CBD /* FetchContactListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchContactListTests.swift; sourceTree = "<group>"; };
 		9F3FE55628B800E500D21CE6 /* ActivityDetailsInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityDetailsInvalid.json; sourceTree = "<group>"; };
 		9F3FE55728B800E500D21CE6 /* ActivityDetails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityDetails.json; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			children = (
 				98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */,
 				98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */,
+				9F3FE55C28B81C3100D21CE6 /* ActivityDetailsUITests.swift */,
 			);
 			path = FinanceAppUITests;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 			files = (
 				98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */,
 				98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */,
+				9F3FE55D28B81C3100D21CE6 /* ActivityDetailsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,7 +873,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -924,7 +928,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
