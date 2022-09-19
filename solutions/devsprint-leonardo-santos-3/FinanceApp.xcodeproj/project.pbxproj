@@ -400,7 +400,7 @@
 		FDEA36C528D8C9C7008BB89F /* TestUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FDEA36D228D92276008BB89F /* Fixtures */,
+				FDEA36D328D923FE008BB89F /* Fixtures */,
 				FDEA36C428D8C9BF008BB89F /* Doubles */,
 			);
 			path = TestUtils;
@@ -414,7 +414,7 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
-		FDEA36D228D92276008BB89F /* Fixtures */ = {
+		FDEA36D328D923FE008BB89F /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
 			);
