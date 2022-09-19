@@ -400,17 +400,10 @@
 		FDEA36C528D8C9C7008BB89F /* TestUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FDEA36C628D8C9D9008BB89F /* Fixtures */,
+				FDEA36D228D92276008BB89F /* Fixtures */,
 				FDEA36C428D8C9BF008BB89F /* Doubles */,
 			);
 			path = TestUtils;
-			sourceTree = "<group>";
-		};
-		FDEA36C628D8C9D9008BB89F /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		FDEA36CD28D8CCDA008BB89F /* ContactList */ = {
@@ -419,6 +412,13 @@
 				FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		FDEA36D228D92276008BB89F /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
