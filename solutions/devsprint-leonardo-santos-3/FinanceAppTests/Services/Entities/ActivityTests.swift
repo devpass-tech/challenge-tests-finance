@@ -2,16 +2,14 @@ import XCTest
 
 @testable import FinanceApp
 
-final class ActivityTests:XCTestCase {
-    let sut = Activity(name: "Atividade de teste", price: 2, time: "1")
-    
+final class ActivityTests: XCTestCase {
+    private let sut = Activity(name: "Atividade de teste", price: 2, time: "1")
     
     func test_formattedInfo_shouldReturnFormattedActivityInfo(){
-        let formattedInfo = sut.formattedInfo()
+        let expectedFormattedInfo = sut.formattedInfo()
         
-        
-        XCTAssertNotNil(formattedInfo)
-        XCTAssertEqual(formattedInfo, "$\(sut.price) • \(sut.time)")
+        XCTAssertNotNil(expectedFormattedInfo)
+        XCTAssertEqual(expectedFormattedInfo, "$\(sut.price) • \(sut.time)")
     }
     
 }
