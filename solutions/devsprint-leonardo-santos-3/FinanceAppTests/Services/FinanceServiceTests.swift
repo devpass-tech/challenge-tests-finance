@@ -77,4 +77,17 @@ class FinanceServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    func test_fetch_ActivityDetailsURL() {
+        let expectation = expectation(description: "Waiting request")
+        let networkClientSpy = NetworkClientSpy()
+        let sut = FinanceService(networkClient: networkClientSpy)
+        let expectedURL = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")!
+
+        sut.fetchActivityDetails { response in
+            XCTAssertEqual(networkClientSpy.url, expectedURL)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
