@@ -30,4 +30,17 @@ class FinanceServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    func test_fetch_ActivityDetailsCountingOnePerformRequest() {
+        let expectation = expectation(description: "Waiting request")
+        let networkClientSpy = NetworkClientSpy()
+        let sut = FinanceService(networkClient: networkClientSpy)
+
+        sut.fetchActivityDetails { response in
+
+            XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
