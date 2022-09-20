@@ -64,4 +64,17 @@ class FinanceServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    func test_fetch_ActivityDetailsDataNil() {
+        let expectation = expectation(description: "Waiting request")
+        let networkClientSpy = NetworkClientSpy()
+        networkClientSpy.completionData = nil
+        let sut = FinanceService(networkClient: networkClientSpy)
+
+        sut.fetchActivityDetails { response in
+            XCTAssertNil(response)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
