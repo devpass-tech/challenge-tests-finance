@@ -3,7 +3,7 @@ import XCTest
 
 @testable import FinanceApp
 
-class FinanceServiceTests: XCTestCase {
+final class FinanceServiceTests: XCTestCase {
 
     func test_fetch_ActivityDetailsSuccess() {
         let expectation = expectation(description: "Waiting request")
