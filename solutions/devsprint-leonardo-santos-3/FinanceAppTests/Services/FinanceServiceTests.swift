@@ -43,4 +43,25 @@ class FinanceServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    func test_fetch_ActivityDetailsParsePriceFails() {
+        let expectation = expectation(description: "Waiting request")
+        let networkClientSpy = NetworkClientSpy()
+        let givenJSON = """
+        {
+          "name": "Mall",
+          "category": "Shopping",
+          "price": "100.0",
+          "time": "8:57 AM"
+        }
+        """
+        networkClientSpy.completionData = givenJSON.data(using: .utf8)
+        let sut = FinanceService(networkClient: networkClientSpy)
+
+        sut.fetchActivityDetails { response in
+            XCTAssertNil(response)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
