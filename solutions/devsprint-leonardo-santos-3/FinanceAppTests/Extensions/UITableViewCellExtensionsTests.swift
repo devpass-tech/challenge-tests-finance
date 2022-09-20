@@ -3,7 +3,7 @@ import XCTest
 
 @testable import FinanceApp
 
-class UITableViewExtensionTests: XCTestCase {
+final class UITableViewExtensionTests: XCTestCase {
 
     func test_classIdentifier_EqualToTableViewCellName() {
         let givenIdentifier = UITableViewCell.classIdentifier()
