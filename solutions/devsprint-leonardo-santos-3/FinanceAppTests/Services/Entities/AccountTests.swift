@@ -12,9 +12,9 @@ final class AccountTests: XCTestCase {
     func test_formattedAccount_shouldReturnFormattedAccount() {
         
         // When
-        let formattedAccount = sut.formattedAccount()
+        let expectedFormattedAccount = sut.formattedAccount()
         
         // Then
-        XCTAssertEqual(formattedAccount, "Account: \(sut.account)")
+        XCTAssertEqual(expectedFormattedAccount, "Account: \(sut.account)")
     }
 }
