@@ -2,11 +2,11 @@ import Foundation
 
 @testable import FinanceApp
 
-class NetworkClientSpy: NetworkClientProtocol {
+final class NetworkClientSpy: NetworkClientProtocol {
     // MARK: Properties
-    var url: URL?
     var completionData: Data?
-    var performRequestCount: Int = 0
+    private(set) var url: URL?
+    private(set)var performRequestCount: Int = 0
 
     // MARK: Methods
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
