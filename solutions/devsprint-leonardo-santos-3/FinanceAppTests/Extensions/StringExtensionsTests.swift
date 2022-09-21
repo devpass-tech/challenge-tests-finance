@@ -3,13 +3,12 @@ import XCTest
 @testable import FinanceApp
 
 final class StringExtensionsTests: XCTestCase {
-    private var sut = String()
 
     func test_string_shouldRemoveSpaces() {
-        sut = "  teste"
+        let sut = "  giuliano leonardo "
         let stringWithoutSpaces = sut.removingSpaces()
 
-        XCTAssertEqual(stringWithoutSpaces, "teste")
+        XCTAssertEqual(stringWithoutSpaces, "giulianoleonardo")
     }
 
 }
