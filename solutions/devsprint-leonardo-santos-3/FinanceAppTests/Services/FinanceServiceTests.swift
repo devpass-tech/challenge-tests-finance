@@ -4,90 +4,68 @@ import XCTest
 @testable import FinanceApp
 
 final class FinanceServiceTests: XCTestCase {
+    private let networkClientSpy = NetworkClientSpy()
+    private lazy var sut = FinanceService(networkClient: networkClientSpy)
 
-    func test_fetch_ActivityDetailsSuccess() {
-        let expectation = expectation(description: "Waiting request")
-        let networkClientSpy = NetworkClientSpy()
-        let givenJSON = """
+    func test_fetchActivityDetails_givenCorrectData_shouldReturnCorrectActivityDetails() {
+        networkClientSpy.completionData = correctData
+
+        sut.fetchActivityDetails {
+            XCTAssertEqual($0, .fixture(name: "Mall", price: 100, category: "Shopping", time: "8:57 AM"))
+        }
+
+        makeDefaultTests()
+    }
+
+    func test_fetchActivityDetails_givenParseFailData_shouldReturnNil() {
+        networkClientSpy.completionData = parseFailData
+
+        sut.fetchActivityDetails {
+            XCTAssertNil($0)
+        }
+
+        makeDefaultTests()
+    }
+
+    func test_fetchActivityDetails_givenNilData_shouldReturnNil() {
+        networkClientSpy.completionData = nil
+
+        sut.fetchActivityDetails {
+            XCTAssertNil($0)
+        }
+
+        makeDefaultTests()
+    }
+
+    func test_fetchActivityDetails_testSingleCountAndCorrectUrlString() {
+        sut.fetchActivityDetails { _ in }
+
+        makeDefaultTests()
+    }
+}
+
+extension FinanceServiceTests {
+
+    var correctData: Data? {
+        """
         {
           "name": "Mall",
           "category": "Shopping",
           "price": 100.0,
           "time": "8:57 AM"
         }
+        """.data(using: .utf8)
+    }
+
+    var parseFailData: Data? {
         """
-        networkClientSpy.completionData = givenJSON.data(using: .utf8)
-        let sut = FinanceService(networkClient: networkClientSpy)
-
-        let expectedResult = ActivityDetails(name: "Mall",
-                                             price: 100.0,
-                                             category: "Shopping",
-                                             time: "8:57 AM")
-
-        sut.fetchActivityDetails { response in
-            XCTAssertEqual(response, expectedResult)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
+        """.data(using: .utf8)
     }
 
-    func test_fetch_ActivityDetailsCountingOnePerformRequest() {
-        let expectation = expectation(description: "Waiting request")
-        let networkClientSpy = NetworkClientSpy()
-        let sut = FinanceService(networkClient: networkClientSpy)
+    func makeDefaultTests() {
+        let expectedURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json"
 
-        sut.fetchActivityDetails { response in
-
-            XCTAssertEqual(networkClientSpy.performRequestCount, 1)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func test_fetch_ActivityDetailsParsePriceFails() {
-        let expectation = expectation(description: "Waiting request")
-        let networkClientSpy = NetworkClientSpy()
-        let givenJSON = """
-        {
-          "name": "Mall",
-          "category": "Shopping",
-          "price": "100.0",
-          "time": "8:57 AM"
-        }
-        """
-        networkClientSpy.completionData = givenJSON.data(using: .utf8)
-        let sut = FinanceService(networkClient: networkClientSpy)
-
-        sut.fetchActivityDetails { response in
-            XCTAssertNil(response)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func test_fetch_ActivityDetailsDataNil() {
-        let expectation = expectation(description: "Waiting request")
-        let networkClientSpy = NetworkClientSpy()
-        networkClientSpy.completionData = nil
-        let sut = FinanceService(networkClient: networkClientSpy)
-
-        sut.fetchActivityDetails { response in
-            XCTAssertNil(response)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
-    }
-
-    func test_fetch_ActivityDetailsURL() {
-        let expectation = expectation(description: "Waiting request")
-        let networkClientSpy = NetworkClientSpy()
-        let sut = FinanceService(networkClient: networkClientSpy)
-        let expectedURL = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")!
-
-        sut.fetchActivityDetails { response in
-            XCTAssertEqual(networkClientSpy.url, expectedURL)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+        XCTAssertEqual(networkClientSpy.url?.description, expectedURL)
     }
 }
