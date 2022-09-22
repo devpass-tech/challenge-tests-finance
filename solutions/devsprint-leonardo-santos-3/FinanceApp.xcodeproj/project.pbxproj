@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83C8BD6828DD03AB00F3D3A6 /* TransferResultFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransferResultFixtures.swift; path = FinanceAppTests/TestUtils/Doubles/TransferResultFixtures.swift; sourceTree = SOURCE_ROOT; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +419,7 @@
 		FDEA36D328D923FE008BB89F /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
+				83C8BD6828DD03AB00F3D3A6 /* TransferResultFixtures.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
