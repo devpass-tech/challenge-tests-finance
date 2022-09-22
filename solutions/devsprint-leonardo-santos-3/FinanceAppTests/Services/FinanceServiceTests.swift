@@ -68,7 +68,7 @@ final class FinanceServiceTests: XCTestCase {
         
         sut.transferAmount { expectedData = $0 }
         
-        XCTAssertEqual(networkClientSpy.completionData, nil)
+        XCTAssertNil(networkClientSpy.completionData)
         XCTAssertNil(expectedData)
     }
     
