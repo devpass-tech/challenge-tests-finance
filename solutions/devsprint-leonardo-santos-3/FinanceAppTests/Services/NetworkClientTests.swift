@@ -11,7 +11,7 @@ final class NetworkClientTests: XCTestCase {
     
     // MARK: - Methods
     
-    func test_performRequest_wasCalled() throws {
+    func test_performRequest_wasCalled() {
         
         // When
         spy.performRequest(with: .fixtureURL, completion: { _ in })
@@ -20,7 +20,7 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertTrue(spy.performRequestCalled)
     }
     
-    func test_performRequest_wasCalledOnlyOnce() throws {
+    func test_performRequest_wasCalledOnlyOnce() {
         
         // When
         spy.performRequest(with: .fixtureURL, completion: { _ in })
@@ -29,7 +29,7 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertEqual(spy.performRequestCount, 1)
     }
     
-    func test_performRequest_urlReturned() throws {
+    func test_performRequest_urlReturned() {
         
         // When
         spy.performRequest(with: .fixtureURL, completion: { _ in })
@@ -38,7 +38,7 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertEqual(spy.url, .fixtureURL)
     }
     
-    func test_perfomRequest_CompletionDataSuccessfully() throws {
+    func test_perfomRequest_CompletionDataSuccessfully() {
 
         var expectedData: Data?
         
@@ -52,7 +52,7 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertEqual(expectedData, .fixtureData)
     }
     
-    func test_perfomRequest_CompletionDataFailure() throws {
+    func test_perfomRequest_CompletionDataFailure() {
         
         var expectedData: Data?
 
