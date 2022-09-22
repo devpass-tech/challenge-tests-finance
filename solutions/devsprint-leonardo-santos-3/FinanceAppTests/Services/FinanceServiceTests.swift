@@ -42,6 +42,34 @@ final class FinanceServiceTests: XCTestCase {
 
         makeDefaultTests()
     }
+    
+    func test_fetchHomeData_shouldPassCorrectURL(){
+        sut.fetchHomeData({ _ in })
+        
+        XCTAssertEqual(networkClientSpy.url?.description, "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+    }
+    
+    func test_fetchHomeData_givenNilData_shouldReturnNil(){
+        networkClientSpy.completionData = nil
+        
+        sut.fetchHomeData({
+            XCTAssertNil($0)
+        })
+    }
+    
+    func test_fetchHomeData_givenValidData_shouldReturnHomeData(){
+        var expectedResult: HomeData = .init(balance: 100.0, savings: 0.0, spending: -300.0, activity: [
+            Activity(name: "ifood", price: -200.0, time: "10:00 PM")
+        ])
+        
+        networkClientSpy.completionData = correctHomeDataData
+        
+        sut.fetchHomeData({
+            XCTAssertEqual($0?.balance, expectedResult.balance)
+            XCTAssertEqual(self.networkClientSpy.performRequestCount, 1)
+        })
+    }
 }
 
 extension FinanceServiceTests {
@@ -59,6 +87,19 @@ extension FinanceServiceTests {
 
     var parseFailData: Data? {
         """
+        """.data(using: .utf8)
+    }
+    
+    var correctHomeDataData: Data?  {
+        """
+        {
+          "balance": 100.0,
+          "savings": 0.0,
+          "spending": -300.0,
+          "activity": [
+            {"name": "ifood", "price": -200.0, "time": "10:00 PM"}
+          ]
+        }
         """.data(using: .utf8)
     }
 
