@@ -33,7 +33,7 @@ class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(expectedData, nil)
     }
     
-    func test_test_transferAmount_whenPerformRequestDataReturnValidData_shouldReturnTransferData(){
+    func test_transferAmount_whenPerformRequestDataReturnValidData_shouldReturnTransferData(){
         
         var transferDataJSON: Data? {
         """
@@ -51,7 +51,7 @@ class FinanceServiceTests: XCTestCase {
         
     }
     
-    func test_test_transferAmount_givenData_withFailedParse_shouldReturnNil(){
+    func test_transferAmount_givenData_withFailedParse_shouldReturnNil(){
         
         var transferDataJSON: Data? {
         """
@@ -67,7 +67,7 @@ class FinanceServiceTests: XCTestCase {
             XCTAssertNil($0)
         }
         
-    }    
+    }
     
     
 }
