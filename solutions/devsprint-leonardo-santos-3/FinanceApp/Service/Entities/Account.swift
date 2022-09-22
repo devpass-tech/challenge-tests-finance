@@ -1,4 +1,4 @@
-struct Account: Decodable {
+struct Account: Decodable, Equatable {
     let agency: String
     let account: String
 }
