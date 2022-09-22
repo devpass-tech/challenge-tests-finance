@@ -50,7 +50,7 @@ final class FinanceServiceTests: XCTestCase {
             expectedData = data
         }
 
-        XCTAssertEqual(expectedData, .fixture(name: "Irma Flores", phone: "+55 (11) 99999-9999", email: "irma@devpass.com.br", address: "Rua Bela Cintra, 495", agency: "0001", account: "123456-7"))
+        XCTAssertEqual(expectedData, .fixture())
     }
 
     func test_fetchUserProfile_givenDataWithFailureParse_shouldReturnCorrectUserProfile() {
