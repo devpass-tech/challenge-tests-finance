@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */; };
+		25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -49,7 +51,6 @@
 		988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51028D0EF330078896C /* FinanceServiceTests.swift */; };
 		988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */; };
 		988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51428D0EF820078896C /* HomeViewModelTests.swift */; };
-		A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */; };
 		FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */; };
 		FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36BC28D8C8F9008BB89F /* ActivityTests.swift */; };
 		FDEA36BF28D8C909008BB89F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36BE28D8C909008BB89F /* Activity.swift */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
+		25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixture.swift"; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,12 +150,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2575FA2728DD01AF00AB325F /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		25765B9228DCFD50006F5BB9 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */,
+				25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
 				98584A6B277E32C30028DBEA /* FinanceApp */,
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
 				98584A6A277E32C30028DBEA /* Products */,
+				2575FA2728DD01AF00AB325F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -402,7 +423,7 @@
 		FDEA36C528D8C9C7008BB89F /* TestUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FDEA36D328D923FE008BB89F /* Fixtures */,
+				25765B9228DCFD50006F5BB9 /* Fixtures */,
 				FDEA36C428D8C9BF008BB89F /* Doubles */,
 			);
 			path = TestUtils;
@@ -414,14 +435,6 @@
 				FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */,
 			);
 			path = ContactList;
-			sourceTree = "<group>";
-		};
-		FDEA36D328D923FE008BB89F /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,13 +584,14 @@
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
+				25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */,
 				FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
-				A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */,
 				FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */,
 				FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */,
 				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
