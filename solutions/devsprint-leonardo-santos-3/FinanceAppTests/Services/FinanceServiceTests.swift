@@ -69,7 +69,7 @@ final class FinanceServiceTests: XCTestCase {
         sut.transferAmount { expectedData = $0 }
         
         XCTAssertEqual(networkClientSpy.completionData, nil)
-        XCTAssertEqual(expectedData, nil)
+        XCTAssertNil(expectedData)
     }
     
     func test_transferAmount_whenPerformRequestDataReturnValidData_shouldReturnTransferData(){
