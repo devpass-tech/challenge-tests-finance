@@ -9,7 +9,7 @@ final class NetworkClientSpy: NetworkClientProtocol {
     var completionData: Data?
     private(set) var url: URL?
     private(set) var performRequestCount: Int = 0
-    private(set) var performRequestCalled = false
+    private(set) var performRequestCalled: Bool = false
 
     // MARK: Methods
     

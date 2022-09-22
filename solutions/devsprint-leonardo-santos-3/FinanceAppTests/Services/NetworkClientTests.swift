@@ -1,5 +1,6 @@
 
 import XCTest
+
 @testable import FinanceApp
 
 final class NetworkClientTests: XCTestCase {
