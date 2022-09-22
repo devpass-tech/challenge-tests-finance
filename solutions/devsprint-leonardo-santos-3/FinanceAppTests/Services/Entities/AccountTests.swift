@@ -17,4 +17,13 @@ final class AccountTests: XCTestCase {
         // Then
         XCTAssertEqual(expectedFormattedAccount, "Account: \(sut.account)")
     }
+    
+    func test_formattedAgency_thenReturnAgencyFormatted() {
+        
+        //when
+        let expectedFormattedAgency = sut.formattedAgency()
+        
+        //then
+        XCTAssertEqual(expectedFormattedAgency, "Agency: \(sut.agency)")
+    }
 }
