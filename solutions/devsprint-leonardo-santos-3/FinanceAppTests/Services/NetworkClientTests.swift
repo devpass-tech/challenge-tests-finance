@@ -7,35 +7,35 @@ final class NetworkClientTests: XCTestCase {
     
     // MARK: - Private Properties
     
-    private let spy = NetworkClientSpy()
+    private let sut = NetworkClientSpy()
     
     // MARK: - Methods
     
     func test_performRequest_wasCalled() {
         
         // When
-        spy.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertTrue(spy.performRequestCalled)
+        XCTAssertTrue(sut.performRequestCalled)
     }
     
     func test_performRequest_wasCalledOnlyOnce() {
         
         // When
-        spy.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertEqual(spy.performRequestCount, 1)
+        XCTAssertEqual(sut.performRequestCount, 1)
     }
     
     func test_performRequest_urlReturned() {
         
         // When
-        spy.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertEqual(spy.url, .fixtureURL)
+        XCTAssertEqual(sut.url, .fixtureURL)
     }
     
     func test_perfomRequest_CompletionDataSuccessfully() {
@@ -43,8 +43,8 @@ final class NetworkClientTests: XCTestCase {
         var expectedData: Data?
         
         // When
-        spy.completionData = .fixtureData
-        spy.performRequest(with: .fixtureURL, completion: {
+        sut.completionData = .fixtureData
+        sut.performRequest(with: .fixtureURL, completion: {
             expectedData = $0
         })
 
@@ -57,7 +57,7 @@ final class NetworkClientTests: XCTestCase {
         var expectedData: Data?
 
         // When
-        spy.performRequest(with: .fixtureURL, completion: {
+        sut.performRequest(with: .fixtureURL, completion: {
             expectedData = $0
         })
 
@@ -75,6 +75,10 @@ extension URL {
 
 extension Data {
     static var fixtureData: Self? {
-        "".data(using: .utf8)
+        """
+            {
+                author: Teste
+            }
+        """.data(using: .utf8)
     }
 }
