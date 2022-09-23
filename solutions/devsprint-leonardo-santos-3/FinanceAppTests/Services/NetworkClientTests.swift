@@ -7,43 +7,44 @@ final class NetworkClientTests: XCTestCase {
     
     // MARK: - Private Properties
     
-    private let sut = NetworkClientSpy()
+    private let sessionSpy = NetworkSessionSpy()
+    private lazy var sut = NetworkClient(session: sessionSpy)
     
     // MARK: - Methods
     
-    func test_performRequest_wasCalled() {
+    func test_networkSessionWasCalled() {
         
         // When
         sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertTrue(sut.performRequestCalled)
+        XCTAssertTrue(sessionSpy.wasCalled)
     }
     
-    func test_performRequest_wasCalledOnlyOnce() {
+    func test_networkSessionWasCalledOnlyOnce() {
         
         // When
         sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertEqual(sut.performRequestCount, 1)
+        XCTAssertEqual(sessionSpy.dataTaskCount, 1)
     }
     
-    func test_performRequest_urlReturned() {
+    func test_networkSessionWasUrlCorrectly() {
         
         // When
         sut.performRequest(with: .fixtureURL, completion: { _ in })
         
         // Then
-        XCTAssertEqual(sut.url, .fixtureURL)
+        XCTAssertEqual(sessionSpy.url, .fixtureURL)
     }
     
-    func test_perfomRequest_CompletionDataSuccessfully() {
+    func test_networkSessionCompletionWasDataSuccessfully() {
 
         var expectedData: Data?
         
         // When
-        sut.completionData = .fixtureData
+        sessionSpy.completionData = .fixtureData
         sut.performRequest(with: .fixtureURL, completion: {
             expectedData = $0
         })
@@ -52,11 +53,12 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertEqual(expectedData, .fixtureData)
     }
     
-    func test_perfomRequest_CompletionDataFailure() {
+    func test_networkSessionCompletionWasFailureData() {
         
         var expectedData: Data?
 
         // When
+        sessionSpy.shouldFailTask = true
         sut.performRequest(with: .fixtureURL, completion: {
             expectedData = $0
         })
@@ -69,7 +71,7 @@ final class NetworkClientTests: XCTestCase {
 
 extension URL {
     static var fixtureURL: Self {
-        URL(fileURLWithPath: "some/path")
+        URL(string: "some/path")!
     }
 }
 
