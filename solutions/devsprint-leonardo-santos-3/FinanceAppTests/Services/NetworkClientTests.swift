@@ -53,12 +53,11 @@ final class NetworkClientTests: XCTestCase {
         XCTAssertEqual(expectedData, .fixtureData())
     }
     
-    func test_performRequestWasReturnedDataFailure() {
+    func test_performRequestWasReturnedDataNil() {
         
         var expectedData: Data?
 
         // When
-        sessionSpy.errorReturned = NSError.init(domain: "", code: 404)
         sut.performRequest(with: .fixtureURL(), completion: {
             expectedData = $0
         })
