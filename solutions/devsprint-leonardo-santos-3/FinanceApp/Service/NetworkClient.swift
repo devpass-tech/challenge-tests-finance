@@ -12,16 +12,16 @@ protocol NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ())
 }
 
-protocol NetworkSessionProtocol {
+protocol URLSessionProtocol {
     
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
 final class NetworkClient: NetworkClientProtocol {
     
-    private var session: NetworkSessionProtocol
+    private var session: URLSessionProtocol
     
-    init(session: NetworkSessionProtocol = URLSession.shared) {
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
 
@@ -48,4 +48,4 @@ final class NetworkClient: NetworkClientProtocol {
     }
 }
 
-extension URLSession: NetworkSessionProtocol { }
+extension URLSession: URLSessionProtocol { }

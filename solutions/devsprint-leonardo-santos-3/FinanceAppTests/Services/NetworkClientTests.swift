@@ -6,60 +6,60 @@ import XCTest
 final class NetworkClientTests: XCTestCase {
     
     // MARK: - Private Properties
-    
-    private let sessionSpy = NetworkSessionSpy()
+    private var sessionDataDummy = URLSessionDataDummy()
+    private lazy var sessionSpy = URLSessionSpy(urlSessionData: sessionDataDummy)
     private lazy var sut = NetworkClient(session: sessionSpy)
     
     // MARK: - Methods
     
-    func test_networkSessionWasCalled() {
+    func test_performRequestWasCalled() {
         
         // When
-        sut.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL(), completion: { _ in })
         
         // Then
-        XCTAssertTrue(sessionSpy.wasCalled)
+        XCTAssertTrue(sessionSpy.dataTaskWasCalled)
     }
     
     func test_networkSessionWasCalledOnlyOnce() {
         
         // When
-        sut.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL(), completion: { _ in })
         
         // Then
         XCTAssertEqual(sessionSpy.dataTaskCount, 1)
     }
     
-    func test_networkSessionWasUrlCorrectly() {
+    func test_performRequestWasUrlCorrectly() {
         
         // When
-        sut.performRequest(with: .fixtureURL, completion: { _ in })
+        sut.performRequest(with: .fixtureURL(), completion: { _ in })
         
         // Then
-        XCTAssertEqual(sessionSpy.url, .fixtureURL)
+        XCTAssertEqual(sessionSpy.dataTaskURL, .fixtureURL())
     }
     
-    func test_networkSessionCompletionWasDataSuccessfully() {
+    func test_performRequestWasReturnedDataSuccessfully() {
 
         var expectedData: Data?
         
         // When
-        sessionSpy.completionData = .fixtureData
-        sut.performRequest(with: .fixtureURL, completion: {
+        sessionSpy.dataReturned = .fixtureData()
+        sut.performRequest(with: .fixtureURL(), completion: {
             expectedData = $0
         })
 
         // Then
-        XCTAssertEqual(expectedData, .fixtureData)
+        XCTAssertEqual(expectedData, .fixtureData())
     }
     
-    func test_networkSessionCompletionWasFailureData() {
+    func test_performRequestWasReturnedDataFailure() {
         
         var expectedData: Data?
 
         // When
-        sessionSpy.shouldFailTask = true
-        sut.performRequest(with: .fixtureURL, completion: {
+        sessionSpy.errorReturned = NSError.init(domain: "", code: 404)
+        sut.performRequest(with: .fixtureURL(), completion: {
             expectedData = $0
         })
 
@@ -68,15 +68,14 @@ final class NetworkClientTests: XCTestCase {
     }
 }
 
-
 extension URL {
-    static var fixtureURL: Self {
-        URL(string: "some/path")!
+    static func fixtureURL() -> Self {
+        .init(string: "https://www.some.com")!
     }
 }
 
 extension Data {
-    static var fixtureData: Self? {
+    static func fixtureData() -> Self? {
         """
             {
                 author: Teste
