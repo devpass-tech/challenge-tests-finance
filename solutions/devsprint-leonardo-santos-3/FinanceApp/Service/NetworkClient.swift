@@ -12,13 +12,24 @@ protocol NetworkClientProtocol {
     func performRequest(with url: URL, completion: @escaping (Data?) -> ())
 }
 
+protocol URLSessionProtocol {
+    
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
 final class NetworkClient: NetworkClientProtocol {
+    
+    private var session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol = URLSession.shared) {
+        self.session = session
+    }
 
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
 
         let request = URLRequest(url: url)
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
 
             if let _ = error {
                 completion(nil)
@@ -32,6 +43,9 @@ final class NetworkClient: NetworkClientProtocol {
 
             completion(data)
         }
+        
         task.resume()
     }
 }
+
+extension URLSession: URLSessionProtocol { }
