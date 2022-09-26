@@ -109,7 +109,7 @@ extension FinanceServiceTests {
      """.data(using: .utf8)
     }
     
-    var invalidContactListData: Data?{
+    var invalidContactListData: Data? {
     """
     """.data(using: .utf8)
     }
