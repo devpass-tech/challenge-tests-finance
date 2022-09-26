@@ -4,28 +4,39 @@ import XCTest
 @testable import FinanceApp
 
 final class TransfersViewControllerTests: XCTestCase {
-
-    // MARK: - Private Properties
     
-    private let sut = TransfersViewControllerSpy()
-    
-    // MARK: - Methods
+    private let sut = TransfersViewController()
     
     func test_didPressChooseContactButton_contactListViewControllerToPresent() {
         
-        // When
+        makeWindow(with: sut)
         sut.didPressChooseContactButton()
         
-        // Then
-        XCTAssertTrue(sut.viewControllerToPresent is ContactListViewController)
+        XCTAssertTrue(sut.presentedViewControllerControllerInsideNav() is ContactListViewController)
     }
     
     func test_didPressChooseContactButton_confirmationViewControllerToPresent() {
         
-        // When
+        makeWindow(with: sut)
         sut.didPressTransferButton()
         
-        // Then
-        XCTAssertTrue(sut.viewControllerToPresent is ConfirmationViewController)
+        XCTAssertTrue(sut.presentedViewControllerControllerInsideNav() is ConfirmationViewController)
+    }
+}
+
+extension TransfersViewControllerTests {
+    
+    func makeWindow(with rootViewController: UIViewController) {
+        let window = UIWindow()
+        window.rootViewController = rootViewController
+        window.isHidden = false
+    }
+}
+
+extension UIViewController {
+    
+    func presentedViewControllerControllerInsideNav() -> UIViewController? {
+        let navController = self.presentedViewController as? UINavigationController
+        return navController?.topViewController
     }
 }
