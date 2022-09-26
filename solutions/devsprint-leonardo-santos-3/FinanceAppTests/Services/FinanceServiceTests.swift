@@ -66,9 +66,9 @@ final class FinanceServiceTests: XCTestCase {
         
         networkClientSpy.completionData = correctContactListData
         
-        sut.fetchContactList({ result in
+        sut.fetchContactList { result in
             XCTAssertEqual(result, expectedResult)
-        })
+        }
     }
     
     func test_fetchContactList_givenInvalidData_shouldReturnNil(){
