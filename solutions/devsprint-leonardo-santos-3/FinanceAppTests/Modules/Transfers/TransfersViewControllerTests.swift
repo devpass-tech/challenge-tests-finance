@@ -12,7 +12,7 @@ final class TransfersViewControllerTests: XCTestCase {
         makeWindow(with: sut)
         sut.didPressChooseContactButton()
         
-        XCTAssertTrue(sut.presentedViewControllerControllerInsideNav() is ContactListViewController)
+        XCTAssertTrue(sut.viewControllerToPresent() is ContactListViewController)
     }
     
     func test_didPressChooseContactButton_confirmationViewControllerToPresent() {
@@ -20,7 +20,7 @@ final class TransfersViewControllerTests: XCTestCase {
         makeWindow(with: sut)
         sut.didPressTransferButton()
         
-        XCTAssertTrue(sut.presentedViewControllerControllerInsideNav() is ConfirmationViewController)
+        XCTAssertTrue(sut.viewControllerToPresent() is ConfirmationViewController)
     }
 }
 
@@ -35,7 +35,7 @@ extension TransfersViewControllerTests {
 
 extension UIViewController {
     
-    func presentedViewControllerControllerInsideNav() -> UIViewController? {
+    func viewControllerToPresent() -> UIViewController? {
         let navController = self.presentedViewController as? UINavigationController
         return navController?.topViewController
     }
