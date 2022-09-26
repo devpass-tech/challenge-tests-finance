@@ -80,7 +80,7 @@ final class FinanceServiceTests: XCTestCase {
     }
 }
 
-extension FinanceServiceTests {
+private extension FinanceServiceTests {
 
     var correctData: Data? {
         """
