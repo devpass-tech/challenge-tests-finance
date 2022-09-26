@@ -52,9 +52,9 @@ final class FinanceServiceTests: XCTestCase {
     func test_fetchContactList_givenNilData_shouldReturnNil(){
         networkClientSpy.completionData = nil
         
-        sut.fetchContactList({ data in
+        sut.fetchContactList { data in
             XCTAssertNil(data)
-        })
+        }
         
         XCTAssertEqual(networkClientSpy.performRequestCount, 1)
     }
@@ -66,21 +66,21 @@ final class FinanceServiceTests: XCTestCase {
         
         networkClientSpy.completionData = correctContactListData
         
-        sut.fetchContactList({ result in
+        sut.fetchContactList { result in
             XCTAssertEqual(result, expectedResult)
-        })
+        }
     }
     
     func test_fetchContactList_givenInvalidData_shouldReturnNil(){
         networkClientSpy.completionData = invalidContactListData
         
-        sut.fetchContactList({ result in
+        sut.fetchContactList { result in
             XCTAssertNil(result)
-        })
+        }
     }
 }
 
-extension FinanceServiceTests {
+private extension FinanceServiceTests {
 
     var correctData: Data? {
         """
@@ -109,7 +109,7 @@ extension FinanceServiceTests {
      """.data(using: .utf8)
     }
     
-    var invalidContactListData: Data?{
+    var invalidContactListData: Data? {
     """
     """.data(using: .utf8)
     }
