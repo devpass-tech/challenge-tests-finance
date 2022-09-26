@@ -30,7 +30,7 @@ final class FinanceServiceTests: XCTestCase {
         XCTAssertEqual(networkClientSpy.url?.description, "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/user_profile_endpoint.json")
     }
     
-    func test_fetchUserProfile_givenNilData_shouldSendNil() {
+    func test_fetchUserProfile_givenNilData_shouldReturnNil() {
         networkClientSpy.completionData = nil
         var expectedData: UserProfile?
 
