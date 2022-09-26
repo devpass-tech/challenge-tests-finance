@@ -1,8 +1,11 @@
-//
-//  HomeViewModelDelegateSpy.swift
-//  FinanceAppTests
-//
-//  Created by Luiza Rodrigues de Almeida Avelino on 26/09/22.
-//
+import XCTest
 
-import Foundation
+@testable import FinanceApp
+
+final class HomeViewModelDelegateSpy: HomeViewModelDelegate {
+    private(set) var didFetchHomeDataCalled: Bool = false
+    
+    func didFetchHomeData(_ data: HomeData) {
+        didFetchHomeDataCalled = true
+    }
+}
