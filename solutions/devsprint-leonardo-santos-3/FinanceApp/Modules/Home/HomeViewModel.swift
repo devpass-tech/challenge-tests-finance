@@ -17,12 +17,9 @@ struct HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
 
     private let financeService: FinanceServiceProtocol
-    private let dispatchQueue: DispatchQueueProtocol
 
-    init(financeService: FinanceServiceProtocol,
-         dispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
+    init(financeService: FinanceServiceProtocol) {
         self.financeService = financeService
-        self.dispatchQueue = dispatchQueue
     }
 
     func fetchData() {
@@ -33,9 +30,7 @@ struct HomeViewModel {
                 return
             }
 
-            dispatchQueue.async(group: nil,
-                                qos: .unspecified,
-                                flags: []) {
+            DispatchQueue.main.async {
 
                 delegate?.didFetchHomeData(homeData)
             }
