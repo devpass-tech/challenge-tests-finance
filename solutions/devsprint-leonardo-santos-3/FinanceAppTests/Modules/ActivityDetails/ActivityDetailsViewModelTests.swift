@@ -3,24 +3,23 @@ import XCTest
 @testable import FinanceApp
 
 final class ActivityDetailViewModelTests: XCTestCase {
+    // MARK: Properties
+    private let networkClientSpy = NetworkClientSpy()
+    private lazy var financeServiceSpy = FinanceService(networkClient: networkClientSpy)
+    private let dispatchQueueSpy = DispatchQueueSpy()
+    private lazy var sut = ActivityDetailsViewModel(financeService: financeServiceSpy,
+                                                    dispatchQueue: dispatchQueueSpy)
 
-    func test_fetchData_calledDispatchQueueAsync() {
-        let networkClientSpy = NetworkClientSpy()
-        let financeServiceSpy = FinanceService(networkClient: networkClientSpy)
-        let dispatchQueueSpy = DispatchQueueSpy()
-        let sut = ActivityDetailsViewModel(financeService: financeServiceSpy,
-                                           dispatchQueue: dispatchQueueSpy)
-
-        
+    // MARK: Test Methods
+    func test_fetchData_whenDataIsNoNil_ShouldCallDispatchQueueAsync() {
         networkClientSpy.completionData = correctActivityDetailsData
         sut.fetchData()
 
         XCTAssertTrue(dispatchQueueSpy.calledDispatchQueueAsync)
     }
-
 }
 
-extension ActivityDetailViewModelTests {
+private extension ActivityDetailViewModelTests {
     var correctActivityDetailsData: Data? {
         """
         {
