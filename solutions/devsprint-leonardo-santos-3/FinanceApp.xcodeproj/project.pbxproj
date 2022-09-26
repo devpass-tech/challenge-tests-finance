@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2522A8B528E22405009D1A7C /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B428E22405009D1A7C /* HomeData+Fixture.swift */; };
+		2522A8B728E224E2009D1A7C /* FinanceServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B628E224E2009D1A7C /* FinanceServiceSpy.swift */; };
+		2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */; };
 		83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -73,6 +76,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2522A8B428E22405009D1A7C /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
+		2522A8B628E224E2009D1A7C /* FinanceServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceSpy.swift; sourceTree = "<group>"; };
+		2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransferResultFixtures.swift; path = FinanceAppTests/TestUtils/Doubles/TransferResultFixtures.swift; sourceTree = SOURCE_ROOT; };
 		83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransferResult+Fixture.swift"; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -407,6 +413,8 @@
 			children = (
 				FDEA36C728D8CA6A008BB89F /* DispatchQueueSpy.swift */,
 				FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */,
+				2522A8B628E224E2009D1A7C /* FinanceServiceSpy.swift */,
+				2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -433,6 +441,7 @@
 			children = (
 				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
 				83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */,
+				2522A8B428E22405009D1A7C /* HomeData+Fixture.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -584,6 +593,7 @@
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
+				2522A8B728E224E2009D1A7C /* FinanceServiceSpy.swift in Sources */,
 				FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
 				A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */,
@@ -592,7 +602,9 @@
 				FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */,
 				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
+				2522A8B528E22405009D1A7C /* HomeData+Fixture.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
 			);
