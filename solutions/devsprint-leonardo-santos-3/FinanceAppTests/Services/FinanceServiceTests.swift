@@ -74,9 +74,9 @@ final class FinanceServiceTests: XCTestCase {
     func test_fetchContactList_givenInvalidData_shouldReturnNil(){
         networkClientSpy.completionData = invalidContactListData
         
-        sut.fetchContactList({ result in
+        sut.fetchContactList { result in
             XCTAssertNil(result)
-        })
+        }
     }
 }
 
