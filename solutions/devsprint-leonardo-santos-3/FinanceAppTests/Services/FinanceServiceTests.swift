@@ -52,9 +52,9 @@ final class FinanceServiceTests: XCTestCase {
     func test_fetchContactList_givenNilData_shouldReturnNil(){
         networkClientSpy.completionData = nil
         
-        sut.fetchContactList({ data in
+        sut.fetchContactList { data in
             XCTAssertNil(data)
-        })
+        }
         
         XCTAssertEqual(networkClientSpy.performRequestCount, 1)
     }
