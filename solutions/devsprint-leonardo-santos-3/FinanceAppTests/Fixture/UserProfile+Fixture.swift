@@ -10,7 +10,7 @@ import Foundation
 @testable import FinanceApp
 
 extension UserProfile {
-    static func fixture(name: String = "Irma Flores",
+    static func fixture(name: String = "",
                         phone: String = "",
                         email: String = "",
                         address: String = "",
