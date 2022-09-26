@@ -55,18 +55,26 @@ final class FinanceServiceTests: XCTestCase {
         
         sut.fetchHomeData({
             XCTAssertNil($0)
+            XCTAssertEqual(self.networkClientSpy.performRequestCount, 1)
         })
     }
     
     func test_fetchHomeData_givenValidData_shouldReturnHomeData(){
-        var expectedResult: HomeData = .init(balance: 100.0, savings: 0.0, spending: -300.0, activity: [
-            Activity(name: "ifood", price: -200.0, time: "10:00 PM")
-        ])
+        let expectedResult: HomeData = HomeData.fixture(balance: 100.0)
         
         networkClientSpy.completionData = correctHomeDataData
         
         sut.fetchHomeData({
             XCTAssertEqual($0?.balance, expectedResult.balance)
+            XCTAssertEqual(self.networkClientSpy.performRequestCount, 1)
+        })
+    }
+    
+    func test_fetchHomeData_givenInvalidData_shouldReturnNil(){
+        networkClientSpy.completionData = parseFailData
+        
+        sut.fetchHomeData({
+            XCTAssertNil($0)
             XCTAssertEqual(self.networkClientSpy.performRequestCount, 1)
         })
     }
