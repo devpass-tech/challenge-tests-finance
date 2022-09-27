@@ -21,12 +21,15 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertNil(financeHomeSpy.fetchHomeDataCompletionDataToBeReturned)
         XCTAssertFalse(dispatchQueueSpy.calledDispatchQueueAsync)
         XCTAssertFalse(delegateSpy.didFetchHomeDataCalled)
+        XCTAssertNil(delegateSpy.dataPassed)
     }
     
     func test_fetchData_givenValidaData_shouldCallDelegate(){
         sut.delegate = delegateSpy
         
-        financeHomeSpy.fetchHomeDataCompletionDataToBeReturned = HomeData.fixture()
+        let fixture = HomeData.fixture()
+        
+        financeHomeSpy.fetchHomeDataCompletionDataToBeReturned = fixture
         
         sut.fetchData()
         
@@ -34,5 +37,6 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertNotNil(financeHomeSpy.fetchHomeDataCompletionDataToBeReturned)
         XCTAssertTrue(dispatchQueueSpy.calledDispatchQueueAsync)
         XCTAssertTrue(delegateSpy.didFetchHomeDataCalled)
+        XCTAssertEqual(delegateSpy.dataPassed, fixture)
     }
 }
