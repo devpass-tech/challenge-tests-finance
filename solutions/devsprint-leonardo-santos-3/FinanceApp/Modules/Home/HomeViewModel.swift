@@ -16,11 +16,11 @@ struct HomeViewModel {
     
     weak var delegate: HomeViewModelDelegate?
     
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FinanceServiceHomeProtocol
     private let dispatchQueue: DispatchQueueProtocol
     
     init(
-        financeService: FinanceServiceProtocol,
+        financeService: FinanceServiceHomeProtocol,
         dispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
             self.financeService = financeService
             self.dispatchQueue = dispatchQueue
@@ -40,9 +40,3 @@ struct HomeViewModel {
         }
     }
 }
-
-protocol DispatchQueueProtocol {
-    func async(group: DispatchGroup?, qos: DispatchQoS, flags: DispatchWorkItemFlags, execute work: @escaping @convention(block) () -> Void)
-}
-
-extension DispatchQueue: DispatchQueueProtocol {}
