@@ -15,17 +15,17 @@ class TabBarControllerTests: XCTestCase {
     func test_firstViewControllerType_shouldBeHomeViewController(){
         sut.viewWillAppear(false)
         
-        sut.viewControllers?[0].children.forEach({ (element) in
-            XCTAssertTrue(type(of: element) == HomeViewController.self, "Element type is: \(String(describing: type(of: element))) " )
-        })
+        let expectedResult = sut.viewControllers?[0].children.contains { $0 is HomeViewController }
+        
+        XCTAssertTrue(expectedResult == true)
     }
     
     func test_secondViewControllerType_shouldBeTransfersViewController(){
         sut.viewWillAppear(false)
         
-        sut.viewControllers?[1].children.forEach({ (element) in
-            XCTAssertTrue(type(of: element) == TransfersViewController.self, "Element type is: \(String(describing: type(of: element))) " )
-        })
+        let expectedResult = sut.viewControllers?[1].children.contains { $0 is TransfersViewController }
+        
+        XCTAssertTrue(expectedResult == true)
     }
     
 }
