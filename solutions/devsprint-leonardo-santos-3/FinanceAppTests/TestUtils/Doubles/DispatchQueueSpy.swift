@@ -3,11 +3,29 @@ import XCTest
 @testable import FinanceApp
 
 final class DispatchQueueSpy: DispatchQueueProtocol {
-    
-    private(set) var asyncCalled: Bool = false
-    
-    func async(group: DispatchGroup?, qos: DispatchQoS, flags: DispatchWorkItemFlags, execute work: @escaping @convention(block) () -> Void) {
-        asyncCalled = true
+    // MARK: Properties
+    private(set) var calledDispatchQueueAsync: Bool = false
+
+    // MARK: Methods
+    func async(group: DispatchGroup? = nil,
+               qos: DispatchQoS = .unspecified,
+               flags: DispatchWorkItemFlags = [],
+               execute work: @escaping @convention(block) () -> Void) {
+        calledDispatchQueueAsync = true
+        work()
+    }
+
+    // MARK: Properties
+    private(set) var deadlinePassed: DispatchTime?
+    private(set) var calledDispatchQueueAsyncAfter: Bool = false
+
+    // MARK: Methods
+    func asyncAfter(deadline: DispatchTime,
+                    qos: DispatchQoS = .unspecified,
+                    flags: DispatchWorkItemFlags = [],
+                    execute work: @escaping @convention(block) () -> Void) {
+        deadlinePassed = deadline
+        calledDispatchQueueAsyncAfter = true
         work()
     }
 }
