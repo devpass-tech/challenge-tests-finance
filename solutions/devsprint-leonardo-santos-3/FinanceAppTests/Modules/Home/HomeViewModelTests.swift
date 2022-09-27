@@ -26,7 +26,7 @@ final class HomeViewModelTests: XCTestCase {
     func test_fetchData_givenValidaData_shouldCallDelegate(){
         sut.delegate = delegateSpy
         
-        financeHomeSpy.fetchHomeDataCompletionDataToBeReturned = HomeData.fixture(balance: 0, savings: 0, spending: 0, activity: [])
+        financeHomeSpy.fetchHomeDataCompletionDataToBeReturned = HomeData.fixture()
         
         sut.fetchData()
         
