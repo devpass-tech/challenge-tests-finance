@@ -13,11 +13,11 @@ final class GetDefaultProfileUseCase {
 private extension UserProfile {
     static var defaultProfile: Self {
         .init(
-            name: "Anonimo",
-            phone: "Insira seu telefone",
-            email: "Insira seu email",
-            address: "Insira seu endereço",
-            account: .init(agency: "1234", account: "4567")
+            name: "Devpass",
+            phone: "(11) 91234-5678",
+            email: "teste@devpass.com.br",
+            address: "Av teste, 1234",
+            account: .init(agency: "1234", account: "5678")
         )
     }
 }
