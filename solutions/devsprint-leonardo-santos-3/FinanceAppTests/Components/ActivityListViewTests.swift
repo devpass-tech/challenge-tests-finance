@@ -29,7 +29,7 @@ final class ActivityListViewTests: XCTestCase {
         sut.delegate = delegateSpy
         sut.tableView.delegate?.tableView?(.init(), didSelectRowAt: indexPath)
         
-        XCTAssertTrue(delegateSpy.didSelectedHasCalled)
+        XCTAssertTrue(delegateSpy.didSelectedCalled)
     }
     
     func test_ActivityListView_ShouldBeCalledOnceOnly_WhenTableViewDidSelectRow() {

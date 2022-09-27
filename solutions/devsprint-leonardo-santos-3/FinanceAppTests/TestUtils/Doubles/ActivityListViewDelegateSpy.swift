@@ -5,11 +5,11 @@ import Foundation
 
 final class ActivityListViewDelegateSpy: ActivityListViewDelegate {
     
-    private(set) var didSelectedHasCalled: Bool = false
+    private(set) var didSelectedCalled: Bool = false
     private(set) var didSelectedCount: Int = 0
     
     func didSelectedActivity() {
-        didSelectedHasCalled = true
+        didSelectedCalled = true
         didSelectedCount += 1
     }
 }
