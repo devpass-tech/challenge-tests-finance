@@ -12,7 +12,7 @@ protocol ActivityListViewDelegate: AnyObject {
     func didSelectedActivity()
 }
 
-class ActivityListView: UIView {
+final class ActivityListView: UIView {
 
     weak var delegate: ActivityListViewDelegate?
 

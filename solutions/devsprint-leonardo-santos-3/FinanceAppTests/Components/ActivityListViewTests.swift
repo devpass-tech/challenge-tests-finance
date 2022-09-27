@@ -3,14 +3,10 @@ import XCTest
 
 @testable import FinanceApp
 
-class ActivityListViewTests: XCTestCase {
-
-    // MARK: - Properties
+final class ActivityListViewTests: XCTestCase {
     
     private var delegateSpy = ActivityListViewDelegateSpy()
     private var sut = ActivityListView()
-    
-    // MARK: - Methods
     
     func test_ActivityListView_ShouldBeDelegateNil_WhenTableViewDidSelectRow() {
         
