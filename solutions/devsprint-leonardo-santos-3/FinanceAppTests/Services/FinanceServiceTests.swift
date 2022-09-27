@@ -1,7 +1,4 @@
 import XCTest
-@testable import FinanceApp
-
-import XCTest
 
 @testable import FinanceApp
 
