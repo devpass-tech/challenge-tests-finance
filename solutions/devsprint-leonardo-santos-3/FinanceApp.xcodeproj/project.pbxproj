@@ -66,6 +66,13 @@
 		FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */; };
 		FDEA36CC28D8CBB8008BB89F /* FinanceServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */; };
 		FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */; };
+		FDFF5E2928E3922A00AE84C8 /* RemoteConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */; };
+		FDFF5E2C28E3927700AE84C8 /* RemoteConfigProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */; };
+		FDFF5E3028E3930800AE84C8 /* GetRandomNumberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2E28E3930800AE84C8 /* GetRandomNumberUseCase.swift */; };
+		FDFF5E3128E3930800AE84C8 /* GetDefaultProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2F28E3930800AE84C8 /* GetDefaultProfileUseCase.swift */; };
+		FDFF5E3328E3941C00AE84C8 /* RemoteConfigProviderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */; };
+		FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */; };
+		FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +149,13 @@
 		FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceProtocols.swift; sourceTree = "<group>"; };
 		FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewTests.swift; sourceTree = "<group>"; };
+		FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigProvider.swift; sourceTree = "<group>"; };
+		FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProviderTests.swift; sourceTree = "<group>"; };
+		FDFF5E2E28E3930800AE84C8 /* GetRandomNumberUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCase.swift; sourceTree = "<group>"; };
+		FDFF5E2F28E3930800AE84C8 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
+		FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProviderSpy.swift; sourceTree = "<group>"; };
+		FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCaseTests.swift; sourceTree = "<group>"; };
+		FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +206,7 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF5E2D28E3930800AE84C8 /* UseCases */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				98584A9E277E35700028DBEA /* Modules */,
@@ -205,6 +220,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF5E3428E3949F00AE84C8 /* UseCases */,
 				FDEA36C528D8C9C7008BB89F /* TestUtils */,
 				FDEA36B628D8C7EC008BB89F /* Modules */,
 				FDEA36B328D8C7A8008BB89F /* Services */,
@@ -258,6 +274,7 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF5E2728E3922A00AE84C8 /* RemoteConfig */,
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
 				FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */,
 				9882466127D016F8001DD0C5 /* NetworkClient.swift */,
@@ -371,6 +388,7 @@
 		FDEA36B328D8C7A8008BB89F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF5E2A28E3926900AE84C8 /* RemoteConfig */,
 				FDEA36BB28D8C8F1008BB89F /* Entities */,
 				988BA51028D0EF330078896C /* FinanceServiceTests.swift */,
 				FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */,
@@ -431,6 +449,7 @@
 				FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */,
 				9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */,
 				9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */,
+				FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -461,6 +480,41 @@
 				83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		FDFF5E2728E3922A00AE84C8 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */,
+			);
+			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
+		FDFF5E2A28E3926900AE84C8 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */,
+			);
+			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
+		FDFF5E2D28E3930800AE84C8 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF5E2E28E3930800AE84C8 /* GetRandomNumberUseCase.swift */,
+				FDFF5E2F28E3930800AE84C8 /* GetDefaultProfileUseCase.swift */,
+			);
+			name = UseCases;
+			path = "../../devsprint-leonardo-santos-1/FinanceApp/UseCases";
+			sourceTree = "<group>";
+		};
+		FDFF5E3428E3949F00AE84C8 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */,
+				FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +624,8 @@
 				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
+				FDFF5E2928E3922A00AE84C8 /* RemoteConfigProvider.swift in Sources */,
+				FDFF5E3128E3930800AE84C8 /* GetDefaultProfileUseCase.swift in Sources */,
 				9882466027D013E1001DD0C5 /* UserProfile.swift in Sources */,
 				9882465E27D013D2001DD0C5 /* TransferResult.swift in Sources */,
 				FDEA36BF28D8C909008BB89F /* Activity.swift in Sources */,
@@ -578,6 +634,7 @@
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				9882465A27D013B4001DD0C5 /* ActivityDetails.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
+				FDFF5E3028E3930800AE84C8 /* GetRandomNumberUseCase.swift in Sources */,
 				9882465427D01210001DD0C5 /* String+Extensions.swift in Sources */,
 				9882465827D013A3001DD0C5 /* HomeData.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
@@ -612,17 +669,21 @@
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
+				FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */,
 				FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */,
 				2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
 				A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */,
 				FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */,
 				83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */,
+				FDFF5E2C28E3927700AE84C8 /* RemoteConfigProviderTests.swift in Sources */,
 				FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */,
 				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
 				9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
+				FDFF5E3328E3941C00AE84C8 /* RemoteConfigProviderSpy.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
 				2575FA3228DD0D6200AB325F /* Activity+Fixture.swift in Sources */,
