@@ -12,7 +12,21 @@ class ActivityListViewTests: XCTestCase {
     
     // MARK: - Methods
     
-    func test_ActivityListView_givenDelegateWasCalled() {
+    func test_ActivityListView_ShouldBeDelegateNil_WhenTableViewDidSelectRow() {
+        
+        sut.delegate = nil
+        
+        XCTAssertNil(sut.delegate)
+    }
+    
+    func test_ActivityListView_ShouldBeDelegateNotNil_WhenTableViewDidSelectRow() {
+        
+        sut.delegate = delegateSpy
+        
+        XCTAssertNotNil(sut.delegate)
+    }
+    
+    func test_ActivityListView_ShouldBeCalled_WhenTableViewDidSelectRow() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
@@ -22,7 +36,7 @@ class ActivityListViewTests: XCTestCase {
         XCTAssertTrue(delegateSpy.didSelectedHasCalled)
     }
     
-    func test_ActivityListView_givenDelegateWasCalledOnceOnly() {
+    func test_ActivityListView_ShouldBeCalledOnceOnly_WhenTableViewDidSelectRow() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
@@ -32,7 +46,7 @@ class ActivityListViewTests: XCTestCase {
         XCTAssertEqual(delegateSpy.didSelectedCount, 1)
     }
     
-    func test_ActivityListView_givenNumberOfRows_shouldCountRows() {
+    func test_ActivityListView_ShouldBeCountRows_WhenTableViewNumberOfRowsBuild() {
         
         sut.delegate = delegateSpy
         let numberOfRows = sut.tableView.numberOfRows(inSection: 0)
@@ -40,7 +54,7 @@ class ActivityListViewTests: XCTestCase {
         XCTAssertEqual(numberOfRows, 5)
     }
     
-    func test_ActivityListView_givenCellForRow_shouldShowActivityCellView() {
+    func test_ActivityListView_ShouldBeActivityCellView_WhenTableViewCellForRowBuild() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
@@ -50,7 +64,7 @@ class ActivityListViewTests: XCTestCase {
         XCTAssertTrue(tableViewCell is ActivityCellView)
     }
     
-    func test_ActivityListView_givenHeightRow_shouldShowHeightRow() {
+    func test_ActivityListView_ShouldBeHeightRow_WhenTableViewCellForRowBuild() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
