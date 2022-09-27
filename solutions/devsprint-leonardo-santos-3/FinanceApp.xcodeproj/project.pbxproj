@@ -53,6 +53,8 @@
 		9ED983B328DC147800E2A602 /* TransfersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983B228DC147800E2A602 /* TransfersViewControllerTests.swift */; };
 		9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */; };
 		9ED983BE28DE529500E2A602 /* URLSessionDataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */; };
+		9ED983C128E34EE200E2A602 /* ActivityListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983C028E34EE200E2A602 /* ActivityListViewTests.swift */; };
+		9ED983C328E3576600E2A602 /* ActivityListViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983C228E3576600E2A602 /* ActivityListViewDelegateSpy.swift */; };
 		A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */; };
 		A23E450D28E1147B007230A0 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E450C28E1147B007230A0 /* DispatchQueue+Extensions.swift */; };
 		FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */; };
@@ -127,6 +129,8 @@
 		9ED983B228DC147800E2A602 /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
 		9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
 		9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataDummy.swift; sourceTree = "<group>"; };
+		9ED983C028E34EE200E2A602 /* ActivityListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewTests.swift; sourceTree = "<group>"; };
+		9ED983C228E3576600E2A602 /* ActivityListViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewDelegateSpy.swift; sourceTree = "<group>"; };
 		A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
 		A23E450C28E1147B007230A0 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				FDEA36C528D8C9C7008BB89F /* TestUtils */,
 				FDEA36B628D8C7EC008BB89F /* Modules */,
+				9ED983BF28E34EB900E2A602 /* Components */,
 				FDEA36B328D8C7A8008BB89F /* Services */,
 				FDEA36B228D8C78F008BB89F /* Extensions */,
 			);
@@ -354,6 +359,14 @@
 			path = Transfers;
 			sourceTree = "<group>";
 		};
+		9ED983BF28E34EB900E2A602 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9ED983C028E34EE200E2A602 /* ActivityListViewTests.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FDEA36B228D8C78F008BB89F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +440,7 @@
 				FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */,
 				9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */,
 				9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */,
+				9ED983C228E3576600E2A602 /* ActivityListViewDelegateSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -601,6 +615,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEA36C328D8C956008BB89F /* AccountTests.swift in Sources */,
+				9ED983C328E3576600E2A602 /* ActivityListViewDelegateSpy.swift in Sources */,
 				9ED983BE28DE529500E2A602 /* URLSessionDataDummy.swift in Sources */,
 				988BA50D28D0EEAF0078896C /* UserProfileTests.swift in Sources */,
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
@@ -617,6 +632,7 @@
 				9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
+				9ED983C128E34EE200E2A602 /* ActivityListViewTests.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
 				9ED983B328DC147800E2A602 /* TransfersViewControllerTests.swift in Sources */,
 			);
