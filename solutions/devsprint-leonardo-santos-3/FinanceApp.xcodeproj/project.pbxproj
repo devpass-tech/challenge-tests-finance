@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */; };
+		25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */; };
 		2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */; };
 		2575FA3228DD0D6200AB325F /* Activity+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */; };
 		83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */; };
@@ -101,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
+		25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixture.swift"; sourceTree = "<group>"; };
 		2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
 		2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Fixture.swift"; sourceTree = "<group>"; };
 		83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransferResultFixtures.swift; path = FinanceAppTests/TestUtils/Doubles/TransferResultFixtures.swift; sourceTree = SOURCE_ROOT; };
@@ -206,12 +210,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83C8BD6A28DD0A0D00F3D3A6 /* Recovered References */ = {
+		2575FA2728DD01AF00AB325F /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
 				83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		25765B9228DCFD50006F5BB9 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */,
+				25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */,
+				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
+				2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */,
+				2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */,
+				83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -220,7 +238,7 @@
 				98584A6B277E32C30028DBEA /* FinanceApp */,
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
 				98584A6A277E32C30028DBEA /* Products */,
-				83C8BD6A28DD0A0D00F3D3A6 /* Recovered References */,
+				2575FA2728DD01AF00AB325F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -492,7 +510,7 @@
 		FDEA36C528D8C9C7008BB89F /* TestUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FDEA36D328D923FE008BB89F /* Fixtures */,
+				25765B9228DCFD50006F5BB9 /* Fixtures */,
 				FDEA36C428D8C9BF008BB89F /* Doubles */,
 			);
 			path = TestUtils;
@@ -504,17 +522,6 @@
 				FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */,
 			);
 			path = ContactList;
-			sourceTree = "<group>";
-		};
-		FDEA36D328D923FE008BB89F /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
-				2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */,
-				2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */,
-				83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		FDFF5E2728E3922A00AE84C8 /* RemoteConfig */ = {
@@ -760,12 +767,12 @@
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
+				25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */,
 				FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */,
 				FDFF5E5728E3990200AE84C8 /* FacebookSdkSpy.swift in Sources */,
 				FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */,
 				2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
-				A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */,
 				FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */,
 				FDFF5E4A28E397EA00AE84C8 /* IncogniaSdkImplTests.swift in Sources */,
 				83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */,
@@ -776,6 +783,7 @@
 				FDFF5E5B28E3991500AE84C8 /* FirebaseSdkSpy.swift in Sources */,
 				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */,
 				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
 				9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
