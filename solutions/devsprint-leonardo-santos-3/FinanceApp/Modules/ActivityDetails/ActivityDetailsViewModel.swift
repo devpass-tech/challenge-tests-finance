@@ -16,10 +16,10 @@ struct ActivityDetailsViewModel {
 
     weak var delegate: ActivityDetailsViewModelDelegate?
 
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FinanceServiceActivityDetailsProtocol
     private let dispatchQueue: DispatchQueueProtocol
 
-    init(financeService: FinanceServiceProtocol,
+    init(financeService: FinanceServiceActivityDetailsProtocol,
          dispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
         self.financeService = financeService
         self.dispatchQueue = dispatchQueue
