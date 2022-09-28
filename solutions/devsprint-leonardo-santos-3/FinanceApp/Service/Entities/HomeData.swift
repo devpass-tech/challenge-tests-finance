@@ -8,7 +8,6 @@
 import Foundation
 
 struct HomeData: Decodable, Equatable {
-
     let balance: Float
     let savings: Float
     let spending: Float
