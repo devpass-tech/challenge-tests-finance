@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2522A8B728E224E2009D1A7C /* FinanceHomeServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */; };
+		2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */; };
 		2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */; };
 		25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */; };
 		2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */; };
@@ -103,6 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeServiceSpy.swift; sourceTree = "<group>"; };
+		2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
 		25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixture.swift"; sourceTree = "<group>"; };
 		2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
@@ -497,6 +501,8 @@
 			children = (
 				FDEA36C728D8CA6A008BB89F /* DispatchQueueSpy.swift */,
 				FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */,
+				2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */,
+				2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */,
 				9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */,
 				9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */,
 				FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */,
@@ -767,6 +773,7 @@
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
+				2522A8B728E224E2009D1A7C /* FinanceHomeServiceSpy.swift in Sources */,
 				25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */,
 				FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */,
 				FDFF5E5728E3990200AE84C8 /* FacebookSdkSpy.swift in Sources */,
@@ -783,10 +790,13 @@
 				FDFF5E5B28E3991500AE84C8 /* FirebaseSdkSpy.swift in Sources */,
 				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */,
 				2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */,
 				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
 				9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
+				2522A8B528E22405009D1A7C /* HomeData+Fixture.swift in Sources */,
+				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
 				FDFF5E3328E3941C00AE84C8 /* RemoteConfigProviderSpy.swift in Sources */,
 				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
 				FDFF5E5328E398B500AE84C8 /* FacebookSdkTests.swift in Sources */,

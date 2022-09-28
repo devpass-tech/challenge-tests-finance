@@ -8,30 +8,33 @@
 import Foundation
 
 protocol HomeViewModelDelegate: AnyObject {
-
+    
     func didFetchHomeData(_ data: HomeData)
 }
 
 struct HomeViewModel {
-
+    
     weak var delegate: HomeViewModelDelegate?
-
-    private let financeService: FinanceServiceProtocol
-
-    init(financeService: FinanceServiceProtocol) {
-        self.financeService = financeService
+    
+    private let financeService: FinanceServiceHomeProtocol
+    private let dispatchQueue: DispatchQueueProtocol
+    
+    init(
+        financeService: FinanceServiceHomeProtocol,
+        dispatchQueue: DispatchQueueProtocol = DispatchQueue.main) {
+            self.financeService = financeService
+            self.dispatchQueue = dispatchQueue
     }
-
+    
     func fetchData() {
-
+        
         financeService.fetchHomeData { homeData in
-
+            
             guard let homeData = homeData else {
                 return
             }
-
-            DispatchQueue.main.async {
-
+            
+            dispatchQueue.async(group: nil, qos: .unspecified, flags: []) {
                 delegate?.didFetchHomeData(homeData)
             }
         }
