@@ -42,6 +42,43 @@ final class FinanceServiceTests: XCTestCase {
         makeDefaultTests()
     }
     
+    func test_fetchContactList_shouldSendCorrectURL(){
+        sut.fetchContactList { _ in }
+
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+        XCTAssertEqual(networkClientSpy.url?.description, "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")
+    }
+    
+    func test_fetchContactList_givenNilData_shouldReturnNil(){
+        networkClientSpy.completionData = nil
+        
+        sut.fetchContactList { data in
+            XCTAssertNil(data)
+        }
+        
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+    }
+    
+    func test_fetchContactList_givenData_shouldReturnCorrectContactList(){
+        let expectedResult = [
+            Contact.fixture(name: "Fulano", phone: "55 027 939399999")
+        ]
+        
+        networkClientSpy.completionData = correctContactListData
+        
+        sut.fetchContactList { result in
+            XCTAssertEqual(result, expectedResult)
+        }
+    }
+    
+    func test_fetchContactList_givenInvalidData_shouldReturnNil(){
+        networkClientSpy.completionData = invalidContactListData
+        
+        sut.fetchContactList { result in
+            XCTAssertNil(result)
+        }
+    }
+
     func test_fetchHomeData_shouldPassCorrectURL(){
         sut.fetchHomeData({ _ in })
         
@@ -86,65 +123,10 @@ final class FinanceServiceTests: XCTestCase {
     
     func test_transferAmount_wasCalledOnlyOnce(){
         sut.transferAmount { _ in  }
-        
-        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
-    }
-    
-    func test_transferAmount_shouldSendCorrectUrl(){
-        sut.transferAmount { _ in  }
-        
-        XCTAssertEqual(networkClientSpy.url?.description, "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/transfer_successful_endpoint.json")
-    }
-    
-    func test_transferAmount_whenPerformRequestDataReturnNil_shouldReturnNil(){
-        var expectedData: TransferResult?
-        
-        sut.transferAmount { expectedData = $0 }
-        
-        XCTAssertNil(networkClientSpy.completionData)
-        XCTAssertNil(expectedData)
-    }
-    
-    func test_transferAmount_whenPerformRequestDataReturnValidData_shouldReturnTransferData(){
-        
-        var transferDataJSON: Data? {
-            """
-            {
-                "success": true
-            }
-            """.data(using: .utf8)
-        }
-        
-        networkClientSpy.completionData = transferDataJSON
-        
-        sut.transferAmount {
-            XCTAssertEqual($0, .fixture(success: true))
-        }
-        
-    }
-    
-    func test_transferAmount_givenData_withFailedParse_shouldReturnNil(){
-        
-        var transferDataJSON: Data? {
-            """
-            {
-                "_": "false"
-            }
-            """.data(using: .utf8)
-        }
-        
-        networkClientSpy.completionData = transferDataJSON
-        
-        sut.transferAmount {
-            XCTAssertNil($0)
-        }
-        
     }
 }
 
-
-
-extension FinanceServiceTests {
+private extension FinanceServiceTests {
 
     var correctData: Data? {
         """
@@ -162,6 +144,22 @@ extension FinanceServiceTests {
         """.data(using: .utf8)
     }
     
+    var correctContactListData: Data? {
+    """
+        [
+         {
+          "name": "Fulano",
+          "phone": "55 027 939399999"
+          }
+         ]
+     """.data(using: .utf8)
+    }
+    
+    var invalidContactListData: Data? {
+    """
+    """.data(using: .utf8)
+    }
+   
     var correctHomeDataData: Data?  {
         """
         {
