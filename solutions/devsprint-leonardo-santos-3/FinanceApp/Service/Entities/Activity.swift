@@ -1,4 +1,4 @@
-struct Activity: Decodable {
+struct Activity: Decodable, Equatable {
     let name: String
     let price: Float
     let time: String

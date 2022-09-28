@@ -1,5 +1,5 @@
 /// Essa classe serve como **exemplo** para testes unitários em SDKs e em classes que o implementam. Não utilizar esse SDK no projeto.
-final class AnySdk {
+final class IncogniaSdk {
     
     // MARK: - Private Properties
     private static var sdkInitialized: Bool = false
