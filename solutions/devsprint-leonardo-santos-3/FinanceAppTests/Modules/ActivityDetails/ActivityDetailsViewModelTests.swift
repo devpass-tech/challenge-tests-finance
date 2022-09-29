@@ -31,7 +31,7 @@ final class ActivityDetailViewModelTests: XCTestCase {
         XCTAssertTrue(financeServiceSpy.fetchActivityDetailsCalled)
     }
     
-    func test_fetchData_shouldCallfetchActivityDetailsOne() {
+    func test_fetchData_shouldCallFetchActivityDetailsOneTime() {
         
         // When
         sut.fetchData()
