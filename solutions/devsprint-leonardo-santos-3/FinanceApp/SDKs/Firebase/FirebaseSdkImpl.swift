@@ -4,22 +4,33 @@ final class FirebaseSdkImpl {
     // MARK: - Private Properties
     
     private let isEnabled: Bool
+    private let firebaseSdk: FirebaseSdkProtocol.Type
     
-    init(isEnabled: Bool) {
+    init(isEnabled: Bool, firebaseSdk: FirebaseSdkProtocol.Type = FirebaseSdk.self) {
         self.isEnabled = isEnabled
+        self.firebaseSdk = firebaseSdk
     }
     
     // MARK: - Public Methods
     
     func initSDK() {
         if isEnabled {
-            FirebaseSdk.initSdk()
+            firebaseSdk.initSdk()
         }
     }
     
     func trackEvent(_ eventName: String) {
         if isEnabled {
-            FirebaseSdk.trackEvent(eventName)
+            firebaseSdk.trackEvent(eventName)
         }
     }
 }
+
+//MARK: - Firebase SDK Protocol
+
+protocol FirebaseSdkProtocol {
+    static func initSdk()
+    static func trackEvent(_ eventName:String)
+}
+
+extension FirebaseSdk: FirebaseSdkProtocol {}
