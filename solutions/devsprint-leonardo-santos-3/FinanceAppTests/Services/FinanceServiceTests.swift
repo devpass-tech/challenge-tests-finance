@@ -42,6 +42,43 @@ final class FinanceServiceTests: XCTestCase {
         makeDefaultTests()
     }
     
+    func test_fetchContactList_shouldSendCorrectURL(){
+        sut.fetchContactList { _ in }
+
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+        XCTAssertEqual(networkClientSpy.url?.description, "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/contact_list_endpoint.json")
+    }
+    
+    func test_fetchContactList_givenNilData_shouldReturnNil(){
+        networkClientSpy.completionData = nil
+        
+        sut.fetchContactList { data in
+            XCTAssertNil(data)
+        }
+        
+        XCTAssertEqual(networkClientSpy.performRequestCount, 1)
+    }
+    
+    func test_fetchContactList_givenData_shouldReturnCorrectContactList(){
+        let expectedResult = [
+            Contact.fixture(name: "Fulano", phone: "55 027 939399999")
+        ]
+        
+        networkClientSpy.completionData = correctContactListData
+        
+        sut.fetchContactList { result in
+            XCTAssertEqual(result, expectedResult)
+        }
+    }
+    
+    func test_fetchContactList_givenInvalidData_shouldReturnNil(){
+        networkClientSpy.completionData = invalidContactListData
+        
+        sut.fetchContactList { result in
+            XCTAssertNil(result)
+        }
+    }
+
     func test_fetchHomeData_shouldPassCorrectURL(){
         sut.fetchHomeData({ _ in })
         
@@ -86,7 +123,6 @@ final class FinanceServiceTests: XCTestCase {
     
     func test_transferAmount_wasCalledOnlyOnce(){
         sut.transferAmount { _ in  }
-        
         XCTAssertEqual(networkClientSpy.performRequestCount, 1)
     }
     
@@ -138,13 +174,10 @@ final class FinanceServiceTests: XCTestCase {
         sut.transferAmount {
             XCTAssertNil($0)
         }
-        
     }
 }
 
-
-
-extension FinanceServiceTests {
+private extension FinanceServiceTests {
 
     var correctData: Data? {
         """
@@ -162,6 +195,22 @@ extension FinanceServiceTests {
         """.data(using: .utf8)
     }
     
+    var correctContactListData: Data? {
+    """
+        [
+         {
+          "name": "Fulano",
+          "phone": "55 027 939399999"
+          }
+         ]
+     """.data(using: .utf8)
+    }
+    
+    var invalidContactListData: Data? {
+    """
+    """.data(using: .utf8)
+    }
+   
     var correctHomeDataData: Data?  {
         """
         {

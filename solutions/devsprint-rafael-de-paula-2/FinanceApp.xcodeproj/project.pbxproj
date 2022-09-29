@@ -7,19 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2522A8B728E224E2009D1A7C /* FinanceHomeServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */; };
-		2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */; };
-		2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */; };
-		25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */; };
-		2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */; };
-		2575FA3228DD0D6200AB325F /* Activity+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */; };
-		83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
 		98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6E277E32C30028DBEA /* SceneDelegate.swift */; };
 		98584A76277E32C50028DBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98584A75277E32C50028DBEA /* Assets.xcassets */; };
 		98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98584A77277E32C50028DBEA /* LaunchScreen.storyboard */; };
+		98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */; };
+		98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */; };
 		98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA4277E35E90028DBEA /* HomeViewController.swift */; };
 		98584AA7277E35F10028DBEA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA6277E35F10028DBEA /* HomeView.swift */; };
 		98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC2277E42E80028DBEA /* FinanceService.swift */; };
@@ -56,42 +51,6 @@
 		988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51028D0EF330078896C /* FinanceServiceTests.swift */; };
 		988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */; };
 		988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51428D0EF820078896C /* HomeViewModelTests.swift */; };
-		9ED983B328DC147800E2A602 /* TransfersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983B228DC147800E2A602 /* TransfersViewControllerTests.swift */; };
-		9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */; };
-		9ED983BE28DE529500E2A602 /* URLSessionDataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */; };
-		A20FA93928DBC89400C0271A /* ActivityDetails+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */; };
-		A23E450D28E1147B007230A0 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E450C28E1147B007230A0 /* DispatchQueue+Extensions.swift */; };
-		FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */; };
-		FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36BC28D8C8F9008BB89F /* ActivityTests.swift */; };
-		FDEA36BF28D8C909008BB89F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36BE28D8C909008BB89F /* Activity.swift */; };
-		FDEA36C128D8C928008BB89F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36C028D8C928008BB89F /* Account.swift */; };
-		FDEA36C328D8C956008BB89F /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36C228D8C956008BB89F /* AccountTests.swift */; };
-		FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36C728D8CA6A008BB89F /* DispatchQueueSpy.swift */; };
-		FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */; };
-		FDEA36CC28D8CBB8008BB89F /* FinanceServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */; };
-		FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */; };
-		FDFF5E2928E3922A00AE84C8 /* RemoteConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */; };
-		FDFF5E2C28E3927700AE84C8 /* RemoteConfigProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */; };
-		FDFF5E3328E3941C00AE84C8 /* RemoteConfigProviderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */; };
-		FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */; };
-		FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */; };
-		FDFF5E4428E397D100AE84C8 /* FirebaseSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E4328E397D100AE84C8 /* FirebaseSdkTests.swift */; };
-		FDFF5E4628E397D700AE84C8 /* FirebaseSdkImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E4528E397D700AE84C8 /* FirebaseSdkImplTests.swift */; };
-		FDFF5E4828E397E100AE84C8 /* FacebookSdkImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E4728E397E100AE84C8 /* FacebookSdkImplTests.swift */; };
-		FDFF5E4A28E397EA00AE84C8 /* IncogniaSdkImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E4928E397EA00AE84C8 /* IncogniaSdkImplTests.swift */; };
-		FDFF5E5328E398B500AE84C8 /* FacebookSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5228E398B500AE84C8 /* FacebookSdkTests.swift */; };
-		FDFF5E5528E398BA00AE84C8 /* IncogniaSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5428E398BA00AE84C8 /* IncogniaSdkTests.swift */; };
-		FDFF5E5728E3990200AE84C8 /* FacebookSdkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5628E3990200AE84C8 /* FacebookSdkSpy.swift */; };
-		FDFF5E5928E3990A00AE84C8 /* IncogniaSdkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5828E3990A00AE84C8 /* IncogniaSdkSpy.swift */; };
-		FDFF5E5B28E3991500AE84C8 /* FirebaseSdkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5A28E3991500AE84C8 /* FirebaseSdkSpy.swift */; };
-		FDFF5E6628E39A0100AE84C8 /* FirebaseSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5E28E39A0100AE84C8 /* FirebaseSdk.swift */; };
-		FDFF5E6728E39A0100AE84C8 /* FirebaseSdkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E5F28E39A0100AE84C8 /* FirebaseSdkImpl.swift */; };
-		FDFF5E6828E39A0100AE84C8 /* FacebookSdkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6128E39A0100AE84C8 /* FacebookSdkImpl.swift */; };
-		FDFF5E6928E39A0100AE84C8 /* FacebookSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6228E39A0100AE84C8 /* FacebookSdk.swift */; };
-		FDFF5E6A28E39A0100AE84C8 /* IncogniaSdkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6428E39A0100AE84C8 /* IncogniaSdkImpl.swift */; };
-		FDFF5E6B28E39A0100AE84C8 /* IncogniaSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6528E39A0100AE84C8 /* IncogniaSdk.swift */; };
-		FDFF5E6F28E39A4C00AE84C8 /* GetRandomNumberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6D28E39A4C00AE84C8 /* GetRandomNumberUseCase.swift */; };
-		FDFF5E7028E39A4C00AE84C8 /* GetDefaultProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF5E6E28E39A4C00AE84C8 /* GetDefaultProfileUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,16 +61,16 @@
 			remoteGlobalIDString = 98584A68277E32C30028DBEA;
 			remoteInfo = FinanceApp;
 		};
+		98584A8A277E32C60028DBEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98584A61277E32C30028DBEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98584A68277E32C30028DBEA;
+			remoteInfo = FinanceApp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeServiceSpy.swift; sourceTree = "<group>"; };
-		2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegateSpy.swift; sourceTree = "<group>"; };
-		2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
-		25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixture.swift"; sourceTree = "<group>"; };
-		2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
-		2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Fixture.swift"; sourceTree = "<group>"; };
-		83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransferResult+Fixture.swift"; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +80,9 @@
 		98584A78277E32C50028DBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98584A7A277E32C50028DBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITests.swift; sourceTree = "<group>"; };
+		98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		98584AA4277E35E90028DBEA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98584AA6277E35F10028DBEA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		98584AC2277E42E80028DBEA /* FinanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceService.swift; sourceTree = "<group>"; };
@@ -157,42 +119,6 @@
 		988BA51028D0EF330078896C /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		988BA51428D0EF820078896C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		9ED983B228DC147800E2A602 /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
-		9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
-		9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataDummy.swift; sourceTree = "<group>"; };
-		A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityDetails+Fixture.swift"; sourceTree = "<group>"; };
-		A23E450C28E1147B007230A0 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
-		FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
-		FDEA36BC28D8C8F9008BB89F /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
-		FDEA36BE28D8C909008BB89F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		FDEA36C028D8C928008BB89F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		FDEA36C228D8C956008BB89F /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
-		FDEA36C728D8CA6A008BB89F /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
-		FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
-		FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceProtocols.swift; sourceTree = "<group>"; };
-		FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewTests.swift; sourceTree = "<group>"; };
-		FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigProvider.swift; sourceTree = "<group>"; };
-		FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProviderTests.swift; sourceTree = "<group>"; };
-		FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigProviderSpy.swift; sourceTree = "<group>"; };
-		FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCaseTests.swift; sourceTree = "<group>"; };
-		FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCaseTests.swift; sourceTree = "<group>"; };
-		FDFF5E4328E397D100AE84C8 /* FirebaseSdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSdkTests.swift; sourceTree = "<group>"; };
-		FDFF5E4528E397D700AE84C8 /* FirebaseSdkImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSdkImplTests.swift; sourceTree = "<group>"; };
-		FDFF5E4728E397E100AE84C8 /* FacebookSdkImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSdkImplTests.swift; sourceTree = "<group>"; };
-		FDFF5E4928E397EA00AE84C8 /* IncogniaSdkImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncogniaSdkImplTests.swift; sourceTree = "<group>"; };
-		FDFF5E5228E398B500AE84C8 /* FacebookSdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSdkTests.swift; sourceTree = "<group>"; };
-		FDFF5E5428E398BA00AE84C8 /* IncogniaSdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncogniaSdkTests.swift; sourceTree = "<group>"; };
-		FDFF5E5628E3990200AE84C8 /* FacebookSdkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookSdkSpy.swift; sourceTree = "<group>"; };
-		FDFF5E5828E3990A00AE84C8 /* IncogniaSdkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncogniaSdkSpy.swift; sourceTree = "<group>"; };
-		FDFF5E5A28E3991500AE84C8 /* FirebaseSdkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSdkSpy.swift; sourceTree = "<group>"; };
-		FDFF5E5E28E39A0100AE84C8 /* FirebaseSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSdk.swift; sourceTree = "<group>"; };
-		FDFF5E5F28E39A0100AE84C8 /* FirebaseSdkImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSdkImpl.swift; sourceTree = "<group>"; };
-		FDFF5E6128E39A0100AE84C8 /* FacebookSdkImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSdkImpl.swift; sourceTree = "<group>"; };
-		FDFF5E6228E39A0100AE84C8 /* FacebookSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSdk.swift; sourceTree = "<group>"; };
-		FDFF5E6428E39A0100AE84C8 /* IncogniaSdkImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncogniaSdkImpl.swift; sourceTree = "<group>"; };
-		FDFF5E6528E39A0100AE84C8 /* IncogniaSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncogniaSdk.swift; sourceTree = "<group>"; };
-		FDFF5E6D28E39A4C00AE84C8 /* GetRandomNumberUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRandomNumberUseCase.swift; sourceTree = "<group>"; };
-		FDFF5E6E28E39A4C00AE84C8 /* GetDefaultProfileUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDefaultProfileUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,38 +136,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98584A86277E32C60028DBEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2575FA2728DD01AF00AB325F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
-				83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		25765B9228DCFD50006F5BB9 /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				2575FA2C28DD045C00AB325F /* ActivityDetails+Fixture.swift */,
-				25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */,
-				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
-				2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */,
-				2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */,
-				83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */,
-			);
-			path = Fixtures;
-			sourceTree = "<group>";
-		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
 				98584A6B277E32C30028DBEA /* FinanceApp */,
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
+				98584A8C277E32C60028DBEA /* FinanceAppUITests */,
 				98584A6A277E32C30028DBEA /* Products */,
-				2575FA2728DD01AF00AB325F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,6 +161,7 @@
 			children = (
 				98584A69277E32C30028DBEA /* FinanceApp.app */,
 				98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */,
+				98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,9 +169,7 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF5E5C28E39A0100AE84C8 /* SDKs */,
 				98584A9D277E351B0028DBEA /* Resources */,
-				FDFF5E6C28E39A4C00AE84C8 /* UseCases */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				98584A9E277E35700028DBEA /* Modules */,
 				98584AF8277E511C0028DBEA /* Components */,
@@ -272,14 +182,25 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF5E4228E397C800AE84C8 /* SDKs */,
-				FDFF5E3428E3949F00AE84C8 /* UseCases */,
-				FDEA36C528D8C9C7008BB89F /* TestUtils */,
-				FDEA36B628D8C7EC008BB89F /* Modules */,
-				FDEA36B328D8C7A8008BB89F /* Services */,
-				FDEA36B228D8C78F008BB89F /* Extensions */,
+				988BA50628D0DBCF0078896C /* StringExtensionsTests.swift */,
+				988BA50828D0EE570078896C /* UIViewControllerExtensionsTests.swift */,
+				988BA50A28D0EE740078896C /* UITableViewCellExtensionsTests.swift */,
+				988BA50C28D0EEAF0078896C /* UserProfileTests.swift */,
+				988BA50E28D0EF030078896C /* HomeDataTests.swift */,
+				988BA51028D0EF330078896C /* FinanceServiceTests.swift */,
+				988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */,
+				988BA51428D0EF820078896C /* HomeViewModelTests.swift */,
 			);
 			path = FinanceAppTests;
+			sourceTree = "<group>";
+		};
+		98584A8C277E32C60028DBEA /* FinanceAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */,
+				98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */,
+			);
+			path = FinanceAppUITests;
 			sourceTree = "<group>";
 		};
 		98584A9C277E350D0028DBEA /* AppDelegate */ = {
@@ -327,9 +248,7 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF5E2728E3922A00AE84C8 /* RemoteConfig */,
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
-				FDEA36CB28D8CBB8008BB89F /* FinanceServiceProtocols.swift */,
 				9882466127D016F8001DD0C5 /* NetworkClient.swift */,
 				98584AC1277E42CB0028DBEA /* Entities */,
 			);
@@ -344,8 +263,6 @@
 				9882465B27D013C1001DD0C5 /* Contact.swift */,
 				9882465D27D013D2001DD0C5 /* TransferResult.swift */,
 				9882465F27D013E1001DD0C5 /* UserProfile.swift */,
-				FDEA36BE28D8C909008BB89F /* Activity.swift */,
-				FDEA36C028D8C928008BB89F /* Account.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -413,204 +330,10 @@
 			isa = PBXGroup;
 			children = (
 				9882465327D01210001DD0C5 /* String+Extensions.swift */,
-				A23E450C28E1147B007230A0 /* DispatchQueue+Extensions.swift */,
 				9882465527D0121F001DD0C5 /* UITableViewCell+Extensions.swift */,
 				9882466327D01E57001DD0C5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9ED983B128DC141B00E2A602 /* Transfers */ = {
-			isa = PBXGroup;
-			children = (
-				9ED983B228DC147800E2A602 /* TransfersViewControllerTests.swift */,
-			);
-			path = Transfers;
-			sourceTree = "<group>";
-		};
-		FDEA36B228D8C78F008BB89F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				988BA50A28D0EE740078896C /* UITableViewCellExtensionsTests.swift */,
-				988BA50828D0EE570078896C /* UIViewControllerExtensionsTests.swift */,
-				988BA50628D0DBCF0078896C /* StringExtensionsTests.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FDEA36B328D8C7A8008BB89F /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E2A28E3926900AE84C8 /* RemoteConfig */,
-				FDEA36BB28D8C8F1008BB89F /* Entities */,
-				988BA51028D0EF330078896C /* FinanceServiceTests.swift */,
-				FDEA36B428D8C7D4008BB89F /* NetworkClientTests.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		FDEA36B628D8C7EC008BB89F /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				FDEA36CD28D8CCDA008BB89F /* ContactList */,
-				9ED983B128DC141B00E2A602 /* Transfers */,
-				FDEA36B928D8C809008BB89F /* ActivityDetails */,
-				FDEA36B828D8C7FC008BB89F /* Home */,
-				FDEA36B728D8C7F8008BB89F /* UserProfile */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		FDEA36B728D8C7F8008BB89F /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				988BA50C28D0EEAF0078896C /* UserProfileTests.swift */,
-			);
-			path = UserProfile;
-			sourceTree = "<group>";
-		};
-		FDEA36B828D8C7FC008BB89F /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				988BA51428D0EF820078896C /* HomeViewModelTests.swift */,
-				988BA50E28D0EF030078896C /* HomeDataTests.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		FDEA36B928D8C809008BB89F /* ActivityDetails */ = {
-			isa = PBXGroup;
-			children = (
-				988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */,
-			);
-			path = ActivityDetails;
-			sourceTree = "<group>";
-		};
-		FDEA36BB28D8C8F1008BB89F /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				FDEA36BC28D8C8F9008BB89F /* ActivityTests.swift */,
-				FDEA36C228D8C956008BB89F /* AccountTests.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		FDEA36C428D8C9BF008BB89F /* Doubles */ = {
-			isa = PBXGroup;
-			children = (
-				FDEA36C728D8CA6A008BB89F /* DispatchQueueSpy.swift */,
-				FDEA36C928D8CAD0008BB89F /* NetworkClientSpy.swift */,
-				2522A8B628E224E2009D1A7C /* FinanceHomeServiceSpy.swift */,
-				2522A8B828E22516009D1A7C /* HomeViewModelDelegateSpy.swift */,
-				9ED983BB28DE3F1A00E2A602 /* URLSessionSpy.swift */,
-				9ED983BD28DE529500E2A602 /* URLSessionDataDummy.swift */,
-				FDFF5E3228E3941C00AE84C8 /* RemoteConfigProviderSpy.swift */,
-				FDFF5E5628E3990200AE84C8 /* FacebookSdkSpy.swift */,
-				FDFF5E5828E3990A00AE84C8 /* IncogniaSdkSpy.swift */,
-				FDFF5E5A28E3991500AE84C8 /* FirebaseSdkSpy.swift */,
-			);
-			path = Doubles;
-			sourceTree = "<group>";
-		};
-		FDEA36C528D8C9C7008BB89F /* TestUtils */ = {
-			isa = PBXGroup;
-			children = (
-				25765B9228DCFD50006F5BB9 /* Fixtures */,
-				FDEA36C428D8C9BF008BB89F /* Doubles */,
-			);
-			path = TestUtils;
-			sourceTree = "<group>";
-		};
-		FDEA36CD28D8CCDA008BB89F /* ContactList */ = {
-			isa = PBXGroup;
-			children = (
-				FDEA36CE28D8CCE4008BB89F /* ContactListViewTests.swift */,
-			);
-			path = ContactList;
-			sourceTree = "<group>";
-		};
-		FDFF5E2728E3922A00AE84C8 /* RemoteConfig */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E2828E3922A00AE84C8 /* RemoteConfigProvider.swift */,
-			);
-			path = RemoteConfig;
-			sourceTree = "<group>";
-		};
-		FDFF5E2A28E3926900AE84C8 /* RemoteConfig */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E2B28E3927700AE84C8 /* RemoteConfigProviderTests.swift */,
-			);
-			path = RemoteConfig;
-			sourceTree = "<group>";
-		};
-		FDFF5E3428E3949F00AE84C8 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E3528E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift */,
-				FDFF5E3728E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		FDFF5E4228E397C800AE84C8 /* SDKs */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E5228E398B500AE84C8 /* FacebookSdkTests.swift */,
-				FDFF5E5428E398BA00AE84C8 /* IncogniaSdkTests.swift */,
-				FDFF5E4328E397D100AE84C8 /* FirebaseSdkTests.swift */,
-				FDFF5E4528E397D700AE84C8 /* FirebaseSdkImplTests.swift */,
-				FDFF5E4728E397E100AE84C8 /* FacebookSdkImplTests.swift */,
-				FDFF5E4928E397EA00AE84C8 /* IncogniaSdkImplTests.swift */,
-			);
-			path = SDKs;
-			sourceTree = "<group>";
-		};
-		FDFF5E5C28E39A0100AE84C8 /* SDKs */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E5D28E39A0100AE84C8 /* Firebase */,
-				FDFF5E6028E39A0100AE84C8 /* Facebook */,
-				FDFF5E6328E39A0100AE84C8 /* Incognia */,
-			);
-			path = SDKs;
-			sourceTree = "<group>";
-		};
-		FDFF5E5D28E39A0100AE84C8 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E5E28E39A0100AE84C8 /* FirebaseSdk.swift */,
-				FDFF5E5F28E39A0100AE84C8 /* FirebaseSdkImpl.swift */,
-			);
-			path = Firebase;
-			sourceTree = "<group>";
-		};
-		FDFF5E6028E39A0100AE84C8 /* Facebook */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E6228E39A0100AE84C8 /* FacebookSdk.swift */,
-				FDFF5E6128E39A0100AE84C8 /* FacebookSdkImpl.swift */,
-			);
-			path = Facebook;
-			sourceTree = "<group>";
-		};
-		FDFF5E6328E39A0100AE84C8 /* Incognia */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E6528E39A0100AE84C8 /* IncogniaSdk.swift */,
-				FDFF5E6428E39A0100AE84C8 /* IncogniaSdkImpl.swift */,
-			);
-			path = Incognia;
-			sourceTree = "<group>";
-		};
-		FDFF5E6C28E39A4C00AE84C8 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF5E6D28E39A4C00AE84C8 /* GetRandomNumberUseCase.swift */,
-				FDFF5E6E28E39A4C00AE84C8 /* GetDefaultProfileUseCase.swift */,
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -651,6 +374,24 @@
 			productReference = 98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		98584A88277E32C60028DBEA /* FinanceAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98584A99277E32C60028DBEA /* Build configuration list for PBXNativeTarget "FinanceAppUITests" */;
+			buildPhases = (
+				98584A85277E32C60028DBEA /* Sources */,
+				98584A86277E32C60028DBEA /* Frameworks */,
+				98584A87277E32C60028DBEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98584A8B277E32C60028DBEA /* PBXTargetDependency */,
+			);
+			name = FinanceAppUITests;
+			productName = FinanceAppUITests;
+			productReference = 98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -665,6 +406,10 @@
 						CreatedOnToolsVersion = 13.2.1;
 					};
 					98584A7E277E32C60028DBEA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 98584A68277E32C30028DBEA;
+					};
+					98584A88277E32C60028DBEA = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 98584A68277E32C30028DBEA;
 					};
@@ -685,6 +430,7 @@
 			targets = (
 				98584A68277E32C30028DBEA /* FinanceApp */,
 				98584A7E277E32C60028DBEA /* FinanceAppTests */,
+				98584A88277E32C60028DBEA /* FinanceAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -706,6 +452,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98584A87277E32C60028DBEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -720,39 +473,26 @@
 				9882466427D01E57001DD0C5 /* UIViewController+Extensions.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
-				FDFF5E2928E3922A00AE84C8 /* RemoteConfigProvider.swift in Sources */,
-				FDFF5E6828E39A0100AE84C8 /* FacebookSdkImpl.swift in Sources */,
-				FDFF5E6728E39A0100AE84C8 /* FirebaseSdkImpl.swift in Sources */,
-				FDFF5E6F28E39A4C00AE84C8 /* GetRandomNumberUseCase.swift in Sources */,
 				9882466027D013E1001DD0C5 /* UserProfile.swift in Sources */,
 				9882465E27D013D2001DD0C5 /* TransferResult.swift in Sources */,
-				FDEA36BF28D8C909008BB89F /* Activity.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
-				FDEA36C128D8C928008BB89F /* Account.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
-				FDFF5E6628E39A0100AE84C8 /* FirebaseSdk.swift in Sources */,
 				9882465A27D013B4001DD0C5 /* ActivityDetails.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
-				FDFF5E6A28E39A0100AE84C8 /* IncogniaSdkImpl.swift in Sources */,
 				9882465427D01210001DD0C5 /* String+Extensions.swift in Sources */,
 				9882465827D013A3001DD0C5 /* HomeData.swift in Sources */,
-				FDFF5E6928E39A0100AE84C8 /* FacebookSdk.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
-				FDFF5E7028E39A4C00AE84C8 /* GetDefaultProfileUseCase.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
-				A23E450D28E1147B007230A0 /* DispatchQueue+Extensions.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
-				FDEA36CC28D8CBB8008BB89F /* FinanceServiceProtocols.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				9882466927D13DE2001DD0C5 /* ActivityDetailsViewModel.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
-				FDFF5E6B28E39A0100AE84C8 /* IncogniaSdk.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				9882465627D0121F001DD0C5 /* UITableViewCell+Extensions.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
@@ -765,45 +505,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDEA36C328D8C956008BB89F /* AccountTests.swift in Sources */,
-				FDFF5E5928E3990A00AE84C8 /* IncogniaSdkSpy.swift in Sources */,
-				9ED983BE28DE529500E2A602 /* URLSessionDataDummy.swift in Sources */,
 				988BA50D28D0EEAF0078896C /* UserProfileTests.swift in Sources */,
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
-				2522A8B728E224E2009D1A7C /* FinanceHomeServiceSpy.swift in Sources */,
-				25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */,
-				FDFF5E3828E394B000AE84C8 /* GetRandomNumberUseCaseTests.swift in Sources */,
-				FDFF5E5728E3990200AE84C8 /* FacebookSdkSpy.swift in Sources */,
-				FDEA36CF28D8CCE4008BB89F /* ContactListViewTests.swift in Sources */,
-				2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
-				FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */,
-				FDFF5E4A28E397EA00AE84C8 /* IncogniaSdkImplTests.swift in Sources */,
-				83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */,
-				FDFF5E2C28E3927700AE84C8 /* RemoteConfigProviderTests.swift in Sources */,
-				FDFF5E4628E397D700AE84C8 /* FirebaseSdkImplTests.swift in Sources */,
-				FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */,
-				FDFF5E5528E398BA00AE84C8 /* IncogniaSdkTests.swift in Sources */,
-				FDFF5E5B28E3991500AE84C8 /* FirebaseSdkSpy.swift in Sources */,
-				FDEA36BD28D8C8F9008BB89F /* ActivityTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
-				2522A8B928E22516009D1A7C /* HomeViewModelDelegateSpy.swift in Sources */,
-				2575FA2D28DD045D00AB325F /* ActivityDetails+Fixture.swift in Sources */,
-				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
-				9ED983BC28DE3F1A00E2A602 /* URLSessionSpy.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
-				2522A8B528E22405009D1A7C /* HomeData+Fixture.swift in Sources */,
-				FDFF5E3628E394A900AE84C8 /* GetDefaultProfileUseCaseTests.swift in Sources */,
-				FDFF5E3328E3941C00AE84C8 /* RemoteConfigProviderSpy.swift in Sources */,
-				FDEA36C828D8CA6A008BB89F /* DispatchQueueSpy.swift in Sources */,
-				FDFF5E5328E398B500AE84C8 /* FacebookSdkTests.swift in Sources */,
-				FDFF5E4428E397D100AE84C8 /* FirebaseSdkTests.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
-				FDFF5E4828E397E100AE84C8 /* FacebookSdkImplTests.swift in Sources */,
-				2575FA3228DD0D6200AB325F /* Activity+Fixture.swift in Sources */,
-				9ED983B328DC147800E2A602 /* TransfersViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98584A85277E32C60028DBEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */,
+				98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +532,11 @@
 			isa = PBXTargetDependency;
 			target = 98584A68277E32C30028DBEA /* FinanceApp */;
 			targetProxy = 98584A80277E32C60028DBEA /* PBXContainerItemProxy */;
+		};
+		98584A8B277E32C60028DBEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98584A68277E32C30028DBEA /* FinanceApp */;
+			targetProxy = 98584A8A277E32C60028DBEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1041,6 +764,42 @@
 			};
 			name = Release;
 		};
+		98584A9A277E32C60028DBEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8F644M47X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FinanceApp;
+			};
+			name = Debug;
+		};
+		98584A9B277E32C60028DBEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8F644M47X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FinanceApp;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1067,6 +826,15 @@
 			buildConfigurations = (
 				98584A97277E32C60028DBEA /* Debug */,
 				98584A98277E32C60028DBEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98584A99277E32C60028DBEA /* Build configuration list for PBXNativeTarget "FinanceAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98584A9A277E32C60028DBEA /* Debug */,
+				98584A9B277E32C60028DBEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

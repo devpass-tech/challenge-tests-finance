@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Contact: Decodable, Equatable {
+struct Contact: Decodable {
 
     let name: String
     let phone: String
