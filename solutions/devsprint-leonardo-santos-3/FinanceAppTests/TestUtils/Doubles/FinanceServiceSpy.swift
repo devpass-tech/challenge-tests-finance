@@ -9,7 +9,7 @@
 
 import UIKit
 
-final class FinanceServiceSpy: FinanceServiceActivityDetailsProtocol {
+final class FinanceServiceActivityDetailsSpy: FinanceServiceActivityDetailsProtocol {
     
     // MARK: Private Properties
     
