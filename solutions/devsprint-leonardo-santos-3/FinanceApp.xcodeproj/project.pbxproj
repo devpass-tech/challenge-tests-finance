@@ -13,6 +13,7 @@
 		25765B9428DCFD6B006F5BB9 /* Contact+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */; };
 		2575FA3028DD0CF600AB325F /* HomeData+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */; };
 		2575FA3228DD0D6200AB325F /* Activity+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */; };
+		83ABF47C28E3B87500ECE3C3 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABF47B28E3B87500ECE3C3 /* TabBarControllerTests.swift */; };
 		83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
@@ -111,6 +112,7 @@
 		25765B9328DCFD6B006F5BB9 /* Contact+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixture.swift"; sourceTree = "<group>"; };
 		2575FA2F28DD0CF600AB325F /* HomeData+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixture.swift"; sourceTree = "<group>"; };
 		2575FA3128DD0D6200AB325F /* Activity+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Fixture.swift"; sourceTree = "<group>"; };
+		83ABF47B28E3B87500ECE3C3 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		83C8BD6F28DD0BEF00F3D3A6 /* TransferResult+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransferResult+Fixture.swift"; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -213,13 +215,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2575FA2728DD01AF00AB325F /* Recovered References */ = {
+		83ABF47A28E3B86F00ECE3C3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A20FA93828DBC89400C0271A /* ActivityDetails+Fixture.swift */,
-				83C8BD6728DD03AB00F3D3A6 /* TransferResultFixtures.swift */,
+				83ABF47B28E3B87500ECE3C3 /* TabBarControllerTests.swift */,
 			);
-			name = "Recovered References";
+			path = Components;
 			sourceTree = "<group>";
 		};
 		25765B9228DCFD50006F5BB9 /* Fixtures */ = {
@@ -241,7 +242,6 @@
 				98584A6B277E32C30028DBEA /* FinanceApp */,
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
 				98584A6A277E32C30028DBEA /* Products */,
-				2575FA2728DD01AF00AB325F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -272,6 +272,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				83ABF47A28E3B86F00ECE3C3 /* Components */,
 				FDFF5E4228E397C800AE84C8 /* SDKs */,
 				FDFF5E3428E3949F00AE84C8 /* UseCases */,
 				FDEA36C528D8C9C7008BB89F /* TestUtils */,
@@ -782,6 +783,7 @@
 				FDEA36B528D8C7D4008BB89F /* NetworkClientTests.swift in Sources */,
 				FDFF5E4A28E397EA00AE84C8 /* IncogniaSdkImplTests.swift in Sources */,
 				83C8BD7028DD0BEF00F3D3A6 /* TransferResult+Fixture.swift in Sources */,
+				83ABF47C28E3B87500ECE3C3 /* TabBarControllerTests.swift in Sources */,
 				FDFF5E2C28E3927700AE84C8 /* RemoteConfigProviderTests.swift in Sources */,
 				FDFF5E4628E397D700AE84C8 /* FirebaseSdkImplTests.swift in Sources */,
 				FDEA36CA28D8CAD0008BB89F /* NetworkClientSpy.swift in Sources */,
