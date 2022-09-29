@@ -4,28 +4,27 @@ import XCTest
 final class RemoteConfigProviderTests: XCTestCase {
     
     private let sut = RemoteConfigProvider()
-    private let feature = RemoteConfigProvider.Feature.self
     
-    func test_shouldExecute_givenFeatureGetDefaultProfileFeature(){
-        let expectedResult = sut.shouldExecute(feature.getDefaultProfile)
+    func test_shouldExecute_givenDefaultProfile_shouldReturnTrue(){
+        let expectedResult = sut.shouldExecute(.getDefaultProfile)
         
         XCTAssertTrue(expectedResult)
     }
     
-    func test_shouldExecute_givenFeatureGetProfileTypePremium(){
-        let expectedResult = sut.shouldExecute(feature.getProfileType(feature.ProfileType.premium))
+    func test_shouldExecute_givenProfileTypePremium_shouldReturnTrue(){
+        let expectedResult = sut.shouldExecute(.getProfileType(.premium))
         
         XCTAssertTrue(expectedResult)
     }
     
-    func test_shouldExecute_givenFeatureGetProfileTypeStandard(){
-        let expectedResult = sut.shouldExecute(feature.getProfileType(feature.ProfileType.standard))
+    func test_shouldExecute_givenProfileTypeStandard_shouldReturnFalse(){
+        let expectedResult = sut.shouldExecute(.getProfileType(.standard))
         
         XCTAssertFalse(expectedResult)
     }
     
-    func test_shouldExecute_givenFeatureGetActivities(){
-        let expectedResult = sut.shouldExecute(feature.getActivities)
+    func test_shouldExecute_givenActivities_shouldReturnTrue(){
+        let expectedResult = sut.shouldExecute(.getActivities)
         
         XCTAssertTrue(expectedResult)
     }
