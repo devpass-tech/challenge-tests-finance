@@ -22,7 +22,7 @@ final class ActivityDetailViewModelTests: XCTestCase {
         XCTAssertFalse(dispatchQueueSpy.calledDispatchQueueAsync)
     }
 
-    func test_fetchData_whenIsCalled_shouldReturnTrue() {
+    func test_fetchData_shouldCallFetchActivityDetails() {
 
         // When
         sut.fetchData()
