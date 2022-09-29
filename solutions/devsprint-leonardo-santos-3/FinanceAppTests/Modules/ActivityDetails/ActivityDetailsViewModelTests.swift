@@ -7,7 +7,7 @@ final class ActivityDetailViewModelTests: XCTestCase {
     // MARK: - Properties
     
     private let networkClientSpy = NetworkClientSpy()
-    private lazy var financeServiceSpy = FinanceServiceSpy()
+    private lazy var financeServiceSpy = FinanceServiceActivityDetailsSpy()
     private let delegateSpy = ActivityDetailsViewModelDelegateSpy()
     private let dispatchQueueSpy = DispatchQueueSpy()
     private lazy var sut = ActivityDetailsViewModel(financeService: financeServiceSpy,
@@ -50,6 +50,19 @@ final class ActivityDetailViewModelTests: XCTestCase {
         
         // Then
         XCTAssertFalse(delegateSpy.didFetchActivityDetailsCalled)
+    }
+    
+    func test_fetchData_whenActivityDetailsIsNil_shouldCallDelegate() {
+        
+        // Given
+        financeServiceSpy.fetchActivityDetailsToBeReturned = ActivityDetails.fixture(name: "Batata", price: 1, category: "Fruta", time: "0,0")
+        sut.delegate = delegateSpy
+        
+        // When
+        sut.fetchData()
+        
+        // Then
+        XCTAssertTrue(delegateSpy.didFetchActivityDetailsCalled)
     }
 }
 
