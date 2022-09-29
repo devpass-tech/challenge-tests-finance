@@ -40,7 +40,7 @@ final class ActivityDetailViewModelTests: XCTestCase {
         XCTAssertEqual(financeServiceSpy.fetchActivityDetailsCallCount, 1)
     }
     
-    func test_fetchData_whenActivityDetails_shouldNotCallDelegate() {
+    func test_fetchData_whenActivityDetailsIsNil_shouldNotCallDelegate() {
         
         // Given
         sut.delegate = delegateSpy
