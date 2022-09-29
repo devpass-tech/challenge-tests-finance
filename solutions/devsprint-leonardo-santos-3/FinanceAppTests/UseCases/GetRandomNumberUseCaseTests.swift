@@ -7,23 +7,7 @@ final class GetRandomNumberUserCaseTests: XCTestCase {
     
     private let sut = GetRandomNumberUseCase()
     
-    func test_getRandom_ShouldBeGenerateRandoNumber_WhenNumberLessToFinal() {
-     
-        let expectedInitialNumber = 1
-        let expectedFinalNumber = 100
-        
-        XCTAssertTrue(expectedInitialNumber < expectedFinalNumber)
-    }
-    
-    func test_getRandom_ShouldBeGenerateRandoNumber_WhenNumberGreaterToFinal() {
-     
-        let expectedInitialNumber = 10
-        let expectedFinalNumber = 100
-        
-        XCTAssertTrue(expectedFinalNumber > expectedInitialNumber)
-    }
-    
-    func test_getRandomNumber_ShouBeGenerateRandomNumber_WhenNumberGreaterThanOrEqualToInitial() {
+    func test_getRandomNumber_givenInitialNumber_shouldReturnRandomNumberGreaterThanOrEqualToInitial() {
         
         let expectedInitialNumber = 1
         
@@ -32,7 +16,7 @@ final class GetRandomNumberUserCaseTests: XCTestCase {
         XCTAssertTrue(randomNumber >= expectedInitialNumber)
     }
     
-    func test_getRandomNumber_ShouBeGenerateRandomNumber_WhenNumberLessThanOrEqualToFinal() {
+    func test_getRandomNumber_givenFinalNumber_shouldReturnRandomNumberLessThanOrEqualToFinal() {
         
         let expectedFinalNumber = 20
         
@@ -41,15 +25,12 @@ final class GetRandomNumberUserCaseTests: XCTestCase {
         XCTAssertTrue(randomNumber <= expectedFinalNumber)
     }
     
-    func test_getRandomNumber_ShouBeRangeNumbers_WhenRangeNumbersExceptionCorrectly() {
+    func test_getRandomNumber_givenExecptionList_shouldReturnNumberDiferenceFromExeceptionList() {
         
-        let exceptions = [3, 2, 10]
+        let exceptions = [3]
         
         let randomNumber = sut.execute(from: 1, to: 10, exceptions: exceptions)
         
-        XCTAssertFalse(exceptions.contains(where: { $0 == randomNumber }))
+        XCTAssertFalse(exceptions.contains { $0 == randomNumber })
     }
 }
-
-
-// ALERT: Thread 1: Fatal error: Range requires lowerBound <= upperBound
