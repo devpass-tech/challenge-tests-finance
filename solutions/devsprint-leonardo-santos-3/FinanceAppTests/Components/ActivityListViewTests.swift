@@ -53,7 +53,7 @@ final class ActivityListViewTests: XCTestCase {
     }
 }
 
-extension ActivityListViewTests {
+private extension ActivityListViewTests {
     
     func fixture() -> UITableView {
         let tableView = UITableView()
