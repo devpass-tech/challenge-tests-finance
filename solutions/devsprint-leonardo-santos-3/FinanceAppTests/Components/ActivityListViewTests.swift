@@ -6,67 +6,58 @@ import XCTest
 final class ActivityListViewTests: XCTestCase {
     
     private var delegateSpy = ActivityListViewDelegateSpy()
-    private var sut = ActivityListView()
     
-    func test_ActivityListView_ShouldBeDelegateNil_WhenTableViewDidSelectRow() {
-        
-        sut.delegate = nil
-        
-        XCTAssertNil(sut.delegate)
+    private var sut: ActivityListView {
+        let activityListView = ActivityListView()
+        activityListView.delegate = delegateSpy
+        return activityListView
     }
     
-    func test_ActivityListView_ShouldBeDelegateNotNil_WhenTableViewDidSelectRow() {
-        
-        sut.delegate = delegateSpy
+    func test_ActivityListView_givenDelegate_shouldReturnDelegateNotNil() {
         
         XCTAssertNotNil(sut.delegate)
     }
     
-    func test_ActivityListView_ShouldBeCalled_WhenTableViewDidSelectRow() {
+    func test_ActivityListView_whenTriggerDidSelectRow_shouldDelegateCalled() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
-        sut.delegate = delegateSpy
-        sut.tableView.delegate?.tableView?(.init(), didSelectRowAt: indexPath)
+        sut.tableView(fixture(), didSelectRowAt: indexPath)
         
         XCTAssertTrue(delegateSpy.didSelectedCalled)
     }
     
-    func test_ActivityListView_ShouldBeCalledOnceOnly_WhenTableViewDidSelectRow() {
+    func test_ActivityListView_whenTriggerDidSelectRow_shouldDelegateCalledOnceOnly() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
-        sut.delegate = delegateSpy
-        sut.tableView.delegate?.tableView?(.init(), didSelectRowAt: indexPath)
+        sut.tableView(fixture(), didSelectRowAt: indexPath)
         
         XCTAssertEqual(delegateSpy.didSelectedCount, 1)
     }
     
-    func test_ActivityListView_ShouldBeCountRows_WhenTableViewNumberOfRowsBuild() {
+    func test_ActivityListView_whenTriggerNumberOfRowInSection_shouldReturnCountCorrectly() {
         
-        sut.delegate = delegateSpy
-        let numberOfRows = sut.tableView.numberOfRows(inSection: 0)
+        let numberOfRows = sut.tableView(fixture(), numberOfRowsInSection: 0)
         
         XCTAssertEqual(numberOfRows, 5)
     }
     
-    func test_ActivityListView_ShouldBeActivityCellView_WhenTableViewCellForRowBuild() {
+    func test_ActivityListView_givenRegisterTableViewCell_shouldBeActivityCellView() {
         
         let indexPath = IndexPath(row: 0, section: 0)
         
-        sut.delegate = delegateSpy
-        let tableViewCell = sut.tableView.cellForRow(at: indexPath)
+        let tableViewCell = sut.tableView(fixture(), cellForRowAt: indexPath)
         
         XCTAssertTrue(tableViewCell is ActivityCellView)
     }
+}
+
+extension ActivityListViewTests {
     
-    func test_ActivityListView_ShouldBeHeightRow_WhenTableViewCellForRowBuild() {
-        
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        sut.delegate = delegateSpy
-        let tableViewCell = sut.tableView.cellForRow(at: indexPath)
-        
-        XCTAssertEqual(tableViewCell?.frame.height, CGFloat(82))
+    func fixture() -> UITableView {
+        let tableView = UITableView()
+        tableView.register(ActivityCellView.self, forCellReuseIdentifier: "ActivityCellIdentifier")
+        return tableView
     }
 }
