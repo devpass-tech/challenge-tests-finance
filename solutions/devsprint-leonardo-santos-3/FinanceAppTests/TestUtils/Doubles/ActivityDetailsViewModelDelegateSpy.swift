@@ -7,7 +7,6 @@
 
 @testable import FinanceApp
 
-import UIKit
 
 final class ActivityDetailsViewModelDelegateSpy: ActivityDetailsViewModelDelegate {
     
