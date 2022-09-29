@@ -5,7 +5,7 @@ class TabBarControllerTests: XCTestCase {
     
     private let sut = TabBarController()
     
-    func test_numberOfViewControllersOnTabBar_shouldBeTwo(){
+    func test_viewWillAppear_numberOfViewControllersOnTabBarShouldBeTwo(){
         sut.viewWillAppear(false)
         
         XCTAssertEqual(sut.viewControllers?.count, 2)
