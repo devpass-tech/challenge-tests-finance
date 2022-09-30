@@ -56,5 +56,13 @@ final class FirebaseSdkImplTests:XCTestCase {
         XCTAssertEqual(firebaseSdkSpy.trackEventCallCount, 1)
     }
     
+    func test_trackEvent_givenIsEnabledFirebaseSdkImpl_shouldReceiveValidEventName(){
+        isEnabled = true
+        let expectedResult = "event_test"
+        sut.trackEvent("event_test")
+        
+        XCTAssertEqual(firebaseSdkSpy.eventNameReceived, expectedResult)
+    }
+    
     
 }

@@ -6,6 +6,7 @@ final class FirebaseSdkSpy: FirebaseSdkProtocol {
     private(set) static var initSdkCallCount: Int = 0
     private(set) static var trackEventCalled: Bool = false
     private(set) static var trackEventCallCount: Int = 0
+    private(set) static var eventNameReceived: String?
     
     static func initSdk() {
         initSdkCalled = true
@@ -15,6 +16,7 @@ final class FirebaseSdkSpy: FirebaseSdkProtocol {
     static func trackEvent(_ eventName: String) {
         trackEventCalled = true
         trackEventCallCount += 1
+        eventNameReceived = eventName
     }
     
     static func clear(){
