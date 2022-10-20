@@ -23,16 +23,14 @@ struct HomeViewModel {
     }
 
     func fetchData() {
-
-        financeService.fetchHomeData { homeData in
-
-            guard let homeData = homeData else {
-                return
-            }
-
-            DispatchQueue.main.async {
-
-                delegate?.didFetchHomeData(homeData)
+        financeService.fetchHomeData { result in
+            switch result {
+            case .success(let content):
+                DispatchQueue.main.async {
+                    delegate?.didFetchHomeData(content)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
