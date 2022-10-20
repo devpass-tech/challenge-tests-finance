@@ -24,15 +24,14 @@ struct ActivityDetailsViewModel {
 
     func fetchData() {
 
-        financeService.fetchActivityDetails { activityDetails in
-
-            guard let activityDetails = activityDetails else {
-                return
-            }
-
-            DispatchQueue.main.async {
-
-                delegate?.didFetchActivityDetails(activityDetails)
+        financeService.fetchActivityDetails { result in
+            switch result {
+            case .success(let content):
+                DispatchQueue.main.async {
+                    delegate?.didFetchActivityDetails(content)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
