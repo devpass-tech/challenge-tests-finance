@@ -14,6 +14,8 @@
 		69682466290206A00030FBEA /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69682465290206A00030FBEA /* NetworkClientStub.swift */; };
 		69682469290208260030FBEA /* home-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = 69682468290208260030FBEA /* home-valid.json */; };
 		6968246B290208360030FBEA /* home-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 6968246A290208360030FBEA /* home-invalid.json */; };
+		69EFF78B290352F200FE75B6 /* HomeData+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EFF78A290352F200FE75B6 /* HomeData+Fixtures.swift */; };
+		69EFF78D290353DA00FE75B6 /* Activity+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EFF78C290353DA00FE75B6 /* Activity+Fixture.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -85,6 +87,8 @@
 		69682465290206A00030FBEA /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
 		69682468290208260030FBEA /* home-valid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "home-valid.json"; sourceTree = "<group>"; };
 		6968246A290208360030FBEA /* home-invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "home-invalid.json"; sourceTree = "<group>"; };
+		69EFF78A290352F200FE75B6 /* HomeData+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeData+Fixtures.swift"; sourceTree = "<group>"; };
+		69EFF78C290353DA00FE75B6 /* Activity+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Fixture.swift"; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +177,7 @@
 		696824572900AF1E0030FBEA /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
+				69EFF789290352D400FE75B6 /* Fixtures */,
 				69682467290208020030FBEA /* Mocks */,
 				696824582900AF280030FBEA /* Spies */,
 				69682464290206870030FBEA /* Stubs */,
@@ -265,6 +270,15 @@
 				988BA50C28D0EEAF0078896C /* UserProfileTests.swift */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		69EFF789290352D400FE75B6 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				69EFF78C290353DA00FE75B6 /* Activity+Fixture.swift */,
+				69EFF78A290352F200FE75B6 /* HomeData+Fixtures.swift */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -625,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69682463290201ED0030FBEA /* Result+Extensions.swift in Sources */,
+				69EFF78D290353DA00FE75B6 /* Activity+Fixture.swift in Sources */,
 				988BA50D28D0EEAF0078896C /* UserProfileTests.swift in Sources */,
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				6968245F2900BA780030FBEA /* NetworkError+Random.swift in Sources */,
@@ -634,6 +649,7 @@
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
 				69682466290206A00030FBEA /* NetworkClientStub.swift in Sources */,
+				69EFF78B290352F200FE75B6 /* HomeData+Fixtures.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,

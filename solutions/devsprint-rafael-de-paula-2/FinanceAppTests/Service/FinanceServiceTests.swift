@@ -15,8 +15,7 @@ class FinanceServiceTests: XCTestCase {
     func test_fetchHomeData_whenRequestSucceed_shouldSucessResponse() {
         var expectedResponse: Result<HomeData, Error>?
         
-        let activity = Activity(name: "teste", price: 9.9, time: "10:30")
-        let homeData = HomeData(balance: 100, savings: 150, spending: 50, activity: [activity])
+        let homeData: HomeData = .fixture(savings: 100)
         let requestToBeReturned: Result<HomeData, NetworkError> = .success(homeData)
         
         networkSpy.performRequestToBeReturned = requestToBeReturned
