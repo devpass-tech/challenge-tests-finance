@@ -10,8 +10,8 @@ import Foundation
 
 extension Contact {
     static func fixture(
-        name: String = "Pandora",
-        phone: String = "+55 (31) 99999-5555"
+        name: String = .random(),
+        phone: String = .random()
     ) -> Self {
         .init(
             name: name,
