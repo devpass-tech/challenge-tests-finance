@@ -46,9 +46,13 @@ final class NetworkClient: NetworkClientProtocol {
     }
 }
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case errorNetwork
     case requestFailed(Error)
     case noData
     case parseError
+    
+    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        lhs.localizedDescription == rhs.localizedDescription
+    }
 }
