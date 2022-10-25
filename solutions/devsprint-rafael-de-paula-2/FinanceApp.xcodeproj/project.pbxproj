@@ -60,6 +60,9 @@
 		988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51028D0EF330078896C /* FinanceServiceTests.swift */; };
 		988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */; };
 		988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BA51428D0EF820078896C /* HomeViewModelTests.swift */; };
+		D575208F29080C2F00FF0E11 /* Contact+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575208E29080C2F00FF0E11 /* Contact+Fixtures.swift */; };
+		D575209529080DBE00FF0E11 /* contact-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = D575209429080DBE00FF0E11 /* contact-invalid.json */; };
+		D5752097290813C000FF0E11 /* contact-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = D5752096290813C000FF0E11 /* contact-valid.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +140,9 @@
 		988BA51028D0EF330078896C /* FinanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceTests.swift; sourceTree = "<group>"; };
 		988BA51228D0EF760078896C /* ActivityDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		988BA51428D0EF820078896C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		D575208E29080C2F00FF0E11 /* Contact+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Fixtures.swift"; sourceTree = "<group>"; };
+		D575209429080DBE00FF0E11 /* contact-invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "contact-invalid.json"; sourceTree = "<group>"; };
+		D5752096290813C000FF0E11 /* contact-valid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "contact-valid.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,8 @@
 			children = (
 				69682468290208260030FBEA /* home-valid.json */,
 				6968246A290208360030FBEA /* home-invalid.json */,
+				D5752096290813C000FF0E11 /* contact-valid.json */,
+				D575209429080DBE00FF0E11 /* contact-invalid.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 			children = (
 				69EFF78C290353DA00FE75B6 /* Activity+Fixture.swift */,
 				69EFF78A290352F200FE75B6 /* HomeData+Fixtures.swift */,
+				D575208E29080C2F00FF0E11 /* Contact+Fixtures.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -580,8 +589,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D575209529080DBE00FF0E11 /* contact-invalid.json in Resources */,
 				6968246B290208360030FBEA /* home-invalid.json in Resources */,
 				69682469290208260030FBEA /* home-valid.json in Resources */,
+				D5752097290813C000FF0E11 /* contact-valid.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +653,7 @@
 				69EFF78D290353DA00FE75B6 /* Activity+Fixture.swift in Sources */,
 				988BA50D28D0EEAF0078896C /* UserProfileTests.swift in Sources */,
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
+				D575208F29080C2F00FF0E11 /* Contact+Fixtures.swift in Sources */,
 				6968245F2900BA780030FBEA /* NetworkError+Random.swift in Sources */,
 				6968245A2900AF410030FBEA /* NetworkClientSpy.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
