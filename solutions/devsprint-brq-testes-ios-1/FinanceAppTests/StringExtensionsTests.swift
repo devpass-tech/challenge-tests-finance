@@ -12,6 +12,7 @@ class StringExtensionsTests: XCTestCase {
     
     private var sut = "BemVindo!"
 
+    // MARK: - REMOVE SPACE TEST
     func test_removingSpaces_shouldRemoveSpaces() {
         
         XCTAssertEqual(sut.removingSpaces(), "BemVindo!")
