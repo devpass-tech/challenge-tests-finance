@@ -9,5 +9,12 @@ import XCTest
 @testable import FinanceApp
 
 class StringExtensionsTests: XCTestCase {
+    
+    private var sut = "BemVindo!"
 
+    func test_removingSpaces_shouldRemoveSpaces() {
+        
+        XCTAssertEqual(sut.removingSpaces(), "BemVindo!")
+    }
 }
+
