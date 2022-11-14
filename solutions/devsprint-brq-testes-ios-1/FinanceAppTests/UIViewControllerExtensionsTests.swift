@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class UIViewControllerExtensionsTests: XCTestCase {
+final class UIViewControllerExtensionsTests: XCTestCase {
     
     func test_insideNavigationController_viewControlerShouldIsInNavigation() {
         let sut = DummyVC().insideNavigationController()
