@@ -10,7 +10,7 @@ import XCTest
 
 final class UIViewControllerExtensionsTests: XCTestCase {
     
-    func test_insideNavigationController_viewControlerShouldIsInNavigation() {
+    func test_insideNavigationController_topViewControllerShouldBeCorrect() {
         let sut = DummyVC().insideNavigationController()
         
         XCTAssertEqual(sut.modalPresentationStyle, .formSheet)
