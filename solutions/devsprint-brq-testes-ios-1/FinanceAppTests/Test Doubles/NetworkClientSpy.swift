@@ -4,7 +4,6 @@ import Foundation
 
 final class NetworkClientSpy: NetworkClientProtocol {
     
-    
     private(set) var performRequestCalled: Bool = false
     private(set) var performRequestCallCount: Int = 0
     private(set) var performRequestURL: URL?
