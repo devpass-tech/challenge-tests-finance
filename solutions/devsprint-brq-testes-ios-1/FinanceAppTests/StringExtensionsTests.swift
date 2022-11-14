@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-class StringExtensionsTests: XCTestCase {
+final class StringExtensionsTests: XCTestCase {
     
     private var sut = "BemVindo!"
 
