@@ -10,7 +10,7 @@ import XCTest
 
 final class StringExtensionsTests: XCTestCase {
     
-    private var sut = "BemVindo!"
+    private let sut = "Bem Vindo!"
 
     // MARK: - REMOVE SPACE TEST
     func test_removingSpaces_shouldRemoveSpaces() {
