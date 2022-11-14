@@ -2,7 +2,7 @@ import Foundation
 
 @testable import FinanceApp
 
-class NetWorkClientSpy: NetworkClientProtocol {
+final class NetworkClientSpy: NetworkClientProtocol {
     
     
     private(set) var performRequestCalled: Bool = false
