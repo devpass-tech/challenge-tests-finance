@@ -8,6 +8,15 @@
 import XCTest
 @testable import FinanceApp
 
-class UIViewControllerExtensionsTests: XCTestCase {
+final class UIViewControllerExtensionsTests: XCTestCase {
+    
+    func test_insideNavigationController_topViewControllerShouldBeCorrect() {
+        let sut = DummyVC().insideNavigationController()
+        
+        XCTAssertEqual(sut.modalPresentationStyle, .formSheet)
+        XCTAssertTrue(sut.topViewController is DummyVC)
+    }
+}
 
+class DummyVC: UIViewController {
 }
