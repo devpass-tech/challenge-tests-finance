@@ -21,9 +21,9 @@ struct HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
     private let dispatchQueue: DispatchQueueProtocol
 
-    private let financeService: FinanceServiceProtocol
+    private let financeService: FetchHomeDataProtocol
 
-    init(financeService: FinanceServiceProtocol, dispatchQueue: DispatchQueueProtocol) {
+    init(financeService: FetchHomeDataProtocol, dispatchQueue: DispatchQueueProtocol) {
         self.financeService = financeService
         self.dispatchQueue = dispatchQueue
     }
