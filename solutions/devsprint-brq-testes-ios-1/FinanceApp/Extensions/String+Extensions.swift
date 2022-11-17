@@ -13,4 +13,5 @@ extension String {
 
         return self.replacingOccurrences(of: " ", with: "")
     }
+    
 }
