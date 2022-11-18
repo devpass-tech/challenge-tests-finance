@@ -8,7 +8,7 @@
 import XCTest
 @testable import FinanceApp
 
-final class HomeViewModelTests: XCTestCase {
+class HomeViewModelTests: XCTestCase {
     
     let dispatchQueueSpy = DispatchQueueSpy()
     let financeServiceSpy = FinanceServiceSpy()
