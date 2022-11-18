@@ -4,7 +4,7 @@ import XCTest
 
 final class AccountTests: XCTestCase {
         
-    func test_account() {
+    func test_formattedAccount_shouldReturnCorrectFormattedAccount() {
         let account = Account(agency: "Agency 0007", account: "")
         let result = "Account: \(account.account)"
        
