@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F445B9829252ACB0007B52C /* HomeHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F445B9729252ACB0007B52C /* HomeHeaderViewSnapshotTests.swift */; };
+		4F445B9E29252B9D0007B52C /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4F445B9D29252B9D0007B52C /* SnapshotTesting */; };
+		4F445BA029252E790007B52C /* ActivityCellViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F445B9F29252E790007B52C /* ActivityCellViewSnapshotTests.swift */; };
+		4F445BA229252E810007B52C /* ActivityListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F445BA129252E810007B52C /* ActivityListViewSnapshotTests.swift */; };
+		4F445BA429252E8A0007B52C /* ContactCellViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F445BA329252E8A0007B52C /* ContactCellViewSnapshotTests.swift */; };
+		4F445BA629252E950007B52C /* UserProfileHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F445BA529252E950007B52C /* UserProfileHeaderViewSnapshotTests.swift */; };
 		4FE21AB929196913003C8ADA /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21AB829196913003C8ADA /* AccountTests.swift */; };
 		4FE21ABC29196968003C8ADA /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21ABB29196968003C8ADA /* DispatchQueueSpy.swift */; };
 		4FE21ABE29196989003C8ADA /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21ABD29196989003C8ADA /* NetworkClientSpy.swift */; };
@@ -78,6 +84,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F445B9729252ACB0007B52C /* HomeHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
+		4F445B9F29252E790007B52C /* ActivityCellViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellViewSnapshotTests.swift; sourceTree = "<group>"; };
+		4F445BA129252E810007B52C /* ActivityListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewSnapshotTests.swift; sourceTree = "<group>"; };
+		4F445BA329252E8A0007B52C /* ContactCellViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewSnapshotTests.swift; sourceTree = "<group>"; };
+		4F445BA529252E950007B52C /* UserProfileHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
 		4FE21AB829196913003C8ADA /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		4FE21ABB29196968003C8ADA /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 		4FE21ABD29196989003C8ADA /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
@@ -147,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F445B9E29252B9D0007B52C /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +172,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F445B9629252ABA0007B52C /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F445B9729252ACB0007B52C /* HomeHeaderViewSnapshotTests.swift */,
+				4F445B9F29252E790007B52C /* ActivityCellViewSnapshotTests.swift */,
+				4F445BA129252E810007B52C /* ActivityListViewSnapshotTests.swift */,
+				4F445BA329252E8A0007B52C /* ContactCellViewSnapshotTests.swift */,
+				4F445BA529252E950007B52C /* UserProfileHeaderViewSnapshotTests.swift */,
+			);
+			path = SnapshotTests;
+			sourceTree = "<group>";
+		};
+		4F445B9C29252B9D0007B52C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4FE21ABA2919695A003C8ADA /* Test Doubles */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +208,7 @@
 				98584A82277E32C60028DBEA /* FinanceAppTests */,
 				98584A8C277E32C60028DBEA /* FinanceAppUITests */,
 				98584A6A277E32C30028DBEA /* Products */,
+				4F445B9C29252B9D0007B52C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +238,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				4F445B9629252ABA0007B52C /* SnapshotTests */,
 				4FE21ABA2919695A003C8ADA /* Test Doubles */,
 				988BA50628D0DBCF0078896C /* StringExtensionsTests.swift */,
 				988BA50828D0EE570078896C /* UIViewControllerExtensionsTests.swift */,
@@ -381,6 +414,8 @@
 			dependencies = (
 			);
 			name = FinanceApp;
+			packageProductDependencies = (
+			);
 			productName = FinanceApp;
 			productReference = 98584A69277E32C30028DBEA /* FinanceApp.app */;
 			productType = "com.apple.product-type.application";
@@ -399,6 +434,9 @@
 				98584A81277E32C60028DBEA /* PBXTargetDependency */,
 			);
 			name = FinanceAppTests;
+			packageProductDependencies = (
+				4F445B9D29252B9D0007B52C /* SnapshotTesting */,
+			);
 			productName = FinanceAppTests;
 			productReference = 98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -453,6 +491,9 @@
 				Base,
 			);
 			mainGroup = 98584A60277E32C30028DBEA;
+			packageReferences = (
+				4F445B9929252B920007B52C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 98584A6A277E32C30028DBEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -538,16 +579,21 @@
 				988BA50D28D0EEAF0078896C /* ActivityTests.swift in Sources */,
 				988BA50928D0EE570078896C /* UIViewControllerExtensionsTests.swift in Sources */,
 				4FE21ABE29196989003C8ADA /* NetworkClientSpy.swift in Sources */,
+				4F445B9829252ACB0007B52C /* HomeHeaderViewSnapshotTests.swift in Sources */,
 				4FE21AC6291969F3003C8ADA /* URLSessionSpy.swift in Sources */,
+				4F445BA629252E950007B52C /* UserProfileHeaderViewSnapshotTests.swift in Sources */,
 				4FE21ABC29196968003C8ADA /* DispatchQueueSpy.swift in Sources */,
 				4FE21AC4291969CE003C8ADA /* ContactListViewTests.swift in Sources */,
 				988BA50728D0DBCF0078896C /* StringExtensionsTests.swift in Sources */,
+				4F445BA429252E8A0007B52C /* ContactCellViewSnapshotTests.swift in Sources */,
 				4FE21AC02919699B003C8ADA /* TabBarControllerTests.swift in Sources */,
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				4F445BA229252E810007B52C /* ActivityListViewSnapshotTests.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				4FE21AB929196913003C8ADA /* AccountTests.swift in Sources */,
+				4F445BA029252E790007B52C /* ActivityCellViewSnapshotTests.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +922,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F445B9929252B920007B52C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F445B9D29252B9D0007B52C /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F445B9929252B920007B52C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98584A61277E32C30028DBEA /* Project object */;
 }
