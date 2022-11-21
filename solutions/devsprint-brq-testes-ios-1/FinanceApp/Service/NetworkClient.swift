@@ -13,12 +13,18 @@ protocol NetworkClientProtocol {
 }
 
 final class NetworkClient: NetworkClientProtocol {
+    
+    private let urlSession: URLSession
+    
+    init(urlSession: URLSession) {
+        self.urlSession = urlSession
+    }
 
     func performRequest(with url: URL, completion: @escaping (Data?) -> ()) {
 
         let request = URLRequest(url: url)
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = urlSession.dataTask(with: request) { data, response, error in
 
             if let _ = error {
                 completion(nil)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33A58977292A7FE500E83449 /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A58976292A7FE500E83449 /* NetworkClientTests.swift */; };
 		4FE21AB929196913003C8ADA /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21AB829196913003C8ADA /* AccountTests.swift */; };
 		4FE21ABC29196968003C8ADA /* DispatchQueueSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21ABB29196968003C8ADA /* DispatchQueueSpy.swift */; };
 		4FE21ABE29196989003C8ADA /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE21ABD29196989003C8ADA /* NetworkClientSpy.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33A58976292A7FE500E83449 /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		4FE21AB829196913003C8ADA /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		4FE21ABB29196968003C8ADA /* DispatchQueueSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueSpy.swift; sourceTree = "<group>"; };
 		4FE21ABD29196989003C8ADA /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				4FE21AC3291969CE003C8ADA /* ContactListViewTests.swift */,
 				4FE21AC1291969BF003C8ADA /* ActivityListViewTests.swift */,
 				988BA51428D0EF820078896C /* HomeViewModelTests.swift */,
+				33A58976292A7FE500E83449 /* NetworkClientTests.swift */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				988BA51528D0EF820078896C /* HomeViewModelTests.swift in Sources */,
 				988BA51328D0EF760078896C /* ActivityDetailsViewModelTests.swift in Sources */,
 				988BA50F28D0EF030078896C /* HomeDataTests.swift in Sources */,
+				33A58977292A7FE500E83449 /* NetworkClientTests.swift in Sources */,
 				988BA51128D0EF330078896C /* FinanceServiceTests.swift in Sources */,
 				4FE21AB929196913003C8ADA /* AccountTests.swift in Sources */,
 				988BA50B28D0EE740078896C /* UITableViewCellExtensionsTests.swift in Sources */,
